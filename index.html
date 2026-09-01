@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mon Application</title>
+<style>
+body{margin:0;font-family:Georgia,serif;background:#f4f4f4;}
+#page-title{position:fixed;top:15px;right:20px;font-size:30px;color:#333;font-weight:600;}
+#home{padding:20px 30px 10px 30px;}
+h1{text-align:center;}
+.card{background:white;padding:20px;margin:20px auto;max-width:600px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);cursor:pointer;}
+.card-title{font-size:18px;}
+.card-sub{font-size:14px;color:#666;margin-top:5px;}
+.card:hover{transform:scale(1.02);transition:0.2s;}
+html{scroll-behavior:smooth;}
+#viewer{display:none;padding:20px;max-width:none;margin:0;width:100%;min-height:100vh;animation:fadeIn 0.3s ease;box-sizing:border-box;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+#backContainer{position:fixed;top:20px;left:20px;display:flex;flex-direction:column;gap:10px;z-index:2000;transition:opacity 0.2s ease;visibility:hidden;opacity:0;pointer-events:none;}
+#backContainer.visible{visibility:visible;opacity:1;pointer-events:auto;}
+.back-btn{background:black;color:white;border:none;border-radius:12px;cursor:pointer;font-size:16px;padding:12px 20px;min-width:120px;display:flex;justify-content:center;align-items:center;}
+.back-btn:hover{background:#333;transform:scale(1.05);}
+.back-btn:active{transform:scale(0.9);}
+/* MODE NUIT */
+#night-toggle{position:fixed;bottom:24px;right:24px;z-index:3000;background:#222;color:#f0e6c8;border:none;border-radius:50px;padding:12px 20px;font-size:16px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.35);display:flex;align-items:center;gap:8px;transition:background 0.3s,color 0.3s;font-family:Georgia,serif;}
+#night-toggle:hover{transform:scale(1.04);}
+#night-toggle:active{transform:scale(0.95);}
+/* Bouton ajouter */
+#addBtn{position:fixed;bottom:24px;left:24px;z-index:3000;background:#c0392b;color:white;border:none;border-radius:50px;padding:12px 20px;font-size:22px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.35);transition:background 0.2s,transform 0.1s;font-family:Georgia,serif;}
+#addBtn:hover{background:#a93226;transform:scale(1.04);}
+#addBtn:active{transform:scale(0.95);}
+/* Modal ajout */
+#addModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:5000;align-items:center;justify-content:center;}
+#addModal.open{display:flex;}
+#addModalBox{background:white;border-radius:16px;padding:32px 36px;max-width:500px;width:90%;position:relative;box-shadow:0 8px 40px rgba(0,0,0,0.25);font-family:Georgia,serif;}
+#addModalBox h3{margin:0 0 20px 0;font-size:20px;border-bottom:2px solid #333;padding-bottom:10px;}
+#addModalBox input,#addModalBox textarea{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font-family:Georgia,serif;font-size:15px;margin-bottom:14px;}
+#addModalBox textarea{height:100px;resize:vertical;}
+#addModalBox .modal-btns{display:flex;gap:12px;justify-content:flex-end;}
+#addModalBox .btn-cancel{background:#eee;color:#333;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-family:Georgia,serif;font-size:15px;}
+#addModalBox .btn-save{background:#c0392b;color:white;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-family:Georgia,serif;font-size:15px;}
+#addModalClose{position:absolute;top:14px;right:18px;background:none;border:none;font-size:26px;cursor:pointer;color:#555;}
+/* Variables */
+:root{--bg:#f4f4f4;--body-color:#111;--card-bg:white;--card-sub:#666;--title-color:#333;}
+body.night{--bg:#121212;--body-color:#e0d7c6;--card-bg:#1e1e1e;--card-sub:#999;--title-color:#ccc;}
+body{background:var(--bg);color:var(--body-color);transition:background 0.4s,color 0.4s;}
+.card{background:var(--card-bg);box-shadow:0 2px 10px rgba(0,0,0,0.25);transition:background 0.4s;}
+.card-sub{color:var(--card-sub);}
+#page-title{color:var(--title-color);}
+h1{color:var(--body-color);}
+body.night .back-btn{background:#2a2a2a;color:#e0d7c6;}
+body.night .back-btn:hover{background:#3a3a3a;}
+body.night #addModalBox{background:#1e1e1e;color:#e0d7c6;}
+body.night #addModalBox input,body.night #addModalBox textarea{background:#2a2a2a;color:#e0d7c6;border-color:#444;}
+body.night #addModalBox .btn-cancel{background:#333;color:#e0d7c6;}
+/* Viewer */
+.fiche-content{line-height:1.7;font-size:17px;font-family:Georgia,serif;margin-top:60px;max-width:900px;padding:0 30px;}
+</style>
+</head>
+<body>
+
+<button id="night-toggle" onclick="toggleNight()" title="Mode nuit">🌙 Mode nuit</button>
+<button id="addBtn" onclick="openAddModal()" title="Ajouter une fiche">＋</button>
+
+<div id="backContainer">
+  <button class="back-btn" onclick="back()">← Retour</button>
+</div>
+
+<!-- Modal ajout de fiche -->
+<div id="addModal">
+  <div id="addModalBox">
+    <button id="addModalClose" onclick="closeAddModal()">×</button>
+    <h3>Ajouter une fiche</h3>
+    <input type="text" id="newTitle" placeholder="Titre de la fiche…">
+    <input type="text" id="newSub" placeholder="Sous-titre (optionnel)…">
+    <textarea id="newContent" placeholder="Contenu de la fiche…"></textarea>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeAddModal()">Annuler</button>
+      <button class="btn-save" onclick="saveNewCard()">Ajouter</button>
+    </div>
+  </div>
+</div>
+
+<div id="page-title">Fiches</div>
+
+<div id="home" style="padding-top:10px;">
+  <h1 style="margin-top:0;margin-bottom:10px;">Bonjour</h1>
+  <div id="contentList">
+    <!-- Les fiches apparaîtront ici -->
+  </div>
+</div>
+
+<div id="viewer"><div id="content"></div></div>
+
+<script>
+/* =====================================================================
+   DONNÉES DES FICHES
+   Chaque fiche : { id, title, sub, content }
+   ===================================================================== */
+let fiches = [];
+let nextId = 1;
+
+/* =====================================================================
+   AFFICHAGE DE LA LISTE
+   ===================================================================== */
+function renderList() {
+  const c = document.getElementById("contentList");
+  if (fiches.length === 0) {
+    c.innerHTML = `<p style="text-align:center;color:#999;margin-top:40px;">Aucune fiche pour l'instant.<br>Appuie sur <strong>＋</strong> pour en ajouter une.</p>`;
+    return;
+  }
+  c.innerHTML = fiches.map(f => `
+    <div class="card" onclick="openFiche(${f.id})">
+      <div class="card-title"><strong>${escapeHtml(f.title)}</strong></div>
+      ${f.sub ? `<div class="card-sub">${escapeHtml(f.sub)}</div>` : ""}
+    </div>
+  `).join("");
+}
+
+/* =====================================================================
+   OUVERTURE D'UNE FICHE
+   ===================================================================== */
+function openFiche(id) {
+  const f = fiches.find(x => x.id === id);
+  if (!f) return;
+  document.getElementById("home").style.display = "none";
+  document.getElementById("viewer").style.display = "block";
+  document.getElementById("night-toggle").style.display = "none";
+  document.getElementById("addBtn").style.display = "none";
+  document.getElementById("backContainer").classList.add("visible");
+  document.getElementById("page-title").innerText = f.title;
+  window.scrollTo(0, 0);
+  document.getElementById("content").innerHTML = `
+    <div class="fiche-content">
+      <h2>${escapeHtml(f.title)}</h2>
+      ${f.sub ? `<p style="color:#888;font-size:15px;margin-top:-10px;">${escapeHtml(f.sub)}</p>` : ""}
+      <div style="margin-top:20px;white-space:pre-wrap;">${escapeHtml(f.content)}</div>
+    </div>
+  `;
+}
+
+/* =====================================================================
+   RETOUR
+   ===================================================================== */
+function back() {
+  document.getElementById("viewer").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  document.getElementById("night-toggle").style.display = "flex";
+  document.getElementById("addBtn").style.display = "flex";
+  document.getElementById("backContainer").classList.remove("visible");
+  document.getElementById("page-title").innerText = "Fiches";
+  window.scrollTo(0, 0);
+}
+
+/* =====================================================================
+   MODAL AJOUT
+   ===================================================================== */
+function openAddModal() {
+  document.getElementById("newTitle").value = "";
+  document.getElementById("newSub").value = "";
+  document.getElementById("newContent").value = "";
+  document.getElementById("addModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => document.getElementById("newTitle").focus(), 100);
+}
+
+function closeAddModal() {
+  document.getElementById("addModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function saveNewCard() {
+  const title = document.getElementById("newTitle").value.trim();
+  const sub = document.getElementById("newSub").value.trim();
+  const content = document.getElementById("newContent").value.trim();
+  if (!title) {
+    document.getElementById("newTitle").focus();
+    document.getElementById("newTitle").style.borderColor = "#c0392b";
+    return;
+  }
+  document.getElementById("newTitle").style.borderColor = "#ccc";
+  fiches.push({ id: nextId++, title, sub, content });
+  closeAddModal();
+  renderList();
+}
+
+document.getElementById("addModal").addEventListener("click", function(e) {
+  if (e.target === this) closeAddModal();
+});
+
+/* =====================================================================
+   MODE NUIT
+   ===================================================================== */
+let nightManual = null;
+function isNightHour() { const h = new Date().getHours(); return h >= 21 || h < 6; }
+function applyNight(on) {
+  const btn = document.getElementById("night-toggle");
+  if (on) { document.body.classList.add("night"); btn.innerHTML = "☀️ Mode jour"; }
+  else { document.body.classList.remove("night"); btn.innerHTML = "🌙 Mode nuit"; }
+}
+function toggleNight() { const n = document.body.classList.contains("night"); nightManual = !n; applyNight(nightManual); }
+function initNightMode() { if (nightManual === null) applyNight(isNightHour()); }
+initNightMode();
+setInterval(() => { if (nightManual === null) applyNight(isNightHour()); }, 60000);
+
+/* =====================================================================
+   UTILITAIRES
+   ===================================================================== */
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+/* =====================================================================
+   INITIALISATION
+   ===================================================================== */
+renderList();
+</script>
+</body>
+</html>
