@@ -5,352 +5,414 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAC 2027</title>
 <style>
-/* ── Code couleur des fiches ── */
-.card.vide   { box-shadow: 0 0 0 2px #333, 0 0 10px 2px rgba(80,80,80,0.4); }
+
+/* ============================================================
+   COULEURS GÉNÉRALES (mode jour)
+   ============================================================ */
+:root{
+  --bg:         #f4f4f4;
+  --text:       #111;
+  --card-bg:    white;
+  --card-sub:   #666;
+  --title:      #333;
+  --shadow:     0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   COULEURS GÉNÉRALES (mode nuit)
+   ============================================================ */
+body.night{
+  --bg:         #121212;
+  --text:       #e0d7c6;
+  --card-bg:    #1e1e1e;
+  --card-sub:   #999;
+  --title:      #ccc;
+  --shadow:     0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* ============================================================
+   CODE COULEUR DES FICHES
+   Changer la classe d'une fiche dans le JS suffit à changer sa couleur.
+   vide   = gris/noir  → fiche sans contenu
+   ia     = violet     → contenu généré par IA
+   web    = bleu       → contenu venant d'internet
+   humain = vert       → contenu rédigé par un humain
+   ============================================================ */
+.card.vide   { box-shadow: 0 0 0 2px #555,    0 0 12px 3px rgba(100,100,100,0.35); }
 .card.ia     { box-shadow: 0 0 0 2px #7c3aed, 0 0 14px 4px rgba(124,58,237,0.45); }
 .card.web    { box-shadow: 0 0 0 2px #1a6fca, 0 0 14px 4px rgba(26,111,202,0.45); }
 .card.humain { box-shadow: 0 0 0 2px #16a34a, 0 0 14px 4px rgba(22,163,74,0.45); }
-/* ── Variables ── */
-:root{
-  --bg:#f4f4f4;
-  --body-color:#111;
-  --card-bg:white;
-  --card-sub:#666;
-  --title-color:#333;
-  --shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-body.night{
-  --bg:#121212;
-  --body-color:#e0d7c6;
-  --card-bg:#1e1e1e;
-  --card-sub:#999;
-  --title-color:#ccc;
-  --shadow:0 2px 10px rgba(0,0,0,0.4);
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
 }
 
-/* ── Base ── */
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:Georgia,serif;
-  background:var(--bg);
-  color:var(--body-color);
-  transition:background 0.4s,color 0.4s;
+/* ============================================================
+   NOM DE LA MATIÈRE (affiché en haut à droite dans une fiche)
+   ============================================================ */
+#page-title {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--title);
+  z-index: 1000;
+  transition: color 0.4s;
 }
 
-/* ── Nom de la matière en haut à droite ── */
-#page-title{
-  position:fixed;
-  top:18px;
-  right:24px;
-  font-size:22px;
-  font-weight:600;
-  color:var(--title-color);
-  z-index:1000;
-  transition:color 0.4s;
+/* ============================================================
+   PAGE D'ACCUEIL
+   ============================================================ */
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 120px;
+  min-height: 100vh;
+}
+#home h1 {
+  font-size: 36px;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+#home .tagline {
+  font-size: 20px;
+  color: var(--card-sub);
+  text-align: center;
+  margin: 0 0 36px 0;
+  font-style: italic;
 }
 
-/* ── Page d'accueil ── */
-#home{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:30px 20px 100px;
-  min-height:100vh;
+/* ============================================================
+   FICHES (identiques sur accueil ET dans une matière)
+   ============================================================ */
+#contentList,
+#subList {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
-#home h1{
-  font-size:36px;
-  margin:0 0 8px 0;
-  text-align:center;
-  color:var(--body-color);
+.card {
+  width: 100%;
+  background: var(--card-bg);
+  padding: 18px 24px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.4s;
 }
-#home .tagline{
-  font-size:20px;
-  color:var(--card-sub);
-  text-align:center;
-  margin:0 0 36px 0;
-  font-style:italic;
+.card:hover  { transform: scale(1.03); }
+.card:active { transform: scale(0.98); }
+.card-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--text);
 }
-
-/* ── Liste des fiches ── */
-#contentList{
-  width:100%;
-  max-width:560px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-}
-.card{
-  width:100%;
-  background:var(--card-bg);
-  padding:18px 24px;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-  cursor:pointer;
-  text-align:center;
-  transition:transform 0.15s,box-shadow 0.15s,background 0.4s;
-}
-.card:hover{
-  transform:scale(1.03);
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
-}
-.card:active{transform:scale(0.98);}
-.card-title{
-  font-size:19px;
-  font-weight:bold;
-  color:var(--body-color);
-}
-.card-sub{
-  font-size:13px;
-  color:var(--card-sub);
-  margin-top:4px;
+.card-sub {
+  font-size: 13px;
+  color: var(--card-sub);
+  margin-top: 4px;
 }
 
-/* ── Viewer (fiche ouverte) ── */
-#viewer{
-  display:none;
-  padding:80px 20px 100px;
-  min-height:100vh;
-  animation:fadeIn 0.25s ease;
+/* ============================================================
+   VIEWER (écran affiché quand on clique sur une matière ou une fiche)
+   ============================================================ */
+#viewer {
+  display: none;
+  padding: 80px 20px 120px;
+  min-height: 100vh;
+  animation: fadeIn 0.25s ease;
 }
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(8px);}
-  to{opacity:1;transform:translateY(0);}
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(8px); }
+  to   { opacity:1; transform: translateY(0); }
 }
-#content{
-  max-width:760px;
-  margin:0 auto;
-  font-size:17px;
-  line-height:1.8;
-  color:var(--body-color);
+#content {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.empty-msg{
-  text-align:center;
-  color:var(--card-sub);
-  font-style:italic;
-  margin-top:60px;
-  font-size:18px;
-}
-
-/* ══════════════════════════════════════
-   BOUTON RETOUR — style premium noir mat
-   ══════════════════════════════════════ */
-#backContainer{
-  position:fixed;
-  top:20px;
-  left:20px;
-  z-index:2000;
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.2s;
-}
-#backContainer.visible{
-  visibility:visible;
-  opacity:1;
-  pointer-events:auto;
-}
-.back-btn{
-  background:linear-gradient(135deg,#1a1a1a,#2d2d2d);
-  color:#f0e6c8;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:14px;
-  cursor:pointer;
-  font-size:15px;
-  padding:11px 22px;
-  font-family:Georgia,serif;
-  letter-spacing:0.5px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.07);
-  transition:all 0.2s ease;
-}
-.back-btn:hover{
-  background:linear-gradient(135deg,#2a2a2a,#3d3d3d);
-  box-shadow:0 6px 22px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.1);
-  transform:translateY(-1px);
-}
-.back-btn:active{
-  transform:translateY(1px);
-  box-shadow:0 2px 8px rgba(0,0,0,0.4);
-}
-body.night .back-btn{
-  background:linear-gradient(135deg,#111,#222);
-  border-color:rgba(255,255,255,0.06);
+.empty-msg {
+  text-align: center;
+  color: var(--card-sub);
+  font-style: italic;
+  margin-top: 60px;
+  font-size: 18px;
 }
 
-/* ══════════════════════════════════════
+/* ============================================================
+   BOUTON RETOUR
+   ============================================================ */
+#backContainer {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#backContainer.visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-btn {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  color: #f0e6c8;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 11px 22px;
+  font-family: Georgia, serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.07);
+  transition: all 0.2s ease;
+}
+.back-btn:hover  { background: linear-gradient(135deg,#2a2a2a,#3d3d3d); transform: translateY(-1px); }
+.back-btn:active { transform: translateY(1px); }
+body.night .back-btn { background: linear-gradient(135deg,#111,#222); }
+
+/* ============================================================
    TOGGLE SWITCH MODE NUIT
-   ══════════════════════════════════════ */
-#night-toggle{
-  position:fixed;
-  bottom:28px;
-  right:28px;
-  z-index:3000;
-  cursor:pointer;
-  width:64px;
-  height:34px;
-  background:linear-gradient(135deg,#1a1a1a,#2d2d2d);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:34px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.07);
-  display:flex;
-  align-items:center;
-  padding:0 4px;
-  transition:background 0.35s ease,box-shadow 0.2s;
-  font-size:0;
-  gap:0;
+   ============================================================ */
+#night-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 3000;
+  cursor: pointer;
+  width: 64px;
+  height: 34px;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 34px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  transition: background 0.35s ease, box-shadow 0.2s;
+  font-size: 0;
 }
-#night-toggle::after{
-  content:"🌙";
-  font-size:18px;
-  width:26px;
-  height:26px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#2d2d2d,#444);
-  box-shadow:0 2px 8px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.1);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:transform 0.35s cubic-bezier(.4,0,.2,1),background 0.35s;
-  transform:translateX(0);
-  line-height:1;
+#night-toggle::after {
+  content: "🌙";
+  font-size: 18px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2d2d2d, #444);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s;
+  transform: translateX(0);
 }
-body.night #night-toggle{
-  background:linear-gradient(135deg,#e8c96a,#c8a84b);
-  border-color:rgba(255,255,255,0.15);
-  box-shadow:0 4px 20px rgba(200,168,75,0.4),inset 0 1px 0 rgba(255,255,255,0.15);
+body.night #night-toggle {
+  background: linear-gradient(135deg, #e8c96a, #c8a84b);
+  box-shadow: 0 4px 20px rgba(200,168,75,0.4);
 }
-body.night #night-toggle::after{
-  content:"☀️";
-  transform:translateX(30px);
-  background:linear-gradient(135deg,#fff8e1,#ffe082);
-  box-shadow:0 2px 8px rgba(200,168,75,0.5);
+body.night #night-toggle::after {
+  content: "☀️";
+  transform: translateX(30px);
+  background: linear-gradient(135deg, #fff8e1, #ffe082);
 }
-#night-toggle:hover{transform:scale(1.06);}
-#night-toggle:active{transform:scale(0.96);}
+#night-toggle:hover  { transform: scale(1.06); }
+#night-toggle:active { transform: scale(0.96); }
+
 </style>
 </head>
 <body>
 
-<!-- Nom de la matière (affiché seulement dans une fiche) -->
+<!-- Nom de la matière/fiche affiché en haut à droite -->
 <div id="page-title"></div>
 
-<!-- Bouton retour -->
+<!-- Bouton retour (caché sur l'accueil) -->
 <div id="backContainer">
   <button class="back-btn" onclick="back()">← Retour</button>
 </div>
 
-<!-- Toggle switch mode nuit -->
+<!-- Toggle mode nuit -->
 <button id="night-toggle" onclick="toggleNight()"></button>
 
-<!-- ══════════════ PAGE D'ACCUEIL ══════════════ -->
+<!-- ============================================================
+     PAGE D'ACCUEIL
+     ============================================================ -->
 <div id="home">
   <h1>BAC 2027</h1>
   <p class="tagline">Donnez vie à ce projet, donnez votre voix !&nbsp;🗳️</p>
   <div id="contentList"></div>
 </div>
 
-<!-- ══════════════ VIEWER ══════════════ -->
+<!-- ============================================================
+     ÉCRAN FICHE (matière ou sous-fiche)
+     ============================================================ -->
 <div id="viewer">
   <div id="content"></div>
 </div>
 
+
 <script>
-/* ══════════════════════════════════════════════
-   DONNÉES DES MATIÈRES
-   ══════════════════════════════════════════════ */
+/* ============================================================
+   DONNÉES — MATIÈRES ET FICHES
+   ------------------------------------------------------------
+   Pour chaque matière :
+     id     → identifiant interne (ne pas changer)
+     title  → nom affiché sur la carte
+     sub    → sous-titre (laisser "" si aucun)
+     fiches → liste des sous-fiches (laisser [] si aucune)
+
+   Pour chaque fiche :
+     id     → identifiant interne
+     title  → nom affiché
+     classe → couleur du contour :
+               "vide"   = gris  (pas de contenu)
+               "ia"     = violet (contenu IA)
+               "web"    = bleu  (contenu internet)
+               "humain" = vert  (contenu humain)
+     content→ texte affiché quand on ouvre la fiche
+               (laisser "" pour afficher "Aucun contenu pour le moment…")
+   ============================================================ */
+
 const matieres = [
-  {
-    id:"hggsp",
-    title:"HGGSP",
-    sub:"Histoire, Géographie, Géopolitique et Sciences Politiques"
-  },
-  {
-    id:"ses",
-    title:"SES",
-    sub:"Sciences Économiques et Sociales"
-  },
-  {
-    id:"hlp",
-    title:"HLP",
-    sub:"Humanités, Littérature et Philosophie"
-  },
-  {
-    id:"maths",
-    title:"Mathématiques",
-    sub:""
-  },
-  {
-    id:"pc",
-    title:"Physique - Chimie",
-    sub:""
-  },
-  {
-    id:"svt",
-    title:"SVT",
-    sub:"Sciences de la Vie et de la Terre"
-  },
-  {
-    id:"amc",
-    title:"AMC",
-    sub:"Anglais et Monde Contemporain"
-  },
-  {
-    id:"philo",
-    title:"Philosophie",
-    sub:"",
-  fiches:[
-    {id:"art",      title:"L'art",        classe:"vide"},
-    {id:"bonheur",  title:"Le bonheur",   classe:"vide"},
-    {id:"conscience",title:"La conscience",classe:"vide"},
-    {id:"devoir",   title:"Le devoir",    classe:"vide"},
-    {id:"etat",     title:"L'État",       classe:"vide"},
-    {id:"inconscient",title:"L'inconscient",classe:"vide"},
-    {id:"justice",  title:"La justice",   classe:"vide"},
-    {id:"langage",  title:"Le langage",   classe:"vide"},
-    {id:"liberte",  title:"La liberté",   classe:"vide"},
-    {id:"nature",   title:"La nature",    classe:"vide"},
-    {id:"raison",   title:"La raison",    classe:"vide"},
-    {id:"religion", title:"La religion",  classe:"vide"},
-    {id:"science",  title:"La science",   classe:"vide"},
-    {id:"technique",title:"La technique", classe:"vide"},
-    {id:"temps",    title:"Le temps",     classe:"vide"},
-    {id:"travail",  title:"Le travail",   classe:"vide"},
-    {id:"verite",   title:"La vérité",    classe:"vide"}
-  ]
-}
-];
 
-/* ══════════════════════════════════════════════
-   RENDU DE LA LISTE D'ACCUEIL
-   ══════════════════════════════════════════════ */
+  /* ── HGGSP ─────────────────────────────────────────────── */
+  {
+    id:    "hggsp",
+    title: "HGGSP",
+    sub:   "Histoire, Géographie, Géopolitique et Sciences Politiques",
+    fiches: []
+  },
+
+  /* ── SES ────────────────────────────────────────────────── */
+  {
+    id:    "ses",
+    title: "SES",
+    sub:   "Sciences Économiques et Sociales",
+    fiches: []
+  },
+
+  /* ── HLP ────────────────────────────────────────────────── */
+  {
+    id:    "hlp",
+    title: "HLP",
+    sub:   "Humanités, Littérature et Philosophie",
+    fiches: []
+  },
+
+  /* ── MATHÉMATIQUES ──────────────────────────────────────── */
+  {
+    id:    "maths",
+    title: "Mathématiques",
+    sub:   "",
+    fiches: []
+  },
+
+  /* ── PHYSIQUE - CHIMIE ──────────────────────────────────── */
+  {
+    id:    "pc",
+    title: "Physique - Chimie",
+    sub:   "",
+    fiches: []
+  },
+
+  /* ── SVT ────────────────────────────────────────────────── */
+  {
+    id:    "svt",
+    title: "SVT",
+    sub:   "Sciences de la Vie et de la Terre",
+    fiches: []
+  },
+
+  /* ── AMC ────────────────────────────────────────────────── */
+  {
+    id:    "amc",
+    title: "AMC",
+    sub:   "Anglais et Monde Contemporain",
+    fiches: []
+  },
+
+  /* ── PHILOSOPHIE ────────────────────────────────────────── */
+  {
+    id:    "philo",
+    title: "Philosophie",
+    sub:   "",
+    fiches: [
+      { id:"art",         title:"L'art",         classe:"vide", content:"" },
+      { id:"bonheur",     title:"Le bonheur",     classe:"vide", content:"" },
+      { id:"conscience",  title:"La conscience",  classe:"vide", content:"" },
+      { id:"devoir",      title:"Le devoir",      classe:"vide", content:"" },
+      { id:"etat",        title:"L'État",         classe:"vide", content:"" },
+      { id:"inconscient", title:"L'inconscient",  classe:"vide", content:"" },
+      { id:"justice",     title:"La justice",     classe:"vide", content:"" },
+      { id:"langage",     title:"Le langage",     classe:"vide", content:"" },
+      { id:"liberte",     title:"La liberté",     classe:"vide", content:"" },
+      { id:"nature",      title:"La nature",      classe:"vide", content:"" },
+      { id:"raison",      title:"La raison",      classe:"vide", content:"" },
+      { id:"religion",    title:"La religion",    classe:"vide", content:"" },
+      { id:"science",     title:"La science",     classe:"vide", content:"" },
+      { id:"technique",   title:"La technique",   classe:"vide", content:"" },
+      { id:"temps",       title:"Le temps",       classe:"vide", content:"" },
+      { id:"travail",     title:"Le travail",     classe:"vide", content:"" },
+      { id:"verite",      title:"La vérité",      classe:"vide", content:"" }
+    ]
+  }
+
+]; /* ← fin de la liste des matières */
+
+
+/* ============================================================
+   NAVIGATION — ne pas modifier cette section
+   ============================================================ */
+
+// Mémorise où on en est (accueil → matière → fiche)
+let currentMatiere = null;
+
+// Affiche la liste des matières sur l'accueil
 function renderHome(){
-  const list = document.getElementById("contentList");
-  list.innerHTML = matieres.map(m => `
-    <div class="card" onclick="openMatiere('${m.id}')">
-      <div class="card-title">${m.title}</div>
-      ${m.sub ? `<div class="card-sub">${m.sub}</div>` : ""}
-    </div>
-  `).join("");
+  document.getElementById("contentList").innerHTML =
+    matieres.map(m => `
+      <div class="card" onclick="ouvrirMatiere('${m.id}')">
+        <div class="card-title">${m.title}</div>
+        ${m.sub ? `<div class="card-sub">${m.sub}</div>` : ""}
+      </div>
+    `).join("");
 }
 
-/* ══════════════════════════════════════════════
-   OUVERTURE D'UNE MATIÈRE
-   ══════════════════════════════════════════════ */
-function openMatiere(id){
+// Ouvre une matière (affiche ses fiches ou "aucun contenu")
+function ouvrirMatiere(id){
   const m = matieres.find(x => x.id === id);
   if(!m) return;
-  document.getElementById("home").style.display = "none";
-  document.getElementById("viewer").style.display = "block";
-  document.getElementById("backContainer").classList.add("visible");
-  document.getElementById("page-title").textContent = m.title;
-  window.scrollTo(0,0);
+  currentMatiere = m;
+
+  afficherViewer(m.title);
 
   if(m.fiches && m.fiches.length > 0){
+    // Affiche la liste des fiches de cette matière
     document.getElementById("content").innerHTML = `
-      <div style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
-        ${m.fiches.map(f=>`
-          <div class="card ${f.classe}" onclick="">
+      <div id="subList">
+        ${m.fiches.map(f => `
+          <div class="card ${f.classe}" onclick="ouvrirFiche('${m.id}','${f.id}')">
             <div class="card-title">${f.title}</div>
           </div>
         `).join("")}
@@ -361,25 +423,53 @@ function openMatiere(id){
   }
 }
 
-/* ══════════════════════════════════════════════
-   RETOUR À L'ACCUEIL
-   ══════════════════════════════════════════════ */
+// Ouvre une fiche individuelle
+function ouvrirFiche(matiereId, ficheId){
+  const m = matieres.find(x => x.id === matiereId);
+  if(!m) return;
+  const f = m.fiches.find(x => x.id === ficheId);
+  if(!f) return;
+
+  afficherViewer(f.title);
+
+  document.getElementById("content").innerHTML = f.content
+    ? `<div style="width:100%;">${f.content}</div>`
+    : `<p class="empty-msg">Aucun contenu pour le moment…</p>`;
+}
+
+// Bouton retour : remonte d'un niveau
 function back(){
-  document.getElementById("viewer").style.display = "none";
-  document.getElementById("home").style.display = "flex";
-  document.getElementById("backContainer").classList.remove("visible");
-  document.getElementById("page-title").textContent = "";
+  if(currentMatiere && document.getElementById("page-title").textContent !== currentMatiere.title){
+    // On est dans une fiche → on remonte à la matière
+    ouvrirMatiere(currentMatiere.id);
+  } else {
+    // On est dans une matière → on remonte à l'accueil
+    currentMatiere = null;
+    document.getElementById("viewer").style.display = "none";
+    document.getElementById("home").style.display   = "flex";
+    document.getElementById("backContainer").classList.remove("visible");
+    document.getElementById("page-title").textContent = "";
+    window.scrollTo(0,0);
+  }
+}
+
+// Utilitaire : bascule sur l'écran viewer
+function afficherViewer(titre){
+  document.getElementById("home").style.display   = "none";
+  document.getElementById("viewer").style.display = "block";
+  document.getElementById("backContainer").classList.add("visible");
+  document.getElementById("page-title").textContent = titre;
   window.scrollTo(0,0);
 }
 
-/* ══════════════════════════════════════════════
-   MODE NUIT
-   ══════════════════════════════════════════════ */
+
+/* ============================================================
+   MODE NUIT — ne pas modifier
+   ============================================================ */
 let nightManual = null;
 function isNightHour(){ const h = new Date().getHours(); return h>=21||h<6; }
 function applyNight(on){
-  if(on) document.body.classList.add("night");
-  else   document.body.classList.remove("night");
+  document.body.classList.toggle("night", on);
 }
 function toggleNight(){
   nightManual = !document.body.classList.contains("night");
@@ -387,12 +477,14 @@ function toggleNight(){
 }
 function initNight(){ if(nightManual===null) applyNight(isNightHour()); }
 initNight();
-setInterval(()=>{ if(nightManual===null) applyNight(isNightHour()); },60000);
+setInterval(()=>{ if(nightManual===null) applyNight(isNightHour()); }, 60000);
 
-/* ══════════════════════════════════════════════
-   INIT
-   ══════════════════════════════════════════════ */
+
+/* ============================================================
+   DÉMARRAGE
+   ============================================================ */
 renderHome();
+
 </script>
 </body>
 </html>
