@@ -44,6 +44,25 @@ body.night{
 .card.humain { box-shadow: 0 0 0 2px #16a34a, 0 0 14px 4px rgba(22,163,74,0.45); }
 
 /* ============================================================
+   Bandeau origine (lié à la classe de la fiche)
+   ============================================================ */
+.bandeau-origine {
+  width: 100%;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 8px 0 10px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+.bandeau-vide   { color: #888;    background: rgba(100,100,100,0.08); }
+.bandeau-ia     { color: #7c3aed; background: rgba(124,58,237,0.08);  }
+.bandeau-web    { color: #1a6fca; background: rgba(26,111,202,0.08);  }
+.bandeau-humain { color: #16a34a; background: rgba(22,163,74,0.08);   }
+
+/* ============================================================
    BASE
    ============================================================ */
 * { box-sizing: border-box; }
@@ -450,7 +469,141 @@ const matieres = [
     title: "Philosophie",
     sub:   "",
     fiches: [
-      { id:"art",         title:"L'art",         classe:"vide", content:"" },
+      {
+  id:"art",
+  title:"L'art",
+  classe:"ia",
+  content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">L'<strong>art</strong> désigne toute activité humaine qui produit des œuvres destinées non à l'utilité mais à l'expression, à la beauté ou à la signification. Il se distingue de la <strong>technique</strong> (production d'un objet utile selon des règles transmissibles) par le fait que l'œuvre d'art est unique, irréductible à une règle, et qu'elle engage la sensibilité autant que l'intelligence. La question philosophique centrale est : <em>l'art nous rapproche-t-il de la vérité ou nous en éloigne-t-il ?</em></p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Art ≠ Technique</td>
+        <td style="padding:8px 12px;">La technique suit des règles reproductibles et vise l'utilité. L'art produit quelque chose d'unique qui ne peut pas être entièrement réduit à des règles — même si l'art suppose une technique maîtrisée.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Beau ≠ Agréable</td>
+        <td style="padding:8px 12px;">Kant distingue le <em>beau</em> (jugement universel : « ceci est beau » vaut pour tous) de l'<em>agréable</em> (jugement subjectif : « ceci me plaît à moi »). L'art vise le beau, non le seul plaisir personnel.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Beau ≠ Sublime</td>
+        <td style="padding:8px 12px;">Le <em>sublime</em> (Kant) produit un mélange de terreur et d'admiration face à ce qui dépasse nos facultés (une tempête, l'infini). Le beau harmonise ; le sublime bouleverse.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Art ≠ Imitation</td>
+        <td style="padding:8px 12px;">Platon réduit l'art à une <em>mimèsis</em> (imitation du réel). Hegel et Kant s'y opposent : l'art ne copie pas le réel, il l'interprète et le dépasse pour exprimer une vérité que la nature seule ne peut livrer.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Platon</td>
+        <td style="padding:8px 12px;width:38%;"><strong>L'art est mensonge et illusion.</strong> Il imite les apparences du monde sensible, lui-même déjà copie du monde des Idées. L'art est donc une copie de copie, qui éloigne de la vérité.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ L'artiste est dangereux pour la cité car il flatte les passions au lieu d'éduquer la raison.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Aristote</td>
+        <td style="padding:8px 12px;"><strong>L'art purifie les passions.</strong> La tragédie produit une <em>catharsis</em> : en représentant des passions violentes, elle permet au spectateur de les ressentir puis de s'en libérer. L'art a donc une fonction thérapeutique et morale.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Contrairement à Platon, l'art est bénéfique pour la cité et l'individu.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Kant</td>
+        <td style="padding:8px 12px;"><strong>L'art est l'expression du génie.</strong> Le beau artistique est produit par un génie qui donne des règles à la nature. Le jugement esthétique est universel sans concept : on dit « c'est beau » en prétendant que tous devraient l'approuver, sans pouvoir le démontrer.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ L'art réconcilie sensibilité et raison, liberté et nature.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Hegel</td>
+        <td style="padding:8px 12px;"><strong>L'art est une manifestation de l'Esprit.</strong> L'œuvre d'art donne une forme sensible à des idées spirituelles universelles. Mais la philosophie dépasse l'art en accédant à ces vérités par le concept pur : l'art est donc un moment dépassé de l'Esprit absolu.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Thèse de la « fin de l'art » : l'art moderne perd sa puissance spirituelle.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Nietzsche</td>
+        <td style="padding:8px 12px;"><strong>L'art est la plus haute affirmation de la vie.</strong> Contre Hegel, Nietzsche affirme que l'art n'est pas dépassé : il est le seul antidote au nihilisme. L'art tragique (apollinien + dionysiaque) donne sens à l'existence en assumant la souffrance.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Nous avons l'art pour ne pas mourir de la vérité. »</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Platon <span style="font-weight:normal;color:#888;font-size:13px;">— La République, Livre X (env. 380 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'art est <em>mimèsis</em> : imitation de l'apparence, copie de copie, éloignement de la vérité.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Est-ce représenter ce qui est tel qu'il est, ou ce qui paraît tel qu'il paraît ? »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Aristote <span style="font-weight:normal;color:#888;font-size:13px;">— La Poétique (env. 335 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La tragédie produit une <em>catharsis</em> : purification des passions par leur représentation.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La tragédie est l'imitation d'une action noble […] qui, par la pitié et la crainte, accomplit la purification de telles passions. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Kant <span style="font-weight:normal;color:#888;font-size:13px;">— Critique de la faculté de juger (1790)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le beau est universel sans concept. Le génie donne des règles à l'art comme la nature en donne au vivant.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Est beau ce qui plaît universellement sans concept. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Hegel <span style="font-weight:normal;color:#888;font-size:13px;">— Esthétique (1835, posthume)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'art donne une forme sensible à l'Esprit absolu. Il est une étape vers la philosophie, qui le dépasse.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'art est pour nous chose du passé. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Nietzsche <span style="font-weight:normal;color:#888;font-size:13px;">— La Naissance de la tragédie (1872)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'art est la réponse à la souffrance de l'existence. Il unit l'apollinien (forme, mesure) et le dionysiaque (ivresse, chaos).</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Nous avons l'art pour ne pas mourir de la vérité. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">L'art peut-il nous apprendre quelque chose sur le monde ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Platon (non) / Aristote, Hegel (oui) / Nietzsche (autrement)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">L'art a-t-il une fonction morale ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Platon (danger moral) / Aristote (catharsis morale) / Kant (morale et beau liés)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">Le beau est-il subjectif ou objectif ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Kant (universel sans concept) / Hume (goût subjectif) / Hegel (objectif, esprit)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">L'art est-il un simple divertissement ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Platon, Aristote, Hegel, Nietzsche</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+},
       { id:"bonheur",     title:"Le bonheur",     classe:"vide", content:"" },
       { id:"conscience",  title:"La conscience",  classe:"vide", content:"" },
       { id:"devoir",      title:"Le devoir",      classe:"vide", content:"" },
@@ -522,11 +675,24 @@ function ouvrirFiche(matiereId, ficheId){
   const f = m.fiches.find(x => x.id === ficheId);
   if(!f) return;
 
+  // Texte et couleur du bandeau selon la classe de la fiche
+  const bandeaux = {
+    vide:   { label: "Aucune origine renseignée", css: "bandeau-vide"   },
+    ia:     { label: "Origine IA",                css: "bandeau-ia"     },
+    web:    { label: "Origine internet",          css: "bandeau-web"    },
+    humain: { label: "Origine humaine",           css: "bandeau-humain" }
+  };
+  const b = bandeaux[f.classe] || bandeaux.vide;
+
   afficherViewer(f.title);
 
-  document.getElementById("content").innerHTML = f.content
-    ? `<div style="width:100%;">${f.content}</div>`
-    : `<p class="empty-msg">Aucun contenu pour le moment…</p>`;
+  document.getElementById("content").innerHTML =
+    `<div style="width:100%;max-width:760px;">
+       <div class="bandeau-origine ${b.css}">● ${b.label}</div>
+       ${f.content
+         ? f.content
+         : `<p class="empty-msg">Aucun contenu pour le moment…</p>`}
+     </div>`;
 }
 
 // Bouton retour : remonte d'un niveau
