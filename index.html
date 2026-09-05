@@ -1149,17 +1149,1092 @@ const matieres = [
 </div>`
       },
 
-      { id:"conscience",  title:"La conscience",  classe:"vide", content:"" },
-      { id:"devoir",      title:"Le devoir",      classe:"vide", content:"" },
-      { id:"etat",        title:"L'État",         classe:"vide", content:"" },
-      { id:"inconscient", title:"L'inconscient",  classe:"vide", content:"" },
+            {
+        id:"inconscient",
+        title:"L'inconscient",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">L'<strong>inconscient</strong> désigne l'ensemble des processus psychiques qui échappent à la conscience, sans pour autant être inexistants — ils agissent sur nos pensées, nos comportements et nos désirs à notre insu. C'est Freud qui en fait un véritable <em>concept scientifique</em> : avant lui, la notion existait (Leibniz, Nietzsche) mais sans système théorique rigoureux. La question centrale : si l'inconscient nous détermine, sommes-nous encore libres et responsables ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Inconscient ≠ Inconscience</td>
+        <td style="padding:8px 12px;">L'<em>inconscience</em> (au sens courant) désigne l'absence temporaire de conscience : un coma, ou agir étourdiment. L'<em>inconscient</em> (au sens freudien) est une instance psychique permanente et structurée, qui agit de manière invisible mais continue sur notre vie mentale.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Inconscient freudien ≠ Petites perceptions (Leibniz)</td>
+        <td style="padding:8px 12px;">Leibniz parle de <em>petites perceptions</em> : des perceptions trop faibles pour atteindre le seuil de conscience, mais qui s'accumulent (entendre le bruit de la mer sans distinguer chaque vague). Ce n'est pas un inconscient pulsionnel : il n'y a pas de désir refoulé, seulement une limite quantitative de la perception consciente.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Refoulement ≠ Oubli</td>
+        <td style="padding:8px 12px;">L'<em>oubli</em> est une simple disparition de la mémoire consciente. Le <em>refoulement</em> (Freud) est un mécanisme actif : le psychisme chasse de la conscience des représentations insupportables (désirs, traumatismes), mais celles-ci subsistent dans l'inconscient et continuent d'agir — symptômes, rêves, lapsus.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Ça / Moi / Surmoi</td>
+        <td style="padding:8px 12px;">La 2e topique freudienne (après Conscient/Préconscient/Inconscient) : le <em>ça</em> est le réservoir des pulsions inconscientes ; le <em>moi</em> tente de les concilier avec la réalité ; le <em>surmoi</em> est l'instance morale intériorisée (héritière de l'autorité parentale). Les conflits entre ces trois instances produisent les névroses.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Descartes</td>
+        <td style="padding:8px 12px;width:38%;"><strong>L'inconscient est impensable.</strong> Pensée et conscience sont identiques : tout ce qui est dans l'esprit est nécessairement conscient. Un « inconscient psychique » est une contradiction dans les termes. Cette position est le point de départ que Freud va renverser.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ Position à mobiliser pour introduire le scandale de la thèse freudienne.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Leibniz</td>
+        <td style="padding:8px 12px;"><strong>Il existe des perceptions inconscientes.</strong> Les <em>petites perceptions</em> sont des modifications de l'âme dont nous ne nous apercevons pas — elles s'accumulent et peuvent atteindre le seuil de conscience. C'est une forme d'inconscient <em>cognitif</em> (perceptif), non pulsionnel.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Précurseur de Freud, mais sans la dimension du désir refoulé.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Freud</td>
+        <td style="padding:8px 12px;"><strong>L'inconscient est une instance psychique autonome et déterminante.</strong> Fondé sur l'expérience clinique (hystérie, rêves, lapsus, actes manqués), l'inconscient contient des désirs refoulés qui continuent d'agir sur la vie consciente. La psychanalyse vise à les rendre conscients pour libérer le sujet.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Troisième blessure narcissique de l'humanité : le moi n'est pas maître dans sa propre maison.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Nietzsche</td>
+        <td style="padding:8px 12px;"><strong>La conscience n'est qu'une surface.</strong> « Quelque chose pense, mais croire que ce quelque chose est le moi, c'est une pure supposition. » Les forces vitales (instincts, volonté de puissance) agissent sous la conscience. Nietzsche pressent l'inconscient sans le théoriser comme Freud.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Précurseur philosophique de Freud, mais dans une perspective métaphysique et non clinique.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Sartre (critique)</td>
+        <td style="padding:8px 12px;"><strong>L'inconscient est une illusion de mauvaise foi.</strong> Freud sépare artificiellement le psychisme en zones étanches. Mais si le censeur (le moi) refoule, il doit savoir ce qu'il refoule — donc il est conscient. Sartre propose de remplacer l'inconscient par la notion de <em>mauvaise foi</em> : on se ment à soi-même en se croyant déterminé.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Critique existentialiste : l'inconscient nous déresponsabilise.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Freud <span style="font-weight:normal;color:#888;font-size:13px;">— Introduction à la psychanalyse (1916)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'inconscient est une instance psychique autonome. Le moi n'est pas maître dans sa propre maison.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le moi n'est pas maître dans sa propre maison. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Freud <span style="font-weight:normal;color:#888;font-size:13px;">— L'Interprétation des rêves (1899)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le rêve est la voie royale vers l'inconscient : il exprime sous forme déguisée les désirs refoulés.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le rêve est la voie royale qui mène à la connaissance de l'inconscient. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Leibniz <span style="font-weight:normal;color:#888;font-size:13px;">— Nouveaux Essais sur l'entendement humain (1704)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Les petites perceptions : des modifications de l'âme imperceptibles individuellement mais agissant collectivement.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Il y a des changements dans l'âme dont nous ne nous apercevons pas. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Nietzsche <span style="font-weight:normal;color:#888;font-size:13px;">— Par-delà Bien et Mal (1886)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La conscience n'est qu'une surface : les forces vitales inconscientes sont les véritables moteurs de l'action humaine.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Quelque chose pense, mais croire que ce quelque chose est le moi, c'est une pure supposition. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Sartre <span style="font-weight:normal;color:#888;font-size:13px;">— L'Être et le Néant (1943)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'inconscient est une fiction : la « mauvaise foi » explique mieux l'auto-aveuglement sans supprimer la responsabilité.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La mauvaise foi est possible seulement parce que la sincérité est déjà une forme de mauvaise foi. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">L'hypothèse de l'inconscient est-elle compatible avec la liberté ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Freud (déterminisme) / Sartre (liberté radicale) / psychanalyse comme libération</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Peut-on être responsable de ce qu'on fait inconsciemment ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Freud / Sartre / Kant (imputation morale exige conscience)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">L'inconscient remet-il en cause la maîtrise de soi ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Descartes (cogito) / Freud (iceberg) / stoïciens (maîtrise possible)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Peut-on se connaître soi-même ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Socrate / Freud (limites de l'introspection) / Nietzsche</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"justice",
+        title:"La justice",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">La <strong>justice</strong> est à la fois une vertu morale (disposition à rendre à chacun ce qui lui est dû), une institution (l'appareil judiciaire), et un idéal politique (l'organisation équitable de la société). La tension centrale : le <em>légal</em> (ce que la loi prescrit) est-il toujours <em>légitime</em> (ce qui est moralement juste) ? Une loi peut être légale sans être juste — et un acte juste peut être illégal.</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Légalité ≠ Légitimité</td>
+        <td style="padding:8px 12px;">Ce qui est <em>légal</em> est conforme à la loi en vigueur. Ce qui est <em>légitime</em> est conforme à la justice morale. Les lois raciales de Vichy étaient légales mais illégitimes. Antigone (Sophocle) obéit à une loi divine qu'elle juge plus légitime que la loi humaine de Créon.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Justice distributive ≠ corrective (Aristote)</td>
+        <td style="padding:8px 12px;">La <em>justice distributive</em> répartit les biens, les honneurs et les charges proportionnellement aux mérites de chacun (égalité proportionnelle). La <em>justice corrective</em> rétablit l'égalité rompue par une transaction injuste ou un délit (égalité arithmétique). Elles répondent à deux questions différentes : comment distribuer ? et comment réparer ?</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Égalité ≠ Équité</td>
+        <td style="padding:8px 12px;">L'<em>égalité</em> traite tous les individus de la même façon (même part pour tous). L'<em>équité</em> (Aristote : <em>epieikeia</em>) adapte la règle au cas particulier pour être plus juste que la loi générale. Rawls distingue aussi égalité formelle (mêmes droits) et équité réelle (correction des inégalités de départ).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Justice ≠ Vengeance</td>
+        <td style="padding:8px 12px;">La vengeance est une réaction privée et passionnelle à un tort subi, sans mesure ni impartialité. La justice est institutionnelle, impartiale, proportionnée et publique. L'institution judiciaire vise précisément à remplacer la vengeance par un tiers neutre et une procédure réglée.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Platon</td>
+        <td style="padding:8px 12px;width:38%;"><strong>La justice est l'harmonie des parties.</strong> Dans la cité idéale, chacun tient sa place selon sa nature (philosophes gouvernent, guerriers défendent, artisans produisent). Dans l'âme, la justice est l'harmonie entre raison, cœur et désirs. Il vaut mieux subir l'injustice que la commettre car l'injustice corrompt l'âme.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ Justice aristocratique et hiérarchique : les meilleurs doivent gouverner.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Aristote</td>
+        <td style="padding:8px 12px;"><strong>La justice est la vertu complète envers autrui.</strong> Elle se décline en justice distributive (proportion aux mérites) et corrective (rétablissement de l'égalité). L'équité corrige les insuffisances de la loi générale face au cas particulier : elle est « le juste, mais au-delà de la loi écrite ».</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La justice est relative aux personnes et aux situations — pas une règle abstraite.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Rousseau</td>
+        <td style="padding:8px 12px;"><strong>La justice repose sur la volonté générale.</strong> Une loi n'est juste que si elle exprime la volonté de tous les citoyens, non les intérêts particuliers. La force ne fait pas le droit : seul le consentement libre fonde la légitimité.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Convenons donc que force ne fait pas droit. »</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Rawls</td>
+        <td style="padding:8px 12px;"><strong>La justice est équité.</strong> Derrière un « voile d'ignorance » (sans savoir quelle place on occupe dans la société), on choisirait des principes garantissant les libertés fondamentales pour tous ET l'amélioration de la situation des plus défavorisés. La justice exige de corriger les inégalités de départ.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Principe de différence : les inégalités ne sont justifiées que si elles bénéficient aux plus pauvres.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Marx</td>
+        <td style="padding:8px 12px;"><strong>La justice bourgeoise masque l'exploitation.</strong> Le droit formel (égalité des droits) dissimule l'inégalité réelle des conditions économiques. La vraie justice exige non l'égalité des droits mais la suppression des classes sociales : « À chacun selon ses besoins. »</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Critique radicale : l'égalité formelle est une illusion au service de la domination.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Platon <span style="font-weight:normal;color:#888;font-size:13px;">— Gorgias (env. 380 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Commettre l'injustice corrompt l'âme davantage que la subir. La justice est d'abord une vertu intérieure.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Il vaut mieux subir l'injustice que la commettre. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Aristote <span style="font-weight:normal;color:#888;font-size:13px;">— Éthique à Nicomaque, Livre V (env. 335 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'équité corrige la loi générale quand elle est insuffisante face à un cas particulier.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'équitable, tout en étant juste, n'est pas le juste selon la loi, mais un correctif de la justice légale. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Rousseau <span style="font-weight:normal;color:#888;font-size:13px;">— Du Contrat social (1762)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La force ne fonde pas le droit. La loi n'est légitime que si elle exprime la volonté générale librement consentie.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Convenons donc que force ne fait pas droit, et qu'on n'est obligé d'obéir qu'aux puissances légitimes. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Rawls <span style="font-weight:normal;color:#888;font-size:13px;">— Théorie de la justice (1971)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Derrière le voile d'ignorance, on choisirait une société garantissant les libertés et corrigeant les inégalités au profit des plus défavorisés.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La justice est la première vertu des institutions sociales, comme la vérité est celle des systèmes de pensée. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Pascal <span style="font-weight:normal;color:#888;font-size:13px;">— Pensées (1670)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La justice humaine est relative et arbitraire : ce qui est juste d'un côté des Pyrénées est injuste de l'autre.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Vérité au-deçà des Pyrénées, erreur au-delà. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">Le droit est-il toujours juste ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Hobbes (oui, le droit crée la justice) / Aristote, Rawls (non, l'équité corrige la loi) / Antigone</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Faut-il rendre à chacun la même chose ou ce qu'il mérite ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Aristote (mérite) / Rawls (correction des inégalités) / Marx (besoins)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">A-t-on le droit de désobéir à une loi injuste ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Hobbes (non) / Locke, Thoreau (oui) / Antigone / Arendt</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La justice est-elle possible dans une société inégale ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Rawls (oui, si principe de différence) / Marx (non) / Rousseau</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"langage",
+        title:"Le langage",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">Le <strong>langage</strong> est un système de signes permettant d'exprimer et de communiquer des pensées. Il est traditionnellement considéré comme le propre de l'homme — mais cette affirmation est à nuancer. Les questions centrales : le langage est-il un simple <em>outil</em> pour exprimer une pensée qui existerait sans lui, ou bien <em>constitue-t-il</em> la pensée elle-même ? Et le langage dit-il le réel ou le déforme-t-il ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Langage ≠ Langue ≠ Parole</td>
+        <td style="padding:8px 12px;">Saussure distingue : la <em>langue</em> (système de signes partagé par une communauté, code collectif) ; la <em>parole</em> (usage individuel et concret de la langue dans un acte de communication) ; le <em>langage</em> (faculté humaine générale de communiquer par des signes). Le linguiste étudie la langue ; le philosophe interroge le langage.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Signe ≠ Symbole ≠ Signal</td>
+        <td style="padding:8px 12px;">Le <em>signal</em> est un stimulus naturel lié à ce qu'il annonce (la fumée signale le feu). Le <em>signe linguistique</em> est arbitraire : aucun lien naturel entre le mot « arbre » et l'arbre réel (Saussure). Le <em>symbole</em> entretient un lien de ressemblance ou de convention culturelle avec ce qu'il représente.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Langage outil ≠ Langage constitutif</td>
+        <td style="padding:8px 12px;">Deux positions opposées sur le rapport pensée/langage : <br>— Le langage comme <em>outil</em> : la pensée préexiste au langage, qui sert simplement à l'exprimer. Bergson : le langage fige et trahit la durée vivante de la pensée. <br>— Le langage comme <em>constitutif</em> : on ne peut pas penser sans mots. Hegel, Wittgenstein : « Les limites de mon langage signifient les limites de mon propre monde. »</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Dénotatif ≠ Connotatif</td>
+        <td style="padding:8px 12px;">Le sens <em>dénotatif</em> est le sens littéral, objectif d'un mot (le dictionnaire). Le sens <em>connotatif</em> est l'ensemble des significations implicites, culturelles, émotionnelles associées au mot. Le même mot peut avoir des connotations très différentes selon le contexte — essentiel pour analyser les discours politiques et littéraires.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Platon</td>
+        <td style="padding:8px 12px;width:38%;"><strong>Le langage peut trahir la vérité.</strong> Dans le <em>Cratyle</em>, Platon s'interroge : les noms sont-ils naturels (ils révèlent l'essence des choses) ou conventionnels (arbitraires) ? La sophistique montre que le langage peut tromper : les mots habiles peuvent faire paraître juste ce qui est injuste.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ Méfiance envers la rhétorique : le philosophe cherche la vérité, le sophiste cherche la persuasion.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Bergson</td>
+        <td style="padding:8px 12px;"><strong>Le langage trahit la pensée vivante.</strong> La pensée est flux continu, durée ininterrompue. Le langage la découpe en unités fixes et générales, adaptées à l'action pratique, mais inaptes à saisir le mouvement de la conscience. Le langage est fait pour la vie sociale, non pour la philosophie.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La philosophie doit forcer le langage, créer des concepts nouveaux pour approcher l'indicible.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Hegel</td>
+        <td style="padding:8px 12px;"><strong>Le langage réalise la pensée.</strong> La pensée n'existe pleinement que dans et par le langage. « Le mot donne à la pensée son existence la plus haute et la plus vraie. » Sans mots, la pensée reste abstraite et vague — le langage lui donne corps et réalité.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Position opposée à Bergson : le langage n'appauvrit pas, il accomplit.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Wittgenstein</td>
+        <td style="padding:8px 12px;"><strong>Les limites du langage sont les limites du monde.</strong> Dans le <em>Tractatus</em> : le langage représente le monde comme une carte représente un territoire. Dans les <em>Recherches philosophiques</em> : le sens d'un mot est son usage dans des « jeux de langage » — il n'y a pas de signification fixe, seulement des pratiques sociales.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Ce dont on ne peut parler, il faut le taire. » — L'ineffable n'est pas indicible : il est simplement hors du langage.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Saussure</td>
+        <td style="padding:8px 12px;"><strong>Le signe linguistique est arbitraire.</strong> Aucun lien naturel n'unit le signifiant (image acoustique : le mot) et le signifié (concept). Le sens naît des <em>différences</em> entre les signes dans le système — non d'un rapport aux choses réelles. Chaque langue découpe la réalité différemment.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Hypothèse de Sapir-Whorf : la langue que l'on parle influence la façon dont on perçoit le monde.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Aristote <span style="font-weight:normal;color:#888;font-size:13px;">— La Politique (env. 335 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le langage est ce qui distingue l'homme de l'animal : il permet d'exprimer le juste et l'injuste, le bien et le mal.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'homme est le seul animal qui ait le logos. » (raison / langage)</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Bergson <span style="font-weight:normal;color:#888;font-size:13px;">— Essai sur les données immédiates de la conscience (1889)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le langage fige la pensée vivante en catégories générales inadaptées à la durée intérieure.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le mot recouvre une réalité qui n'est pas faite pour lui. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Wittgenstein <span style="font-weight:normal;color:#888;font-size:13px;">— Tractatus logico-philosophicus (1921)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Les limites du langage sont celles de la pensée et du monde. Ce qui ne peut être dit doit être tu.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Les limites de mon langage signifient les limites de mon propre monde. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Wittgenstein <span style="font-weight:normal;color:#888;font-size:13px;">— Tractatus logico-philosophicus (1921)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Ce qui dépasse les limites du langage — l'éthique, l'esthétique, le mystique — ne peut qu'être montré, pas dit.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Ce dont on ne peut parler, il faut le taire. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Orwell <span style="font-weight:normal;color:#888;font-size:13px;">— 1984 (1949) / La Politique et la langue anglaise (1946)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le langage peut être un instrument de domination politique : le novlangue détruit les mots pour rendre la dissidence impensable.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Si la pensée corrompt le langage, le langage peut aussi corrompre la pensée. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">Peut-on penser sans langage ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Bergson (oui, la pensée déborde le langage) / Wittgenstein, Hegel (non, pas de pensée sans mots)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Le langage dit-il le réel ou le déforme-t-il ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Platon (déforme, rhétorique trompe) / Aristote (dit le réel) / Bergson (fige) / Saussure (construit)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">Le langage est-il le propre de l'homme ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Aristote (logos) / Descartes / éthologie contemporaine (langages animaux)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Le langage peut-il être un instrument de pouvoir ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Orwell / Platon (sophistes) / Bourdieu (violence symbolique) / Wittgenstein (jeux de langage)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"liberte",
+        title:"La liberté",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">La <strong>liberté</strong> désigne la capacité d'agir selon sa propre volonté, sans contrainte extérieure ni intérieure. Elle se pose à trois niveaux : la liberté <em>métaphysique</em> (le libre arbitre : sommes-nous vraiment les auteurs de nos actes ?), la liberté <em>morale</em> (la capacité à se donner sa propre loi), et la liberté <em>politique</em> (les droits garantis par la société). Ces trois dimensions peuvent entrer en tension.</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Libre arbitre ≠ Liberté d'indifférence</td>
+        <td style="padding:8px 12px;">Le <em>libre arbitre</em> est la capacité à choisir entre plusieurs possibles en suivant sa raison. La <em>liberté d'indifférence</em> est la capacité à choisir sans aucune raison — pure spontanéité du vouloir. Descartes considère la liberté d'indifférence comme « le plus bas degré de la liberté » : choisir sans raison n'est pas une marque de liberté mais d'ignorance.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Liberté de ≠ Liberté pour</td>
+        <td style="padding:8px 12px;">La <em>liberté de</em> (liberté négative) est l'absence de contraintes extérieures : être libre de faire sans qu'on m'en empêche. La <em>liberté pour</em> (liberté positive) est la capacité à réaliser un projet, à se gouverner soi-même selon sa raison. On peut être libre de toute contrainte et pourtant incapable de se gouverner (esclave de ses passions).</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Liberté ≠ Licence</td>
+        <td style="padding:8px 12px;">La <em>licence</em> est le caprice absolu, le refus de toute règle. La <em>liberté</em> véritable (Rousseau, Kant) implique de se soumettre à une loi que l'on s'est donnée à soi-même (autonomie) — ce qui n'est pas une limitation de la liberté mais son expression la plus haute. L'hétéronomie (obéir à une loi extérieure) est au contraire une forme de non-liberté.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Déterminisme ≠ Fatalisme</td>
+        <td style="padding:8px 12px;">Le <em>déterminisme</em> affirme que tout événement a une cause qui le rend nécessaire — y compris nos actes. Le <em>fatalisme</em> affirme que l'avenir est fixé quoi qu'on fasse. Le déterminisme est compatible avec l'action (Spinoza : agir selon sa nature propre, c'est être libre) ; le fatalisme conduit à la passivité.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Descartes</td>
+        <td style="padding:8px 12px;width:38%;"><strong>Le libre arbitre est infini et divin.</strong> La volonté humaine, contrairement à l'entendement, est sans limites : nous pouvons toujours dire oui ou non. C'est ce qui nous rapproche de Dieu. La vraie liberté est de choisir en suivant les claires lumières de la raison — non par caprice.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ Le libre arbitre est indubitable comme le cogito : c'est une certitude immédiate de la conscience.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Spinoza</td>
+        <td style="padding:8px 12px;"><strong>Le libre arbitre est une illusion.</strong> Tout dans la nature est déterminé par des causes nécessaires. L'homme qui se croit libre est comme une pierre lancée en l'air qui s'imaginerait voler de son propre chef. La vraie liberté n'est pas d'échapper aux causes, mais de les comprendre pour agir selon sa propre nature.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Les hommes se croient libres parce qu'ils ont conscience de leurs volitions et de leurs appétits, et ne pensent pas, même en rêve, aux causes par lesquelles ils sont disposés à désirer. »</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Kant</td>
+        <td style="padding:8px 12px;"><strong>La liberté est autonomie morale.</strong> La liberté n'est pas de faire ce qu'on veut, mais de se donner à soi-même la loi morale par la raison. L'autonomie (se gouverner par sa propre raison) s'oppose à l'hétéronomie (obéir à une loi extérieure : désirs, peur, religion). Être libre, c'est être moral.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La liberté et la moralité sont identiques chez Kant : agir par devoir, c'est être pleinement libre.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Sartre</td>
+        <td style="padding:8px 12px;"><strong>L'homme est condamné à être libre.</strong> Il n'y a pas de nature humaine préétablie : l'existence précède l'essence. On ne peut pas se définir à l'avance — on se choisit dans chaque acte. La mauvaise foi consiste à nier cette liberté en se croyant déterminé par sa race, sa classe, son caractère.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La liberté est angoissante : sans nature fixée, tout repose sur nos choix, dont nous sommes entièrement responsables.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Rousseau</td>
+        <td style="padding:8px 12px;"><strong>La liberté civile est plus haute que la liberté naturelle.</strong> À l'état de nature, l'homme est libre mais isolé et vulnérable. Dans la société du contrat social, il obéit à la loi qu'il a lui-même faite (volonté générale) : c'est une liberté plus haute car elle est morale et protégée.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « L'obéissance à la loi qu'on s'est prescrite est liberté. »</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Spinoza <span style="font-weight:normal;color:#888;font-size:13px;">— Éthique (1677, posthume)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Le libre arbitre est une illusion née de l'ignorance des causes. La vraie liberté est de comprendre sa nécessité.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Les hommes se croient libres parce qu'ils ont conscience de leurs volitions et de leurs appétits, et ne pensent pas aux causes par lesquelles ils sont disposés. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Kant <span style="font-weight:normal;color:#888;font-size:13px;">— Fondements de la métaphysique des mœurs (1785)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La liberté est autonomie : se donner à soi-même la loi morale par la raison, sans dépendre de rien d'extérieur.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La volonté est autonome, c'est-à-dire qu'elle est à elle-même sa propre loi. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Sartre <span style="font-weight:normal;color:#888;font-size:13px;">— L'existentialisme est un humanisme (1945)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'homme n'a pas de nature fixée : il se définit par ses choix. Il est entièrement et douloureusement libre.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'homme est condamné à être libre. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Rousseau <span style="font-weight:normal;color:#888;font-size:13px;">— Du Contrat social (1762)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Obéir à la loi qu'on s'est donnée est la forme la plus haute de la liberté — supérieure à la liberté naturelle.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'obéissance à la loi qu'on s'est prescrite est liberté. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Épictète <span style="font-weight:normal;color:#888;font-size:13px;">— Manuel (IIe siècle)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La liberté intérieure est totale et inconditionnelle : nul ne peut nous ôter nos jugements et nos désirs.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« On peut enchaîner mon corps, mais ma volonté reste libre. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">Sommes-nous vraiment libres ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Descartes, Sartre (oui) / Spinoza, Freud, Marx (non, déterminés) / Kant (liberté morale)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La liberté est-elle compatible avec la vie en société ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Hobbes (liberté naturelle sacrifiée) / Rousseau (liberté civile supérieure) / Mill (liberté individuelle)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">La liberté est-elle une charge ou un bienfait ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Sartre (angoisse de la liberté) / Épictète (liberté intérieure) / Dostoïevski (Grand Inquisiteur)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Obéir à la loi, est-ce renoncer à sa liberté ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Hobbes / Rousseau / Kant / Thoreau (désobéissance civile)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
       { id:"justice",     title:"La justice",     classe:"vide", content:"" },
       { id:"langage",     title:"Le langage",     classe:"vide", content:"" },
       { id:"liberte",     title:"La liberté",     classe:"vide", content:"" },
-      { id:"nature",      title:"La nature",      classe:"vide", content:"" },
-      { id:"raison",      title:"La raison",      classe:"vide", content:"" },
-      { id:"religion",    title:"La religion",    classe:"vide", content:"" },
-      { id:"science",     title:"La science",     classe:"vide", content:"" },
+            {
+        id:"nature",
+        title:"La nature",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">Le mot <strong>nature</strong> recouvre trois sens distincts qu'il faut toujours démêler : (1) l'ensemble de ce qui existe sans intervention humaine (la forêt, les animaux, les lois physiques) ; (2) l'essence d'une chose, ce qui la définit intrinsèquement (la nature du cercle, la nature humaine) ; (3) un état originel hypothétique de l'homme avant la société (<em>état de nature</em>). La question centrale : y a-t-il une <em>nature humaine</em> fixée, ou l'homme est-il un être entièrement ouvert qui se définit par la culture ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Nature ≠ Culture</td>
+        <td style="padding:8px 12px;">La <em>nature</em> est ce qui existe spontanément, sans intervention humaine (ce qui pousse de soi-même). La <em>culture</em> est l'ensemble des transformations que l'homme opère sur la nature — extérieure (technique, agriculture) et intérieure (éducation, morale). Cette opposition est fondatrice mais discutable : l'homme lui-même est-il naturel ou culturel ?</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Naturel ≠ Normal</td>
+        <td style="padding:8px 12px;">On confond souvent « naturel » (ce qui existe sans intervention humaine) avec « normal » (ce qui est conforme à une norme) ou « bien » (ce qui est moralement souhaitable). C'est le <em>sophisme naturaliste</em> : ce qui est naturel n'est pas nécessairement bon ou souhaitable (les maladies, les catastrophes sont naturelles). Attention à cet amalgame dans toute dissertation.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">État de nature ≠ Réalité historique</td>
+        <td style="padding:8px 12px;">L'<em>état de nature</em> (Hobbes, Locke, Rousseau) est une <strong>fiction théorique</strong>, non un fait historique. Il ne s'agit pas de décrire un passé réel mais d'une hypothèse de pensée pour comprendre ce que l'homme serait sans société, et ainsi justifier ou critiquer le contrat social.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Nature humaine ≠ Essence fixée (Sartre)</td>
+        <td style="padding:8px 12px;">La tradition philosophique classique (Aristote, Descartes) admet une <em>nature humaine</em> stable : l'homme est par nature rationnel, social, libre. Sartre renverse cela : l'existence précède l'essence — l'homme n'a pas de nature fixée, il se définit par ses actes. Il n'y a pas de nature humaine, seulement une <em>condition humaine</em>.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Aristote</td>
+        <td style="padding:8px 12px;width:38%;"><strong>L'homme est naturellement un animal politique.</strong> La nature d'une chose, c'est sa fin, son accomplissement. La nature humaine est d'être un être de raison et de langage, destiné à vivre en cité. La culture et la politique ne s'opposent pas à la nature — elles l'accomplissent.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ La nature est finaliste : tout être tend vers sa fin propre.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Descartes</td>
+        <td style="padding:8px 12px;"><strong>La nature est une machine régie par des lois mécaniques.</strong> La nature obéit à des lois physiques universelles, sans finalité ni intention. L'homme, lui, est un être d'esprit et de liberté qui se distingue radicalement de la nature. Son projet : « se rendre comme maîtres et possesseurs de la nature ».</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Dualisme corps/âme : l'homme est dans la nature mais n'en est pas entièrement.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Rousseau</td>
+        <td style="padding:8px 12px;"><strong>L'homme est naturellement bon : c'est la société qui le corrompt.</strong> À l'état de nature, l'homme est un animal paisible, guidé par l'amour de soi (se conserver) et la pitié (ne pas voir souffrir autrui). C'est l'inégalité sociale, la propriété et la civilisation qui développent en lui des vices artificiels : vanité, jalousie, amour-propre.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La nature est une norme critique : elle permet de juger la société, non un état à restaurer.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Spinoza</td>
+        <td style="padding:8px 12px;"><strong>L'homme est une partie de la nature, pas un empire dans un empire.</strong> Contre Descartes, Spinoza refuse de placer l'homme hors de la nature. Tout, y compris les désirs, les passions et les actes humains, obéit à des lois nécessaires. Comprendre sa propre nature, c'est atteindre la liberté véritable.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Dieu ou la Nature » (Deus sive Natura) : tout est nature, tout est Dieu.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Sartre</td>
+        <td style="padding:8px 12px;"><strong>Il n'y a pas de nature humaine.</strong> L'existence précède l'essence : l'homme n'est rien d'autre que ce qu'il se fait. Il n'a pas de nature fixée — il se définit par ses actes. Il existe une <em>condition humaine</em> universelle (la finitude, la liberté, l'angoisse) mais pas de nature.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ En niant la nature humaine, Sartre maximise la responsabilité : on ne peut s'excuser sur sa nature.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Aristote <span style="font-weight:normal;color:#888;font-size:13px;">— La Politique (env. 335 av. J.-C.)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'homme est par nature un animal politique. Vivre en cité est l'accomplissement de sa nature, non une contrainte.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'homme est par nature un animal politique. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Descartes <span style="font-weight:normal;color:#888;font-size:13px;">— Discours de la méthode (1637)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La connaissance de la nature permet à l'homme de s'en rendre maître au profit de sa vie.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Nous rendre comme maîtres et possesseurs de la nature. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Rousseau <span style="font-weight:normal;color:#888;font-size:13px;">— Discours sur l'origine de l'inégalité (1755)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'homme naturel est bon ; c'est la société et l'inégalité qui le corrompent en développant l'amour-propre et la vanité.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'homme est naturellement bon et c'est la société qui le corrompt. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Spinoza <span style="font-weight:normal;color:#888;font-size:13px;">— Éthique (1677)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'homme n'est pas un empire dans un empire : il fait partie de la nature et obéit à ses lois nécessaires.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'homme n'est pas un empire dans un empire. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Sartre <span style="font-weight:normal;color:#888;font-size:13px;">— L'existentialisme est un humanisme (1945)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Il n'y a pas de nature humaine préétablie. L'existence précède l'essence : l'homme se définit par ses actes.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« L'existence précède l'essence. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">Y a-t-il une nature humaine ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Aristote (oui) / Sartre (non) / Rousseau (oui, mais corrompue par la société)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La culture s'oppose-t-elle à la nature ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Aristote (non, elle l'accomplit) / Rousseau (oui, elle la corrompt) / Hegel (elle la dépasse)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">Ce qui est naturel est-il nécessairement bien ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Sophisme naturaliste / Rousseau (oui) / Mill, Kant (non, la nature est amorale)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">L'homme peut-il et doit-il maîtriser la nature ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Descartes (oui) / Jonas (responsabilité envers la nature) / Spinoza (l'homme en fait partie)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"raison",
+        title:"La raison",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">La <strong>raison</strong> (du latin <em>ratio</em> : calcul, mesure) est la faculté humaine de penser, de juger et de distinguer le vrai du faux, le bien du mal, selon des principes logiques. Elle s'exerce dans deux domaines : la <em>raison théorique</em> (connaissance du réel) et la <em>raison pratique</em> (conduite morale). La question centrale : la raison est-elle la faculté suprême de l'homme — ou ses prétentions sont-elles limitées par la foi, les passions, l'inconscient ou l'expérience ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Raison théorique ≠ pratique</td>
+        <td style="padding:8px 12px;">La <em>raison théorique</em> (Kant) cherche à connaître : elle s'applique aux phénomènes de l'expérience et produit la science. La <em>raison pratique</em> guide l'action morale : elle formule l'impératif catégorique. Les deux ont des domaines distincts et des limites différentes : la raison théorique ne peut pas démontrer l'existence de Dieu ; la raison pratique peut le <em>postuler</em>.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Raison intuitive ≠ discursive</td>
+        <td style="padding:8px 12px;">La <em>raison intuitive</em> saisit immédiatement une vérité (les évidences de Descartes : le cogito, les idées claires et distinctes). La <em>raison discursive</em> procède par étapes, en enchaînant des raisonnements et des preuves. La géométrie est discursive ; l'intuition des principes premiers est intuitive.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Raison ≠ Entendement (Kant)</td>
+        <td style="padding:8px 12px;">Chez Kant, l'<em>entendement</em> est la faculté qui applique des catégories (causalité, substance…) aux données de l'expérience pour produire des connaissances. La <em>raison</em> est la faculté qui cherche l'inconditionné, l'absolu (Dieu, l'âme, le monde comme totalité) — mais ces objets dépassent toute expérience possible, donc la raison produit des <em>idées</em>, non des connaissances.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Raison ≠ Intelligence</td>
+        <td style="padding:8px 12px;">L'<em>intelligence</em> est la capacité à résoudre des problèmes pratiques (les animaux en ont). La <em>raison</em> est plus spécifique : elle permet de formuler des principes universels, de juger selon des normes et de se gouverner soi-même. C'est la raison qui est traditionnellement considérée comme le propre de l'homme.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Descartes</td>
+        <td style="padding:8px 12px;width:38%;"><strong>La raison est universelle et infaillible si bien conduite.</strong> « Le bon sens est la chose du monde la mieux partagée. » Tout homme possède la raison — la différence vient de la méthode. Le doute méthodique permet d'éliminer toute erreur et d'atteindre des vérités certaines (cogito, idées claires et distinctes).</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ La raison cartésienne est toute-puissante : bien dirigée, elle peut tout connaître.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Kant</td>
+        <td style="padding:8px 12px;"><strong>La raison a des limites qu'elle doit reconnaître.</strong> La <em>Critique de la raison pure</em> montre que la raison ne peut connaître que les phénomènes (ce qui apparaît dans l'expérience), non les choses en soi (noumènes). Prétendre démontrer l'existence de Dieu ou l'immortalité de l'âme, c'est tomber dans des illusions métaphysiques (paralogismes, antinomies).</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « J'ai dû supprimer le savoir pour faire place à la croyance. »</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Pascal</td>
+        <td style="padding:8px 12px;"><strong>La raison a des limites que le cœur dépasse.</strong> La raison peut démontrer des vérités mathématiques et scientifiques, mais elle est impuissante face aux questions existentielles (Dieu, le salut, le sens de la vie). Le cœur — l'intuition des premiers principes et la foi — supplée là où la raison échoue.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « Le cœur a ses raisons que la raison ne connaît point. »</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Hume</td>
+        <td style="padding:8px 12px;"><strong>La raison est l'esclave des passions.</strong> La raison seule ne peut pas motiver l'action : elle calcule les moyens d'atteindre une fin, mais c'est toujours une passion (désir, aversion) qui fixe la fin. « La raison est, et ne peut être que l'esclave des passions. »</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Critique de l'intellectualisme moral : la morale repose sur le sentiment, pas la raison.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Nietzsche</td>
+        <td style="padding:8px 12px;"><strong>La raison est un masque de la volonté de puissance.</strong> Ce que nous appelons « raison » est souvent une rationalisation après coup de désirs et d'instincts inconscients. La raison socratique qui cherche à maîtriser les instincts est une décadence — elle affaiblit la vie au lieu de l'affirmer.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Critique généalogique : la raison n'est pas neutre, elle sert des intérêts vitaux.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Descartes <span style="font-weight:normal;color:#888;font-size:13px;">— Discours de la méthode (1637)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La raison est universelle et bien partagée — c'est son mauvais usage, non son absence, qui produit l'erreur.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le bon sens est la chose du monde la mieux partagée. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Pascal <span style="font-weight:normal;color:#888;font-size:13px;">— Pensées (1670, posthume)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La raison est limitée : le cœur (la foi, l'intuition) accède à des vérités que la raison démonstrative ne peut atteindre.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le cœur a ses raisons que la raison ne connaît point. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Kant <span style="font-weight:normal;color:#888;font-size:13px;">— Critique de la raison pure (1781)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La raison doit reconnaître ses propres limites pour faire place à la foi morale sans tomber dans le dogmatisme.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« J'ai dû supprimer le savoir pour faire place à la croyance. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Hume <span style="font-weight:normal;color:#888;font-size:13px;">— Traité de la nature humaine (1739)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La raison ne peut pas motiver l'action : elle est au service des passions qui fixent les fins de nos actes.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La raison est, et ne peut être que l'esclave des passions. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Kant <span style="font-weight:normal;color:#888;font-size:13px;">— Qu'est-ce que les Lumières ? (1784)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Les Lumières, c'est le courage de se servir de sa propre raison sans la tutelle d'autrui — la majorité intellectuelle.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Sapere aude ! Aie le courage de te servir de ton propre entendement. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">La raison peut-elle tout connaître ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Descartes (oui si bien conduite) / Kant (non, limites des phénomènes) / Pascal (le cœur dépasse la raison)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La raison suffit-elle pour bien agir ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Kant (oui, impératif catégorique) / Hume (non, les passions décident) / Aristote (phronèsis)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">La raison est-elle le propre de l'homme ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Aristote (logos) / Descartes / Freud (l'inconscient la dépasse) / éthologie</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Foi et raison sont-elles incompatibles ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Pascal (ordres séparés) / Thomas d'Aquin (complémentaires) / Kant (postulats de la raison pratique)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"religion",
+        title:"La religion",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">Le mot <strong>religion</strong> vient probablement du latin <em>religare</em> (relier) ou <em>relegere</em> (relire avec soin). Elle désigne l'ensemble des croyances, des pratiques, des rites et des institutions par lesquels des hommes entrent en rapport avec ce qu'ils considèrent comme sacré ou divin. Elle repose sur la <em>foi</em> : une adhésion qui dépasse la simple preuve rationnelle. Les questions centrales : la foi est-elle compatible avec la raison ? La religion est-elle une illusion, une nécessité sociale ou un accès à une vérité irréductible ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Foi ≠ Croyance ≠ Opinion</td>
+        <td style="padding:8px 12px;">L'<em>opinion</em> est une croyance subjective sans certitude ni engagement fort. La <em>croyance</em> est une adhésion à une proposition sans preuve suffisante. La <em>foi</em> est une adhésion totale, engagée et personnelle qui dépasse la preuve — elle est un acte de confiance (en Dieu, en une révélation). La foi n'est pas irrationnelle en elle-même : elle opère dans un domaine que la raison ne peut pas atteindre.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Religion ≠ Superstition</td>
+        <td style="padding:8px 12px;">La <em>superstition</em> (Spinoza, Kant) est une croyance irrationnelle fondée sur la peur et l'ignorance des causes réelles. Elle cherche à manipuler le divin par des pratiques magiques. La <em>religion véritable</em> — pour Kant — est fondée sur la raison morale et non sur des rites extérieurs vides de sens ou sur la crainte.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Religion statique ≠ dynamique (Bergson)</td>
+        <td style="padding:8px 12px;">Bergson distingue la <em>religion statique</em> (institution, dogme, rite — elle est close, défensive, conservatrice) de la <em>religion dynamique</em> (mystique, élan vital — elle est ouverte, créatrice, vécue comme expérience personnelle de l'absolu). Les grands mystiques (François d'Assise, Thérèse d'Avila) incarnent la religion dynamique.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Sacré ≠ Profane (Durkheim)</td>
+        <td style="padding:8px 12px;">Le <em>sacré</em> désigne ce qui est mis à part, interdit, chargé d'une puissance qui dépasse l'ordinaire. Le <em>profane</em> est le domaine de la vie quotidienne ordinaire. Durkheim montre que cette division sacré/profane est universelle : toute religion organise le monde selon cette coupure fondamentale.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Pascal</td>
+        <td style="padding:8px 12px;width:38%;"><strong>La foi dépasse la raison mais ne la contredit pas.</strong> Il existe deux ordres de vérité séparés : l'ordre de la raison (sciences, mathématiques) et l'ordre du cœur (foi, charité). La raison ne peut pas prouver l'existence de Dieu, mais le <em>pari</em> montre qu'il est rationnel de croire : si Dieu existe et qu'on croit, on gagne tout ; si on ne croit pas, on perd tout.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ « Le cœur a ses raisons que la raison ne connaît point. »</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Kant</td>
+        <td style="padding:8px 12px;"><strong>La religion doit se fonder sur la raison morale.</strong> On ne peut pas démontrer l'existence de Dieu (c'est une idée de la raison, non un objet d'expérience), mais la raison pratique nous autorise à le <em>postuler</em> pour donner sens à la morale. La vraie religion est une « religion dans les limites de la simple raison » — morale et intérieure, non rituelle et dogmatique.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La religion pour être universelle doit se fonder sur la pure raison.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Marx</td>
+        <td style="padding:8px 12px;"><strong>La religion est l'opium du peuple.</strong> Elle est une illusion produite par les conditions matérielles d'exploitation : elle console les opprimés de leurs souffrances réelles en les détournant vers un paradis imaginaire. Elle est à la fois symptôme et instrument de domination de classe — la critiquer, c'est critiquer la société qui la produit.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ « La religion est le soupir de la créature accablée, le sentiment d'un monde sans cœur, l'opium du peuple. »</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Freud</td>
+        <td style="padding:8px 12px;"><strong>La religion est une illusion collective.</strong> Elle répond à des désirs infantiles (avoir un Père protecteur, être protégé contre la mort et l'injustice). Elle est une <em>névrose obsessionnelle collective</em> : comme la névrose individuelle, elle offre un soulagement provisoire à une angoisse réelle, mais au prix du déni de réalité.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ L'avenir de la religion : elle reculera à mesure que la science progressera.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Durkheim</td>
+        <td style="padding:8px 12px;"><strong>La religion est une institution sociale réelle et nécessaire.</strong> Elle n'est pas une illusion — même si ses représentations du divin sont symboliques, son objet réel est la <em>société elle-même</em>. Elle crée du lien social, des normes partagées et une identité collective. Toute société a besoin du sacré.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La sociologie ne réfute pas la religion, elle en explique la fonction sociale universelle.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Pascal <span style="font-weight:normal;color:#888;font-size:13px;">— Pensées (1670)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La foi et la raison appartiennent à deux ordres séparés. Le pari montre qu'il est rationnel de croire malgré l'absence de preuve.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Le cœur a ses raisons que la raison ne connaît point. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Marx <span style="font-weight:normal;color:#888;font-size:13px;">— Contribution à la critique de la philosophie du droit de Hegel (1844)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La religion est un soulagement illusoire produit par une société injuste. La critiquer implique de critiquer cette société.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La religion est l'opium du peuple. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Freud <span style="font-weight:normal;color:#888;font-size:13px;">— L'Avenir d'une illusion (1927)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La religion est une illusion fondée sur des désirs infantiles de protection et d'immortalité, non sur la réalité.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La religion est la névrose obsessionnelle universelle de l'humanité. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Durkheim <span style="font-weight:normal;color:#888;font-size:13px;">— Les Formes élémentaires de la vie religieuse (1912)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La religion est une institution sociale réelle : elle crée du lien, des normes et une identité collective en distinguant le sacré du profane.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« La religion est une chose éminemment sociale. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Nietzsche <span style="font-weight:normal;color:#888;font-size:13px;">— Le Gai Savoir (1882)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La mort de Dieu n'est pas un triomphe mais une catastrophe : elle prive l'humanité de tout horizon de sens et exige qu'elle en crée un nouveau.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Dieu est mort ! Dieu reste mort ! Et c'est nous qui l'avons tué ! »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">La foi est-elle compatible avec la raison ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Pascal (ordres séparés) / Thomas d'Aquin (complémentaires) / Kant (foi morale rationnelle)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La religion est-elle une illusion ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Marx, Freud (oui) / Durkheim (non, réalité sociale) / Bergson (expérience mystique réelle)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">La religion est-elle nécessaire à la société ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Durkheim (lien social) / Marx (opium) / Nietzsche (mort de Dieu, nihilisme)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Peut-on croire sans preuves ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Pascal (pari) / Kierkegaard (saut dans la foi) / Kant (postulats moraux)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
+      {
+        id:"science",
+        title:"La science",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. DÉFINITION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">DÉFINITION</div>
+    <p style="margin:0;">La <strong>science</strong> est une connaissance organisée, rigoureuse et vérifiable, fondée sur des méthodes explicites (observation, expérimentation, démonstration) et visant des lois générales. Elle se distingue de l'opinion (subjective), de la croyance (non vérifiable) et du mythe (narratif). Les questions centrales : la science peut-elle tout expliquer ? Qu'est-ce qui distingue une théorie scientifique d'une pseudo-science ? Et la science est-elle neutre ou porteuse de valeurs ?</p>
+  </div>
+
+  <!-- ═══════════ 2. DISTINCTIONS ESSENTIELLES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">DISTINCTIONS ESSENTIELLES — pièges à éviter</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;width:30%;">Science ≠ Technique</td>
+        <td style="padding:8px 12px;">La <em>science</em> vise la connaissance désintéressée (comprendre pourquoi). La <em>technique</em> vise l'efficacité pratique (savoir faire). La science moderne est souvent indissociable de la technique (sciences appliquées), mais leur finalité diffère : la science cherche la vérité, la technique cherche l'utilité.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Vérification ≠ Réfutabilité (Popper)</td>
+        <td style="padding:8px 12px;">Le positivisme (Comte) pense qu'une théorie est scientifique si elle est <em>vérifiable</em> par l'expérience. Popper renverse cela : une théorie est scientifique si elle est <em>réfutable</em> (falsifiable) — si l'on peut imaginer une expérience qui la mettrait en défaut. Une théorie qu'aucune expérience ne peut réfuter (astrologie, psychanalyse selon Popper) n'est pas scientifique.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:8px 12px;font-weight:bold;">Loi ≠ Théorie ≠ Fait</td>
+        <td style="padding:8px 12px;">Un <em>fait</em> est une observation particulière et datée. Une <em>loi</em> est une régularité observable et généralisable (loi de la gravitation). Une <em>théorie</em> est un ensemble cohérent d'hypothèses et de lois qui explique et prédit des faits — elle peut toujours être révisée ou remplacée. Attention : une théorie scientifique n'est pas une simple supposition.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Science normale ≠ révolution scientifique (Kuhn)</td>
+        <td style="padding:8px 12px;">La <em>science normale</em> (Kuhn) travaille à l'intérieur d'un <em>paradigme</em> accepté (ensemble de présupposés, de méthodes et de problèmes). Une <em>révolution scientifique</em> survient quand les anomalies s'accumulent et que le paradigme est remplacé (Copernic, Einstein). La science n'est pas un progrès linéaire : elle connaît des ruptures radicales.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. GRANDES THÈSES EN TENSION ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">GRANDES THÈSES EN TENSION</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;width:22%;">Comte (positivisme)</td>
+        <td style="padding:8px 12px;width:38%;"><strong>La science est la forme supérieure du savoir.</strong> L'humanité passe par trois états : théologique (les dieux expliquent tout), métaphysique (les essences et forces abstraites), et <em>positif</em> (les lois scientifiques). Dans l'état positif, on renonce aux causes premières et on se limite aux lois observables. La science est la seule connaissance légitime.</td>
+        <td style="padding:8px 12px;width:40%;color:#555;font-style:italic;">→ Fonde le scientisme : la science peut et doit remplacer la religion et la métaphysique.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Popper</td>
+        <td style="padding:8px 12px;"><strong>La science progresse par réfutations successives.</strong> Une théorie n'est scientifique que si elle est falsifiable. La bonne méthode n'est pas d'accumuler des confirmations, mais de chercher activement à réfuter sa théorie. La science avance par <em>conjectures et réfutations</em> — elle ne prouve jamais définitivement, elle élimine les erreurs.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Critique du marxisme et de la psychanalyse comme pseudo-sciences (irréfutables).</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 12px;font-weight:bold;">Kuhn</td>
+        <td style="padding:8px 12px;"><strong>La science est une pratique sociale guidée par des paradigmes.</strong> Les scientifiques travaillent à l'intérieur d'un paradigme qu'ils ne remettent pas en question — jusqu'à ce que les anomalies déclenchent une révolution. Le passage d'un paradigme à l'autre n'est pas purement rationnel : c'est aussi une conversion.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ Relativise l'image d'une science purement rationnelle et cumulative.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Bachelard</td>
+        <td style="padding:8px 12px;"><strong>La connaissance scientifique progresse contre l'expérience immédiate.</strong> La science ne part pas de l'expérience ordinaire : elle la corrige par la raison. Il existe des <em>obstacles épistémologiques</em> qui freinent la pensée (habitudes, images premières, sens commun). La rupture épistémologique est nécessaire : penser contre sa première expérience.</td>
+        <td style="padding:8px 12px;color:#555;font-style:italic;">→ La Terre ne tourne pas comme on le voit : la science contredit l'intuition immédiate.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. AUTEURS ET CITATIONS CLÉS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">AUTEURS ET CITATIONS CLÉS</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Bachelard <span style="font-weight:normal;color:#888;font-size:13px;">— La Formation de l'esprit scientifique (1938)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La science progresse contre l'expérience immédiate, en surmontant les obstacles épistémologiques du sens commun.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« On connaît contre une connaissance antérieure, en détruisant des connaissances mal faites. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Popper <span style="font-weight:normal;color:#888;font-size:13px;">— La Logique de la découverte scientifique (1934)</span></div>
+        <div style="margin:6px 0;font-size:14px;">Une théorie n'est scientifique que si elle est réfutable. La science progresse par conjectures et réfutations, jamais par vérification définitive.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Notre connaissance n'est pas une connaissance certaine, mais des conjectures provisoires. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Kuhn <span style="font-weight:normal;color:#888;font-size:13px;">— La Structure des révolutions scientifiques (1962)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La science normale travaille à l'intérieur d'un paradigme. Les révolutions scientifiques sont des ruptures radicales, non un progrès continu.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Les révolutions scientifiques sont des épisodes de développement non cumulatif. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Comte <span style="font-weight:normal;color:#888;font-size:13px;">— Cours de philosophie positive (1830-1842)</span></div>
+        <div style="margin:6px 0;font-size:14px;">L'humanité progresse vers l'état positif où la science remplace la religion et la métaphysique comme forme suprême du savoir.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Savoir pour prévoir, prévoir pour pouvoir. »</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Descartes <span style="font-weight:normal;color:#888;font-size:13px;">— Discours de la méthode (1637)</span></div>
+        <div style="margin:6px 0;font-size:14px;">La méthode (doute, analyse, synthèse, dénombrement) permet d'accéder à des vérités certaines et de fonder une science rigoureuse.</div>
+        <div style="background:#f9f9f9;padding:8px 12px;border-radius:6px;font-style:italic;font-size:14px;color:#333;">« Diviser chacune des difficultés que j'examinerais en autant de parcelles qu'il se pourrait. »</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PROBLÉMATIQUES TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">PROBLÉMATIQUES TYPES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;width:48%;">La science peut-elle tout expliquer ?</td>
+        <td style="padding:8px 12px;width:22%;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Comte (oui, scientisme) / Kant (non, les questions métaphysiques dépassent la science) / Wittgenstein</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">La science progresse-t-elle vers la vérité ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan dialectique</td>
+        <td style="padding:8px 12px;color:#555;">Popper (progrès par réfutations) / Kuhn (révolutions, pas de progrès linéaire) / Bachelard (ruptures)</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 12px;font-weight:bold;">La science est-elle neutre et objective ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Positivisme (oui) / Kuhn (paradigmes sociaux) / Habermas (intérêts guidant la recherche)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:bold;">Peut-on distinguer science et pseudo-science ?</td>
+        <td style="padding:8px 12px;color:#555;">Plan thématique</td>
+        <td style="padding:8px 12px;color:#555;">Popper (critère de réfutabilité) / Kuhn (communauté scientifique) / Feyerabend (anarchisme épistémologique)</td>
+      </tr>
+    </table>
+  </div>
+
+</div>`
+      },
+
       { id:"technique",   title:"La technique",   classe:"vide", content:"" },
       { id:"temps",       title:"Le temps",       classe:"vide", content:"" },
       { id:"travail",     title:"Le travail",     classe:"vide", content:"" },
