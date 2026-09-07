@@ -321,23 +321,708 @@ const matieres = [
     title: "HGGSP",
     sub:   "Histoire, Géographie, Géopolitique et Sciences Politiques",
     fiches: [
-      {
-        id:      "espaces-conquete",
-        title:   "De nouveaux espaces de conquête",
-        classe:  "vide",
-        content: ""
+            {
+        id:"espaces-conquete",
+        title:"De nouveaux espaces de conquête",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. PROBLÉMATIQUE ET DÉFINITIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">PROBLÉMATIQUE CENTRALE</div>
+    <p style="margin:0 0 10px 0;">Les espaces extra-atmosphérique, maritime et cybernétique sont devenus des enjeux majeurs de puissance, de rivalité et de coopération au XXIe siècle. Questions clés : <em>Ces espaces sont-ils des biens communs de l'humanité ou des champs de rivalités entre puissances ? Qui les contrôle, au nom de quoi, et avec quelles conséquences ?</em></p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Espace extra-atmosphérique</td>
+        <td style="padding:7px 10px;">Tout ce qui se trouve au-delà de la ligne de Kármán (100 km d'altitude). Non soumis à souveraineté nationale selon le Traité de l'espace (1967).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Espaces maritimes</td>
+        <td style="padding:7px 10px;">Mers, océans, fonds marins. Régis par la Convention de Montego Bay (CNUDM, 1982) qui définit ZEE (200 miles), plateau continental, haute mer.</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Cyberespace</td>
+        <td style="padding:7px 10px;">Espace numérique mondial constitué d'infrastructures (câbles, serveurs, satellites) et des données qui y circulent. Sans frontières physiques mais objet de contrôle croissant.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Patrimoine commun de l'humanité</td>
+        <td style="padding:7px 10px;">Concept juridique (CNUDM 1982) : certains espaces ne peuvent être appropriés par un État (grands fonds marins, Lune selon l'Accord de 1979). Leur exploitation doit bénéficier à tous.</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Puissance spatiale / maritime</td>
+        <td style="padding:7px 10px;">Capacité d'un État à utiliser ces espaces pour projeter sa puissance militaire, économique et symbolique.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 2. GRANDES NOTIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">GRANDES NOTIONS À MAÎTRISER</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ L'espace extra-atmosphérique</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Course à l'espace (Guerre froide)</td>
+        <td style="padding:7px 10px;">1957 : Spoutnik (URSS, 1er satellite). 1961 : Gagarine (1er homme dans l'espace). 1969 : Apollo 11, 1ers hommes sur la Lune (USA). Compétition politico-militaire entre les deux blocs, dimension idéologique majeure.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Traité de l'espace (1967)</td>
+        <td style="padding:7px 10px;">Signé par USA, URSS, GB. Interdit l'appropriation nationale de l'espace et des corps célestes, interdit les armes nucléaires dans l'espace. Mais ne réglemente pas les satellites militaires ni l'exploitation commerciale des ressources spatiales.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Militarisation vs armement</td>
+        <td style="padding:7px 10px;">La <em>militarisation</em> de l'espace (usage des satellites à des fins militaires : renseignement, GPS, communications) est légale. L'<em>armement</em> de l'espace (placement d'armes) est interdit par le traité de 1967, mais de plus en plus contourné (satellites anti-satellites, armes hypersoniques guidées).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">New Space</td>
+        <td style="padding:7px 10px;">Montée des acteurs privés depuis les années 2010 : SpaceX (Elon Musk), Blue Origin (Jeff Bezos), OneWeb. Réduction drastique des coûts de lancement. Loi US SPACE Act (2015) : autorise les entreprises américaines à s'approprier les ressources spatiales (astéroïdes, Lune). Rupture avec le principe de patrimoine commun.</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Les espaces maritimes</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">CNUDM (1982)</td>
+        <td style="padding:7px 10px;">Convention des Nations Unies sur le droit de la mer. Définit : eaux territoriales (12 miles, souveraineté totale), ZEE (200 miles, droits économiques exclusifs), plateau continental (jusqu'à 350 miles pour les ressources du sous-sol), haute mer (libre accès), grands fonds (patrimoine commun). Signée par 168 États — pas les USA.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Liberté de navigation</td>
+        <td style="padding:7px 10px;">Principe fondamental du droit international : tout État peut naviguer librement en haute mer. Les USA revendiquent ce droit jusque dans les ZEE de leurs rivaux (opérations FONOPS en mer de Chine méridionale). La Chine conteste cette interprétation.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Ressources des fonds marins</td>
+        <td style="padding:7px 10px;">Nodules polymétalliques (manganèse, cobalt, nickel, cuivre — essentiels aux batteries et technologies vertes), hydrates de méthane, hydrocarbures offshore. Gérés par l'Autorité internationale des fonds marins (AIFM, créée par la CNUDM). Tension entre exploitation économique et protection environnementale.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Routes maritimes</td>
+        <td style="padding:7px 10px;">90% du commerce mondial passe par mer. Points de passage stratégiques (chokepoints) : détroit d'Ormuz (pétrole du Golfe), détroit de Malacca (Asie-Europe), canal de Suez, canal de Panama, détroit de Taïwan. Contrôler ces points = contrôler l'économie mondiale.</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Le cyberespace</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Infrastructure physique</td>
+        <td style="padding:7px 10px;">400+ câbles sous-marins transportent 99% des données mondiales. Nœuds Internet (IXP), centres de données (data centers), satellites de télécommunication. Physiquement vulnérables (coupures, espionnage des câbles par les sous-marins militaires).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Gouvernance du cyberespace</td>
+        <td style="padding:7px 10px;">Fragmentée entre modèle ouvert (USA, UE : Internet décentralisé, libre), modèle fermé (Chine : « Grande Muraille numérique », Intranet national) et modèle souverain (Russie : loi sur le Runet 2019, déconnexion possible). L'ICANN gère les noms de domaine (sous contrôle américain, contesté).</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Cyberattaques et guerre cyber</td>
+        <td style="padding:7px 10px;">Nouveaux outils de conflictualité : espionnage (APT, groupes liés à la Russie/Chine), sabotage d'infrastructures, désinformation. Stuxnet (2010) : ver informatique USA/Israël qui a détruit des centrifugeuses iraniennes — première cyberarme d'État avérée. Attaques russes contre l'Ukraine 2022 (réseau électrique, satellites Viasat).</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. LES ACTEURS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">LES ACTEURS INCONTOURNABLES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;width:22%;">États-Unis</td>
+        <td style="padding:8px 10px;">Puissance spatiale et maritime dominante. NASA, Space Force (6e arme créée en 2019). 1re flotte militaire mondiale. Contrôle du GPS (système de positionnement mondial). Refuse la CNUDM mais applique ses principes. GAFAM dominent Internet. Loi SPACE Act 2015.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Chine</td>
+        <td style="padding:8px 10px;">Puissance montante : 1re flotte militaire en nombre de navires, 2e puissance spatiale. Programme spatial : station Tiangong (opérationnelle depuis 2022), rover Zhurong sur Mars (2021), face cachée de la Lune (2019). Mer de Chine : îles artificielles, refus du tribunal arbitral de La Haye (2016). Beidou (GPS chinois opérationnel depuis 2020). Grande Muraille numérique.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Russie</td>
+        <td style="padding:8px 10px;">Héritière de l'URSS spatiale. Fusée Soyouz longtemps seul vecteur vers l'ISS. Revendications en Arctique (drapeau sur le fond marin en 2007 sous le pôle Nord). Développement d'armes anti-satellites. Roscosmos en difficulté budgétaire. Cyberattaques offensives bien documentées.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Union européenne / France</td>
+        <td style="padding:8px 10px;">Programme Copernicus (observation de la Terre), Galileo (GPS européen, opérationnel). Ariane 6 (lanceur). France : puissance maritime mondiale (2e ZEE, 11 millions km²). EUNAVFOR MED (lutte contre la piraterie). GDPR (règlement européen sur les données).</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Acteurs privés (New Space)</td>
+        <td style="padding:8px 10px;">SpaceX : Starlink (4000+ satellites, couverture Internet mondial), Falcon 9 (lanceur réutilisable révolutionnaire). Blue Origin, Virgin Galactic (tourisme spatial). Planet Labs (imagerie satellite commerciale). Ces acteurs échappent partiellement aux cadres réglementaires étatiques.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Organisations internationales</td>
+        <td style="padding:8px 10px;">ONU (traités spatiaux, CNUDM), AIFM (fonds marins), Comité ONU des utilisations pacifiques de l'espace extra-atmosphérique (COPUOS), ISS (coopération NASA/Roscosmos/ESA/JAXA/CSA — mais fragile depuis 2022).</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. ÉTUDES DE CAS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">ÉTUDES DE CAS INCONTOURNABLES</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La course à l'espace pendant la Guerre froide (1957–1969)</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Spoutnik (1957) provoque un choc psychologique aux USA. Les deux superpuissances investissent massivement — enjeu idéologique autant que militaire (les fusées spatiales sont les mêmes que les missiles nucléaires). Apollo 11 (juillet 1969) : 1ers hommes sur la Lune — victoire symbolique américaine. Le Traité de l'espace (1967) encadre la compétition en interdisant les armes de destruction massive dans l'espace.<br><strong>Ce qu'il illustre :</strong> L'espace comme prolongement de la confrontation politique ; la coopération forcée par la mutuelle vulnérabilité ; le rôle symbole de la puissance.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La mer de Chine méridionale — Rivalités et îles artificielles</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> La Chine revendique 90% de la mer de Chine méridionale via la « ligne des neuf tirets » (non reconnue en droit international). Depuis 2013, elle construit des îles artificielles sur des récifs (Spratleys, Paracels) et y installe des bases militaires. En 2016, le tribunal arbitral de La Haye invalide les revendications chinoises — Pékin refuse le verdict. Les USA mènent des opérations de liberté de navigation (FONOPS) que la Chine dénonce. Vietnam, Philippines, Malaisie, Brunei ont aussi des revendications.<br><strong>Ce qu'il illustre :</strong> Tension entre souveraineté nationale et droit de la mer ; le droit international contesté par les puissances émergentes ; la militarisation des espaces maritimes.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">SpaceX et la révolution du New Space</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> SpaceX (Elon Musk, fondée 2002) révolutionne l'accès à l'espace avec le Falcon 9 (1er lanceur réutilisable, 2015) et le Starship. Starlink : constellation de +6 000 satellites fournissant Internet haut débit mondial — y compris à l'Ukraine depuis 2022 (décision d'un homme privé avec des conséquences géopolitiques). Coût de lancement réduit de 90%. SPACE Act (USA, 2015) : propriété des ressources spatiales extraites légalisée.<br><strong>Ce qu'il illustre :</strong> Privatisation et commercialisation de l'espace ; brouillage de la frontière public/privé ; remise en cause du principe de patrimoine commun ; dépendance des États envers des acteurs privés.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">L'Arctique — Nouveau Far North</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Le réchauffement climatique ouvre de nouvelles routes maritimes (Passage du Nord-Ouest, Route maritime du Nord) et rend accessibles des ressources considérables (30% des réserves mondiales de gaz non découvertes, 13% de pétrole selon l'USGS). Russie : 2007, drapeau russe planté au fond de l'océan Arctique sous le pôle Nord. Canada, USA (Alaska), Danemark (Groenland), Norvège revendiquent aussi des parts. Conseil Arctique (forum de coopération) — mais tensions croissantes depuis 2022.<br><strong>Ce qu'il illustre :</strong> Articulation ressources/souveraineté/droit international ; impact du changement climatique sur la géopolitique ; rivalités entre grandes puissances dans un espace longtemps gelé.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La Station spatiale internationale (ISS) — Coopération et limites</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Construite à partir de 1998, partenariat USA-Russie-Europe (ESA)-Japon (JAXA)-Canada. Symbole de coopération post-Guerre froide. Depuis l'invasion de l'Ukraine (2022), la Russie a menacé de se retirer (Roscosmos a annoncé un départ avant 2030). SpaceX assure désormais les rotations d'astronautes US, réduisant la dépendance à Soyouz. Chine exclue de l'ISS — développe sa propre station (Tiangong).<br><strong>Ce qu'il illustre :</strong> La fragilité de la coopération internationale en temps de tensions ; l'espace comme miroir des relations géopolitiques ; l'émergence d'une bipolarisation USA/Chine dans l'espace.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Stuxnet (2010) — La 1re cyberarme d'État</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Ver informatique développé conjointement par USA et Israël, découvert en 2010, ciblant les centrifugeuses iraniennes d'enrichissement d'uranium à Natanz. A détruit environ 1 000 centrifugeuses sans tir de missile. Première cyberattaque offensive d'État documentée visant des infrastructures physiques critiques. L'Iran n'a jamais formellement attribué l'attaque, mais elle est avérée par des enquêtes journalistiques (NYT, 2012).<br><strong>Ce qu'il illustre :</strong> Le cyberespace comme nouveau théâtre de conflictualité ; la guerre sans déclaration de guerre ; la vulnérabilité des infrastructures critiques ; l'attribution difficile des attaques.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. TENSIONS ET DÉBATS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">TENSIONS ET DÉBATS CLÉS</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;width:35%;">Patrimoine commun vs exploitation privée</td>
+        <td style="padding:8px 10px;">Le principe de patrimoine commun (CNUDM 1982, Traité Lune 1979) est contesté par les USA (non signataire du traité Lune, SPACE Act 2015) et les acteurs privés. La course aux ressources des astéroïdes et des fonds marins remet ce principe en cause.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Coopération vs rivalité</td>
+        <td style="padding:8px 10px;">L'ISS (1998) symbolisait la coopération. L'Accord Artemis (2020, programme retour sur la Lune mené par les USA) a été rejeté par la Russie et la Chine, qui développent leurs propres programmes. On observe une bifurcation entre deux systèmes parallèles.</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;">Droit international vs rapport de force</td>
+        <td style="padding:8px 10px;">La Chine en mer de Chine méridionale, la Russie en Arctique, les USA avec le SPACE Act montrent que le droit international est contesté ou contourné quand il gêne les intérêts des grandes puissances. Le droit international ne s'impose qu'en l'absence de rapport de force contesté.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Militarisation croissante</td>
+        <td style="padding:8px 10px;">USA (Space Force), Chine et Russie développent des capacités anti-satellites (ASAT). La destruction d'un satellite ennemi pourrait provoquer un effet Kessler (débris en cascade rendant certaines orbites inutilisables). Le risque de guerre des étoiles est réel mais le droit international n'est pas adapté.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 6. PLANS TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:12px;">PLANS TYPES DE DISSERTATION</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 1 : Les nouveaux espaces de conquête sont-ils avant tout des espaces de rivalités ? (sujet 2025)</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan dialectique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Des espaces de rivalités majeures</td><td style="padding:7px 10px;">A. Rivalités entre États (course spatiale USA/Chine, mer de Chine) — B. Rivalités public/privé (New Space, SPACE Act) — Ex. : Starlink, îles artificielles, Space Force</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Des espaces aussi de coopération</td><td style="padding:7px 10px;">A. Cadres juridiques communs (Traité 1967, CNUDM 1982) — B. Projets collectifs (ISS, Copernicus, AIFM) — Ex. : ISS, Galileo, tribunaux arbitraux</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Des espaces de coopération fragilisée</td><td style="padding:7px 10px;">A. La coopération est conditionnée aux rapports de force — B. Vers une bifurcation des systèmes ? — Ex. : exclusion de la Chine de l'ISS, Tiangong, retrait Russie, accord Artemis refusé</td></tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 2 : La conquête de l'espace est-elle un enjeu géopolitique majeur ? (bac 2024)</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan thématique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Un enjeu militaire et stratégique</td><td style="padding:7px 10px;">GPS, satellites espions, ASAT, Space Force — Dépendance des armées aux satellites — Ex. : GPS dans les guerres du Golfe, Starlink en Ukraine</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Un enjeu économique et technologique</td><td style="padding:7px 10px;">Ressources (astéroïdes, Lune), marchés (lanceurs, satellites comm.), transferts technologiques — Ex. : SpaceX, SPACE Act, Artemis Program</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Un enjeu symbolique et d'influence</td><td style="padding:7px 10px;">La puissance spatiale comme marqueur de statut (soft power) — Chine : Lune, Mars, Tiangong pour affirmer sa montée en puissance — Ex. : Gagarine 1961, Zhurong 2021</td></tr>
+    </table>
+  </div>
+
+  <!-- CHRONOLOGIE -->
+  <div style="background:var(--card-bg);border-left:4px solid #7f8c8d;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#7f8c8d;margin-bottom:12px;">CHRONOLOGIE ESSENTIELLE</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;width:15%;">1957</td><td style="padding:6px 10px;">Spoutnik — 1er satellite artificiel (URSS)</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1967</td><td style="padding:6px 10px;">Traité de l'espace — non-appropriation, pas d'armes nucléaires</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1969</td><td style="padding:6px 10px;">Apollo 11 — 1ers hommes sur la Lune</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1982</td><td style="padding:6px 10px;">CNUDM — Convention sur le droit de la mer (ZEE, patrimoine commun des fonds)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1998</td><td style="padding:6px 10px;">Début de la construction de l'ISS</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2007</td><td style="padding:6px 10px;">Drapeau russe au fond de l'Arctique + test anti-satellite chinois</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2010</td><td style="padding:6px 10px;">Stuxnet — 1re cyberarme d'État</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2015</td><td style="padding:6px 10px;">SPACE Act (USA) — propriété des ressources spatiales pour acteurs privés</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2019</td><td style="padding:6px 10px;">Chang'e 4 (Chine) — face cachée de la Lune + Space Force (USA)</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2020</td><td style="padding:6px 10px;">Beidou (GPS chinois) opérationnel + Accord Artemis (USA)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2021</td><td style="padding:6px 10px;">Zhurong (Chine) sur Mars + début Tiangong</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2022</td><td style="padding:6px 10px;">Starlink déployé en Ukraine + tensions ISS Russie/USA</td></tr>
+    </table>
+  </div>
+
+</div>`
       },
+
       {
-        id:      "guerre-paix",
-        title:   "Faire la guerre, faire la paix : formes de conflits et modes de résolution",
-        classe:  "vide",
-        content: ""
+        id:"guerre-paix",
+        title:"Faire la guerre, faire la paix : formes de conflits et modes de résolution",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. PROBLÉMATIQUE ET DÉFINITIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">PROBLÉMATIQUE CENTRALE</div>
+    <p style="margin:0 0 12px 0;">Ce thème est <strong>évaluable au bac 2027</strong>. Questions clés : <em>La guerre reste-t-elle la continuation de la politique par d'autres moyens (Clausewitz) ? Les formes de la guerre ont-elles fondamentalement changé depuis le XVIIIe siècle ? La paix peut-elle être construite durablement ?</em></p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Guerre</td>
+        <td style="padding:7px 10px;">Affrontement armé organisé entre groupes politiques (États, factions). Toute guerre est un conflit, mais tout conflit n'est pas une guerre (les conflits sociaux, diplomatiques ne sont pas des guerres). L'ONU distingue guerres inter-étatiques, guerres civiles, guerres asymétriques.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Formule de Clausewitz</td>
+        <td style="padding:7px 10px;">« La guerre est la continuation de la politique par d'autres moyens » (<em>De la guerre</em>, 1832, posthume). La guerre a toujours un objectif politique. Elle n'est pas une fin en soi mais un instrument au service d'un but politique. Cette formule reste le cadre d'analyse de référence.</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Guerre irrégulière</td>
+        <td style="padding:7px 10px;">Conflit où au moins un acteur n'est pas un État régulier et n'observe pas les règles de la guerre conventionnelle : guérilla, terrorisme, guerre de partisans. S'oppose à la guerre interétatique classique.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Guerre hybride</td>
+        <td style="padding:7px 10px;">Combinaison de méthodes conventionnelles et irrégulières : armée régulière + milices non identifiées + cyberattaques + désinformation + pression économique. Concept apparu avec le conflit en Ukraine (2014).</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Paix</td>
+        <td style="padding:7px 10px;">Trois conceptions : paix négative (absence de guerre, armistice), paix positive (justice sociale, conditions qui rendent la guerre inutile — J. Galtung), paix libérale (démocraties, institutions internationales, libre-échange comme garanties de paix — Kant, <em>Projet de paix perpétuelle</em>, 1795).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Droit international humanitaire (DIH)</td>
+        <td style="padding:7px 10px;">Ensemble de règles limitant les effets des conflits armés sur les civils et les combattants hors de combat. Conventions de Genève (1864, 1949) et leurs Protocoles (1977). Distinction combattants/civils, interdiction des armes chimiques (Convention 1993), des mines antipersonnel (Ottawa 1997).</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 2. GRANDES NOTIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">GRANDES NOTIONS À MAÎTRISER</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 1 — La dimension politique de la guerre : des conflits interétatiques aux enjeux transnationaux</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Guerre interétatique classique</td>
+        <td style="padding:7px 10px;">Avant le XVIIIe s. : guerres de cabinets, armées professionnelles limitées, objectifs territoriaux précis. Révolution française 1792 : la levée en masse transforme la guerre — armées de masse, guerres totales en germe. Napoléon : guerre de manœuvre et d'anéantissement. Clausewitz théorise cette transformation.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Guerres totales (XXe s.)</td>
+        <td style="padding:7px 10px;">1re et 2e Guerres mondiales : mobilisation totale de la société civile et de l'économie, industrialisation de la mort (gaz, bombardements stratégiques, Shoah). La frontière civils/militaires s'efface. Hiroshima (1945) : arme nucléaire comme ultime arme totale — mais aussi dissuasion.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Guerres irrégulières</td>
+        <td style="padding:7px 10px;">Guérilla (guerre du Vietnam, Algérie), terrorisme (Al-Qaïda, Daesh), insurrections. Ces conflits remettent en cause le modèle de Clausewitz : pas d'État clairement identifiable, pas de fin de guerre claire, pas de reddition. La puissance militaire conventionnelle est souvent inefficace (USA au Vietnam, URSS en Afghanistan).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Nouvelles formes (XXIe s.)</td>
+        <td style="padding:7px 10px;">Guerre hybride (Ukraine 2014-2022), cyberguerre (Stuxnet, attaques russes), drones armés (Predator, usage massif par les USA après 2001), guerre de l'information (désinformation, influence sociale), mercenaires (Wagner en Afrique, Wagner en Ukraine).</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 2 — Construire la paix : acteurs, moyens, limites</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Traités de Westphalie (1648)</td>
+        <td style="padding:7px 10px;">Mettent fin à la guerre de Trente Ans. Fondent le système international : souveraineté des États, non-ingérence, équilibre des puissances. Première architecture de la paix entre États. Ce système reste la base du droit international jusqu'à aujourd'hui.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">SDN (1919) et ONU (1945)</td>
+        <td style="padding:7px 10px;">La SDN (Société des Nations) créée après 1918 pour garantir la paix collective — échoue (non-adhésion USA, incapacité face au réarmement allemand et japonais). L'ONU (1945) refonde la sécurité collective : Conseil de sécurité (5 membres permanents avec droit de veto), maintien de la paix, Charte (article 2.4 interdit la force), Déclaration universelle des droits de l'homme (1948).</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Opérations de maintien de la paix (OMP)</td>
+        <td style="padding:7px 10px;">Casques bleus de l'ONU : interposition, surveillance des cessez-le-feu, protection des civils. +70 opérations depuis 1948. Succès relatifs (Namibie 1989, Timor oriental) et échecs graves (Rwanda 1994 : génocide sous les yeux des casques bleus ; Srebrenica 1995 : massacre malgré une « zone de protection »).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Justice transitionnelle</td>
+        <td style="padding:7px 10px;">Ensemble de mécanismes pour faire face aux crimes de masse après un conflit : tribunaux pénaux internationaux (TPIY pour ex-Yougoslavie, TPIR pour Rwanda), Cour pénale internationale (CPI, créée 2002), commissions Vérité et Réconciliation (Afrique du Sud), tribunaux locaux (gacaca au Rwanda). Vise à établir la vérité, punir les coupables et prévenir la récurrence.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Responsabilité de protéger (R2P)</td>
+        <td style="padding:7px 10px;">Principe adopté par l'ONU en 2005 : si un État ne protège pas ses civils (génocide, crimes de guerre, crimes contre l'humanité), la communauté internationale peut intervenir. Utilisé comme justification en Libye (2011, résolution 1973), controversé car instrumentalisé. Russie et Chine y sont réticentes.</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Objet conclusif — Le Moyen-Orient depuis 1948</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Conflit israélo-arabe/palestinien</td>
+        <td style="padding:7px 10px;">1948 : création d'Israël, 1re guerre arabo-israélienne. 1967 : guerre des Six Jours (Israël prend Sinaï, Cisjordanie, Gaza, Golan). 1973 : guerre du Kippour. Accords d'Oslo (1993) : reconnaissance mutuelle OLP/Israël, mais processus bloqué. Gaza depuis 2007 : blocus israélien, conflits récurrents. 7 octobre 2023 : attaque du Hamas, riposte militaire israélienne massive à Gaza.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Acteurs et complexité régionale</td>
+        <td style="padding:7px 10px;">Israël, Autorité palestinienne (Fatah), Hamas (Gaza), Hezbollah (Liban), Iran (soutien aux milices chiites), Arabie saoudite, USA, Russie, ONU (UNRWA pour les réfugiés). La multiplicité des acteurs rend toute solution durable extrêmement difficile. Chevauchement de conflits religieux, nationaux, géopolitiques (pétrole, influence USA/URSS puis Russie/Chine).</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Le modèle de Clausewitz appliqué</td>
+        <td style="padding:7px 10px;">Les conflits du Moyen-Orient <em>confirment</em> partiellement Clausewitz (les guerres ont des objectifs politiques — territoire, sécurité, reconnaissance) mais le <em>dépassent</em> aussi : acteurs non-étatiques (Hamas, Hezbollah, Daesh), guerres irrégulières, terrorisme, dimension religieuse — des éléments que Clausewitz, penseur des guerres d'État, n'anticipait pas.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. LES ACTEURS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">LES ACTEURS INCONTOURNABLES</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;width:22%;">États</td>
+        <td style="padding:8px 10px;">Acteur principal historique. Détiennent le monopole légal de la violence (Weber). Mais leur rôle est contesté : guerres civiles, acteurs non-étatiques. Russie/Ukraine 2022 : retour de la guerre interétatique en Europe après 30 ans de paix.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">ONU et Conseil de sécurité</td>
+        <td style="padding:8px 10px;">Garant du droit international. Mais paralysé par le droit de veto des 5 membres permanents (USA, Russie, Chine, France, Royaume-Uni). La Russie bloque toute résolution sur l'Ukraine depuis 2022. L'ONU agit surtout par les OMP et les agences humanitaires.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Acteurs non-étatiques armés</td>
+        <td style="padding:8px 10px;">Al-Qaïda, Daesh/ISIS, Hamas, Hezbollah, milices, groupes djihadistes au Sahel (JNIM, GSIM). Remettent en cause le modèle clausewitzien : pas de territoire fixe, pas de déclaration de guerre, pas de capitulation formelle. Leurs objectifs mêlent politique, religion, idéologie.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">ONG humanitaires</td>
+        <td style="padding:8px 10px;">CICR (Comité international de la Croix-Rouge) : gardien des Conventions de Genève. MSF (Médecins sans frontières) : intervention en zones de conflit. Tensions avec les États : droit d'ingérence humanitaire vs souveraineté nationale.</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Mercenaires</td>
+        <td style="padding:8px 10px;">Groupe Wagner (Russie) : présence en Syrie, Libye, Mali, Centrafrique, Ukraine. Permet aux États de mener des opérations en niant leur implication (plausible deniability). Questionne le monopole étatique de la violence et le droit de la guerre.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">CPI (Cour pénale internationale)</td>
+        <td style="padding:8px 10px;">Créée en 2002 (Statut de Rome). Juge les crimes de guerre, crimes contre l'humanité, génocides. A émis un mandat d'arrêt contre Poutine (mars 2023) pour la déportation d'enfants ukrainiens. Limites : non-adhésion USA, Russie, Chine ; difficultés d'exécution.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. ÉTUDES DE CAS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">ÉTUDES DE CAS INCONTOURNABLES</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Les traités de Westphalie (1648) — Naissance du système international</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Mettent fin à la guerre de Trente Ans (1618–1648), qui a ravagé l'Europe centrale (mort de 25–40% de la population de certaines régions). Fondent le principe de souveraineté des États et de non-ingérence dans leurs affaires intérieures. Donnent naissance à la diplomatie moderne et à l'équilibre des puissances. Ce système fonctionne (avec des guerres limitées) jusqu'aux guerres napoléoniennes, puis aux guerres mondiales.<br><strong>Ce qu'il illustre :</strong> La paix est une construction politique ; les traités ne suffisent pas sans institutions pour les faire respecter ; le modèle westphalien est toujours la base du droit international mais est contesté par les interventions humanitaires et la mondialisation.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La Première Guerre mondiale (1914–1918) — Guerre totale et ses conséquences mémorielles</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> 1re guerre industrielle et de masse : 10 millions de morts militaires, 7 millions de civils. Tranchées, gaz, aviation, chars. Traité de Versailles (1919) : punition de l'Allemagne (clause de culpabilité, réparations). Création de la SDN — première tentative de sécurité collective. La SDN échoue à empêcher la 2e Guerre mondiale. Mémoire divisée : en France, culte des morts, monuments aux morts ; en Allemagne, honte et ressentiment qui alimenteront le nazisme.<br><strong>Ce qu'il illustre :</strong> Guerre totale ; échec de la SDN ; rôle de la mémoire dans les relations internationales (la « der des der » n'a pas empêché 1939).</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Le génocide au Rwanda (1994) — Échec de la communauté internationale</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Entre avril et juillet 1994, environ 800 000 Tutsis et Hutus modérés sont massacrés en 100 jours. La MINUAR (mission ONU) présente sur place a reçu l'ordre de ne pas intervenir (mandat limité). La France, les USA et la communauté internationale n'agissent pas. La Belgique retire ses troupes après la mort de 10 soldats. Le TPIR (Tribunal pénal international pour le Rwanda) est créé en 1994 — 1er tribunal pénal international depuis Nuremberg. Le génocide est reconnu tardivement par la France (2021, rapport Duclert).<br><strong>Ce qu'il illustre :</strong> Les limites des OMP et de la volonté politique internationale ; la nécessité de la justice internationale ; l'importance de la reconnaissance officielle dans le travail de mémoire.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Srebrenica (1995) — Massacre sous protectorat ONU</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> En juillet 1995, pendant la guerre de Bosnie (1992–1995), des forces serbes de Bosnie massacrent environ 8 000 hommes et garçons musulmans bosniaques à Srebrenica — une « zone de sécurité » supposément protégée par des Casques bleus néerlandais (Dutchbat). Le TPIY qualifie cela de génocide (arrêt 2004). Les accords de Dayton (novembre 1995) mettent fin à la guerre mais gèlent la situation sans résoudre les tensions fondamentales.<br><strong>Ce qu'il illustre :</strong> L'impuissance des OMP sans mandat robuste ; le génocide possible en Europe ; la nécessité d'un droit d'intervention renforcé.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La guerre en Ukraine (depuis 2022) — Retour de la guerre interétatique en Europe</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> 24 février 2022 : invasion totale de l'Ukraine par la Russie après l'annexion de la Crimée (2014) et la guerre du Donbass. Conflit hybride : armées conventionnelles + guerre informationnelle + cyberattaques + drones + utilisation de Starlink par l'Ukraine + mercenaires Wagner. L'ONU condamne (résolution AG mars 2022, 141 voix) mais ne peut agir (veto russe au CS). CPI émet un mandat d'arrêt contre Poutine (2023). Soutien occidental (armes, sanctions) vs neutralité du Sud global.<br><strong>Ce qu'il illustre :</strong> La persistance de la guerre interétatique ; la guerre hybride ; les limites du droit international face à un membre permanent du Conseil de sécurité ; la tension coopération/affrontement.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Daesh / ISIS (2014–2019) — Guerre irrégulière et califat</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> L'État islamique (Daesh) proclame un « califat » en Irak et Syrie en 2014, contrôlant un territoire de la taille du Royaume-Uni. Combine gouvernance territoriale, idéologie djihadiste mondiale, terrorisme exporté (Paris nov. 2015, Nice 2016, Bruxelles 2016). Défait militairement en 2019 (coalition internationale + forces kurdes) mais la menace terroriste persiste. Recrutement en ligne via les réseaux sociaux.<br><strong>Ce qu'il illustre :</strong> Le dépassement du cadre clausewitzien par des acteurs non-étatiques à ambition globale ; la guerre contre le terrorisme sans fin claire ; la dimension numérique des conflits contemporains.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. TENSIONS ET DÉBATS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">TENSIONS ET DÉBATS CLÉS</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;width:35%;">Clausewitz est-il encore valable ?</td>
+        <td style="padding:8px 10px;"><strong>Oui</strong> : les guerres ont toujours un objectif politique (Russie en Ukraine veut empêcher l'expansion de l'OTAN ; Daesh veut un État islamique). <strong>Non</strong> : les guerres irrégulières, le terrorisme et la cyberguerre ne se terminent pas par une victoire militaire claire et une capitulation. Les acteurs non-étatiques n'ont pas toujours d'objectif politique rationnel clausewitzien.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Peut-on toujours faire la paix ?</td>
+        <td style="padding:8px 10px;">Conflits « gelés » (Chypre, Cachemire, Corée, Israël-Palestine) : l'absence de guerre n'est pas la paix. Les traités de paix sans justice et sans réconciliation ne durent pas (Versailles → 2e GM). La paix durable exige la démilitarisation, la réconciliation, la réparation économique.</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;">Le droit international est-il efficace ?</td>
+        <td style="padding:8px 10px;">Succès : CPI, TPIY, TPIR ont condamné des responsables de crimes de masse. Limites : les grandes puissances échappent à la CPI (USA, Russie, Chine non membres) ; le mandat d'arrêt contre Poutine n'est pas exécuté ; la Russie viole la Charte de l'ONU en toute impunité car membre permanent.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">La guerre est-elle inévitable ?</td>
+        <td style="padding:8px 10px;">Kant (<em>Projet de paix perpétuelle</em>, 1795) : les démocraties ne se font pas la guerre entre elles (« paix démocratique »). Confirmé statistiquement mais contesté : USA ont fait la guerre à des États non-démocratiques. La dissuasion nucléaire a peut-être évité la 3e GM entre les grandes puissances, mais n'empêche pas les guerres par procuration.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 6. PLANS TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:12px;">PLANS TYPES DE DISSERTATION</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 1 : Le modèle de Clausewitz permet-il de comprendre les conflits contemporains ? (sujet récurrent au bac)</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan dialectique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Le modèle reste pertinent</td><td style="padding:7px 10px;">A. La guerre reste un outil politique (Russie/Ukraine 2022 ; USA en Irak 2003) — B. Les États restent acteurs centraux — Ex. : Russie/Ukraine, guerre du Golfe 1991</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Le modèle est dépassé par les nouvelles formes</td><td style="padding:7px 10px;">A. Acteurs non-étatiques sans objectif politique rationnel (Daesh, terrorisme) — B. Guerres irrégulières sans fin définie — Ex. : Afghanistan 2001–2021, Sahel, Daesh</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Un modèle à réinterpréter</td><td style="padding:7px 10px;">A. Guerre hybride : mélange convention/irrégulier que Clausewitz n'anticipait pas — B. La cyberguerre comme nouvelle dimension politique — Ex. : guerre hybride Ukraine 2014, Stuxnet</td></tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 2 : Construire la paix depuis le XVIIe siècle : réussites et limites (sujet 2024)</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan thématique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Construire la paix par les traités et la diplomatie</td><td style="padding:7px 10px;">Westphalie 1648, Vienne 1815, Versailles 1919 (échec), accords d'Oslo 1993 — La diplomatie comme instrument de paix mais insuffisante sans institutions</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Construire la paix par les institutions internationales</td><td style="padding:7px 10px;">SDN (échec), ONU, Casques bleus, CPI, TPIY/TPIR — Succès (Namibie, Timor) et échecs (Rwanda, Srebrenica)</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Les limites structurelles de la paix</td><td style="padding:7px 10px;">Conflits gelés, veto au CS, non-universalité du droit international, paix sans justice fragile — Ex. : Ukraine, Israël-Palestine, Kosovo</td></tr>
+    </table>
+  </div>
+
+  <!-- CHRONOLOGIE -->
+  <div style="background:var(--card-bg);border-left:4px solid #7f8c8d;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#7f8c8d;margin-bottom:12px;">CHRONOLOGIE ESSENTIELLE</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;width:15%;">1648</td><td style="padding:6px 10px;">Traités de Westphalie — naissance du système international moderne</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1795</td><td style="padding:6px 10px;">Kant, <em>Projet de paix perpétuelle</em> — théorie de la paix démocratique</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1832</td><td style="padding:6px 10px;">Clausewitz, <em>De la guerre</em> (posthume) — « La guerre est la continuation de la politique »</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1864</td><td style="padding:6px 10px;">1re Convention de Genève — naissance du droit international humanitaire</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1919</td><td style="padding:6px 10px;">Traité de Versailles + création de la SDN</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1945</td><td style="padding:6px 10px;">Création de l'ONU + procès de Nuremberg (1945–1946)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1948</td><td style="padding:6px 10px;">Déclaration universelle des droits de l'homme + 1re guerre israélo-arabe</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1949</td><td style="padding:6px 10px;">Conventions de Genève révisées (protection des civils en temps de guerre)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1994</td><td style="padding:6px 10px;">Génocide du Rwanda — échec de la communauté internationale</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1995</td><td style="padding:6px 10px;">Srebrenica + accords de Dayton (fin guerre Bosnie)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2001</td><td style="padding:6px 10px;">11 septembre — Al-Qaïda, guerre contre le terrorisme, Afghanistan</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2002</td><td style="padding:6px 10px;">Création de la Cour pénale internationale (CPI)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2014</td><td style="padding:6px 10px;">Daesh proclame le califat + annexion de la Crimée par la Russie</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2022</td><td style="padding:6px 10px;">Invasion russe de l'Ukraine (24 fév.) — retour de la guerre interétatique en Europe</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2023</td><td style="padding:6px 10px;">Mandat CPI contre Poutine + attaque Hamas (7 oct.) et guerre à Gaza</td></tr>
+    </table>
+  </div>
+
+</div>`
       },
+
       {
-        id:      "histoires-memoires",
-        title:   "Histoires et Mémoires",
-        classe:  "vide",
-        content: ""
+        id:"histoires-memoires",
+        title:"Histoire et Mémoire",
+        classe:"ia",
+        content:`
+<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+  <!-- ═══════════ 1. PROBLÉMATIQUE ET DÉFINITIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">PROBLÉMATIQUE CENTRALE</div>
+    <p style="margin:0 0 12px 0;">Questions clés : <em>Quelle est la différence entre histoire et mémoire ? Comment les sociétés construisent-elles leurs mémoires des conflits et des crimes de masse ? Quel rôle la justice joue-t-elle dans la construction de la mémoire ?</em></p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Histoire</td>
+        <td style="padding:7px 10px;">Reconstruction scientifique et critique du passé fondée sur des sources, des méthodes et un questionnement problématisé. L'historien cherche l'objectivité, prend de la distance, critique ses sources, révise ses conclusions. L'histoire est <em>plurielle</em> (débats entre historiens) et <em>évolutive</em>.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Mémoire</td>
+        <td style="padding:7px 10px;">Représentation subjective et sélective du passé par des individus ou des groupes. La mémoire est <em>partielle</em> (elle oublie autant qu'elle retient), <em>affective</em> (liée à l'identité et aux émotions), <em>évolutive</em> (elle change avec le temps et les enjeux politiques). Elle peut être individuelle ou collective.</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Mémoire collective</td>
+        <td style="padding:7px 10px;">Concept du sociologue Maurice Halbwachs : la mémoire est toujours socialement construite — on se souvient à travers les cadres sociaux (famille, nation, religion). La mémoire collective est l'ensemble des souvenirs partagés par un groupe social.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Lieux de mémoire</td>
+        <td style="padding:7px 10px;">Concept de Pierre Nora : espaces, objets ou pratiques où s'incarne la mémoire collective d'une nation (Verdun, le mont Saint-Michel, la Marseillaise). Ils compensent la disparition de la mémoire vivante par une symbolisation institutionnelle.</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Devoir de mémoire</td>
+        <td style="padding:7px 10px;">Obligation morale de ne pas oublier les crimes et les victimes du passé. Peut entrer en tension avec le travail de l'historien (qui doit rester objectif face aux pressions mémorielles et politiques) et avec la paix civile (mémoire qui divise).</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Crime contre l'humanité / Génocide</td>
+        <td style="padding:7px 10px;"><strong>Crime contre l'humanité</strong> : actes graves (meurtres, persécutions…) commis dans le cadre d'une attaque généralisée contre une population civile. Défini à Nuremberg (1945). <strong>Génocide</strong> : destruction intentionnelle d'un groupe national, ethnique, racial ou religieux. Convention ONU sur la prévention et la répression du crime de génocide (1948).</td>
+      </tr>
+      <tr style="background:#c0392b15;">
+        <td style="padding:7px 10px;font-weight:bold;">Loi mémorielle</td>
+        <td style="padding:7px 10px;">Loi qui reconnaît officiellement un événement historique et sa qualification (génocide, crime contre l'humanité). Ex. : Loi Gayssot (1990, France, négationnisme), loi reconnaissant le génocide arménien (2001, France). Tension avec la liberté de la recherche historique.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 2. GRANDES NOTIONS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">GRANDES NOTIONS À MAÎTRISER</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 1 — Histoire et mémoire : tensions et articulations</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">La différence histoire / mémoire</td>
+        <td style="padding:7px 10px;">Pierre Nora : « La mémoire est la vie, toujours portée par des groupes vivants… L'histoire est la reconstruction toujours problématique et incomplète de ce qui n'est plus. » Paul Ricœur : la mémoire peut être manipulée (mémoire abusée, mémoire obligée, mémoire empêchée). L'historien doit résister aux pressions mémorielles sans pour autant nier leur légitimité.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Les acteurs de la mémoire</td>
+        <td style="padding:7px 10px;">L'État (commémorations officielles, programmes scolaires, musées nationaux), les associations de victimes (Mémorial de la Shoah), les témoins et survivants, les historiens, les artistes (film, littérature), les médias. Ces acteurs peuvent s'opposer sur la façon de « lire » le passé.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Guerre des mémoires</td>
+        <td style="padding:7px 10px;">Terme qui désigne les conflits entre différentes mémoires collectives rivales, souvent instrumentalisées politiquement. Exemple central du programme : la guerre d'Algérie, dont les mémoires divergent profondément en France (mémoire des harkis, pied-noirs, Algériens, soldats) et en Algérie.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">Jalon 1 : La 1re Guerre mondiale</td>
+        <td style="padding:7px 10px;">Les responsabilités dans le déclenchement de la guerre ont longtemps été imputées à l'Allemagne seule (article 231 du traité de Versailles). Le travail des historiens a progressivement nuancé cette vision : les responsabilités sont partagées entre toutes les grandes puissances. La mémoire (culte des « poilus », monuments aux morts) a longtemps primé sur l'histoire dans l'espace public français.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Jalon 2 : La guerre d'Algérie</td>
+        <td style="padding:7px 10px;">Guerre (1954–1962) que la France a longtemps refusé de nommer ainsi (officiellement « opérations de maintien de l'ordre » jusqu'en 1999). Mémoires multiples : Algériens (lutte de libération nationale), harkis (abandonnés par la France, massacrés ou exilés), pieds-noirs (exode douloureux), soldats français (tortures reconnues tardivemeent). Reconnaissance progressive : 2022, Emmanuel Macron reconnaît que la torture était un « système » pendant la guerre.</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 2 — La justice face aux génocides et crimes de masse</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;width:30%;">Le précédent Nuremberg (1945–1946)</td>
+        <td style="padding:7px 10px;">1er tribunal international jugeant des crimes contre l'humanité et des crimes de guerre (chefs nazis). Innovations : responsabilité individuelle (pas seulement collective), crime de guerre, crime contre la paix. Critiques : « justice des vainqueurs ». Mais pose les bases de tout le droit pénal international.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">TPIY et TPIR</td>
+        <td style="padding:7px 10px;"><strong>TPIY</strong> (Tribunal pénal international pour l'ex-Yougoslavie, 1993–2017) : 161 inculpés, 90 condamnations. Juge les crimes de Srebrenica (Mladic condamné, 2017). <strong>TPIR</strong> (Tribunal pénal international pour le Rwanda, 1994–2015) : 93 affaires, qualifie le génocide des Tutsis (arrêts de référence). Limites : lenteur, coût, distance géographique avec les victimes.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">Les tribunaux gacaca (Rwanda)</td>
+        <td style="padding:7px 10px;">Justice communautaire et participative mise en place au Rwanda à partir de 2002 pour juger les génocidaires de rang intermédiaire (les chefs étant jugés par le TPIR). +120 000 « tribunaux » composés de juges élus localement, sans formation juridique. ~2 millions de dossiers traités jusqu'en 2012. Vise la réconciliation en plus de la punition : confessions en échange de réductions de peine. Controversé mais reconnu comme innovation majeure de la justice transitionnelle.</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;font-weight:bold;">La Cour pénale internationale (CPI)</td>
+        <td style="padding:7px 10px;">Créée en 2002, siège à La Haye. Juridiction permanente jugeant crimes de guerre, crimes contre l'humanité, génocides et (depuis 2018) crime d'agression. 124 États membres — mais pas USA, Russie, Chine, Inde. Mandats d'arrêt contre Poutine (2023), Omar el-Béchir (Soudan), Mouammar Kadhafi. Limite majeure : dépend de la coopération des États pour les arrestations.</td>
+      </tr>
+      <tr style="background:#e67e2215;">
+        <td style="padding:7px 10px;font-weight:bold;">La Shoah — construction mémorielle</td>
+        <td style="padding:7px 10px;">La mémoire de la Shoah a évolué lentement : après 1945, le silence domine (traumatisme, intégration des survivants). Le procès Eichmann à Jérusalem (1961) est un tournant : 1er procès télévisé, met la Shoah au cœur du débat public mondial. Procès Barbie (Lyon, 1987) : 1er procès pour crime contre l'humanité en France. Loi Gayssot (1990) : négationnisme interdit. 2000 : Journée internationale de commémoration de la Shoah (ONU). La reconnaissance de la responsabilité de Vichy par Chirac (1995) est une étape majeure.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 3. LES ACTEURS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">LES ACTEURS DE LA MÉMOIRE ET DE LA JUSTICE</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;width:22%;">L'État</td>
+        <td style="padding:8px 10px;">Principal acteur de la construction mémorielle officielle : commémorations nationales, programmes scolaires, musées, lois mémorielles, reconnaissance officielle (Chirac sur Vichy 1995, Macron sur la guerre d'Algérie 2022). Peut aussi instrumentaliser la mémoire à des fins politiques (nationalisme, union nationale).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Les historiens</td>
+        <td style="padding:8px 10px;">Produisent une mémoire critique fondée sur les sources. Parfois en conflit avec la mémoire officielle ou les associations de victimes. Exemple : les historiens qui ont nuancé la thèse d'une France entièrement résistante pendant la 2e GM (Paxton, <em>La France de Vichy</em>, 1973).</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Les associations de victimes</td>
+        <td style="padding:8px 10px;">Mémorial de la Shoah (Paris), associations de rescapés du génocide arménien, associations de harkis. Militent pour la reconnaissance officielle, la transmission aux jeunes générations, la lutte contre le négationnisme. Parfois en concurrence entre elles (concurrence des mémoires).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Les témoins et survivants</td>
+        <td style="padding:8px 10px;">Primo Levi, Elie Wiesel, Simone Veil (Shoah) — leur témoignage a une valeur irremplaçable mais la génération des témoins directs disparaît. La question de la transmission sans témoins directs est un enjeu central (archives filmées, témoignages numérisés).</td>
+      </tr>
+      <tr style="background:#2980b915;">
+        <td style="padding:8px 10px;font-weight:bold;">Les tribunaux</td>
+        <td style="padding:8px 10px;">Nuremberg, TPIY, TPIR, CPI, gacaca. La justice joue un rôle fondamental dans la construction de la mémoire officielle : elle établit des faits, qualifie les crimes, nomme les coupables et les victimes. Mais elle ne suffit pas à la réconciliation.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Les artistes et les médias</td>
+        <td style="padding:8px 10px;">Films (Shoah de Lanzmann 1985, La Liste de Schindler 1993), littérature (Primo Levi, Charlotte Delbo), bandes dessinées (Maus d'Art Spiegelman 1991). Ils touchent le grand public là où les historiens ne peuvent pas toujours aller — mais au risque de la simplification ou de la fictionnalisation.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 4. ÉTUDES DE CAS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">ÉTUDES DE CAS INCONTOURNABLES</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La Shoah — De l'oubli à la mémoire centrale de l'Europe</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Chronologie mémorielle :</strong> 1945 : silence des survivants + traumatisme collectif. 1961 : procès Eichmann (Jérusalem) — 1er tournant mondial. 1973 : Paxton, <em>La France de Vichy</em> — choc historiographique en France. 1985 : <em>Shoah</em> de Lanzmann (9h, film de référence). 1987 : procès Barbie à Lyon. 1990 : loi Gayssot (négationnisme). 1995 : discours de Chirac reconnaissant la responsabilité de Vichy. 2000 : ONU, Journée internationale (27 janvier). 2005 : inauguration du Mémorial de l'Holocauste à Berlin.<br><strong>Ce qu'il illustre :</strong> La construction mémorielle est un processus long, non linéaire ; la justice et la politique jouent des rôles complémentaires ; la mémoire peut d'abord être refoulée avant d'être institutionnalisée.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La guerre d'Algérie (1954–1962) — La guerre des mémoires</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Mémoires en présence :</strong> En France : mémoire des soldats (« appelés » peu reconnus), mémoire des harkis (Algériens ayant combattu du côté français, abandonnés en 1962 et souvent massacrés ou parqués dans des camps), mémoire des pieds-noirs (Français d'Algérie exilés en 1962), mémoire anticoloniale (torture, crimes de guerre). En Algérie : mémoire nationale glorieuse de la guerre de libération. Chiffres contestés entre les deux pays.<br><strong>Étapes de reconnaissance :</strong> 1999 : la France reconnaît officiellement que c'était une « guerre » (et non des « opérations de maintien de l'ordre »). 2001 : Jospin reconnaît les massacres de la Toussaint 1954. 2012 : Hollande reconnaît la répression du 17 octobre 1961 (massacre de manifestants algériens à Paris). 2021 : rapport Stora sur la réconciliation des mémoires. 2022 : Macron reconnaît que la torture était un « système ». Mais pas de loi reconnaissant la colonisation comme crime contre l'humanité.<br><strong>Ce qu'il illustre :</strong> La mémoire est un enjeu politique entre États et entre communautés ; la réconciliation mémorielle est un processus lent et fragile.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">Le génocide des Tutsis au Rwanda (1994) — Justice à plusieurs échelles</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> ~800 000 morts en 100 jours (avril–juillet 1994). La communauté internationale n'intervient pas (voir fiche Guerre et Paix). Trois niveaux de justice mis en place : (1) TPIR (La Haye, échelle internationale) : juge les chefs — lenteur, éloignement des victimes, 93 affaires. (2) Tribunaux nationaux rwandais : jugent les catégories supérieures. (3) Tribunaux gacaca (2002–2012, échelle locale) : justice participative et communautaire pour les génocidaires ordinaires — +2 millions de dossiers, rôle de réconciliation.<br>La mémoire est institutionnalisée : Musée du Génocide de Kigali, journée nationale de commémoration (Kwibuka, 7 avril), enseignement dans les écoles. Tensions : le gouvernement rwandais contrôle strictement le récit mémoriel.<br><strong>Ce qu'il illustre :</strong> La complémentarité des échelles de justice ; l'innovation de la justice transitionnelle ; les limites de la communauté internationale ; la reconstruction mémorielle comme enjeu politique.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La Première Guerre mondiale — Responsabilités et mémoire en France et en Allemagne</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Traité de Versailles (1919) : l'article 231 rend l'Allemagne seule responsable de la guerre (« clause de culpabilité de guerre ») → base des réparations (132 milliards de marks-or). Ce verdict mémoriel et politique a nourri le ressentiment allemand et facilité la montée du nazisme. Travail des historiens (Christopher Clark, <em>Les Somnambules</em>, 2013) : les responsabilités sont partagées. En France : culte des morts, monuments aux morts dans chaque commune (36 000), Soldat inconnu (1920). La mémoire de la « der des ders » n'a pas empêché 1939 — interrogation centrale sur l'efficacité du souvenir comme garde-fou.<br><strong>Ce qu'il illustre :</strong> La mémoire instrumentalisée peut produire l'effet inverse à celui recherché ; le travail des historiens corrige progressivement les mémoires officielles.</div>
+      </div>
+
+      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
+        <div style="font-weight:bold;font-size:15px;">La commission Vérité et Réconciliation (Afrique du Sud, 1995–2002)</div>
+        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Après la fin de l'apartheid (1994), l'Afrique du Sud choisit la réconciliation plutôt que les procès. La CVR (présidée par Desmond Tutu) : les auteurs de crimes politiques peuvent obtenir l'amnistie en échange d'aveux complets et publics. ~7 000 demandes d'amnistie, ~1 500 accordées. Les victimes témoignent et peuvent poser des questions à leurs bourreaux. Critiques : impunité pour les coupables ; douleur des victimes sans réparation matérielle suffisante. Mais aussi modèle mondial de justice restaurative.<br><strong>Ce qu'il illustre :</strong> Différents modèles de justice transitionnelle ; la tension entre vérité, réconciliation et punition ; la justice restaurative comme alternative aux tribunaux pénaux.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. TENSIONS ET DÉBATS ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">TENSIONS ET DÉBATS CLÉS</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;width:35%;">« Si la mémoire divise, l'histoire réunit » (Pierre Nora)</td>
+        <td style="padding:8px 10px;">Les mémoires concurrentes d'un même événement (guerre d'Algérie, Shoah, génocide arménien) peuvent diviser les sociétés. L'histoire, par sa méthode critique et son aspiration à l'objectivité, peut servir de cadre commun — mais elle ne remplace pas la mémoire qui répond à un besoin d'identité et de reconnaissance.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Devoir de mémoire vs liberté de l'historien</td>
+        <td style="padding:8px 10px;">Les lois mémorielles (Gayssot, reconnaissance du génocide arménien) protègent les victimes mais peuvent contraindre la liberté de recherche historique. Danger du « tribunal de l'histoire » qui juge les événements du passé avec les normes du présent. L'historien ne doit pas être le militant de la mémoire qu'il étudie.</td>
+      </tr>
+      <tr style="background:#8e44ad15;">
+        <td style="padding:8px 10px;font-weight:bold;">Justice vs réconciliation</td>
+        <td style="padding:8px 10px;">La justice pénale (TPIY, TPIR, CPI) peut être lente, lointaine, coûteuse et satisfaire les victimes sans reconstruire les relations sociales. La justice restaurative (CVR sud-africaine, gacaca) privilégie la réconciliation au risque de l'impunité. Ces modèles ne s'excluent pas : Rwanda a utilisé les deux.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;font-weight:bold;">Universalisation vs communautarisation de la mémoire</td>
+        <td style="padding:8px 10px;">La Shoah est devenue un modèle de crime absolu, référence universelle du génocide. Mais d'autres génocides (arméniens, rwandais, Yézidis) peinent à obtenir la même reconnaissance internationale. Risque de hiérarchiser les victimes. ONU 2005 : la R2P vise à universaliser la protection, mais son application reste sélective.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══════════ 6. PLANS TYPES ═══════════ -->
+  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:12px;">PLANS TYPES DE DISSERTATION</div>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 1 : Juger les génocides et les crimes de masse depuis 1945 (Métropole 2024)</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan thématique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. De Nuremberg aux tribunaux ad hoc : la construction progressive d'une justice pénale internationale</td><td style="padding:7px 10px;">Nuremberg (1945–46) : 1er tribunal international. TPIY (1993) : Bosnie, Srebrenica. TPIR (1994) : Rwanda — Ex. : condamnation de Mladic (2017), jugements gacaca</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Des niveaux de justice complémentaires</td><td style="padding:7px 10px;">Échelle internationale (CPI) + nationale + locale (gacaca) — CVR Afrique du Sud — Ex. : Rwanda (3 niveaux), procès Barbie (France)</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Les limites structurelles de la justice internationale</td><td style="padding:7px 10px;">Veto au CS ONU, non-universalité CPI, difficultés d'arrestation — Ex. : Poutine (mandat non exécuté), Béchir (non arrêté), impunité des grandes puissances</td></tr>
+    </table>
+
+    <p style="font-weight:bold;margin-bottom:6px;">Sujet 2 : L'État, seul acteur de la construction des mémoires ?</p>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan dialectique</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. L'État, acteur central de la mémoire officielle</td><td style="padding:7px 10px;">Commémorations, musées nationaux, programmes scolaires, lois mémorielles — Ex. : discours de Chirac 1995, Journée de la mémoire de la Shoah, Musée du génocide Kigali</td></tr>
+      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. D'autres acteurs construisent et contestent la mémoire officielle</td><td style="padding:7px 10px;">Historiens (Paxton/France de Vichy), associations (Mémorial Shoah), témoins (Primo Levi, Simone Veil), artistes (Shoah de Lanzmann) — Ex. : guerre d'Algérie, concurrence des mémoires</td></tr>
+      <tr><td style="padding:7px 10px;font-weight:bold;">III. Des mémoires en tension : entre instrumentalisation et réconciliation</td><td style="padding:7px 10px;">La mémoire peut être instrumentalisée par l'État (nationalisme) ou divisée (guerre des mémoires) — Ex. : guerre d'Algérie France/Algérie, Turquie/génocide arménien</td></tr>
+    </table>
+  </div>
+
+  <!-- CHRONOLOGIE -->
+  <div style="background:var(--card-bg);border-left:4px solid #7f8c8d;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
+    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#7f8c8d;margin-bottom:12px;">CHRONOLOGIE ESSENTIELLE</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;width:15%;">1945–46</td><td style="padding:6px 10px;">Procès de Nuremberg — 1re justice pénale internationale</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1948</td><td style="padding:6px 10px;">Convention ONU sur le génocide + DUDH</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1954–62</td><td style="padding:6px 10px;">Guerre d'Algérie</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1961</td><td style="padding:6px 10px;">Procès Eichmann à Jérusalem — tournant mémoriel de la Shoah</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1973</td><td style="padding:6px 10px;">Paxton, <em>La France de Vichy</em> — choc historiographique</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1985</td><td style="padding:6px 10px;"><em>Shoah</em> de Claude Lanzmann (film de référence)</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1987</td><td style="padding:6px 10px;">Procès Barbie (Lyon) — 1er procès crime contre l'humanité en France</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1990</td><td style="padding:6px 10px;">Loi Gayssot (France) — négationnisme interdit</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1993–94</td><td style="padding:6px 10px;">Création TPIY et TPIR + génocide Rwanda</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">1995</td><td style="padding:6px 10px;">Discours Chirac (Vel d'Hiv) + CVR Afrique du Sud + Srebrenica</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1999</td><td style="padding:6px 10px;">France reconnaît officiellement la « guerre d'Algérie »</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2000</td><td style="padding:6px 10px;">ONU : 27 janvier = Journée internationale de commémoration de la Shoah</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2001</td><td style="padding:6px 10px;">Loi française reconnaissant le génocide arménien</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2002–12</td><td style="padding:6px 10px;">Tribunaux gacaca au Rwanda</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2002</td><td style="padding:6px 10px;">Création de la CPI (Statut de Rome)</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:bold;">2022</td><td style="padding:6px 10px;">Macron reconnaît que la torture était un « système » en Algérie</td></tr>
+      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2023</td><td style="padding:6px 10px;">Mandat CPI contre Poutine pour déportation d'enfants ukrainiens</td></tr>
+    </table>
+  </div>
+
+</div>`
       },
       {
         id:      "patrimoine",
