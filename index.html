@@ -60,15 +60,15 @@ body.night{
 .card.hors-programme::before {
   content: "⚠ Hors programme";
   position: absolute;
-  top: 10px;
+  top: 7px;
   right: 12px;
   background: #e67e22;
   color: white;
-  font-size: 10px;
+  font-size: 9px;
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: bold;
-  padding: 3px 8px;
+  padding: 2px 7px;
   border-radius: 20px;
   letter-spacing: 0.3px;
   white-space: nowrap;
@@ -109,10 +109,16 @@ body {
   position: fixed;
   top: 18px;
   right: 24px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--title);
-  z-index: 1000;
+  z-index: 999;
+  max-width: 40%;
+  text-align: right;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.4s;
 }
 
