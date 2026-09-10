@@ -30,37 +30,65 @@ body.night{
   --shadow:     0 2px 10px rgba(0,0,0,0.4);
 }
 
-/* ============================================================
-   CODE COULEUR DES FICHES
-   Changer la classe d'une fiche dans le JS suffit à changer sa couleur.
-   vide   = gris/noir  → fiche sans contenu
-   ia     = violet     → contenu généré par IA
-   web    = bleu       → contenu venant d'internet
-   humain = vert       → contenu rédigé par un humain
-   ============================================================ */
-.card.vide   { box-shadow: 0 0 0 2px #555,    0 0 12px 3px rgba(100,100,100,0.35); }
-.card.ia     { box-shadow: 0 0 0 2px #7c3aed, 0 0 14px 4px rgba(124,58,237,0.45); }
-.card.web    { box-shadow: 0 0 0 2px #1a6fca, 0 0 14px 4px rgba(26,111,202,0.45); }
-.card.humain { box-shadow: 0 0 0 2px #16a34a, 0 0 14px 4px rgba(22,163,74,0.45); }
+/* ══════════════════════════════════════
+   CODE COULEUR DES FICHES — CONTOURS
+   ══════════════════════════════════════ */
+.card.web      { box-shadow: 0 0 0 2px #1a6fca, 0 0 14px 4px rgba(26,111,202,0.45); }
+.card.web-ia   { box-shadow: 0 0 0 2px #27ae60, 0 0 14px 4px rgba(39,174,96,0.45); }
+.card.ia       { box-shadow: 0 0 0 2px #f1c40f, 0 0 14px 4px rgba(241,196,15,0.45); }
+.card.ia-humain{ box-shadow: 0 0 0 2px #e67e22, 0 0 14px 4px rgba(230,126,34,0.45); }
+.card.humain   { box-shadow: 0 0 0 2px #e74c3c, 0 0 14px 4px rgba(231,76,60,0.45); }
+.card.vide     { box-shadow: 0 0 0 2px #555,    0 0 12px 3px rgba(100,100,100,0.35); }
 
-/* ============================================================
-   Bandeau origine (lié à la classe de la fiche)
-   ============================================================ */
-.bandeau-origine {
-  width: 100%;
-  text-align: center;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 8px 0 10px;
-  margin-bottom: 24px;
-  border-radius: 8px;
+.bandeau-origine  { width:100%; text-align:center; font-family:Georgia,serif; font-size:15px; font-weight:bold; letter-spacing:1px; padding:8px 0 10px; margin-bottom:24px; border-radius:8px; }
+.bandeau-vide     { color:#888;    background:rgba(100,100,100,0.08); }
+.bandeau-web      { color:#1a6fca; background:rgba(26,111,202,0.08);  }
+.bandeau-web-ia   { color:#27ae60; background:rgba(39,174,96,0.08);   }
+.bandeau-ia       { color:#c9a800; background:rgba(241,196,15,0.08);  }
+.bandeau-ia-humain{ color:#e67e22; background:rgba(230,126,34,0.08);  }
+.bandeau-humain   { color:#e74c3c; background:rgba(231,76,60,0.08);   }
+
+/* ══════════════════════════════════════
+   PASTILLE HORS PROGRAMME
+   Indépendante de la couleur d'origine.
+   ══════════════════════════════════════ */
+
+/* Sur la carte dans la liste */
+.card.hors-programme {
+  position: relative;
 }
-.bandeau-vide   { color: #888;    background: rgba(100,100,100,0.08); }
-.bandeau-ia     { color: #7c3aed; background: rgba(124,58,237,0.08);  }
-.bandeau-web    { color: #1a6fca; background: rgba(26,111,202,0.08);  }
-.bandeau-humain { color: #16a34a; background: rgba(22,163,74,0.08);   }
+.card.hors-programme::before {
+  content: "⚠ Hors programme";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: #e67e22;
+  color: white;
+  font-size: 10px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Dans le contenu de la fiche ouverte */
+.badge-hors-programme {
+  display: inline-block;
+  background: #e67e22;
+  color: white;
+  font-size: 11px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  margin-bottom: 18px;
+}
 
 /* ============================================================
    BASE
@@ -324,7 +352,7 @@ const matieres = [
             {
         id:"espaces-conquete",
         title:"De nouveaux espaces de conquête",
-        classe:"ia",
+        classe:"ia hors-programme",
         content:`
 <div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
@@ -797,7 +825,7 @@ const matieres = [
       {
         id:"histoires-memoires",
         title:"Histoire et Mémoire",
-        classe:"ia",
+        classe:"ia hors-programme",
         content:`
 <div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
@@ -1808,7 +1836,65 @@ const matieres = [
     id:    "amc",
     title: "AMC",
     sub:   "Anglais et Monde Contemporain",
-    fiches: []
+    fiches: [
+      /* ── THÉMATIQUE 1 : FAIRE SOCIÉTÉ ── */
+      {
+        id:      "amc-unite-pluralite",
+        title:   "Unité et pluralité",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-libertes",
+        title:   "Libertés publiques et libertés individuelles",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-egalites-inegalites",
+        title:   "Égalités et inégalités",
+        classe:  "vide",
+        content: ""
+      },
+      /* ── THÉMATIQUE 2 : ENVIRONNEMENTS EN MUTATION ── */
+      {
+        id:      "amc-frontiere-espace",
+        title:   "Frontière et espace",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-nature-ecologie",
+        title:   "De la protection de la nature à la transition écologique",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-repenser-ville",
+        title:   "Repenser la ville",
+        classe:  "vide",
+        content: ""
+      },
+      /* ── THÉMATIQUE 3 : RELATION AU MONDE ── */
+      {
+        id:      "amc-puissance-influence",
+        title:   "Puissance et influence",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-rivalites-interdependances",
+        title:   "Rivalités et interdépendances",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "amc-heritage-diversite",
+        title:   "Héritage commun et diversité",
+        classe:  "vide",
+        content: ""
+      }
+    ]
   },
 
   /* ── PHILOSOPHIE ────────────────────────────────────────── */
@@ -4171,19 +4257,27 @@ function ouvrirFiche(matiereId, ficheId){
   const f = m.fiches.find(x => x.id === ficheId);
   if(!f) return;
 
-  // Texte et couleur du bandeau selon la classe de la fiche
+  // Bandeau origine
   const bandeaux = {
-    vide:   { label: "Aucune origine renseignée", css: "bandeau-vide"   },
-    ia:     { label: "Origine IA",                css: "bandeau-ia"     },
-    web:    { label: "Origine internet",          css: "bandeau-web"    },
-    humain: { label: "Origine humaine",           css: "bandeau-humain" }
+    vide:      { label: "Aucune origine renseignée", css: "bandeau-vide"    },
+    web:       { label: "Origine internet",          css: "bandeau-web"     },
+    "web-ia":  { label: "Origine internet + IA",     css: "bandeau-web-ia"  },
+    ia:        { label: "Origine IA",                css: "bandeau-ia"      },
+    "ia-humain":{ label: "Origine IA + humaine",     css: "bandeau-ia-humain"},
+    humain:    { label: "Origine humaine",           css: "bandeau-humain"  }
   };
   const b = bandeaux[f.classe] || bandeaux.vide;
+
+  // Pastille hors programme (dans la fiche ouverte)
+  const horsProgBadge = f.classe && f.classe.includes("hors-programme")
+    ? `<div><span class="badge-hors-programme">⚠ Hors programme</span></div>`
+    : "";
 
   afficherViewer(f.title);
 
   document.getElementById("content").innerHTML =
     `<div style="width:100%;max-width:760px;">
+       ${horsProgBadge}
        <div class="bandeau-origine ${b.css}">● ${b.label}</div>
        ${f.content
          ? f.content
