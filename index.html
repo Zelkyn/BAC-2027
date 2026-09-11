@@ -4272,7 +4272,8 @@ function ouvrirFiche(matiereId, ficheId){
     "ia-humain":{ label: "Origine IA + humaine",     css: "bandeau-ia-humain"},
     humain:    { label: "Origine humaine",           css: "bandeau-humain"  }
   };
-  const b = bandeaux[f.classe] || bandeaux.vide;
+  const classeBase = f.classe ? f.classe.replace("hors-programme","").trim() : "vide";
+  const b = bandeaux[classeBase] || bandeaux.vide;
 
   // Pastille hors programme (dans la fiche ouverte)
   const horsProgBadge = f.classe && f.classe.includes("hors-programme")
