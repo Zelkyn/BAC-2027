@@ -44,20 +44,73 @@ body.night [style*="background:#f9f9f9"] {
 /* ══════════════════════════════════════
    CODE COULEUR DES FICHES — CONTOURS
    ══════════════════════════════════════ */
-.card.web      { box-shadow: 0 0 0 2px #1a6fca, 0 0 14px 4px rgba(26,111,202,0.45); }
-.card.web-ia   { box-shadow: 0 0 0 2px #27ae60, 0 0 14px 4px rgba(39,174,96,0.45); }
-.card.ia       { box-shadow: 0 0 0 2px #f1c40f, 0 0 14px 4px rgba(241,196,15,0.45); }
-.card.ia-humain{ box-shadow: 0 0 0 2px #e67e22, 0 0 14px 4px rgba(230,126,34,0.45); }
-.card.humain   { box-shadow: 0 0 0 2px #e74c3c, 0 0 14px 4px rgba(231,76,60,0.45); }
-.card.vide     { box-shadow: 0 0 0 2px #555,    0 0 12px 3px rgba(100,100,100,0.35); }
 
-.bandeau-origine  { width:100%; text-align:center; font-family:Georgia,serif; font-size:15px; font-weight:bold; letter-spacing:1px; padding:8px 0 10px; margin-bottom:24px; border-radius:8px; }
-.bandeau-vide     { color:#888;    background:rgba(100,100,100,0.08); }
-.bandeau-web      { color:#1a6fca; background:rgba(26,111,202,0.08);  }
-.bandeau-web-ia   { color:#27ae60; background:rgba(39,174,96,0.08);   }
-.bandeau-ia       { color:#c9a800; background:rgba(241,196,15,0.08);  }
-.bandeau-ia-humain{ color:#e67e22; background:rgba(230,126,34,0.08);  }
-.bandeau-humain   { color:#e74c3c; background:rgba(231,76,60,0.08);   }
+/* Origines simples */
+.card.vide {
+  box-shadow: 0 0 0 2px #555, 0 0 12px 3px rgba(100,100,100,0.35);
+}
+
+.card.ia, .card.humain, .card.web,
+.card.web-ia, .card.ia-humain, .card.web-humain {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.card.ia::after, .card.humain::after, .card.web::after,
+.card.web-ia::after, .card.ia-humain::after, .card.web-humain::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background-size: 300% 300%;
+  animation: borderFlow 3s ease infinite;
+  z-index: -1;
+}
+
+/* Couleurs par classe */
+.card.ia::after {
+  background: linear-gradient(270deg, #7c3aed, #a855f7, #7c3aed);
+}
+.card.humain::after {
+  background: linear-gradient(270deg, #16a34a, #4ade80, #16a34a);
+}
+.card.web::after {
+  background: linear-gradient(270deg, #1a6fca, #38bdf8, #1a6fca);
+}
+
+/* Origines mixtes — alternance lente entre deux couleurs */
+.card.web-ia::after {
+  background: linear-gradient(270deg, #1a6fca, #7c3aed, #1a6fca, #7c3aed);
+  background-size: 400% 400%;
+  animation-duration: 4s;
+}
+.card.ia-humain::after {
+  background: linear-gradient(270deg, #7c3aed, #16a34a, #7c3aed, #16a34a);
+  background-size: 400% 400%;
+  animation-duration: 4s;
+}
+.card.web-humain::after {
+  background: linear-gradient(270deg, #1a6fca, #16a34a, #1a6fca, #16a34a);
+  background-size: 400% 400%;
+  animation-duration: 4s;
+}
+
+/* Animation commune */
+@keyframes borderFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bandeau-origine    { width:100%; text-align:center; font-family:Georgia,serif; font-size:15px; font-weight:bold; letter-spacing:1px; padding:8px 0 10px; margin-bottom:24px; border-radius:8px; }
+.bandeau-vide       { color:#888;    background:rgba(100,100,100,0.08); }
+.bandeau-web        { color:#1a6fca; background:rgba(26,111,202,0.08);  }
+.bandeau-web-ia     { color:#5b21b6; background:rgba(91,33,182,0.08);   }
+.bandeau-ia         { color:#7c3aed; background:rgba(124,58,237,0.08);  }
+.bandeau-ia-humain  { color:#2d7d46; background:rgba(45,125,70,0.08);   }
+.bandeau-web-humain { color:#0e7490; background:rgba(14,116,144,0.08);  }
+.bandeau-humain     { color:#16a34a; background:rgba(22,163,74,0.08);   }
 
 /* ══════════════════════════════════════
    PASTILLE HORS PROGRAMME
@@ -4640,13 +4693,14 @@ function ouvrirFiche(matiereId, ficheId){
 
   // Bandeau origine
   const bandeaux = {
-    vide:      { label: "Aucune origine renseignée", css: "bandeau-vide"    },
-    web:       { label: "Origine internet",          css: "bandeau-web"     },
-    "web-ia":  { label: "Origine internet + IA",     css: "bandeau-web-ia"  },
-    ia:        { label: "Origine IA",                css: "bandeau-ia"      },
-    "ia-humain":{ label: "Origine IA + humaine",     css: "bandeau-ia-humain"},
-    humain:    { label: "Origine humaine",           css: "bandeau-humain"  }
-  };
+  vide:         { label: "Aucune origine renseignée",  css: "bandeau-vide"        },
+  web:          { label: "Origine internet",           css: "bandeau-web"         },
+  "web-ia":     { label: "Origine internet + IA",      css: "bandeau-web-ia"      },
+  ia:           { label: "Origine IA",                 css: "bandeau-ia"          },
+  "ia-humain":  { label: "Origine IA + humaine",       css: "bandeau-ia-humain"   },
+  "web-humain": { label: "Origine internet + humaine", css: "bandeau-web-humain"  },
+  humain:       { label: "Origine humaine",            css: "bandeau-humain"      }
+};
   const classeBase = f.classe ? f.classe.replace("hors-programme","").trim() : "vide";
   const b = bandeaux[classeBase] || bandeaux.vide;
 
