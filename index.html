@@ -564,43 +564,6 @@ body.night #night-toggle::after {
 
 
 <script>
-/* ============================================================
-   DONNÉES — MATIÈRES ET FICHES
-   ------------------------------------------------------------
-   Pour chaque matière :
-     id     → identifiant interne (ne pas changer)
-     title  → nom affiché sur la carte
-     sub    → sous-titre (laisser "" si aucun)
-     fiches → liste des sous-fiches (laisser [] si aucune)
-
-   Pour chaque fiche :
-     id     → identifiant interne
-     title  → nom affiché
-     classe → couleur du contour :
-               "vide"   = gris  (pas de contenu)
-               "ia"     = violet (contenu IA)
-               "web"    = bleu  (contenu internet)
-               "humain" = vert  (contenu humain)
-     content→ texte affiché quand on ouvre la fiche
-               (laisser "" pour afficher "Aucun contenu pour le moment…")
-   ============================================================ */
-
-const flashcardsData = {
-  "croissance": {          // id du chapitre
-    "_all": [...],         // questions sur tout le chapitre
-    "I": {
-      "_all": [...],       // questions sur tout le grand I
-      "A": [...],          // questions sur la sous-partie I.A
-      "B": [...],
-      "C": [...]
-    },
-    "II": {
-      "_all": [...],
-      "A": [...],
-      ...
-    }
-  }
-}
 
 const matieres = [
 
@@ -5143,6 +5106,189 @@ body.night .formule { background: #0d0d1a; }
       ]
     }
 ]; /* ← fin de la liste des matières */
+
+/* ══════════════════════════════════════════════════════
+   DONNÉES DES FLASHCARDS
+   ──────────────────────────────────────────────────────
+   Organisation : flashcardsData[chapitreId][section]
+   section peut être :
+     "_all"        → tout le chapitre
+     "I"           → tout le grand I
+     "I.A"         → sous-partie I.A
+     "I.B"         → sous-partie I.B
+     etc.
+   Chaque entrée : { q: "question", r: "réponse" }
+   ══════════════════════════════════════════════════════ */
+const flashcardsData = {
+
+  croissance: {
+
+    _all: [
+      /* Questions sur l'ensemble du chapitre — à compléter */
+    ],
+
+    "I": {
+      _all: [
+        /* Questions sur tout le grand I — à compléter */
+      ],
+      "A": [
+        /* Questions sur I.A — à compléter */
+        /* Exemple :
+        { q: "Quelle est la formule du taux de croissance du PIB ?",
+          r: "[(PIBn − PIBn−1) / PIBn−1] × 100" },
+        { q: "Quelle est la différence entre PIB nominal et PIB réel ?",
+          r: "Le PIB nominal est calculé aux prix courants. Le PIB réel est corrigé de l'inflation (prix constants). On utilise toujours le PIB réel pour mesurer la croissance." },
+        */
+      ],
+      "B": [
+        /* Questions sur I.B — à compléter */
+      ],
+      "C": [
+        /* Questions sur I.C — à compléter */
+      ]
+    },
+
+    "II": {
+      _all: [],
+      "A": [],
+      "B": [],
+      "C": []
+    },
+
+    "III": {
+      _all: [],
+      "A": [],
+      "B": [],
+      "C": []
+    }
+
+  }
+
+  /* Ajout d'autres chapitres SES :
+  ,
+  societe_francaise: {
+    _all: [],
+    "I": { _all: [], "A": [], "B": [] },
+    ...
+  }
+  */
+
+};
+
+/* ══════════════════════════════════════
+   MOTEUR FLASHCARDS — ne pas modifier
+   ══════════════════════════════════════ */
+let fcDeck = [];
+let fcIndex = 0;
+
+function fcOpen(chapitreId, section) {
+  // Récupérer les cartes selon la section
+  const chapitre = flashcardsData[chapitreId];
+  if (!chapitre) { fcDeck = []; }
+  else if (section === "_all") {
+    // Toutes les cartes du chapitre
+    fcDeck = collectAll(chapitre);
+  } else if (section.includes(".")) {
+    // Sous-partie ex : "I.A"
+    const [grand, sub] = section.split(".");
+    fcDeck = (chapitre[grand] && chapitre[grand][sub]) ? [...chapitre[grand][sub]] : [];
+  } else {
+    // Grande partie ex : "I" → toutes les cartes de I._all + I.A + I.B + I.C
+    fcDeck = chapitre[section] ? collectAll(chapitre[section]) : [];
+  }
+
+  // Mélanger aléatoirement
+  fcDeck = shuffle(fcDeck);
+  fcIndex = 0;
+
+  // Titre de l'overlay
+  const titreSection = section === "_all" ? "Tout le chapitre"
+    : section.includes(".") ? "Partie " + section
+    : "Partie " + section + " — tout";
+  document.getElementById("fc-title").textContent =
+    "Flashcards · " + chapitreId.charAt(0).toUpperCase() + chapitreId.slice(1).replace(/_/g," ")
+    + " · " + titreSection;
+
+  // Afficher
+  document.getElementById("fc-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+  fcRender();
+}
+
+function collectAll(obj) {
+  // Récupère récursivement toutes les cartes d'un objet (y compris _all et sous-sections)
+  let cards = [];
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      cards = cards.concat(obj[key]);
+    } else if (typeof obj[key] === "object") {
+      cards = cards.concat(collectAll(obj[key]));
+    }
+  }
+  return cards;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function fcRender() {
+  const box = document.getElementById("fc-box");
+  const controls = document.getElementById("fc-controls");
+  const hint = document.getElementById("fc-hint");
+  const empty = document.getElementById("fc-empty");
+
+  if (fcDeck.length === 0) {
+    box.style.display = "none";
+    controls.style.display = "none";
+    hint.style.display = "none";
+    empty.style.display = "block";
+    return;
+  }
+
+  box.style.display = "block";
+  controls.style.display = "flex";
+  hint.style.display = "block";
+  empty.style.display = "none";
+
+  // Reset flip
+  document.getElementById("fc-inner").classList.remove("flipped");
+
+  const card = fcDeck[fcIndex];
+  document.getElementById("fc-q").innerHTML = card.q;
+  document.getElementById("fc-r").innerHTML = card.r;
+  document.getElementById("fc-counter").textContent = (fcIndex + 1) + " / " + fcDeck.length;
+  document.getElementById("fc-prev").disabled = (fcIndex === 0);
+  document.getElementById("fc-next").disabled = (fcIndex === fcDeck.length - 1);
+}
+
+function fcFlip() {
+  document.getElementById("fc-inner").classList.toggle("flipped");
+}
+
+function fcNav(dir) {
+  fcIndex = Math.max(0, Math.min(fcDeck.length - 1, fcIndex + dir));
+  fcRender();
+}
+
+function fcClose() {
+  document.getElementById("fc-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+  document.getElementById("fc-inner").classList.remove("flipped");
+}
+
+// Fermer avec Échap
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") fcClose();
+  if (e.key === "ArrowRight") fcNav(1);
+  if (e.key === "ArrowLeft") fcNav(-1);
+  if (e.key === " ") { e.preventDefault(); fcFlip(); }
+});
 
 /* ══════════════════════════════════════
    MOTEUR FLASHCARDS — ne pas modifier
