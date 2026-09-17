@@ -6,6 +6,180 @@
 <title>BAC 2027</title>
 <style>
 
+/* ══════════════════════════════════════
+   SYSTÈME FLASHCARDS
+   ══════════════════════════════════════ */
+.fc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1a1a2e, #2d2d4e);
+  color: #e0d7ff;
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  margin: 6px 0 12px 0;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(124,58,237,0.2);
+}
+.fc-btn:hover {
+  background: linear-gradient(135deg, #2d2d4e, #3d2d6e);
+  box-shadow: 0 4px 14px rgba(124,58,237,0.35);
+  transform: translateY(-1px);
+}
+.fc-btn-chapter {
+  background: linear-gradient(135deg, #c0392b, #922b21);
+  color: white;
+  border-color: rgba(192,57,43,0.4);
+  box-shadow: 0 2px 8px rgba(192,57,43,0.2);
+  font-size: 14px;
+  padding: 8px 20px;
+}
+.fc-btn-chapter:hover {
+  background: linear-gradient(135deg, #a93226, #7b241c);
+  box-shadow: 0 4px 14px rgba(192,57,43,0.35);
+}
+
+/* Overlay flashcards */
+#fc-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+}
+#fc-overlay.open { display: flex; }
+
+#fc-box {
+  width: 100%;
+  max-width: 600px;
+  min-height: 260px;
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+}
+#fc-inner {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  border-radius: 18px;
+}
+#fc-inner.flipped { transform: rotateY(180deg); }
+
+.fc-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 32px;
+  text-align: center;
+  font-family: Georgia, serif;
+}
+#fc-front {
+  background: linear-gradient(135deg, #1a1a2e, #2d2d4e);
+  color: #e0d7ff;
+  border: 2px solid rgba(124,58,237,0.5);
+  box-shadow: 0 8px 32px rgba(124,58,237,0.3);
+}
+#fc-back {
+  background: linear-gradient(135deg, #0d2818, #1a4a2e);
+  color: #d0ffd8;
+  border: 2px solid rgba(39,174,96,0.5);
+  box-shadow: 0 8px 32px rgba(39,174,96,0.3);
+  transform: rotateY(180deg);
+}
+body.night #fc-front { background: linear-gradient(135deg, #0d0d1a, #1a1a2e); }
+body.night #fc-back  { background: linear-gradient(135deg, #051009, #0d2818); }
+
+.fc-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+.fc-text {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+#fc-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.fc-nav {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.fc-nav:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+.fc-nav:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+#fc-counter {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  min-width: 80px;
+  text-align: center;
+}
+#fc-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+#fc-close:hover { opacity: 1; }
+#fc-title {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  text-align: center;
+}
+#fc-hint {
+  color: rgba(255,255,255,0.4);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+#fc-empty {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  text-align: center;
+  opacity: 0.8;
+}
+
 /* ============================================================
    COULEURS GÉNÉRALES (mode jour)
    ============================================================ */
@@ -410,6 +584,23 @@ body.night #night-toggle::after {
      content→ texte affiché quand on ouvre la fiche
                (laisser "" pour afficher "Aucun contenu pour le moment…")
    ============================================================ */
+
+const flashcardsData = {
+  "croissance": {          // id du chapitre
+    "_all": [...],         // questions sur tout le chapitre
+    "I": {
+      "_all": [...],       // questions sur tout le grand I
+      "A": [...],          // questions sur la sous-partie I.A
+      "B": [...],
+      "C": [...]
+    },
+    "II": {
+      "_all": [...],
+      "A": [...],
+      ...
+    }
+  }
+}
 
 const matieres = [
 
@@ -4953,6 +5144,121 @@ body.night .formule { background: #0d0d1a; }
     }
 ]; /* ← fin de la liste des matières */
 
+/* ══════════════════════════════════════
+   MOTEUR FLASHCARDS — ne pas modifier
+   ══════════════════════════════════════ */
+let fcDeck = [];
+let fcIndex = 0;
+
+function fcOpen(chapitreId, section) {
+  // Récupérer les cartes selon la section
+  const chapitre = flashcardsData[chapitreId];
+  if (!chapitre) { fcDeck = []; }
+  else if (section === "_all") {
+    // Toutes les cartes du chapitre
+    fcDeck = collectAll(chapitre);
+  } else if (section.includes(".")) {
+    // Sous-partie ex : "I.A"
+    const [grand, sub] = section.split(".");
+    fcDeck = (chapitre[grand] && chapitre[grand][sub]) ? [...chapitre[grand][sub]] : [];
+  } else {
+    // Grande partie ex : "I" → toutes les cartes de I._all + I.A + I.B + I.C
+    fcDeck = chapitre[section] ? collectAll(chapitre[section]) : [];
+  }
+
+  // Mélanger aléatoirement
+  fcDeck = shuffle(fcDeck);
+  fcIndex = 0;
+
+  // Titre de l'overlay
+  const titreSection = section === "_all" ? "Tout le chapitre"
+    : section.includes(".") ? "Partie " + section
+    : "Partie " + section + " — tout";
+  document.getElementById("fc-title").textContent =
+    "Flashcards · " + chapitreId.charAt(0).toUpperCase() + chapitreId.slice(1).replace(/_/g," ")
+    + " · " + titreSection;
+
+  // Afficher
+  document.getElementById("fc-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+  fcRender();
+}
+
+function collectAll(obj) {
+  // Récupère récursivement toutes les cartes d'un objet (y compris _all et sous-sections)
+  let cards = [];
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      cards = cards.concat(obj[key]);
+    } else if (typeof obj[key] === "object") {
+      cards = cards.concat(collectAll(obj[key]));
+    }
+  }
+  return cards;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function fcRender() {
+  const box = document.getElementById("fc-box");
+  const controls = document.getElementById("fc-controls");
+  const hint = document.getElementById("fc-hint");
+  const empty = document.getElementById("fc-empty");
+
+  if (fcDeck.length === 0) {
+    box.style.display = "none";
+    controls.style.display = "none";
+    hint.style.display = "none";
+    empty.style.display = "block";
+    return;
+  }
+
+  box.style.display = "block";
+  controls.style.display = "flex";
+  hint.style.display = "block";
+  empty.style.display = "none";
+
+  // Reset flip
+  document.getElementById("fc-inner").classList.remove("flipped");
+
+  const card = fcDeck[fcIndex];
+  document.getElementById("fc-q").innerHTML = card.q;
+  document.getElementById("fc-r").innerHTML = card.r;
+  document.getElementById("fc-counter").textContent = (fcIndex + 1) + " / " + fcDeck.length;
+  document.getElementById("fc-prev").disabled = (fcIndex === 0);
+  document.getElementById("fc-next").disabled = (fcIndex === fcDeck.length - 1);
+}
+
+function fcFlip() {
+  document.getElementById("fc-inner").classList.toggle("flipped");
+}
+
+function fcNav(dir) {
+  fcIndex = Math.max(0, Math.min(fcDeck.length - 1, fcIndex + dir));
+  fcRender();
+}
+
+function fcClose() {
+  document.getElementById("fc-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+  document.getElementById("fc-inner").classList.remove("flipped");
+}
+
+// Fermer avec Échap
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") fcClose();
+  if (e.key === "ArrowRight") fcNav(1);
+  if (e.key === "ArrowLeft") fcNav(-1);
+  if (e.key === " ") { e.preventDefault(); fcFlip(); }
+});
+
 /* ============================================================
    NAVIGATION — ne pas modifier cette section
    ============================================================ */
@@ -5090,5 +5396,31 @@ setInterval(()=>{ if(nightManual===null) applyNight(isNightHour()); }, 60000);
 renderHome();
 
 </script>
+
+<!-- ══════════════ OVERLAY FLASHCARDS ══════════════ -->
+<div id="fc-overlay">
+  <button id="fc-close" onclick="fcClose()">×</button>
+  <div id="fc-title">Flashcards</div>
+  <div id="fc-box" onclick="fcFlip()">
+    <div id="fc-inner">
+      <div class="fc-face" id="fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-text" id="fc-q"></div>
+      </div>
+      <div class="fc-face" id="fc-back">
+        <div class="fc-label">Réponse</div>
+        <div class="fc-text" id="fc-r"></div>
+      </div>
+    </div>
+  </div>
+  <div id="fc-hint">Clique sur la carte pour voir la réponse</div>
+  <div id="fc-controls">
+    <button class="fc-nav" id="fc-prev" onclick="fcNav(-1)">‹</button>
+    <div id="fc-counter">1 / 1</div>
+    <button class="fc-nav" id="fc-next" onclick="fcNav(1)">›</button>
+  </div>
+  <div id="fc-empty" style="display:none;">Aucune flashcard disponible pour cette section.</div>
+</div>
+
 </body>
 </html>
