@@ -300,6 +300,10 @@ body.night [style*="background:#f9f9f9"] {
 .accord-chevron.open { transform: rotate(180deg); }
 .accord-content { display: none; }
 .accord-content.open { display: block; }
+.accord-h1 > span:first-child, .accord-h2 > span:first-child { flex: 1; padding-right: 12px; }
+.accord-sub + .accord-sub { border-top: 1px solid rgba(0,0,0,0.06); }
+.accord-fc-row { padding: 6px 0 0 0; }
+.accord-fc-row-h1 { padding: 10px 18px 12px 30px; background: var(--card-bg); border-top: 1px solid rgba(0,0,0,0.08); }
 .ses-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0 16px 0; }
 .ses-table tr:nth-child(odd) { background: rgba(192,57,43,0.06); }
 .ses-table tr:nth-child(even) { background: var(--card-bg); }
@@ -2013,22 +2017,20 @@ const matieres = [
      GRAND I
      ══════════════════════════════════════ -->
 <div class="accord-section">
-  <button class="accord-h1" onclick="toggleAccord(this)">
-    I — Quelles sont les sources de la croissance économique ?
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>I — Quelles sont les sources de la croissance économique ?</span>
     <span class="accord-chevron">▼</span>
-    <button class="fc-btn" onclick="fcOpen('croissance','I')">🃏 Flashcards Partie I</button>
   </button>
-    <div class="accord-content">
+  <div class="accord-content">
 
-    <!-- A -->
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      A) La croissance économique est un phénomène récent et cumulatif
-      <span class="accord-chevron">▼</span>
-      <button class="fc-btn" onclick="fcOpen('croissance','I.A')">🃏 Flashcards I.A</button>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
-
+    <!-- I.A -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>A) La croissance économique est un phénomène récent et cumulatif</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p style="margin:0 0 10px 0;font-weight:bold;font-size:15px;">📌 Définitions clés</p>
         <table class="ses-table">
           <tr>
@@ -2206,18 +2208,21 @@ const matieres = [
           • La croissance moderne est un phénomène <strong>récent</strong> (moins de 250 ans) et <strong>cumulatif</strong> (elle s'auto-alimente d'une période à l'autre, comme des intérêts composés).
         </div>
 
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','I.A')">🃏 Flashcards I.A</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- B -->
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      B) Les sources de la croissance
-      <span class="accord-chevron">▼</span>
-      <button class="fc-btn" onclick="fcOpen('croissance','I.B')">🃏 Flashcards I.B</button>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
-
+    <!-- I.B -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>B) Les sources de la croissance</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p style="margin:0 0 10px 0;font-weight:bold;font-size:15px;">📌 Les facteurs de production</p>
         <table class="ses-table">
           <tr>
@@ -2366,7 +2371,15 @@ const matieres = [
           • Le mécanisme précis par lequel ce progrès technique se forme et s'entretient est étudié en partie II.
         </div>
 
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','I.B')">🃏 Flashcards I.B</button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','I')">🃏 Flashcards Partie I</button>
     </div>
 
   </div>
@@ -2376,20 +2389,20 @@ const matieres = [
      GRAND II
      ══════════════════════════════════════ -->
 <div class="accord-section">
-  <button class="accord-h1" onclick="toggleAccord(this)">
-    II — Comment la croissance économique peut-elle être auto-entretenue ?
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>II — Comment la croissance économique peut-elle être auto-entretenue ?</span>
     <span class="accord-chevron">▼</span>
-    <button class="fc-btn" onclick="fcOpen('croissance','II')">🃏 Flashcards Partie II</button>
   </button>
   <div class="accord-content">
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      A) Un progrès technique endogène
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
-
+    <!-- II.A -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>A) Un progrès technique endogène</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p style="margin:0 0 10px 0;font-weight:bold;font-size:15px;">📌 Le modèle de Solow : un progrès technique exogène</p>
         <table class="ses-table">
           <tr>
@@ -2483,16 +2496,21 @@ const matieres = [
           <strong>✅ À retenir pour le bac :</strong> dans les théories de la croissance endogène, le progrès technique n'est plus une donnée extérieure et inexpliquée (comme chez Solow), mais le résultat des décisions d'investissement des agents (R&D, éducation), stimulées par des institutions adaptées (brevets, droits de propriété — voir II.C). La croissance peut ainsi s'auto-entretenir.
         </div>
 
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','II.A')">🃏 Flashcards II.A</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      B) L'innovation et la destruction créatrice
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
-
+    <!-- II.B -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>B) L'innovation et la destruction créatrice</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p style="margin:0 0 10px 0;font-weight:bold;font-size:15px;">📌 Joseph Schumpeter et l'innovation</p>
         <table class="ses-table">
           <tr>
@@ -2561,17 +2579,32 @@ const matieres = [
           <strong>✅ À retenir pour le bac :</strong> l'innovation et la destruction créatrice permettent à la croissance de s'auto-entretenir : le profit de monopole temporaire incite les entrepreneurs à innover sans cesse, ce qui alimente en continu le progrès technique (et donc la PGF, vue en partie I).
         </div>
 
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','II.B')">🃏 Flashcards II.B</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      C) Le rôle des institutions dans la croissance économique
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
+    <!-- II.C -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>C) Le rôle des institutions dans la croissance économique</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p class="vide-msg">Contenu à venir…</p>
+
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','II.C')">🃏 Flashcards II.C</button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','II')">🃏 Flashcards Partie II</button>
     </div>
 
   </div>
@@ -2581,47 +2614,72 @@ const matieres = [
      GRAND III
      ══════════════════════════════════════ -->
 <div class="accord-section">
-  <button class="accord-h1" onclick="toggleAccord(this)">
-    III — Quels sont les défis de la croissance économique ?
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>III — Quels sont les défis de la croissance économique ?</span>
     <span class="accord-chevron">▼</span>
-    <button class="fc-btn" onclick="fcOpen('croissance','III')">🃏 Flashcards Partie III</button>
   </button>
   <div class="accord-content">
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      A) La croissance économique génère des inégalités de revenu
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
+    <!-- III.A -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>A) La croissance économique génère des inégalités de revenu</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p class="vide-msg">Contenu à venir…</p>
+
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','III.A')">🃏 Flashcards III.A</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      B) Les limites écologiques de la croissance
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
+    <!-- III.B -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>B) Les limites écologiques de la croissance</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p class="vide-msg">Contenu à venir…</p>
+
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','III.B')">🃏 Flashcards III.B</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <button class="accord-h2" onclick="toggleAccord(this)">
-      C) Le progrès technique peut contribuer à la soutenabilité de la croissance
-      <span class="accord-chevron">▼</span>
-    </button>
-    <div class="accord-content">
-      <div class="accord-body-inner">
+    <!-- III.C -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>C) Le progrès technique peut contribuer à la soutenabilité de la croissance</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
         <p class="vide-msg">Contenu à venir…</p>
+
+          <div class="accord-fc-row">
+            <button type="button" class="fc-btn" onclick="fcOpen('croissance','III.C')">🃏 Flashcards III.C</button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','III')">🃏 Flashcards Partie III</button>
     </div>
 
   </div>
 </div>
+
 <div style="text-align:center;margin-top:24px;">
-  <button class="fc-btn fc-btn-chapter" onclick="fcOpen('croissance','_all')">🃏 Flashcards — Tout le chapitre</button>
+  <button type="button" class="fc-btn fc-btn-chapter" onclick="fcOpen('croissance','_all')">🃏 Flashcards — Tout le chapitre</button>
 </div>
 </div>`
       },
@@ -5298,12 +5356,14 @@ document.addEventListener("keydown", e => {
 let currentMatiere = null;
 
 function toggleAccord(el){
+  // Le bloc à déplier est le premier .accord-content qui suit le bouton cliqué
+  let content = el.nextElementSibling;
+  while (content && !content.classList.contains('accord-content')) content = content.nextElementSibling;
+  if (!content) return;
+  const isOpen = content.classList.toggle('open');
   const chevron = el.querySelector('.accord-chevron');
-  const content = el.nextElementSibling;
-  const isOpen = content.classList.contains('open');
-
-  content.classList.toggle('open', !isOpen);
-  chevron.classList.toggle('open', !isOpen);
+  if (chevron) chevron.classList.toggle('open', isOpen);
+  el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // Affiche la liste des matières sur l'accueil
