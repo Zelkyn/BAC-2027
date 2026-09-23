@@ -7,5 +7,6 @@
 
 ## Site
 - Tout le site est dans `index.html` (fiches dans `matieres`, flashcards dans `flashcardsData`).
-- Fiches en accordéon : grande partie → sous-parties (+ bouton flashcards de la partie) → sous-partie : bouton flashcards en haut, puis blocs dépliables (notions, mécanismes, etc.).
-- Origine d'une fiche : champ `classe` (`web`, `ia`, `humain`, `web-ia`…). Pour masquer temporairement couleurs et noms d'origine : `ORIGINES_DESACTIVEES = true`.
+- Fiches en accordéon : grande partie → bouton flashcards de la partie puis titres des sous-parties → sous-partie : bouton flashcards en haut, puis blocs dépliables (notions, mécanismes, etc.).
+- Origine d'une fiche : champ `classe` (`web`, `ia`, `humain`, `web-ia`, `ia-humain`, `web-humain`, `vide`).
+- Apparence : le bloc « THÈME VISUEL » en fin de `<style>` regroupe les couleurs (variables `:root` / `body.night`) et les finitions.
