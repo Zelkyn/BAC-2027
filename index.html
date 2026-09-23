@@ -279,18 +279,6 @@ body.night [style*="background:#f9f9f9"] {
   100% { background-position: 0% 50%; }
 }
 
-/* ══ DÉSACTIVATION TEMPORAIRE DES ORIGINES ══
-   Ne rien modifier ici : pour masquer ou réafficher les origines, changer
-   la constante ORIGINES_DESACTIVEES (true / false) dans le script plus bas.
-   Elle ajoute la classe "origines-off" au <body>, qui active ces règles. */
-body.origines-off .card.ia::after, body.origines-off .card.humain::after, body.origines-off .card.web::after,
-body.origines-off .card.web-ia::after, body.origines-off .card.ia-humain::after, body.origines-off .card.web-humain::after { display: none !important; }
-body.origines-off .card.vide { box-shadow: var(--shadow) !important; }
-body.origines-off .card.ia, body.origines-off .card.humain, body.origines-off .card.web,
-body.origines-off .card.web-ia, body.origines-off .card.ia-humain, body.origines-off .card.web-humain { border-color: transparent !important; }
-body.origines-off .bandeau-origine { display: none !important; }
-body.origines-off .badge-hors-programme { display: none !important; }
-body.origines-off .card.hors-programme::before { display: none !important; }
 
 .accord-section { margin-bottom: 14px; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
 .accord-h1 { width: 100%; text-align: left; padding: 14px 18px; font-size: 16px; font-weight: bold; cursor: pointer; border: none; border-radius: 10px; font-family: Georgia, serif; display: flex; justify-content: space-between; align-items: center; background: #c0392b; color: white; transition: background 0.2s; }
@@ -306,7 +294,7 @@ body.origines-off .card.hors-programme::before { display: none !important; }
 .accord-sub + .accord-sub { border-top: 1px solid rgba(0,0,0,0.06); }
 .accord-fc-row { padding: 6px 0 0 0; }
 .accord-fc-row-top { padding: 0 0 4px 0; }
-.accord-fc-row-h1 { padding: 10px 18px 12px 30px; background: var(--card-bg); border-top: 1px solid rgba(0,0,0,0.08); }
+.accord-fc-row-h1 { padding: 12px 18px 10px 30px; background: var(--card-bg); }
 /* 3e niveau : blocs thématiques (notions, mécanismes…) d'une sous-partie */
 .accord-block { margin: 8px 0; }
 .accord-h3 { width: 100%; text-align: left; padding: 9px 14px; font-size: 15px; font-weight: bold; cursor: pointer; font-family: Georgia, serif; display: flex; justify-content: space-between; align-items: center; background: rgba(192,57,43,0.05); color: var(--text); border: 1px solid rgba(192,57,43,0.18); border-left: 4px solid #c0392b; border-radius: 8px; transition: background 0.2s; }
@@ -593,6 +581,220 @@ body.night #night-toggle::after {
 }
 #night-toggle:hover  { transform: scale(1.06); }
 #night-toggle:active { transform: scale(0.96); }
+
+/* ============================================================
+   THÈME VISUEL — finitions (couleurs, typographie, reliefs)
+   Ne change pas la disposition : uniquement l'apparence.
+   ============================================================ */
+:root{
+  --bg:          #f6f3ee;
+  --text:        #1e1d22;
+  --card-bg:     #ffffff;
+  --card-sub:    #6d6a72;
+  --title:       #2a2830;
+  --shadow:      0 1px 2px rgba(30,25,20,0.05), 0 6px 22px rgba(30,25,20,0.07);
+  --shadow-lg:   0 2px 4px rgba(30,25,20,0.06), 0 14px 36px rgba(30,25,20,0.12);
+  --border:      rgba(30,25,20,0.08);
+  --accent:      #b83227;
+  --accent-2:    #d5543f;
+  --accent-soft: rgba(184,50,39,0.07);
+  --accent-mid:  rgba(184,50,39,0.14);
+  --font-serif:  "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+body.night{
+  --bg:          #111217;
+  --text:        #e7e2d8;
+  --card-bg:     #1b1c23;
+  --card-sub:    #9c99a3;
+  --title:       #d9d4ca;
+  --shadow:      0 1px 2px rgba(0,0,0,0.35), 0 8px 26px rgba(0,0,0,0.35);
+  --shadow-lg:   0 2px 4px rgba(0,0,0,0.4), 0 16px 40px rgba(0,0,0,0.5);
+  --border:      rgba(255,255,255,0.07);
+  --accent:      #e0685a;
+  --accent-2:    #b83227;
+  --accent-soft: rgba(224,104,90,0.09);
+  --accent-mid:  rgba(224,104,90,0.17);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-serif);
+  background:
+    radial-gradient(900px 480px at 50% -160px, var(--accent-soft), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent-mid); }
+button { font-family: var(--font-serif); -webkit-tap-highlight-color: transparent; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+* { scrollbar-width: thin; scrollbar-color: rgba(128,128,128,0.35) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.35); border-radius: 10px; border: 3px solid transparent; background-clip: padding-box; }
+
+/* ── Accueil ── */
+#home h1 {
+  font-size: 42px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(120deg, var(--accent) 10%, #7c3aed 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-top: 12px;
+}
+#home .tagline { font-size: 19px; letter-spacing: 0.2px; }
+
+/* ── Cartes (matières et fiches) ── */
+.card {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 20px 26px;
+  transition: transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s, background 0.4s, border-color 0.2s;
+}
+.card:hover  { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--accent-mid); }
+.card:active { transform: translateY(0) scale(0.99); }
+.card-title { font-size: 18.5px; line-height: 1.4; letter-spacing: 0.1px; }
+.card-sub   { font-size: 13.5px; margin-top: 6px; }
+.card.vide  { box-shadow: 0 0 0 2px #8a8a8a, var(--shadow); }
+
+/* ── Barre du haut : bouton retour et titre ── */
+.back-btn { border-radius: 12px; padding: 10px 20px; }
+#page-title:not(:empty) {
+  background: color-mix(in srgb, var(--card-bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 8px 14px;
+  border-radius: 12px;
+  top: 20px;
+  font-size: 16px;
+}
+#page-title:empty { display: none; }
+
+/* ── Contenu d'une fiche ── */
+#content { font-size: 17px; }
+.bandeau-origine {
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  border-radius: 12px;
+  padding: 9px 0;
+  box-shadow: inset 0 0 0 1px currentColor;
+  opacity: 0.92;
+}
+.empty-msg, .vide-msg { opacity: 0.85; }
+
+/* ── Accordéons ── */
+.accord-section {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+.accord-section:hover { box-shadow: var(--shadow-lg); }
+.accord-h1 {
+  border-radius: 0;
+  padding: 16px 20px;
+  font-size: 16.5px;
+  line-height: 1.45;
+  letter-spacing: 0.15px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+body.night .accord-h1 { background: linear-gradient(135deg, #a8342a, #7e231c); }
+.accord-h1:hover { background: linear-gradient(135deg, var(--accent), #962a20); }
+body.night .accord-h1:hover { background: linear-gradient(135deg, #b83a2f, #8c2820); }
+.accord-h2 {
+  padding: 14px 20px 14px 30px;
+  line-height: 1.45;
+  border-top: 1px solid var(--border);
+  transition: background 0.2s, color 0.2s;
+}
+.accord-h2:hover { background: var(--accent-soft); }
+.accord-h2[aria-expanded="true"] { color: var(--accent); background: var(--accent-soft); }
+.accord-sub + .accord-sub { border-top: none; }
+.accord-chevron { font-size: 10px; opacity: 0.75; transition: transform 0.25s cubic-bezier(.2,.8,.2,1); }
+.accord-body-inner { padding: 12px 16px 14px 26px; }
+.accord-content.open { animation: accordOpen 0.22s ease; }
+@keyframes accordOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+.accord-h3 {
+  border-radius: 10px;
+  border-color: var(--border);
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  padding: 10px 14px;
+  line-height: 1.45;
+}
+.accord-h3:hover { background: var(--accent-mid); }
+.accord-h3[aria-expanded="true"] { border-radius: 10px 10px 0 0; background: var(--accent-mid); }
+.accord-block-inner { border-color: var(--border); border-left-color: var(--accent-mid); border-radius: 0 0 10px 10px; padding: 10px 14px 12px; }
+
+/* ── Tableaux de notions ── */
+.ses-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 1.65;
+}
+.ses-table tr:nth-child(odd)  { background: var(--accent-soft); }
+.ses-table tr:nth-child(even) { background: var(--card-bg); }
+body.night .ses-table tr:nth-child(odd) { background: rgba(255,255,255,0.035); }
+.ses-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.ses-table tr:last-child td { border-bottom: none; }
+.ses-table td:first-child { color: var(--title); }
+
+/* ── Encadrés ── */
+.exemple, .piege, .aretenir { border-radius: 10px; padding: 12px 16px; line-height: 1.65; border-left-width: 4px; }
+.exemple  { background: rgba(26,111,202,0.07); }
+.piege    { background: rgba(214,69,53,0.07); }
+.aretenir { background: rgba(39,174,96,0.08); }
+body.night .exemple  { background: rgba(56,140,230,0.10); }
+body.night .piege    { background: rgba(231,90,75,0.10); }
+body.night .aretenir { background: rgba(60,190,110,0.10); }
+.formule {
+  background: linear-gradient(135deg, #1c1b2e, #2a2742);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 12px;
+  font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 13.5px;
+  box-shadow: 0 4px 14px rgba(28,27,46,0.18);
+}
+
+/* ── Boutons flashcards ── */
+.fc-btn { padding: 6px 16px; font-family: var(--font-serif); letter-spacing: 0.2px; }
+.fc-btn:active { transform: translateY(0) scale(0.98); }
+.fc-btn-chapter { padding: 10px 24px; border-radius: 24px; }
+
+/* ── Fenêtre des flashcards ── */
+#fc-overlay { background: rgba(12,12,20,0.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.fc-face { font-family: var(--font-serif); border-radius: 20px; }
+#fc-inner { border-radius: 20px; }
+#fc-title, #fc-counter { font-family: var(--font-serif); }
+#fc-title { opacity: 0.85; }
+#fc-hint { color: rgba(255,255,255,0.55); }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  #home h1 { font-size: 34px; }
+  .card { padding: 18px 20px; }
+  .accord-h1 { padding: 14px 16px; font-size: 16px; }
+  .accord-h2 { padding-left: 18px; }
+  .accord-body-inner { padding: 10px 10px 12px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 
 </style>
 </head>
@@ -2029,10 +2231,72 @@ const matieres = [
     title: "SES",
     sub:   "Sciences Économiques et Sociales",
     fiches: [
-                  {
+      {
+        id:      "methodologie-ses",
+        title:   "Méthodologie : EC1, EC2, EC3 et dissertation",
+        classe:  "vide",
+        content: `
+<div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+<!-- EC1 — Mobilisation des connaissances -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC1 — Mobilisation des connaissances</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- EC2 — Étude d'un document -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC2 — Étude d'un document</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- EC3 — Raisonnement s'appuyant sur un dossier documentaire -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC3 — Raisonnement s'appuyant sur un dossier documentaire</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- Dissertation -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>Dissertation</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+</div>`
+      },
+
+      {
         id:      "croissance",
         title:   "Quels sont les sources et les défis de la croissance économique ?",
-        classe:  "web",
+        classe:  "web-humain",
         content: `
 <div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
@@ -2045,6 +2309,10 @@ const matieres = [
     <span class="accord-chevron">▼</span>
   </button>
   <div class="accord-content">
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','I')">🃏 Flashcards Partie I</button>
+    </div>
 
     <!-- I.A -->
     <div class="accord-sub">
@@ -2066,16 +2334,21 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Croissance économique</td><td>Augmentation soutenue et durable de la production de biens et services d'une économie sur une longue période. Elle se mesure par le <strong>taux de variation du PIB en volume</strong> (PIB réel).</td></tr>
-                  <tr><td>PIB (produit intérieur brut)</td><td>Somme des valeurs ajoutées produites par les unités résidentes sur un territoire pendant une année (+ impôts sur les produits − subventions sur les produits). C'est l'indicateur de référence de la production.</td></tr>
-                  <tr><td>Valeur ajoutée (VA)</td><td>Richesse réellement créée par une unité de production : VA = production − consommations intermédiaires. Elle sert à rémunérer les facteurs de production.</td></tr>
-                  <tr><td>PIB en valeur (nominal)</td><td>PIB mesuré aux prix courants de l'année : il augmente si la production augmente <em>et/ou</em> si les prix augmentent.</td></tr>
-                  <tr><td>PIB en volume (réel)</td><td>PIB mesuré à prix constants, c'est-à-dire corrigé de la hausse du niveau général des prix (inflation). C'est lui qu'on utilise pour mesurer la croissance.</td></tr>
-                  <tr><td>PIB par tête (par habitant)</td><td>PIB divisé par le nombre d'habitants. Il permet d'approcher le niveau de vie moyen et de comparer des pays de tailles différentes.</td></tr>
-                  <tr><td>Revenus primaires</td><td>Revenus issus de la production : salaires et cotisations sociales pour le travail, excédent brut d'exploitation (EBE) pour le capital. Une croissance positive signifie donc une hausse des revenus distribués.</td></tr>
-                  <tr><td>Niveau de vie</td><td>Ensemble des biens et services qu'un individu (ou un ménage) peut se procurer grâce à son revenu. Il augmente si le PIB augmente plus vite que la population.</td></tr>
-                  <tr><td>Révolution industrielle</td><td>Rupture historique (fin XVIII<sup>e</sup> – XIX<sup>e</sup> siècle, d'abord en Angleterre) qui marque le décollage de la croissance moderne : mécanisation, machine à vapeur, charbon, usines.</td></tr>
-                  <tr><td>Pays à économie de marché</td><td>Pays dont le mode principal de coordination des activités économiques est le marché ; ce sont eux qui ont connu les premiers la croissance moderne après leur révolution industrielle.</td></tr>
+                  <tr><td>Croissance économique</td><td>Augmentation <strong>durable</strong> (sur une longue période, par opposition à l'expansion, qui est de court terme) de la production de biens et de services d'une économie. Elle se mesure par le <strong>taux de variation annuel du PIB en volume</strong>. Elle est un phénomène <strong>quantitatif</strong>, à distinguer du développement, qui est qualitatif.</td></tr>
+                  <tr><td>Expansion / récession / dépression</td><td><strong>Expansion</strong> : hausse de la production sur une courte période (phase ascendante du cycle). <strong>Récession</strong> : baisse du PIB en volume pendant au moins deux trimestres consécutifs. <strong>Dépression</strong> : baisse durable et profonde de la production (ex. : années 1930).</td></tr>
+                  <tr><td>Production</td><td>Activité économique socialement organisée qui consiste à créer des biens et des services à partir de facteurs de production. On distingue la production <strong>marchande</strong> (vendue sur un marché à un prix couvrant au moins les coûts) et <strong>non marchande</strong> (fournie gratuitement ou à un prix inférieur à la moitié du coût de production, par les administrations publiques notamment).</td></tr>
+                  <tr><td>Produit intérieur brut (PIB)</td><td>Agrégat de la comptabilité nationale qui mesure la richesse produite pendant une année par les unités résidentes sur le territoire national, qu'elles soient nationales ou étrangères. PIB = somme des valeurs ajoutées + impôts sur les produits − subventions sur les produits. Il est « brut » car il ne déduit pas l'usure du capital (amortissement).</td></tr>
+                  <tr><td>Valeur ajoutée (VA)</td><td>Richesse réellement créée par une unité de production au cours du processus de production : VA = valeur de la production − valeur des consommations intermédiaires. Raisonner en VA évite de compter plusieurs fois la même richesse (double compte).</td></tr>
+                  <tr><td>Consommations intermédiaires</td><td>Biens et services détruits ou transformés au cours du processus de production (matières premières, énergie, services achetés à d'autres entreprises).</td></tr>
+                  <tr><td>PIB en valeur (nominal)</td><td>PIB évalué aux <strong>prix courants</strong>, c'est-à-dire aux prix de l'année considérée. Sa variation mêle l'évolution des quantités produites et celle des prix.</td></tr>
+                  <tr><td>PIB en volume (réel)</td><td>PIB évalué aux <strong>prix constants</strong> d'une année de référence, donc corrigé de l'inflation. Sa variation ne reflète que l'évolution des quantités produites : c'est lui qui mesure la croissance. En approximation : taux de croissance en volume ≈ taux de croissance en valeur − taux d'inflation.</td></tr>
+                  <tr><td>Inflation</td><td>Hausse générale et durable du niveau des prix, qui se traduit par une baisse du pouvoir d'achat de la monnaie. On la mesure en France par l'indice des prix à la consommation (IPC) de l'INSEE.</td></tr>
+                  <tr><td>PIB par habitant</td><td>Rapport entre le PIB et la population totale. C'est un indicateur de la <strong>richesse moyenne</strong> produite par habitant, utilisé pour approcher le niveau de vie moyen et comparer des pays de tailles différentes. Comparé entre pays, il est souvent exprimé en <strong>parité de pouvoir d'achat</strong> (PPA) pour neutraliser les différences de prix.</td></tr>
+                  <tr><td>Revenus primaires</td><td>Revenus directement issus de la participation à la production (revenus d'activité : salaires, cotisations sociales, revenu mixte des indépendants) ou de la propriété d'un patrimoine (intérêts, dividendes, loyers). La valeur ajoutée se partage entre la rémunération du travail (salaires et cotisations) et celle du capital (<strong>excédent brut d'exploitation</strong>, EBE).</td></tr>
+                  <tr><td>Niveau de vie</td><td>Au sens large, quantité de biens et de services qu'un individu ou un ménage peut se procurer avec son revenu. Au sens de l'INSEE : revenu disponible du ménage divisé par le nombre d'unités de consommation (UC). Il progresse en moyenne quand le PIB augmente plus vite que la population.</td></tr>
+                  <tr><td>Développement</td><td>Ensemble des transformations économiques, sociales, démographiques et culturelles (santé, éducation, réduction de la pauvreté, allongement de l'espérance de vie) qui accompagnent la croissance et améliorent durablement le bien-être d'une population. Il est mesuré notamment par l'<strong>IDH</strong> (indice de développement humain : revenu par habitant, espérance de vie, durée de scolarisation).</td></tr>
+                  <tr><td>Révolution industrielle</td><td>Ensemble de transformations techniques, économiques et sociales qui fait passer une société à dominante agricole et artisanale à une société industrielle : mécanisation, nouvelles sources d'énergie (charbon et machine à vapeur, puis électricité et pétrole), usines, salariat. Elle débute en Angleterre à la fin du XVIII<sup>e</sup> siècle et marque le début de la croissance moderne.</td></tr>
+                  <tr><td>Économie de marché</td><td>Économie dans laquelle l'essentiel des décisions de production et d'échange est coordonné par les marchés, c'est-à-dire par la confrontation des offres et des demandes qui détermine les prix.</td></tr>
                 </table>
               </div>
             </div>
@@ -2201,17 +2474,22 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Facteurs de production</td><td>Ressources utilisées pour produire : le <strong>travail</strong> (la main-d'œuvre) et le <strong>capital</strong> (les machines, bâtiments, logiciels…).</td></tr>
-                  <tr><td>Combinaison productive</td><td>Manière dont une entreprise associe travail et capital pour produire.</td></tr>
-                  <tr><td>Facteur travail (quantité)</td><td>Dépend de la population active, du taux d'activité (notamment féminin), du taux d'emploi, de la durée de la vie active et de la durée du travail.</td></tr>
-                  <tr><td>Taux d'emploi</td><td>Rapport entre l'emploi total et la population (en âge de travailler).</td></tr>
-                  <tr><td>Capital physique (technique)</td><td>Ensemble des biens de production durables (capital fixe : machines, bâtiments, logiciels) et des biens transformés ou détruits dans la production (capital circulant).</td></tr>
-                  <tr><td>Investissement / FBCF</td><td>L'investissement accroît le stock de capital. En comptabilité nationale, on le mesure par la <strong>formation brute de capital fixe</strong> (FBCF).</td></tr>
-                  <tr><td>Capital humain</td><td>Ensemble des connaissances, qualifications, expériences et de la santé d'un individu qui augmentent sa productivité. Il s'accumule par l'éducation et la formation.</td></tr>
-                  <tr><td>Intensité capitalistique</td><td>Quantité de capital par travailleur (capital / emploi).</td></tr>
-                  <tr><td>Accumulation des facteurs</td><td>Augmentation de la quantité de travail et/ou de capital utilisée. C'est la <strong>première source</strong> de croissance.</td></tr>
-                  <tr><td>Croissance extensive</td><td>Croissance obtenue par l'augmentation de la <em>quantité</em> de facteurs de production, sans hausse de leur efficacité.</td></tr>
-                  <tr><td>Loi des rendements factoriels décroissants</td><td>Quand on augmente la quantité d'un facteur alors que l'autre reste fixe, la production supplémentaire obtenue avec chaque unité ajoutée devient de plus en plus faible.</td></tr>
+                  <tr><td>Facteurs de production</td><td>Ressources combinées dans le processus de production pour obtenir des biens et des services. On en retient traditionnellement deux : le <strong>facteur travail</strong> (l'activité humaine rémunérée consacrée à la production) et le <strong>facteur capital</strong> (l'ensemble des biens de production).</td></tr>
+                  <tr><td>Combinaison productive</td><td>Association, en proportions déterminées, des facteurs travail et capital par une unité de production. Elle peut être plus ou moins intensive en travail ou en capital, et les facteurs sont en partie substituables et en partie complémentaires.</td></tr>
+                  <tr><td>Population active</td><td>Ensemble des personnes qui ont un emploi (actifs occupés) et des chômeurs (au sens du BIT). Sa taille dépend de la démographie et des comportements d'activité.</td></tr>
+                  <tr><td>Taux d'activité</td><td>Rapport entre la population active et la population totale correspondante (souvent les 15-64 ans), exprimé en %. La hausse du taux d'activité des femmes depuis les années 1960 a accru la quantité de travail disponible.</td></tr>
+                  <tr><td>Taux d'emploi</td><td>Rapport entre le nombre de personnes ayant un emploi et la population totale correspondante (souvent les 15-64 ans). Il mesure la capacité d'une économie à utiliser sa main-d'œuvre potentielle.</td></tr>
+                  <tr><td>Quantité de travail</td><td>Volume total de travail utilisé dans la production = nombre d'actifs occupés × durée moyenne du travail. Elle se mesure en <strong>heures travaillées</strong> et dépend donc de la population active, du chômage et de la durée du travail.</td></tr>
+                  <tr><td>Capital fixe / capital circulant</td><td>Le <strong>capital fixe</strong> regroupe les biens de production durables utilisés pendant plus d'un an (machines, bâtiments, logiciels, brevets) ; il s'use progressivement (amortissement). Le <strong>capital circulant</strong> regroupe les biens détruits ou transformés au cours d'un seul cycle de production (matières premières, énergie) : ce sont les consommations intermédiaires.</td></tr>
+                  <tr><td>Capital technique (physique)</td><td>Ensemble des moyens de production matériels (et immatériels, comme les logiciels) produits par l'homme et utilisés pour produire d'autres biens et services. Il regroupe le capital fixe et le capital circulant.</td></tr>
+                  <tr><td>Investissement</td><td>Dépense qui vise à accroître ou à renouveler le stock de capital d'une unité économique. On distingue l'investissement de <strong>remplacement</strong> (renouveler le capital usé), de <strong>capacité</strong> (produire davantage) et de <strong>productivité</strong> (produire plus efficacement). Il peut être matériel ou immatériel (R&D, formation, logiciels).</td></tr>
+                  <tr><td>Formation brute de capital fixe (FBCF)</td><td>Mesure de l'investissement en comptabilité nationale : valeur des biens durables acquis par les unités productrices résidentes pour être utilisés au moins un an dans le processus de production. Elle est « brute » car elle inclut le remplacement du capital usé.</td></tr>
+                  <tr><td>Capital humain</td><td>Ensemble des connaissances, qualifications, compétences, expériences et de l'état de santé qu'un individu accumule et qui accroissent sa productivité, donc ses revenus futurs. Il s'acquiert par un investissement (éducation, formation) qui a un coût (dépenses et revenus auxquels on renonce). Concept formalisé par Gary Becker (1964).</td></tr>
+                  <tr><td>Intensité capitalistique</td><td>Rapport entre le stock de capital fixe et le nombre de travailleurs (ou d'heures travaillées) : c'est la quantité de capital dont dispose en moyenne chaque travailleur. Sa hausse traduit une substitution du capital au travail.</td></tr>
+                  <tr><td>Accumulation des facteurs</td><td>Augmentation, dans le temps, des quantités de facteurs de production utilisées : hausse de la quantité de travail et hausse du stock de capital par l'investissement. C'est la première source de croissance.</td></tr>
+                  <tr><td>Croissance extensive</td><td>Croissance obtenue par l'augmentation des <strong>quantités</strong> de facteurs de production utilisées, à efficacité inchangée. Elle s'oppose à la croissance intensive, fondée sur les gains de productivité.</td></tr>
+                  <tr><td>Rendements factoriels décroissants</td><td>Loi selon laquelle, lorsqu'on accroît la quantité d'un seul facteur de production en maintenant l'autre constant, la production supplémentaire obtenue grâce à chaque unité ajoutée (la <strong>productivité marginale</strong>) finit par diminuer. La production totale continue d'augmenter, mais de moins en moins vite.</td></tr>
+                  <tr><td>Productivité marginale</td><td>Supplément de production obtenu grâce à l'utilisation d'une unité supplémentaire d'un facteur de production, la quantité de l'autre facteur restant inchangée.</td></tr>
                 </table>
               </div>
             </div>
@@ -2301,15 +2579,17 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Productivité</td><td>Efficacité d'un facteur de production : rapport entre la production obtenue et la quantité de facteur utilisée. Elle se mesure en volume (tonnes de blé par travailleur) ou en valeur (euros par travailleur).</td></tr>
-                  <tr><td>Productivité apparente du travail</td><td>Production / quantité de travail. Mesurée <strong>par tête</strong> (par travailleur) ou <strong>horaire</strong> (par heure travaillée, pour comparer des pays aux durées du travail différentes). Elle est dite « apparente » car elle ne tient pas compte de l'apport de l'autre facteur (le capital).</td></tr>
-                  <tr><td>Productivité apparente du capital</td><td>Production / quantité de capital utilisée.</td></tr>
-                  <tr><td>Productivité globale des facteurs (PGF)</td><td>Part de la croissance qui n'est <strong>pas expliquée</strong> par l'augmentation des quantités de travail et de capital. Elle mesure l'efficacité de la combinaison des facteurs. On ne peut pas la mesurer directement : c'est un <strong>résidu</strong>.</td></tr>
-                  <tr><td>Résidu</td><td>Ce qui reste de la croissance une fois qu'on a retiré la contribution des quantités de facteurs = la PGF.</td></tr>
-                  <tr><td>Progrès technique</td><td>Ensemble des innovations (nouveaux produits, nouveaux procédés, nouvelles formes d'organisation) qui améliorent l'efficacité de la production. Au sens large, c'est ce que mesure la PGF : technologie contenue dans les machines, capacité des travailleurs à les utiliser, cadre institutionnel…</td></tr>
-                  <tr><td>Gains de productivité</td><td>Hausse de la productivité : on produit plus avec la même quantité de facteurs (ou autant avec moins).</td></tr>
-                  <tr><td>Croissance intensive</td><td>Croissance obtenue grâce à des gains de productivité (efficacité accrue des facteurs), et non grâce à plus de facteurs. C'est la forme dominante dans les pays développés.</td></tr>
-                  <tr><td>Décomposition comptable de la croissance</td><td>Méthode qui répartit le taux de croissance du PIB entre les contributions (en points de %) de chaque facteur et de la PGF.</td></tr>
+                  <tr><td>Productivité</td><td>Rapport entre une quantité produite (en volume) ou une valeur ajoutée (en valeur) et la quantité de facteurs utilisés pour l'obtenir. Elle mesure l'<strong>efficacité</strong> avec laquelle les facteurs de production sont combinés.</td></tr>
+                  <tr><td>Productivité apparente du travail</td><td>Rapport entre la production (ou la valeur ajoutée) et la quantité de travail utilisée. Elle se calcule <strong>par tête</strong> (par actif occupé) ou <strong>par heure</strong> (productivité horaire), cette dernière permettant de comparer des économies dont la durée du travail diffère. Elle est dite « apparente » car elle attribue au seul travail une production qui résulte aussi du capital : elle augmente par exemple quand chaque travailleur dispose de plus de machines.</td></tr>
+                  <tr><td>Productivité apparente du capital</td><td>Rapport entre la production (ou la valeur ajoutée) et le stock de capital utilisé. Elle est elle aussi « apparente » car elle ignore la contribution du travail.</td></tr>
+                  <tr><td>Productivité globale des facteurs (PGF)</td><td>Efficacité de la <strong>combinaison</strong> des facteurs travail et capital, prise dans son ensemble. Elle ne se mesure pas directement : on l'obtient par différence, comme la part de la croissance de la production qui n'est pas expliquée par la croissance des quantités de travail et de capital (c'est un <strong>résidu</strong>). Elle reflète principalement le progrès technique au sens large, mais aussi la qualité des facteurs (éducation, âge du capital), l'organisation du travail et le cadre institutionnel.</td></tr>
+                  <tr><td>Résidu (de Solow)</td><td>Part de la croissance qui reste inexpliquée une fois retirées les contributions de l'augmentation des quantités de travail et de capital. Il correspond à la PGF. Moses Abramovitz (1956) l'a qualifié de « mesure de notre ignorance ».</td></tr>
+                  <tr><td>Gains de productivité</td><td>Augmentation de la productivité : l'économie produit davantage avec la même quantité de facteurs, ou autant avec moins de facteurs. Ils peuvent être répartis entre hausse des salaires, hausse des profits, baisse des prix ou baisse du temps de travail.</td></tr>
+                  <tr><td>Progrès technique</td><td>Ensemble des innovations (de produit, de procédé, d'organisation) qui transforment les méthodes de production et les produits et qui permettent d'accroître l'efficacité des facteurs de production. Au sens large retenu dans la mesure de la PGF, il inclut aussi l'amélioration de la qualité des facteurs, de l'organisation et des institutions.</td></tr>
+                  <tr><td>Croissance intensive</td><td>Croissance obtenue grâce aux <strong>gains de productivité</strong>, c'est-à-dire à une utilisation plus efficace des facteurs, et non à l'augmentation de leurs quantités. C'est la forme dominante de la croissance des pays développés à long terme.</td></tr>
+                  <tr><td>Décomposition comptable de la croissance</td><td>Méthode qui répartit le taux de croissance du PIB entre les <strong>contributions</strong>, exprimées en points de pourcentage, de l'augmentation de la quantité de travail, de celle du capital et de la PGF (le résidu). La somme des contributions est égale au taux de croissance du PIB.</td></tr>
+                  <tr><td>Contribution à la croissance</td><td>Part du taux de croissance du PIB imputable à un facteur, exprimée en <strong>points de pourcentage</strong>. Ex. : sur une croissance de 2 %, une contribution de la PGF de 1 point signifie que la PGF explique la moitié de la croissance.</td></tr>
+                  <tr><td>Diffusion des technologies</td><td>Processus par lequel une innovation se répand dans l'ensemble de l'économie (entreprises, secteurs, pays). Les effets de l'électricité et des TIC sur la productivité dépendent de leur diffusion, pas seulement de leur invention.</td></tr>
                 </table>
               </div>
             </div>
@@ -2440,10 +2720,6 @@ const matieres = [
       </div>
     </div>
 
-    <div class="accord-fc-row accord-fc-row-h1">
-      <button type="button" class="fc-btn" onclick="fcOpen('croissance','I')">🃏 Flashcards Partie I</button>
-    </div>
-
   </div>
 </div>
 
@@ -2456,6 +2732,10 @@ const matieres = [
     <span class="accord-chevron">▼</span>
   </button>
   <div class="accord-content">
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','II')">🃏 Flashcards Partie II</button>
+    </div>
 
     <!-- II.A -->
     <div class="accord-sub">
@@ -2477,16 +2757,19 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Progrès technique exogène</td><td>Progrès technique qui n'est <strong>pas expliqué</strong> par les variables économiques du modèle : il dépend de causes extérieures (découvertes scientifiques, hasard). C'est le cas dans le modèle de Solow : une « manne tombée du ciel » (Charles Hulten).</td></tr>
-                  <tr><td>Progrès technique endogène</td><td>Progrès technique <strong>expliqué par des décisions économiques</strong> : il résulte des investissements des agents (R&D, éducation, infrastructures) et de l'innovation.</td></tr>
-                  <tr><td>Théories de la croissance endogène</td><td>Théories des années 1980-1990 (Romer, Lucas, Barro, Aghion et Howitt) qui montrent que la croissance produit elle-même les conditions de sa poursuite : elle est <strong>auto-entretenue</strong>.</td></tr>
-                  <tr><td>Croissance auto-entretenue</td><td>Processus cumulatif dans lequel la croissance génère du progrès technique qui, à son tour, génère de la croissance.</td></tr>
-                  <tr><td>Externalité positive</td><td>Effet bénéfique de l'activité d'un agent sur d'autres agents, sans contrepartie monétaire. Ex. : un salarié formé qui change d'entreprise transmet son savoir-faire.</td></tr>
-                  <tr><td>R&D (recherche et développement)</td><td>Travaux de recherche fondamentale, recherche appliquée et développement expérimental visant à produire de nouvelles connaissances et à les transformer en innovations.</td></tr>
-                  <tr><td>Capital technologique (connaissances)</td><td>Stock de connaissances et de savoir-faire accumulé grâce à l'investissement et à la R&D.</td></tr>
-                  <tr><td>Capital humain</td><td>Connaissances, qualifications et expériences des individus, accumulées grâce à l'éducation et à la formation.</td></tr>
-                  <tr><td>Capital public</td><td>Capital financé par l'État : infrastructures (routes, réseaux), recherche publique, système éducatif.</td></tr>
-                  <tr><td>Non-rivalité du savoir</td><td>Une connaissance peut être utilisée par plusieurs agents en même temps sans s'épuiser. C'est ce qui permet aux externalités de compenser les rendements décroissants.</td></tr>
+                  <tr><td>Modèle</td><td>Représentation simplifiée de la réalité, fondée sur des hypothèses, qui vise à expliquer un phénomène en mettant en relation un petit nombre de variables.</td></tr>
+                  <tr><td>Variable exogène / endogène</td><td>Une variable est <strong>exogène</strong> quand sa valeur est donnée de l'extérieur du modèle (elle n'est pas expliquée par lui) ; elle est <strong>endogène</strong> quand sa valeur est déterminée par les mécanismes que décrit le modèle.</td></tr>
+                  <tr><td>Progrès technique exogène</td><td>Dans le modèle de Solow (1956), le progrès technique est la principale source de la croissance de long terme mais il n'est pas expliqué par le modèle : il dépend de facteurs extérieurs à l'économie (avancées scientifiques, hasard des découvertes). C'est une « manne tombée du ciel » (Charles Hulten), sur laquelle on ne peut donc pas agir.</td></tr>
+                  <tr><td>Progrès technique endogène</td><td>Progrès technique <strong>expliqué par des variables économiques</strong> : il résulte des décisions d'investissement des agents (entreprises, ménages, État) dans la R&D, l'éducation, les infrastructures, et de la recherche du profit par les innovateurs. Il est donc produit par la croissance elle-même.</td></tr>
+                  <tr><td>Théories de la croissance endogène</td><td>Ensemble de modèles apparus à partir du milieu des années 1980 (Romer 1986, Lucas 1988, Barro 1990, Aghion et Howitt 1992) qui expliquent le progrès technique par l'accumulation de différentes formes de capital générant des externalités positives. Elles montrent que la croissance peut être auto-entretenue et que les politiques publiques peuvent l'influencer durablement.</td></tr>
+                  <tr><td>Croissance auto-entretenue</td><td>Processus cumulatif dans lequel la croissance génère les ressources (revenus, épargne, investissements) qui produisent du progrès technique, lequel alimente à son tour la croissance.</td></tr>
+                  <tr><td>Externalités (effets externes)</td><td>Situation dans laquelle l'action d'un agent économique affecte le bien-être ou l'activité d'autres agents <strong>sans que cet effet donne lieu à une compensation monétaire</strong> par l'intermédiaire du marché. Elles sont <strong>positives</strong> quand l'effet est favorable (diffusion des connaissances, formation d'un salarié qui profite à ses collègues), <strong>négatives</strong> quand il est défavorable (pollution).</td></tr>
+                  <tr><td>Recherche et développement (R&D)</td><td>Travaux de création entrepris de façon systématique en vue d'accroître la somme des connaissances et d'en tirer de nouvelles applications. Elle comprend la <strong>recherche fondamentale</strong> (connaissances nouvelles sans application immédiate), la <strong>recherche appliquée</strong> (orientée vers un objectif pratique) et le <strong>développement expérimental</strong> (mise au point de produits ou procédés). Elle est mesurée en France par la DIRD.</td></tr>
+                  <tr><td>Capital technologique</td><td>Stock de connaissances techniques, de savoir-faire et de brevets accumulé par une entreprise ou une économie, notamment grâce aux dépenses de R&D.</td></tr>
+                  <tr><td>Capital humain</td><td>Ensemble des connaissances, qualifications et expériences incorporées aux individus, qui accroissent leur productivité. Chez Lucas, son accumulation par l'éducation génère des externalités positives : la productivité de chacun dépend aussi du niveau de formation des autres.</td></tr>
+                  <tr><td>Capital public</td><td>Stock de biens de production financés et possédés par les administrations publiques : infrastructures de transport et de communication, équipements de recherche, établissements d'enseignement et de santé. Chez Barro, il accroît la productivité des entreprises privées.</td></tr>
+                  <tr><td>Bien non rival</td><td>Bien dont la consommation par un agent ne réduit pas la quantité disponible pour les autres. La connaissance est non rivale : une idée peut être utilisée simultanément par tous, ce qui permet des rendements croissants à l'échelle de l'économie.</td></tr>
+                  <tr><td>Rendements croissants</td><td>Situation dans laquelle la production augmente plus que proportionnellement à la hausse des facteurs utilisés. Grâce aux externalités, les théories de la croissance endogène montrent que l'économie dans son ensemble peut échapper aux rendements décroissants.</td></tr>
                 </table>
               </div>
             </div>
@@ -2612,19 +2895,19 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Invention</td><td>Découverte de nouvelles connaissances scientifiques ou techniques.</td></tr>
-                  <tr><td>Innovation</td><td>Mise en œuvre <strong>économique</strong> d'une invention, c'est-à-dire son introduction dans la production ou sur le marché (Schumpeter).</td></tr>
-                  <tr><td>Innovation de produit</td><td>Nouveau bien ou service (ou bien nettement amélioré). Ex. : smartphone, vaccin à ARN messager.</td></tr>
-                  <tr><td>Innovation de procédé</td><td>Nouvelle manière de produire. Ex. : chaîne de montage, robotisation, navette volante sur le métier à tisser.</td></tr>
-                  <tr><td>Innovation organisationnelle</td><td>Nouvelle organisation du travail ou de l'entreprise. Ex. : juste-à-temps, télétravail.</td></tr>
-                  <tr><td>Innovation de débouché (commerciale)</td><td>Conquête d'un nouveau marché.</td></tr>
-                  <tr><td>Innovation de matière première</td><td>Utilisation d'une nouvelle source d'énergie ou de matière première. Ex. : passage du charbon au pétrole puis aux énergies renouvelables.</td></tr>
-                  <tr><td>Entrepreneur innovateur</td><td>Pour Schumpeter, l'agent qui introduit les inventions dans le processus économique, en prenant des risques, motivé par la recherche du profit.</td></tr>
-                  <tr><td>Rente (profit) de monopole temporaire</td><td>Surprofit que réalise l'innovateur, seul sur son marché pendant un temps, avant d'être imité par des concurrents. C'est l'incitation principale à innover.</td></tr>
-                  <tr><td>Imitation</td><td>Reprise d'une innovation par des entreprises « suiveuses », qui fait disparaître la rente de l'innovateur et diffuse l'innovation.</td></tr>
-                  <tr><td>Grappes d'innovations</td><td>Une innovation majeure en entraîne d'autres dans les secteurs voisins : les innovations arrivent groupées et provoquent des vagues de croissance (cycles longs de Kondratiev, ~50 ans).</td></tr>
-                  <tr><td>Destruction créatrice</td><td>Processus décrit par Schumpeter par lequel les innovations rendent obsolètes les produits, procédés, entreprises et emplois anciens tout en en créant de nouveaux. « Elle révolutionne incessamment de l'intérieur la structure économique. »</td></tr>
-                  <tr><td>Frontière technologique</td><td>Niveau technologique le plus avancé à un moment donné. Plus un pays s'en rapproche, plus sa croissance dépend de l'innovation plutôt que de l'imitation.</td></tr>
+                  <tr><td>Invention</td><td>Découverte d'un savoir ou d'une technique nouvelle, qui relève du domaine scientifique et technique. Elle n'a pas en elle-même de portée économique.</td></tr>
+                  <tr><td>Innovation</td><td>Mise en œuvre <strong>économique</strong> d'une invention ou d'une idée nouvelle : introduction sur le marché d'un nouveau produit, adoption d'un nouveau procédé ou d'une nouvelle organisation. Schumpeter la définit comme l'exécution de « nouvelles combinaisons productives ».</td></tr>
+                  <tr><td>Les cinq formes d'innovation (Schumpeter)</td><td>(1) Fabrication d'un <strong>bien nouveau</strong> ; (2) introduction d'une nouvelle <strong>méthode de production</strong> (procédé) ; (3) ouverture d'un <strong>nouveau débouché</strong> ; (4) conquête d'une nouvelle <strong>source de matières premières</strong> ou de produits semi-finis ; (5) réalisation d'une nouvelle <strong>organisation</strong> de la production (création ou destruction d'un monopole, par exemple).</td></tr>
+                  <tr><td>Innovation de produit / de procédé</td><td>L'innovation de <strong>produit</strong> consiste à commercialiser un bien ou un service nouveau ou sensiblement amélioré (vaccin à ARN messager, smartphone). L'innovation de <strong>procédé</strong> consiste à mettre en œuvre une méthode de production nouvelle qui réduit les coûts ou améliore la qualité (chaîne de montage, robotisation).</td></tr>
+                  <tr><td>Innovation organisationnelle</td><td>Mise en œuvre d'une nouvelle méthode d'organisation du travail, des pratiques de l'entreprise ou de ses relations extérieures (juste-à-temps, travail en équipes autonomes, télétravail).</td></tr>
+                  <tr><td>Innovation majeure (de rupture) / incrémentale</td><td>Une innovation <strong>majeure</strong> bouleverse les modes de production et de consommation et entraîne d'autres innovations (machine à vapeur, électricité, Internet). Une innovation <strong>incrémentale</strong> (ou mineure) est une amélioration progressive d'un produit ou d'un procédé existant.</td></tr>
+                  <tr><td>Entrepreneur innovateur</td><td>Pour Schumpeter, agent qui réalise de nouvelles combinaisons productives en introduisant les inventions dans le processus économique. Il prend des risques et est motivé par la recherche du profit. Il n'appartient à aucun groupe social particulier : c'est sa fonction d'innovation qui le définit.</td></tr>
+                  <tr><td>Monopole</td><td>Structure de marché dans laquelle un seul offreur fait face à de nombreux demandeurs ; faute de concurrents, il peut fixer un prix supérieur à celui qui prévaudrait en concurrence.</td></tr>
+                  <tr><td>Rente d'innovation (monopole temporaire)</td><td>Surprofit que réalise l'entreprise innovante, momentanément seule à proposer le nouveau produit ou à utiliser le nouveau procédé. Cette rente est <strong>temporaire</strong> : elle disparaît à mesure que des imitateurs entrent sur le marché. Son espérance est la principale incitation à innover.</td></tr>
+                  <tr><td>Imitation</td><td>Reproduction d'une innovation par des entreprises concurrentes (« suiveuses »). Elle fait disparaître la rente de l'innovateur mais diffuse l'innovation dans l'ensemble de l'économie.</td></tr>
+                  <tr><td>Grappes d'innovations</td><td>Selon Schumpeter, les innovations n'apparaissent pas de manière régulière mais groupées : une innovation majeure en suscite d'autres, en amont et en aval, dans les secteurs liés. Ces grappes expliqueraient les phases d'expansion des cycles longs (cycles de Kondratiev, d'environ 50 ans).</td></tr>
+                  <tr><td>Destruction créatrice</td><td>Processus décrit par Schumpeter (1942) par lequel les innovations rendent obsolètes les produits, les techniques, les entreprises et les emplois anciens, tout en créant de nouveaux produits, de nouvelles activités et de nouveaux emplois. Il « révolutionne incessamment de l'intérieur la structure économique » et constitue selon lui « la donnée fondamentale du capitalisme ».</td></tr>
+                  <tr><td>Frontière technologique</td><td>Niveau technologique le plus avancé existant à un moment donné. Un pays proche de la frontière croît surtout en innovant ; un pays éloigné peut croître en imitant les technologies existantes (rattrapage).</td></tr>
                 </table>
               </div>
             </div>
@@ -2749,17 +3032,20 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Institution</td><td>Ensemble de règles <strong>formelles</strong> (droit, constitution, lois, droits de propriété) et <strong>informelles</strong> (usages, coutumes, codes de conduite), relativement stables dans le temps, qui fixent le cadre dans lequel les individus interagissent (Douglass North).</td></tr>
-                  <tr><td>Incitation</td><td>Élément (gain espéré, sanction, règle) qui pousse un agent à adopter un comportement, ici investir et innover.</td></tr>
-                  <tr><td>Droit de propriété</td><td>Droit de disposer librement d'un bien dans le cadre de la loi : l'utiliser (<em>usus</em>), en retirer les revenus (<em>fructus</em>) et le céder (<em>abusus</em>). Formule héritée du droit romain.</td></tr>
-                  <tr><td>Droits de propriété intellectuelle</td><td>Droits de propriété sur les créations de l'esprit : brevets, droits d'auteur, marques.</td></tr>
-                  <tr><td>Brevet</td><td>Titre de propriété qui donne à l'innovateur un <strong>monopole d'exploitation temporaire</strong> (en général 20 ans) sur son invention, en échange de sa publication.</td></tr>
-                  <tr><td>Dépendance au sentier (path dependence)</td><td>Les institutions présentes dépendent des choix faits dans le passé, ce qui explique des trajectoires de croissance durablement différentes.</td></tr>
-                  <tr><td>Corruption</td><td>Utilisation d'une position de pouvoir pour obtenir un avantage privé ; elle accroît les risques et décourage l'investissement.</td></tr>
-                  <tr><td>Institutions créatrices de marché</td><td>Droits de propriété et leur protection : sans elles, il n'y aurait pas d'échanges (Rodrik et Subramanian).</td></tr>
-                  <tr><td>Institutions de réglementation des marchés</td><td>Ex. : autorité de la concurrence, qui régule la concurrence.</td></tr>
-                  <tr><td>Institutions de stabilisation des marchés</td><td>Ex. : banque centrale, qui garantit une inflation faible et ne ponctionne donc pas les profits des innovateurs.</td></tr>
-                  <tr><td>Institutions de légitimation des marchés</td><td>Ex. : assurance chômage, protection sociale, qui permettent de faire face aux chocs et évitent les conflits sociaux.</td></tr>
+                  <tr><td>Institutions</td><td>Ensemble des règles <strong>formelles</strong> (constitution, lois, règlements, droits de propriété) et <strong>informelles</strong> (normes, coutumes, conventions, codes de conduite), relativement stables dans le temps, qui encadrent les interactions politiques, économiques et sociales. Pour Douglass North, ce sont « les règles du jeu » d'une société : elles réduisent l'incertitude et structurent les incitations des agents.</td></tr>
+                  <tr><td>Incitation</td><td>Élément qui pousse un agent à adopter un comportement donné en modifiant les gains ou les coûts qu'il en attend (perspective de profit, fiscalité, sanction). Les institutions agissent sur la croissance en modifiant les incitations à investir et à innover.</td></tr>
+                  <tr><td>Droits de propriété</td><td>Droits, reconnus et garantis par la loi, qui permettent à leur titulaire de disposer d'un bien : l'<strong>usus</strong> (le droit de l'utiliser), le <strong>fructus</strong> (le droit d'en percevoir les fruits, c'est-à-dire les revenus) et l'<strong>abusus</strong> (le droit de le céder, de le vendre ou de le détruire). Ils sont une condition de l'échange marchand et de l'investissement.</td></tr>
+                  <tr><td>Propriété intellectuelle</td><td>Ensemble des droits de propriété portant sur les créations de l'esprit. Elle comprend la <strong>propriété industrielle</strong> (brevets, marques, dessins et modèles) et la <strong>propriété littéraire et artistique</strong> (droit d'auteur).</td></tr>
+                  <tr><td>Brevet</td><td>Titre de propriété industrielle délivré par un organisme public qui confère à son titulaire un <strong>droit exclusif d'exploitation</strong> de son invention pendant une durée limitée (20 ans en général), en contrepartie de la <strong>divulgation publique</strong> de l'invention. Il crée un monopole légal temporaire qui permet à l'innovateur de rentabiliser ses dépenses de R&D.</td></tr>
+                  <tr><td>Coûts de transaction</td><td>Coûts liés à la réalisation d'un échange : recherche d'information, négociation, rédaction et contrôle des contrats, recours en cas de litige. Des institutions efficaces les réduisent.</td></tr>
+                  <tr><td>Dépendance au sentier (path dependence)</td><td>Les choix institutionnels faits dans le passé conditionnent les possibilités présentes et futures : les institutions évoluent lentement et de façon incrémentale, ce qui explique la persistance de trajectoires de croissance différentes entre pays.</td></tr>
+                  <tr><td>État de droit</td><td>Situation dans laquelle les pouvoirs publics sont eux-mêmes soumis au droit, où les règles sont connues de tous et appliquées par une justice indépendante. Il garantit la sécurité des contrats et des droits de propriété.</td></tr>
+                  <tr><td>Corruption</td><td>Fait, pour une personne investie d'un pouvoir (public ou privé), de le détourner à son profit en échange d'un avantage. Elle augmente l'incertitude et les coûts pour les entreprises et décourage l'investissement.</td></tr>
+                  <tr><td>Institutions créatrices de marché</td><td>Selon Rodrik et Subramanian (2003), institutions sans lesquelles les marchés ne peuvent exister : les droits de propriété et l'exécution des contrats.</td></tr>
+                  <tr><td>Institutions de réglementation des marchés</td><td>Institutions qui corrigent les défaillances de marché (pouvoir de monopole, externalités, asymétries d'information) : autorités de la concurrence, agences de régulation.</td></tr>
+                  <tr><td>Institutions de stabilisation des marchés</td><td>Institutions qui assurent une inflation faible et stable et limitent l'instabilité macroéconomique et financière : banque centrale, règles budgétaires, régulation financière.</td></tr>
+                  <tr><td>Institutions de légitimation des marchés</td><td>Institutions qui assurent la protection sociale et l'assurance contre les risques, ce qui rend l'économie de marché acceptable par la population et limite les conflits : assurance chômage, retraites, démocratie.</td></tr>
+                  <tr><td>Concurrence</td><td>Situation d'un marché sur lequel plusieurs offreurs rivalisent pour attirer les demandeurs. Selon Aghion, son effet sur l'innovation dépend de la distance à la frontière technologique.</td></tr>
                 </table>
               </div>
             </div>
@@ -2860,10 +3146,6 @@ const matieres = [
       </div>
     </div>
 
-    <div class="accord-fc-row accord-fc-row-h1">
-      <button type="button" class="fc-btn" onclick="fcOpen('croissance','II')">🃏 Flashcards Partie II</button>
-    </div>
-
   </div>
 </div>
 
@@ -2876,6 +3158,10 @@ const matieres = [
     <span class="accord-chevron">▼</span>
   </button>
   <div class="accord-content">
+
+    <div class="accord-fc-row accord-fc-row-h1">
+      <button type="button" class="fc-btn" onclick="fcOpen('croissance','III')">🃏 Flashcards Partie III</button>
+    </div>
 
     <!-- III.A -->
     <div class="accord-sub">
@@ -2897,14 +3183,18 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Inégalités de revenus</td><td>Différences de revenus entre individus ou groupes. On les mesure par exemple par la part du revenu total captée par les 10 % ou les 1 % les plus aisés.</td></tr>
-                  <tr><td>Croissance inclusive</td><td>Croissance dont les fruits sont partagés par l'ensemble de la population. Depuis les années 1980, la croissance l'est moins, surtout aux États-Unis.</td></tr>
-                  <tr><td>Rente d'innovation</td><td>Surprofit tiré du monopole temporaire de l'innovateur ; il augmente les revenus des innovateurs par rapport aux autres.</td></tr>
-                  <tr><td>Tâches routinières</td><td>Tâches répétitives qui peuvent être codées et donc automatisées (saisie de données, traitement de factures, travail à la chaîne).</td></tr>
-                  <tr><td>Tâches non routinières</td><td>Tâches difficilement automatisables : soit peu qualifiées mais manuelles et relationnelles (aide à la personne, restauration, soins, ménage), soit qualifiées et abstraites (cadres, ingénieurs).</td></tr>
-                  <tr><td>Polarisation des emplois</td><td>Hausse simultanée de la part des emplois très qualifiés (bien payés) et des emplois peu qualifiés non routiniers (mal payés), au détriment des emplois intermédiaires routiniers.</td></tr>
-                  <tr><td>Progrès technique biaisé</td><td>Progrès technique qui accroît la demande de travail qualifié au détriment du travail peu qualifié.</td></tr>
-                  <tr><td>TIC</td><td>Technologies de l'information et de la communication (informatique, Internet, logiciels), principal vecteur de l'automatisation depuis les années 1990.</td></tr>
+                  <tr><td>Inégalités économiques</td><td>Différences d'accès à des ressources économiques rares et valorisées (revenus, patrimoine) entre individus ou groupes sociaux, qui se traduisent par des avantages ou des désavantages hiérarchisables.</td></tr>
+                  <tr><td>Revenu primaire / revenu disponible</td><td>Le revenu <strong>primaire</strong> est issu de la participation à la production ou de la propriété. Le revenu <strong>disponible</strong> est le revenu primaire augmenté des prestations sociales et diminué des impôts directs et des cotisations sociales : c'est celui dont le ménage dispose pour consommer et épargner.</td></tr>
+                  <tr><td>Part du revenu des 10 % / 1 % les plus aisés</td><td>Indicateur de concentration des revenus : pourcentage du revenu national total perçu par les 10 % (ou 1 %) d'individus aux revenus les plus élevés. Il est utilisé par le Rapport sur les inégalités mondiales (World Inequality Lab).</td></tr>
+                  <tr><td>Croissance inclusive</td><td>Croissance dont les bénéfices sont largement répartis dans l'ensemble de la population, de sorte que les revenus de tous progressent. Depuis les années 1980, la croissance l'est moins, surtout aux États-Unis.</td></tr>
+                  <tr><td>Rente d'innovation</td><td>Surprofit temporaire tiré du monopole de l'innovateur (souvent protégé par des brevets). Elle accroît les revenus des innovateurs et des détenteurs du capital de l'entreprise relativement à ceux des autres agents.</td></tr>
+                  <tr><td>Rente de monopole (hors innovation)</td><td>Surprofit obtenu grâce à une position de monopole qui ne repose pas sur une innovation (droit d'exploitation exclusif, barrières à l'entrée). Elle accroît les inégalités sans créer de croissance.</td></tr>
+                  <tr><td>Tâches routinières</td><td>Tâches répétitives qui suivent des procédures explicites et codifiables, et peuvent donc être exécutées par des machines ou des logiciels (saisie et traitement de données, traitement des factures, travail à la chaîne). Elles sont surtout occupées par des ouvriers de l'industrie et des employés administratifs, aux qualifications et salaires intermédiaires.</td></tr>
+                  <tr><td>Tâches non routinières</td><td>Tâches difficiles à codifier et donc à automatiser. Elles peuvent être <strong>abstraites</strong> et qualifiées (analyse, conception, management : cadres, ingénieurs, bien rémunérés) ou <strong>manuelles</strong> et relationnelles, peu qualifiées (aide à domicile, soins, restauration, ménage, faiblement rémunérées).</td></tr>
+                  <tr><td>Automatisation</td><td>Remplacement du travail humain par des machines ou des logiciels pour exécuter une tâche. Elle touche surtout les tâches routinières et s'est accélérée avec la baisse du prix des TIC.</td></tr>
+                  <tr><td>Polarisation des emplois</td><td>Déformation de la structure des emplois caractérisée par la hausse simultanée de la part des emplois très qualifiés (hauts salaires) et des emplois peu qualifiés non routiniers (bas salaires), au détriment des emplois intermédiaires routiniers. Elle accroît les inégalités salariales.</td></tr>
+                  <tr><td>Progrès technique biaisé en faveur du travail qualifié</td><td>Progrès technique qui accroît davantage la productivité, donc la demande et la rémunération, du travail qualifié que du travail peu qualifié.</td></tr>
+                  <tr><td>Technologies de l'information et de la communication (TIC)</td><td>Ensemble des technologies de traitement et de transmission de l'information (informatique, télécommunications, Internet). Leur diffusion depuis les années 1990 est le principal vecteur de l'automatisation des tâches routinières.</td></tr>
                 </table>
               </div>
             </div>
@@ -3036,17 +3326,19 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Croissance soutenable</td><td>Croissance qui permet de répondre aux besoins des générations présentes sans compromettre la capacité des générations futures à répondre aux leurs (rapport Brundtland, 1987). Les choix des générations actuelles ne doivent pas nuire au bien-être des générations futures.</td></tr>
-                  <tr><td>Limites écologiques</td><td>Contraintes que l'environnement impose à la croissance : <strong>épuisement des ressources</strong>, <strong>pollution</strong>, <strong>réchauffement climatique</strong>.</td></tr>
-                  <tr><td>Ressources non renouvelables / renouvelables</td><td>Non renouvelables : stock limité qui s'épuise (pétrole, charbon, minerais). Renouvelables : se reconstituent (eau, forêts, poissons) mais peuvent être surexploitées.</td></tr>
-                  <tr><td>Pollution</td><td>Dégradation de l'environnement (air, eau, sols) due aux activités humaines.</td></tr>
-                  <tr><td>Gaz à effet de serre (GES)</td><td>Gaz (dont le CO<sub>2</sub>) qui retiennent la chaleur dans l'atmosphère et sont responsables du réchauffement climatique.</td></tr>
-                  <tr><td>Réchauffement climatique</td><td>Hausse des températures moyennes due aux GES, qui provoque sécheresses, inondations, ouragans plus fréquents, montée des eaux.</td></tr>
-                  <tr><td>Externalité négative</td><td>Effet néfaste de l'activité d'un agent sur d'autres agents, sans compensation monétaire (ex. : la pollution).</td></tr>
-                  <tr><td>Irréversibilité</td><td>Certains dommages ne peuvent pas être réparés (réchauffement climatique, disparition d'espèces).</td></tr>
-                  <tr><td>Capital naturel</td><td>Ensemble des ressources naturelles (sols, eau, forêts, climat…) utiles aux activités humaines.</td></tr>
-                  <tr><td>Soutenabilité faible / forte</td><td><strong>Faible</strong> : le capital naturel détruit peut être compensé par d'autres formes de capital (technologie). <strong>Forte</strong> : le capital naturel doit être préservé car il n'est pas substituable.</td></tr>
-                  <tr><td>Décroissance</td><td>Courant qui propose de réduire volontairement la production et la consommation pour respecter les limites de la planète.</td></tr>
+                  <tr><td>Croissance soutenable (durable)</td><td>Croissance qui permet de répondre aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs (rapport Brundtland, 1987). Elle suppose de transmettre aux générations futures un stock de capital (économique, humain, social, naturel) leur permettant un bien-être au moins égal.</td></tr>
+                  <tr><td>Développement durable</td><td>Mode de développement qui concilie trois dimensions : économique (croissance), sociale (équité, réduction des inégalités) et environnementale (préservation des ressources et des écosystèmes).</td></tr>
+                  <tr><td>Limites écologiques</td><td>Contraintes physiques que l'environnement impose à la croissance : l'<strong>épuisement des ressources</strong>, la <strong>pollution</strong> et le <strong>réchauffement climatique</strong>, qui peuvent à terme compromettre la production elle-même et le bien-être.</td></tr>
+                  <tr><td>Ressources naturelles</td><td>Éléments de la nature utilisés par l'homme pour produire ou consommer. Les ressources <strong>non renouvelables</strong> existent en stock fini et s'épuisent avec leur exploitation (pétrole, gaz, charbon, minerais). Les ressources <strong>renouvelables</strong> se reconstituent naturellement (forêts, poissons, eau), mais s'épuisent si on les exploite plus vite que leur rythme de renouvellement.</td></tr>
+                  <tr><td>Capital naturel</td><td>Stock de ressources naturelles et d'écosystèmes (sols, eau, air, biodiversité, climat) qui fournit des ressources et des services indispensables à la production et à la vie humaine.</td></tr>
+                  <tr><td>Pollution</td><td>Dégradation de l'environnement (air, eau, sols) par l'introduction de substances ou d'énergies nocives, qui résulte des activités de production et de consommation. C'est une externalité négative.</td></tr>
+                  <tr><td>Externalité négative</td><td>Effet défavorable de l'activité d'un agent sur d'autres agents sans compensation monétaire. Le pollueur ne supporte pas le coût social de sa pollution : le marché produit donc trop de pollution.</td></tr>
+                  <tr><td>Gaz à effet de serre (GES)</td><td>Gaz présents dans l'atmosphère qui retiennent une partie du rayonnement infrarouge émis par la Terre (dioxyde de carbone, méthane, protoxyde d'azote…). L'augmentation de leur concentration, due surtout à la combustion d'énergies fossiles, renforce l'effet de serre.</td></tr>
+                  <tr><td>Réchauffement climatique</td><td>Hausse de la température moyenne à la surface de la Terre provoquée par l'accumulation des GES d'origine humaine. Il entraîne des dérèglements (sécheresses, inondations, ouragans, montée du niveau des mers) aux coûts économiques et humains croissants.</td></tr>
+                  <tr><td>Irréversibilité</td><td>Caractère d'un dommage qui ne peut pas être réparé ou compensé (extinction d'une espèce, réchauffement déjà engagé). L'irréversibilité justifie d'agir avant que les dommages ne se produisent.</td></tr>
+                  <tr><td>Soutenabilité faible</td><td>Conception selon laquelle les différentes formes de capital sont <strong>substituables</strong> : la dégradation du capital naturel est acceptable si elle est compensée par une hausse d'autres capitaux (capital technique, humain), notamment grâce au progrès technique. Seul compte le maintien du stock total de capital.</td></tr>
+                  <tr><td>Soutenabilité forte</td><td>Conception selon laquelle le capital naturel n'est <strong>pas substituable</strong> (ou seulement très partiellement) aux autres formes de capital : il faut préserver un stock minimal de capital naturel « critique », indépendamment de l'évolution des autres capitaux.</td></tr>
+                  <tr><td>Décroissance</td><td>Courant de pensée qui prône une réduction volontaire et planifiée de la production et de la consommation dans les pays riches afin de respecter les limites de la planète.</td></tr>
                 </table>
               </div>
             </div>
@@ -3188,15 +3480,18 @@ const matieres = [
             <div class="accord-content">
               <div class="accord-block-inner">
                 <table class="ses-table">
-                  <tr><td>Croissance verte</td><td>Croissance qui cherche à concilier hausse du PIB et préservation de l'environnement : croître en polluant moins et en gaspillant moins.</td></tr>
-                  <tr><td>Découplage</td><td>Fait de dissocier la croissance du PIB de la hausse des émissions de CO<sub>2</sub> et de la consommation de ressources. <strong>Relatif</strong> : les émissions augmentent moins vite que le PIB ; <strong>absolu</strong> : les émissions baissent alors que le PIB augmente.</td></tr>
-                  <tr><td>Innovation verte</td><td>Innovation qui réduit l'impact environnemental de la production ou de la consommation (énergies renouvelables, recyclage, stockage de l'énergie…).</td></tr>
-                  <tr><td>Recyclage / économie circulaire</td><td>Réutiliser les déchets comme matières premières pour économiser les ressources naturelles et l'énergie.</td></tr>
-                  <tr><td>Énergies renouvelables</td><td>Hydraulique, solaire, éolien, géothermie, biomasse : production d'électricité peu émettrice de CO<sub>2</sub>. Elles sont <strong>intermittentes</strong>.</td></tr>
-                  <tr><td>Sobriété énergétique</td><td>Réduction de la consommation d'énergie (isolation des bâtiments, véhicules hybrides…).</td></tr>
-                  <tr><td>Transition écologique</td><td>Transformation des modes de production et de consommation vers un modèle plus respectueux de l'environnement.</td></tr>
-                  <tr><td>Taxe carbone</td><td>Taxe sur les émissions de CO<sub>2</sub> qui intègre le coût de l'externalité négative dans le prix (outil vu en 1<sup>re</sup>) et incite à innover pour polluer moins.</td></tr>
-                  <tr><td>Effet rebond</td><td>Les gains d'efficacité rendent un bien moins coûteux à utiliser, ce qui pousse à en consommer davantage : une partie des économies est annulée.</td></tr>
+                  <tr><td>Innovation environnementale (verte)</td><td>Innovation (de produit, de procédé ou d'organisation) qui réduit l'impact des activités économiques sur l'environnement : moindre consommation de ressources et d'énergie, moindres émissions de polluants et de GES.</td></tr>
+                  <tr><td>Croissance verte</td><td>Croissance qui vise à concilier hausse de la production et préservation de l'environnement, grâce à l'innovation et aux investissements dans les technologies propres, afin de réduire la pression exercée sur les ressources naturelles et le climat.</td></tr>
+                  <tr><td>Découplage</td><td>Dissociation entre l'évolution du PIB et celle des pressions environnementales (émissions de GES, consommation de ressources). Il est <strong>relatif</strong> quand les pressions augmentent moins vite que le PIB (baisse de l'intensité en carbone) et <strong>absolu</strong> quand elles diminuent alors que le PIB augmente.</td></tr>
+                  <tr><td>Intensité carbone (ou énergétique) du PIB</td><td>Quantité de CO<sub>2</sub> émise (ou d'énergie consommée) pour produire une unité de PIB. Sa baisse traduit un découplage relatif.</td></tr>
+                  <tr><td>Recyclage</td><td>Réintroduction de matériaux issus de déchets dans un cycle de production, en remplacement de matières premières vierges. Il économise des ressources naturelles et souvent de l'énergie.</td></tr>
+                  <tr><td>Économie circulaire</td><td>Modèle économique qui vise à limiter la consommation de ressources et la production de déchets en allongeant la durée de vie des produits (écoconception, réparation, réemploi) et en recyclant les matériaux, par opposition au modèle linéaire « extraire, fabriquer, consommer, jeter ».</td></tr>
+                  <tr><td>Énergies renouvelables</td><td>Énergies issues de sources naturelles qui se renouvellent (soleil, vent, eau, chaleur de la Terre, biomasse), peu émettrices de GES. Solaire et éolien sont <strong>intermittents</strong> : leur production dépend des conditions naturelles, ce qui pose le problème du stockage de l'électricité.</td></tr>
+                  <tr><td>Transition énergétique / écologique</td><td>Passage d'un système de production et de consommation fondé sur les énergies fossiles et le gaspillage des ressources à un système plus sobre, plus efficace et fondé sur les énergies renouvelables.</td></tr>
+                  <tr><td>Sobriété</td><td>Réduction volontaire ou organisée des consommations d'énergie et de ressources (isolation des bâtiments, baisse du chauffage, mobilités moins émettrices).</td></tr>
+                  <tr><td>Efficacité énergétique</td><td>Rapport entre le service rendu (production, chauffage, déplacement) et l'énergie consommée pour l'obtenir : l'innovation l'améliore en permettant d'obtenir le même résultat avec moins d'énergie.</td></tr>
+                  <tr><td>Effet rebond</td><td>Phénomène par lequel les gains d'efficacité permis par une innovation, en réduisant le coût d'utilisation d'un bien ou d'une ressource, entraînent une hausse de sa consommation qui annule une partie (voire la totalité) des économies attendues.</td></tr>
+                  <tr><td>Taxe carbone</td><td>Taxe proportionnelle aux émissions de CO<sub>2</sub> qui fait payer au pollueur le coût de l'externalité négative (principe pollueur-payeur). En renchérissant les énergies fossiles, elle incite à réduire les émissions et à innover dans les technologies propres.</td></tr>
                 </table>
               </div>
             </div>
@@ -3276,10 +3571,6 @@ const matieres = [
 
         </div>
       </div>
-    </div>
-
-    <div class="accord-fc-row accord-fc-row-h1">
-      <button type="button" class="fc-btn" onclick="fcOpen('croissance','III')">🃏 Flashcards Partie III</button>
     </div>
 
   </div>
@@ -5768,194 +6059,316 @@ const flashcardsData = {
   croissance: {
     _all: [
       { q: "Quelles sont les deux grandes sources de la croissance économique ?",
-        r: "L'accumulation des facteurs de production (travail, capital) et la hausse de la productivité globale des facteurs (PGF), liée au progrès technique." },
-      { q: "Quels sont les deux grands défis de la croissance étudiés dans ce chapitre ?",
-        r: "Les inégalités de revenus (liées notamment au progrès technique) et les limites écologiques (ressources, pollution, réchauffement climatique)." },
-      { q: "Pourquoi dit-on que la croissance est auto-entretenue ?",
-        r: "Parce qu'elle génère des investissements (R&D, éducation, capital public) qui produisent du progrès technique, lequel entraîne à son tour de la croissance." }
+        r: "L'<b>accumulation des facteurs de production</b> (hausse des quantités de travail et de capital) et la hausse de la <b>productivité globale des facteurs</b> (PGF), qui reflète le progrès technique." },
+      { q: "Quel lien faut-il établir entre progrès technique et PGF ?",
+        r: "Le progrès technique améliore l'efficacité de la combinaison des facteurs : il se traduit par une hausse de la PGF, c'est-à-dire de la part de la croissance non expliquée par la hausse des quantités de facteurs." },
+      { q: "Résume en une phrase pourquoi le progrès technique est endogène.",
+        r: "Il résulte de décisions économiques (investissements en R&D, en capital humain et en capital public, innovations motivées par la recherche du profit), elles-mêmes permises par la croissance." },
+      { q: "Comment les institutions influent-elles sur la croissance ?",
+        r: "En modifiant les incitations à investir et à innover : des droits de propriété protégés, des règles stables et une faible corruption réduisent l'incertitude et garantissent aux innovateurs de pouvoir tirer profit de leurs investissements." },
+      { q: "Par quels mécanismes le progrès technique peut-il engendrer des inégalités de revenus ?",
+        r: "(1) Les rentes d'innovation accroissent les revenus des innovateurs ; (2) l'automatisation des tâches routinières entraîne une polarisation des emplois qui creuse les inégalités salariales." },
+      { q: "Quelles sont les trois limites écologiques de la croissance ?",
+        r: "L'épuisement des ressources naturelles, la pollution et le réchauffement climatique." },
+      { q: "Comment l'innovation peut-elle aider à reculer les limites écologiques ?",
+        r: "En permettant de produire avec moins de ressources et moins d'émissions (recyclage, énergies renouvelables, stockage, efficacité énergétique) : elle favorise un découplage entre croissance et pressions environnementales." },
+      { q: "Pourquoi dit-on que la croissance est un processus cumulatif et auto-entretenu ?",
+        r: "Cumulatif : chaque taux s'applique à un PIB déjà plus élevé. Auto-entretenu : la croissance finance les investissements (R&D, éducation, infrastructures) qui produisent le progrès technique à l'origine de la croissance future." }
     ],
 
     "I": {
       _all: [],
       "A": [
         { q: "Définis la croissance économique.",
-          r: "Augmentation soutenue et durable de la production de biens et services, mesurée par le taux de variation du PIB en volume." },
-        { q: "Formule du taux de croissance du PIB ?",
-          r: "(PIB année n − PIB année n−1) / PIB année n−1 × 100" },
+          r: "Augmentation durable de la production de biens et de services d'une économie, sur une longue période, mesurée par le taux de variation annuel du PIB en volume." },
+        { q: "Quelle différence entre croissance et expansion ?",
+          r: "La croissance est une hausse durable de la production (long terme) ; l'expansion est une hausse de courte durée, correspondant à la phase ascendante d'un cycle." },
+        { q: "Qu'est-ce qu'une récession ?",
+          r: "Une baisse du PIB en volume pendant au moins deux trimestres consécutifs." },
+        { q: "Définis le PIB.",
+          r: "Agrégat qui mesure la richesse produite en un an par les unités résidentes sur le territoire : somme des valeurs ajoutées + impôts sur les produits − subventions sur les produits." },
+        { q: "Définis la valeur ajoutée et donne sa formule.",
+          r: "La richesse réellement créée par une unité de production : VA = valeur de la production − consommations intermédiaires." },
+        { q: "Pourquoi calcule-t-on le PIB à partir des valeurs ajoutées et non de la production ?",
+          r: "Pour éviter les doubles comptes : la valeur des consommations intermédiaires est déjà comptée dans la production de l'entreprise qui les a fabriquées." },
         { q: "Différence entre PIB en valeur et PIB en volume ?",
-          r: "Le PIB en valeur est mesuré aux prix courants ; le PIB en volume est corrigé de l'inflation (prix constants). La croissance se mesure avec le PIB en volume." },
-        { q: "Pourquoi une hausse du PIB entraîne-t-elle une hausse des revenus ?",
-          r: "Le PIB est la somme des valeurs ajoutées, qui servent à rémunérer les facteurs de production (salaires, EBE) : plus de PIB = plus de revenus distribués." },
-        { q: "À quelle condition le niveau de vie moyen augmente-t-il ?",
-          r: "Si le PIB augmente plus vite que la population (hausse du PIB par habitant)." },
-        { q: "Pourquoi dit-on que la croissance est récente ?",
-          r: "Pendant des millénaires le PIB par habitant a stagné ; la croissance moderne ne démarre qu'avec la révolution industrielle (fin XVIIIe – XIXe siècle), d'abord en Angleterre." },
-        { q: "Pourquoi dit-on que la croissance est cumulative ?",
-          r: "Chaque année, le taux de croissance s'applique à un PIB déjà plus élevé (comme des intérêts composés) : de petits écarts de taux donnent de grands écarts de niveau de vie à long terme." },
-        { q: "En combien de temps le PIB double-t-il avec 2 % de croissance par an ? Avec 1 % ?",
-          r: "Environ 35 ans avec 2 % ; environ 70 ans avec 1 % (règle : 70 / taux)." },
+          r: "En valeur : aux prix courants (mêle hausse des quantités et des prix). En volume : aux prix constants, corrigé de l'inflation (seulement les quantités). La croissance se mesure avec le PIB en volume." },
+        { q: "Le PIB en valeur augmente de 5 % et les prix de 3 %. Quelle est la croissance ?",
+          r: "Environ 2 % (taux en volume ≈ taux en valeur − taux d'inflation)." },
+        { q: "Formule du taux de croissance du PIB ?",
+          r: "(PIB de l'année n − PIB de l'année n−1) / PIB de l'année n−1 × 100." },
+        { q: "Le PIB passe de 2 400 à 2 460 Md€. Calcule le taux de croissance.",
+          r: "(2 460 − 2 400) / 2 400 × 100 = +2,5 %." },
+        { q: "Pourquoi une croissance positive signifie-t-elle une hausse des revenus distribués ?",
+          r: "Le PIB est la somme des valeurs ajoutées, qui servent à rémunérer les facteurs de production (salaires et cotisations pour le travail, EBE pour le capital) : plus de VA = plus de revenus primaires." },
+        { q: "À quelle condition la croissance améliore-t-elle le niveau de vie moyen ?",
+          r: "Si le PIB augmente plus vite que la population, c'est-à-dire si le PIB par habitant augmente." },
+        { q: "Pourquoi dit-on que la croissance est un phénomène récent ?",
+          r: "Pendant près de deux millénaires, le PIB par habitant a quasiment stagné ; la croissance moderne ne démarre qu'avec la révolution industrielle (fin XVIIIe – XIXe siècle), d'abord en Angleterre." },
+        { q: "Dans quel ordre les pays sont-ils entrés dans la croissance ?",
+          r: "Angleterre, puis France, Pays-Bas, Allemagne, États-Unis… La Chine et l'Inde n'ont décollé que bien plus tard, d'où un niveau de vie encore inférieur malgré une forte croissance récente." },
+        { q: "Pourquoi la croissance est-elle cumulative ?",
+          r: "Chaque année, le taux de croissance s'applique à un PIB déjà augmenté (comme des intérêts composés) : de faibles écarts de taux produisent de très grands écarts de niveau de vie à long terme." },
+        { q: "En combien de temps le PIB double-t-il à 2 %, 1 % et 0,5 % par an ?",
+          r: "Environ 35 ans, 70 ans et 139 ans (règle approximative : 70 / taux de croissance)." },
         { q: "Le taux de croissance passe de 3 % à 1 %. Le PIB baisse-t-il ?",
-          r: "Non : il augmente toujours, mais moins vite. Il ne baisse que si le taux est négatif." }
+          r: "Non : le PIB augmente encore, mais moins vite. Il ne baisse que si le taux de croissance est négatif." },
+        { q: "Différence entre croissance et développement ?",
+          r: "La croissance est quantitative (hausse du PIB). Le développement est qualitatif : amélioration durable du bien-être (santé, éducation, réduction de la pauvreté), mesurée par exemple par l'IDH." }
       ],
       "B": [
-        { q: "Quels sont les deux facteurs de production ?",
-          r: "Le travail (main-d'œuvre) et le capital (machines, bâtiments, logiciels…)." },
-        { q: "Cite trois façons d'augmenter la quantité de travail.",
-          r: "Hausse de la population, hausse du taux d'activité (notamment féminin), allongement de la vie active ou de la durée du travail." },
+        { q: "Quels sont les facteurs de production ?",
+          r: "Le facteur travail (activité humaine consacrée à la production) et le facteur capital (ensemble des biens de production)." },
+        { q: "De quoi dépend la quantité de travail disponible ?",
+          r: "De la population active (démographie, taux d'activité, notamment des femmes), du chômage et de la durée du travail (nombre d'heures travaillées par actif et durée de la vie active)." },
+        { q: "Distingue capital fixe et capital circulant.",
+          r: "Capital fixe : biens de production durables utilisés plus d'un an (machines, bâtiments, logiciels). Capital circulant : biens détruits ou transformés en un seul cycle de production (matières premières, énergie)." },
+        { q: "Définis l'investissement et cite ses trois formes.",
+          r: "Dépense qui accroît ou renouvelle le stock de capital. Investissement de remplacement, de capacité (produire plus) et de productivité (produire plus efficacement)." },
         { q: "Qu'est-ce que la FBCF ?",
-          r: "La formation brute de capital fixe : la mesure de l'investissement en biens de production durables (machines, bâtiments, logiciels)." },
-        { q: "Qu'est-ce que le capital humain ?",
-          r: "L'ensemble des connaissances, qualifications, expériences et de la santé d'un individu qui augmentent sa productivité." },
+          r: "La formation brute de capital fixe : mesure de l'investissement en comptabilité nationale (valeur des biens durables acquis pour produire pendant au moins un an)." },
+        { q: "Définis le capital humain.",
+          r: "Ensemble des connaissances, qualifications, expériences et de la santé qu'un individu accumule (éducation, formation) et qui accroissent sa productivité et ses revenus futurs (Becker)." },
+        { q: "Qu'est-ce que l'intensité capitalistique ?",
+          r: "Le stock de capital par travailleur (capital / emploi). Sa hausse traduit une substitution du capital au travail." },
+        { q: "Explique pourquoi l'accumulation des facteurs est une source de croissance.",
+          r: "Utiliser plus de travail (hausse de la population active, du taux d'activité) et plus de capital (investissement) permet de produire davantage de biens et services, donc d'augmenter le PIB." },
         { q: "Qu'est-ce que la croissance extensive ?",
-          r: "Une croissance due à l'augmentation de la quantité de facteurs de production, sans hausse de leur efficacité." },
+          r: "Une croissance obtenue par l'augmentation des quantités de facteurs de production utilisées, à efficacité inchangée." },
         { q: "Énonce la loi des rendements factoriels décroissants.",
-          r: "Quand on augmente un facteur alors que l'autre reste fixe, chaque unité supplémentaire rapporte un supplément de production de plus en plus faible." },
-        { q: "Illustre les rendements décroissants avec la pizzeria.",
-          r: "Le 2e et le 3e travailleur augmentent fortement la production (spécialisation) ; au-delà, avec un seul four, les travailleurs supplémentaires se gênent et ajoutent de moins en moins." },
-        { q: "Pourquoi l'accumulation des facteurs ne suffit-elle pas à long terme ?",
-          r: "Parce qu'elle bute sur les rendements décroissants : sans amélioration de l'efficacité des facteurs (progrès technique), la croissance s'essouffle (ex. : l'URSS)." }
+          r: "Si l'on augmente la quantité d'un facteur, l'autre restant fixe, la production supplémentaire obtenue par chaque unité ajoutée (productivité marginale) finit par diminuer." },
+        { q: "Qu'est-ce que la productivité marginale ?",
+          r: "Le supplément de production obtenu grâce à une unité supplémentaire d'un facteur, la quantité de l'autre facteur restant constante." },
+        { q: "Illustre les rendements décroissants par l'exemple de la pizzeria.",
+          r: "Avec un seul four, le 2e puis le 3e travailleur augmentent fortement la production (division du travail), mais les suivants se gênent et sont sous-employés : chaque travailleur ajouté produit de moins en moins." },
+        { q: "Avec des rendements décroissants, la production baisse-t-elle ?",
+          r: "Non : la production totale continue d'augmenter, mais de moins en moins vite." },
+        { q: "Pourquoi l'accumulation des facteurs ne suffit-elle pas à assurer une croissance durable ?",
+          r: "Parce qu'elle bute sur les rendements décroissants : sans amélioration de l'efficacité des facteurs (progrès technique), la croissance s'essouffle." },
+        { q: "Pourquoi la croissance soviétique a-t-elle ralenti selon Krugman ?",
+          r: "Elle reposait sur la mobilisation massive des facteurs (« transpiration ») et non sur des gains d'efficacité (« inspiration ») : une croissance fondée sur l'accumulation est soumise aux rendements décroissants." }
       ],
       "C": [
-        { q: "Qu'est-ce que la productivité ?",
-          r: "Le rapport entre la production obtenue et la quantité de facteur utilisée : elle mesure l'efficacité d'un facteur." },
-        { q: "Pourquoi parle-t-on de productivité « apparente » du travail ?",
-          r: "Parce qu'elle attribue toute la production au travail, sans tenir compte de l'apport du capital." },
-        { q: "Pourquoi mesure-t-on la productivité horaire ?",
-          r: "Pour comparer des pays ou des périodes où la durée du travail est différente." },
-        { q: "Qu'est-ce que la PGF ?",
-          r: "La productivité globale des facteurs : la part de la croissance non expliquée par la hausse des quantités de travail et de capital. Elle reflète le progrès technique au sens large." },
-        { q: "Pourquoi dit-on que la PGF est un résidu ?",
-          r: "Parce qu'on ne peut pas la mesurer directement : on la calcule par différence entre la croissance totale et la contribution des quantités de facteurs." },
-        { q: "Comment Abramovitz qualifie-t-il le résidu ?",
-          r: "« La mesure de notre ignorance » (1956)." },
+        { q: "Définis la productivité.",
+          r: "Rapport entre la production (ou la valeur ajoutée) et la quantité de facteurs utilisée pour l'obtenir ; elle mesure l'efficacité des facteurs de production." },
+        { q: "Formule de la productivité horaire du travail ?",
+          r: "Production (ou valeur ajoutée) / nombre d'heures travaillées." },
+        { q: "Pourquoi préférer la productivité horaire à la productivité par tête pour comparer des pays ?",
+          r: "Parce que la durée du travail diffère selon les pays : la productivité horaire neutralise ces écarts." },
+        { q: "Pourquoi la productivité du travail est-elle dite « apparente » ?",
+          r: "Elle attribue au seul travail une production qui résulte aussi du capital : elle augmente par exemple si chaque travailleur dispose de plus de machines, sans qu'il soit plus efficace." },
+        { q: "Définis la productivité globale des facteurs (PGF).",
+          r: "L'efficacité de la combinaison des facteurs travail et capital prise dans son ensemble, mesurée comme la part de la croissance non expliquée par la hausse des quantités de travail et de capital." },
+        { q: "Pourquoi dit-on que la PGF est un « résidu » ?",
+          r: "Parce qu'elle ne se mesure pas directement : on l'obtient par différence entre la croissance du PIB et la contribution de la hausse des quantités de facteurs." },
+        { q: "Que recouvre la PGF ?",
+          r: "Principalement le progrès technique au sens large : technologie incorporée dans les machines, qualité de la main-d'œuvre (éducation), organisation du travail, cadre institutionnel, diffusion des technologies (électricité, TIC)." },
+        { q: "Quelle expression Abramovitz (1956) emploie-t-il pour le résidu ?",
+          r: "« La mesure de notre ignorance » : on sait qu'il explique une grande part de la croissance sans savoir exactement ce qu'il contient." },
         { q: "Quel est le résultat de Solow sur les États-Unis (1909-1949) ?",
-          r: "Environ 87,5 % de la hausse de la productivité du travail s'explique par le résidu, c'est-à-dire le progrès technique." },
+          r: "Environ 87,5 % de la hausse de la productivité du travail s'explique par le résidu (progrès technique) et seulement 12,5 % par l'accumulation du capital par travailleur." },
         { q: "Qu'est-ce que la croissance intensive ?",
-          r: "Une croissance due aux gains de productivité (meilleure efficacité des facteurs grâce au progrès technique)." },
-        { q: "PIB +2 % ; travail +0,4 pt ; capital +0,6 pt. Quelle est la contribution de la PGF ?",
-          r: "2 − 0,4 − 0,6 = 1 point de pourcentage." },
-        { q: "Quelle est la principale source de croissance à long terme ?",
-          r: "Le progrès technique, qui fait augmenter la PGF et permet d'échapper aux rendements décroissants." }
+          r: "Une croissance obtenue grâce aux gains de productivité (meilleure efficacité des facteurs), et non à l'augmentation de leurs quantités." },
+        { q: "Explique comment le progrès technique augmente la productivité. Donne un exemple.",
+          r: "Il améliore l'efficacité des facteurs : on produit plus avec la même quantité de travail et de capital. Ex. : une heure de moisson avec une moissonneuse-batteuse produit bien plus qu'avec une faux." },
+        { q: "Qu'est-ce que la décomposition comptable de la croissance ?",
+          r: "La répartition du taux de croissance du PIB entre les contributions (en points de %) de la hausse du travail, de celle du capital et de la PGF ; la somme des contributions égale le taux de croissance." },
+        { q: "PIB +2 % ; contribution du travail +0,4 pt ; du capital +0,6 pt. Calcule et interprète la contribution de la PGF.",
+          r: "2 − 0,4 − 0,6 = 1 point : la PGF explique la moitié de la croissance." },
+        { q: "Quelle a été la principale contribution à la croissance au XXe siècle (Bergeaud, Cette, Lecat) ?",
+          r: "La PGF ; son ralentissement explique aussi le ralentissement de la croissance depuis les années 1970." },
+        { q: "Quelle part de la PGF l'éducation et l'électricité expliquent-elles (zone euro, 1913-2010) ?",
+          r: "Environ 42 % ; 58 % de la PGF reste inexpliqué." },
+        { q: "Distingue productivité du travail et PGF.",
+          r: "La productivité du travail peut augmenter par simple accumulation de capital par travailleur ; la PGF ne mesure que les gains d'efficacité de l'ensemble des facteurs, c'est-à-dire le progrès technique au sens large." },
+        { q: "Pourquoi le progrès technique est-il la principale source de croissance à long terme ?",
+          r: "Parce qu'il améliore sans cesse l'efficacité des facteurs et permet ainsi d'échapper aux rendements décroissants qui limitent la croissance par accumulation." }
       ]
     },
     "II": {
       _all: [],
       "A": [
-        { q: "Que signifie « progrès technique exogène » (Solow) ?",
-          r: "Le progrès technique n'est pas expliqué par le modèle économique : il vient de l'extérieur, comme une « manne tombée du ciel »." },
+        { q: "Distingue variable exogène et variable endogène.",
+          r: "Exogène : déterminée en dehors du modèle, non expliquée par lui. Endogène : expliquée par les mécanismes économiques décrits par le modèle." },
+        { q: "Pourquoi le progrès technique est-il exogène chez Solow ?",
+          r: "Il est la source principale de croissance à long terme mais n'est pas expliqué par le modèle : il dépend des avancées de la science, c'est une « manne tombée du ciel » (Hulten)." },
+        { q: "Quelle est la limite du modèle de Solow ?",
+          r: "La principale source de la croissance (le progrès technique) n'est pas expliquée : on connaît les sources de la croissance mais on ne peut pas agir sur elle." },
         { q: "Que signifie « progrès technique endogène » ?",
-          r: "Le progrès technique est expliqué par des décisions économiques : investissements en R&D, en éducation, en infrastructures." },
-        { q: "Qu'est-ce qu'une externalité positive ? Donne un exemple.",
-          r: "Un effet bénéfique de l'activité d'un agent sur d'autres, sans contrepartie. Ex. : un salarié formé qui change d'entreprise diffuse son savoir-faire." },
-        { q: "Quel capital met en avant Paul Romer (1986) ?",
-          r: "Le capital technologique (connaissances, R&D) : son accumulation génère des externalités positives." },
-        { q: "Quel capital met en avant Robert Lucas (1988) ?",
-          r: "Le capital humain (éducation, formation)." },
-        { q: "Quel capital met en avant Robert Barro (1990) ?",
-          r: "Le capital public (infrastructures, recherche et éducation publiques)." },
+          r: "Le progrès technique résulte de décisions économiques : investissements en R&D, en éducation et en infrastructures, et innovations motivées par la recherche du profit." },
+        { q: "Quel constat empirique a inspiré les théories de la croissance endogène ?",
+          r: "La croissance passée d'un pays est corrélée à sa croissance future, comme si « la croissance favorisait la croissance »." },
+        { q: "Définis une externalité positive et donne un exemple.",
+          r: "Effet favorable de l'activité d'un agent sur d'autres agents sans compensation monétaire. Ex. : un salarié formé dans une entreprise innovante qui transmet ses savoir-faire en changeant d'employeur." },
+        { q: "Pourquoi les externalités sont-elles au cœur de la croissance endogène ?",
+          r: "Elles diffusent les connaissances dans toute l'économie : les rendements ne sont plus décroissants au niveau macroéconomique et la croissance peut s'auto-entretenir." },
+        { q: "Explique le modèle de Paul Romer (1986).",
+          r: "Le progrès technique résulte de l'accumulation du capital et des connaissances (R&D financée par l'épargne). Une entreprise qui innove diffuse involontairement ses savoir-faire (imitation, mobilité des salariés) : externalités positives." },
+        { q: "Explique le modèle de Robert Lucas (1988).",
+          r: "Le capital humain, accumulé par l'éducation, rend les individus plus productifs et plus aptes à innover ; il génère des externalités positives (une personne formée en forme d'autres)." },
+        { q: "Explique le modèle de Robert Barro (1990).",
+          r: "Le capital public (infrastructures, recherche et éducation publiques) financé par l'État accroît la productivité des entreprises privées ; la croissance augmente les recettes publiques, qui financent plus de capital public." },
+        { q: "Pourquoi la connaissance permet-elle d'échapper aux rendements décroissants ?",
+          r: "C'est un bien non rival : une idée peut être utilisée par tous en même temps sans s'épuiser, ce qui permet des rendements croissants à l'échelle de l'économie." },
         { q: "Décris le cercle vertueux de la croissance endogène.",
-          r: "Croissance → revenus et épargne → investissements (R&D, éducation, infrastructures) → progrès technique et externalités → gains de productivité → croissance." },
-        { q: "Pourquoi les théories de la croissance endogène réhabilitent-elles l'État ?",
-          r: "Parce que l'État peut agir sur la croissance de long terme en investissant dans la R&D, l'éducation et les infrastructures." },
-        { q: "Donne deux innovations issues de l'investissement public (Mazzucato).",
-          r: "Internet (ARPANET, financé par la DARPA) et le GPS (programme militaire NAVSTAR)." }
+          r: "Croissance → revenus et épargne → investissements (R&D, éducation, infrastructures) → accumulation de capital et externalités → progrès technique → gains de productivité → croissance." },
+        { q: "Quel rôle les théories de la croissance endogène donnent-elles à l'État ?",
+          r: "Il peut agir durablement sur la croissance en investissant dans la R&D, l'éducation et les infrastructures et en protégeant la propriété intellectuelle." },
+        { q: "Donne deux exemples d'innovations issues de l'investissement public (Mazzucato).",
+          r: "Internet (ARPANET, financé par la DARPA dans les années 1960) et le GPS (programme militaire NAVSTAR des années 1970)." },
+        { q: "Que montre le graphique de la PGF depuis 1990 ?",
+          r: "Un ralentissement du progrès technique mesuré, surtout après la crise de 2008 ; dans les pays émergents, il est antérieur à la crise, ce qui pèse sur leur croissance future." }
       ],
       "B": [
-        { q: "Différence entre invention et innovation ?",
-          r: "L'invention est une découverte scientifique ou technique ; l'innovation est sa mise en œuvre économique (production, mise sur le marché)." },
-        { q: "Cite les formes d'innovation selon Schumpeter.",
-          r: "De produit, de procédé, d'organisation, de débouché (nouveau marché) et de matière première." },
-        { q: "Pourquoi l'entrepreneur innove-t-il selon Schumpeter ?",
-          r: "Pour obtenir une rente de monopole temporaire : seul sur le marché, il peut vendre plus cher et faire un surprofit." },
-        { q: "Pourquoi le monopole de l'innovateur est-il temporaire ?",
-          r: "Parce que les concurrents l'imitent ; pour retrouver une rente, il doit innover à nouveau." },
-        { q: "Qu'est-ce qu'une grappe d'innovations ?",
-          r: "Un ensemble d'innovations qui s'entraînent les unes les autres (navette volante → rouet mécanique → machine à vapeur) et provoquent une vague de croissance." },
+        { q: "Distingue invention et innovation.",
+          r: "L'invention est la découverte d'une connaissance ou d'une technique nouvelle ; l'innovation est sa mise en œuvre économique (introduction dans la production ou sur le marché)." },
+        { q: "Cite les cinq formes d'innovation selon Schumpeter.",
+          r: "Bien nouveau ; nouvelle méthode de production ; nouveau débouché ; nouvelle source de matières premières ; nouvelle organisation de la production." },
+        { q: "Distingue innovation de produit et innovation de procédé, avec un exemple.",
+          r: "Produit : bien ou service nouveau (vaccin à ARN messager). Procédé : nouvelle méthode de production (robotisation d'une chaîne de montage)." },
+        { q: "Distingue innovation majeure et incrémentale.",
+          r: "Majeure (de rupture) : bouleverse la production et entraîne d'autres innovations (électricité, Internet). Incrémentale : amélioration progressive d'un produit ou procédé existant." },
+        { q: "Quel est le rôle de l'entrepreneur selon Schumpeter ?",
+          r: "Il introduit les inventions dans le processus économique en réalisant de « nouvelles combinaisons productives » ; il prend des risques, motivé par la recherche du profit." },
+        { q: "Pourquoi les entreprises innovent-elles ?",
+          r: "Pour obtenir une rente de monopole temporaire : seules à proposer le nouveau produit ou procédé, elles peuvent vendre plus cher ou produire moins cher et réaliser un surprofit." },
+        { q: "Pourquoi la rente d'innovation est-elle temporaire ?",
+          r: "Parce que les concurrents imitent l'innovation ; pour retrouver une rente, l'entreprise doit innover à nouveau." },
+        { q: "Explique pourquoi l'innovation rend le progrès technique endogène.",
+          r: "L'innovation est expliquée par une variable économique, la recherche du profit ; l'imitation oblige à innover sans cesse, ce qui alimente en continu le progrès technique." },
+        { q: "Qu'est-ce qu'une grappe d'innovations ? Donne un exemple.",
+          r: "Un ensemble d'innovations qui s'entraînent les unes les autres. Ex. : la navette volante (tissage) → rouet mécanique (filage) → machine à vapeur (énergie)." },
         { q: "Définis la destruction créatrice.",
-          r: "Processus par lequel les innovations rendent obsolètes les produits, entreprises et emplois anciens tout en en créant de nouveaux (Schumpeter)." },
-        { q: "Donne un exemple de destruction créatrice.",
-          r: "L'appareil photo numérique a fait disparaître la pellicule (faillite de Kodak en 2012) mais a créé de nouveaux emplois dans le numérique." },
-        { q: "Selon Aghion et Howitt, qu'est-ce qui devient le moteur de la croissance quand un pays se rapproche de la frontière technologique ?",
-          r: "L'innovation (plutôt que l'imitation et l'accumulation du capital)." }
+          r: "Processus par lequel les innovations rendent obsolètes les produits, entreprises et emplois anciens tout en créant de nouveaux produits, activités et emplois (Schumpeter, 1942)." },
+        { q: "Donne deux exemples de destruction créatrice.",
+          r: "Photo numérique / pellicule argentique (faillite de Kodak, 2012) ; automobile / maréchal-ferrant (mais création d'emplois de garagistes) ; mail / facteur." },
+        { q: "Quel est le bilan de la destruction créatrice ?",
+          r: "À long terme, un solde positif pour la croissance ; à court terme, des coûts sociaux (chômage, reconversions difficiles, faillites) pour les « perdants » de l'innovation." },
+        { q: "Selon Aghion et Howitt, comment la croissance d'un pays évolue-t-elle en se rapprochant de la frontière technologique ?",
+          r: "Loin de la frontière, il croît surtout en imitant et en accumulant du capital ; près de la frontière, l'innovation devient le moteur de sa croissance." },
+        { q: "Pourquoi les innovateurs d'hier peuvent-ils freiner la croissance ?",
+          r: "Devenus des entreprises installées, ils cherchent à empêcher ou retarder l'entrée de nouveaux concurrents innovants pour protéger leur rente." }
       ],
       "C": [
-        { q: "Définis une institution (North).",
-          r: "Un ensemble de règles formelles (lois, droits de propriété) et informelles (coutumes, usages) qui encadrent les interactions entre individus." },
-        { q: "Comment les institutions influencent-elles la croissance ?",
-          r: "Elles réduisent l'incertitude et agissent sur les incitations : des institutions de qualité favorisent l'investissement et l'innovation." },
-        { q: "Que signifient usus, fructus et abusus ?",
-          r: "Le droit d'utiliser un bien, d'en retirer les revenus et de le céder : ce sont les attributs du droit de propriété." },
-        { q: "Qu'est-ce qu'un brevet ?",
-          r: "Un titre de propriété qui donne à l'innovateur un monopole d'exploitation temporaire (souvent 20 ans) en échange de la publication de son invention." },
-        { q: "Pourquoi le brevet incite-t-il à innover ?",
-          r: "Il empêche la copie immédiate et permet à l'innovateur de fixer un prix qui rentabilise ses dépenses de R&D." },
-        { q: "Quelle est la limite du brevet et comment y remédier ?",
-          r: "Le premier arrivé emporte toute la mise, ce qui peut décourager les autres ; on limite sa durée et on autorise l'imitation améliorée. Sa publication permet la diffusion." },
-        { q: "Cite les 4 types d'institutions de Rodrik et Subramanian.",
-          r: "Créatrices de marchés (droits de propriété), de réglementation (autorité de la concurrence), de stabilisation (banque centrale), de légitimation (assurance chômage)." },
-        { q: "Pourquoi l'Amérique du Nord a-t-elle crû plus vite que l'Amérique du Sud (North) ?",
-          r: "Elle a hérité d'institutions britanniques décentralisées protégeant les droits de propriété, plus incitatives que les institutions espagnoles centralisées." },
+        { q: "Définis une institution.",
+          r: "Ensemble de règles formelles (lois, droits de propriété) et informelles (normes, coutumes), relativement stables, qui encadrent les interactions entre individus : les « règles du jeu » (North)." },
+        { q: "Pourquoi les institutions influent-elles sur la croissance ?",
+          r: "Elles réduisent l'incertitude et structurent les incitations : des règles stables et respectées encouragent l'investissement et l'innovation ; l'instabilité et la corruption les découragent." },
+        { q: "Donne deux exemples d'environnement institutionnel défavorable à l'investissement.",
+          r: "Une forte inflation, une corruption élevée, des mafias qui rackettent les producteurs, une justice qui ne garantit pas les contrats." },
+        { q: "Définis le droit de propriété (usus, fructus, abusus).",
+          r: "Droit garanti par la loi d'utiliser un bien (usus), d'en percevoir les revenus (fructus) et de le céder ou le vendre (abusus)." },
+        { q: "Pourquoi les droits de propriété favorisent-ils l'innovation ?",
+          r: "Ils garantissent à l'innovateur de pouvoir tirer profit de ses dépenses de R&D ; sans protection, l'innovation serait immédiatement copiée et personne n'aurait intérêt à innover." },
+        { q: "Définis un brevet.",
+          r: "Titre de propriété industrielle qui donne un droit exclusif d'exploitation d'une invention pendant une durée limitée (souvent 20 ans), en échange de sa divulgation publique." },
+        { q: "Explique pourquoi le brevet incite à innover.",
+          r: "Il crée un monopole temporaire : l'innovateur peut fixer un prix qui couvre ses coûts de recherche (ex. : vaccins contre la COVID-19)." },
+        { q: "Quelles sont les limites du brevet et comment les pouvoirs publics y répondent-ils ?",
+          r: "Le premier arrivé emporte toute la mise (ce qui décourage les autres) et le monopole freine la diffusion. On limite la durée du brevet, on autorise l'imitation améliorée ; la publication du brevet diffuse la connaissance." },
+        { q: "Cite les quatre types d'institutions favorables à la croissance selon Rodrik et Subramanian, avec un exemple.",
+          r: "Créatrices de marché (droits de propriété), de réglementation (autorité de la concurrence), de stabilisation (banque centrale), de légitimation (assurance chômage)." },
+        { q: "Comment North explique-t-il la croissance plus rapide de l'Amérique du Nord que de l'Amérique du Sud ?",
+          r: "L'Amérique du Nord a hérité d'institutions britanniques décentralisées protégeant les droits de propriété ; l'Amérique du Sud, d'institutions espagnoles centralisées et bureaucratiques, moins incitatives." },
         { q: "Qu'est-ce que la dépendance au sentier ?",
-          r: "Le fait que les institutions actuelles dépendent des choix faits dans le passé." },
-        { q: "Quel est l'effet de la concurrence sur l'innovation (Aghion) ?",
-          r: "Il dépend de la distance à la frontière technologique : elle stimule l'innovation des entreprises proches de la frontière et décourage celles qui en sont loin." }
+          r: "Le fait que les institutions présentes dépendent des choix faits dans le passé, ce qui explique la persistance d'écarts de croissance entre pays." },
+        { q: "La concurrence favorise-t-elle toujours l'innovation (Aghion) ?",
+          r: "Non : elle stimule l'innovation des entreprises proches de la frontière technologique (pour rester devant) mais décourage celles qui en sont éloignées." },
+        { q: "Existe-t-il un modèle institutionnel unique favorable à la croissance ?",
+          r: "Non : la meilleure réponse institutionnelle dépend notamment de la distance des entreprises d'un pays à la frontière technologique ; il n'y a pas de « package » transférable." },
+        { q: "Quelles institutions permettent d'accompagner la destruction créatrice ?",
+          r: "Celles qui protègent les perdants de l'innovation (assurance chômage), facilitent les entrées et sorties du marché du travail et assurent la formation initiale et continue." }
       ]
     },
     "III": {
       _all: [],
       "A": [
-        { q: "Par quels deux mécanismes le progrès technique peut-il accroître les inégalités ?",
-          r: "Les rentes de monopole des innovateurs et la polarisation des emplois (automatisation des tâches routinières)." },
-        { q: "Qu'est-ce qu'une tâche routinière ?",
-          r: "Une tâche répétitive qui peut être automatisée (saisie, traitement de factures, travail à la chaîne)." },
-        { q: "Qu'est-ce que la polarisation des emplois ?",
-          r: "La hausse simultanée des emplois très qualifiés et des emplois peu qualifiés non routiniers, au détriment des emplois intermédiaires routiniers." },
-        { q: "Pourquoi la polarisation augmente-t-elle les inégalités salariales ?",
-          r: "Parce que l'emploi progresse aux deux extrémités de l'échelle des salaires (hauts et bas salaires) et recule au milieu." },
-        { q: "Évolution de la part du revenu des 10 % les plus aisés aux États-Unis, 1980-2016 ?",
-          r: "De 34 % à 47 % du revenu national." },
-        { q: "Évolution de la part des 1 % les plus aisés aux États-Unis, 1980-2016 ?",
-          r: "De 12 % à 20 %." },
-        { q: "L'innovation profite-t-elle aux peu qualifiés ?",
-          r: "Oui en partie : en France, un peu qualifié dans une des 5 % d'entreprises les plus innovantes gagne environ 2,2 % de plus qu'ailleurs." },
-        { q: "Cite deux autres causes de la hausse des inégalités.",
+        { q: "Qu'est-ce qu'une croissance inclusive ?",
+          r: "Une croissance dont les bénéfices profitent à l'ensemble de la population. Depuis les années 1980, la croissance l'est moins, surtout aux États-Unis." },
+        { q: "Comment les inégalités ont-elles évolué pendant les Trente Glorieuses puis depuis 1980 ?",
+          r: "Elles ont diminué pendant les Trente Glorieuses ; elles augmentent depuis les années 1980, fortement aux États-Unis, plus modérément en Europe." },
+        { q: "Part du revenu des 10 % les plus aisés en 1980 et 2016 aux États-Unis et en Europe ?",
+          r: "États-Unis : 34 % → 47 %. Europe : 33 % → 37 %." },
+        { q: "Part du revenu des 1 % les plus aisés aux États-Unis en 1980 et 2016 ?",
+          r: "12 % → 20 %." },
+        { q: "Explique comment la rente d'innovation accroît les inégalités.",
+          r: "L'innovateur, en monopole temporaire, vend plus cher et réalise des surprofits ; dans une économie mondialisée il vise un marché mondial, ce qui accroît encore ses revenus par rapport aux autres agents." },
+        { q: "Distingue tâches routinières et non routinières.",
+          r: "Routinières : répétitives et codifiables, donc automatisables (saisie, travail à la chaîne). Non routinières : abstraites et qualifiées (cadres, ingénieurs) ou manuelles et relationnelles peu qualifiées (soins, aide à domicile)." },
+        { q: "Pourquoi les TIC détruisent-elles surtout les emplois intermédiaires ?",
+          r: "Les emplois intermédiaires (ouvriers de l'industrie, employés administratifs) sont les plus intensifs en tâches routinières, que les TIC permettent d'automatiser." },
+        { q: "Définis la polarisation des emplois.",
+          r: "Hausse simultanée de la part des emplois très qualifiés et des emplois peu qualifiés non routiniers, au détriment des emplois intermédiaires routiniers." },
+        { q: "Explique pourquoi la polarisation accroît les inégalités salariales.",
+          r: "L'emploi progresse aux deux extrémités de l'échelle des salaires (hauts salaires qualifiés, bas salaires peu qualifiés) et recule au milieu : les écarts de salaires se creusent." },
+        { q: "Qu'est-ce qu'un progrès technique biaisé ?",
+          r: "Un progrès technique qui accroît davantage la demande et la rémunération du travail qualifié que du travail peu qualifié." },
+        { q: "Qu'est devenu l'emploi routinier en France entre 1990 et 2011 ?",
+          r: "Il a reculé (ouvriers industriels, transport, bâtiment, agriculture) : les travailleurs concernés ont basculé vers des emplois de service non routiniers ou vers le chômage (Charnoz et Orand)." },
+        { q: "L'innovation profite-t-elle aussi aux salariés peu qualifiés ? Justifie.",
+          r: "Oui en partie : en France, un salarié peu qualifié d'une des 5 % d'entreprises les plus innovantes gagne environ 2,2 % de plus qu'un salarié identique d'une entreprise non innovante." },
+        { q: "Cite deux autres causes de la hausse des inégalités que le progrès technique.",
           r: "La mondialisation (délocalisations) et les rentes de monopole sans innovation." },
-        { q: "Pourquoi la hausse des inégalités n'est-elle pas une fatalité ?",
-          r: "Pendant les Trente Glorieuses, la croissance s'est accompagnée d'une baisse des inégalités : tout dépend des politiques publiques." }
+        { q: "Pourquoi la hausse des inégalités liée au progrès technique n'est-elle pas une fatalité ?",
+          r: "Elle dépend des politiques publiques (fiscalité, éducation, formation) : la croissance des Trente Glorieuses s'est accompagnée d'une baisse des inégalités." },
+        { q: "Que montre la « courbe de l'éléphant » ?",
+          r: "Depuis 1980, les 1 % les plus riches du monde ont capté environ 2,25 fois plus de la croissance mondiale que les 50 % les plus pauvres." }
       ],
       "B": [
+        { q: "Définis la croissance soutenable.",
+          r: "Une croissance qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs (rapport Brundtland, 1987)." },
         { q: "Quelles sont les trois limites écologiques de la croissance ?",
           r: "L'épuisement des ressources, la pollution et le réchauffement climatique." },
-        { q: "Qu'est-ce qu'une croissance soutenable ?",
-          r: "Une croissance qui répond aux besoins présents sans compromettre la capacité des générations futures à répondre aux leurs." },
-        { q: "Quel fait montre le lien entre croissance et émissions de CO2 ?",
-          r: "La chute des émissions lors de la crise de 2008 et surtout pendant le confinement de 2020." },
-        { q: "Pourquoi arrêter la croissance n'est-il pas une solution simple ?",
-          r: "Cela ferait baisser les revenus et augmenter le chômage et la pauvreté ; les pays émergents ont besoin de croître pour lutter contre la pauvreté." },
-        { q: "Quelle est la conclusion du rapport Stern (2006) ?",
-          r: "Le coût de l'inaction face au changement climatique est bien supérieur au coût de l'action." },
+        { q: "Distingue ressources renouvelables et non renouvelables.",
+          r: "Non renouvelables : stock fini qui s'épuise (pétrole, minerais). Renouvelables : se reconstituent (forêts, poissons) mais s'épuisent si on les exploite plus vite que leur renouvellement." },
+        { q: "Pourquoi la pollution est-elle une externalité négative ?",
+          r: "Le pollueur nuit à d'autres agents sans les indemniser : il ne supporte pas le coût social de son activité, donc le marché produit trop de pollution." },
+        { q: "Explique le lien entre croissance et réchauffement climatique.",
+          r: "Produire plus exige plus d'énergie, surtout fossile → émissions de CO2 et d'autres GES → hausse de leur concentration → réchauffement → sécheresses, inondations, montée des eaux." },
+        { q: "Quels faits montrent la corrélation entre activité économique et émissions de CO2 ?",
+          r: "La baisse des émissions lors de la crise de 2008 et surtout pendant le confinement de 2020 (jusqu'à environ −17 % d'émissions journalières début avril)." },
+        { q: "Qu'est-ce qu'un dommage irréversible ? Donne un exemple.",
+          r: "Un dommage qui ne peut pas être réparé ni compensé : réchauffement climatique engagé, extinction d'espèces." },
+        { q: "Distingue soutenabilité faible et forte.",
+          r: "Faible : le capital naturel détruit peut être compensé par d'autres capitaux (technique, humain). Forte : le capital naturel n'est pas substituable, il faut en préserver un stock minimal." },
+        { q: "Pourquoi stopper la croissance n'est-il pas une solution simple ?",
+          r: "Cela réduirait les revenus et augmenterait le chômage et la pauvreté (cf. 2020) ; les pays émergents ont besoin de croissance pour sortir de la pauvreté ; la décroissance des seuls pays de l'OCDE changerait peu le problème climatique." },
+        { q: "Pourquoi Malthus et Ricardo se sont-ils trompés sur les limites de la croissance ?",
+          r: "Ils pensaient la croissance limitée par les rendements agricoles décroissants mais n'ont pas anticipé le progrès technique, qui repousse sans cesse les limites." },
         { q: "Qu'est-ce que le rapport Meadows (1972) ?",
           r: "Le rapport du Club de Rome « Halte à la croissance ? » : une croissance infinie est impossible dans un monde aux ressources finies." },
-        { q: "Soutenabilité faible et forte ?",
-          r: "Faible : le capital naturel peut être remplacé par d'autres capitaux (technologie). Forte : il doit être préservé car il n'est pas substituable." },
+        { q: "Quelle est la conclusion du rapport Stern (2006) ?",
+          r: "Le coût de l'inaction face au changement climatique est bien supérieur au coût de l'action." },
+        { q: "Que montrent les scénarios d'Alestra, Cette, Chouard et Lecat (2020) ?",
+          r: "Une forte taxe carbone coûte plus en PIB que l'inaction à l'horizon 2060, mais à l'horizon 2100 avoir agi réduit fortement les pertes dues au réchauffement : bénéfices importants mais lointains." },
         { q: "Quel est l'objectif de l'accord de Paris (2015) ?",
           r: "Limiter le réchauffement nettement en dessous de 2 °C par rapport à l'ère préindustrielle." }
       ],
       "C": [
-        { q: "Qu'est-ce que la croissance verte ?",
-          r: "Une croissance qui réduit ses pressions sur l'environnement : croître en polluant et en gaspillant moins grâce à l'innovation." },
-        { q: "Qu'est-ce que le découplage ?",
-          r: "La dissociation entre la hausse du PIB et celle des émissions ou de la consommation de ressources (relatif si les émissions augmentent moins vite, absolu si elles baissent)." },
-        { q: "Donne un exemple d'innovation qui recule les limites écologiques.",
-          r: "Le recyclage du verre plat en calcin (usine de l'Aisne), qui économise du sable et de l'énergie." },
-        { q: "Quelle est la principale limite des énergies renouvelables ?",
-          r: "Leur intermittence, et la difficulté de stocker l'électricité." },
-        { q: "Comment une innovation en entraîne-t-elle d'autres dans l'énergie ?",
-          r: "Le développement des renouvelables crée un goulet d'étranglement dans le stockage, ce qui incite à innover (batteries lithium-ion, hydrogène)." },
-        { q: "Quel est le rôle de l'État dans l'innovation verte ?",
-          r: "Financer la recherche, subventionner les entreprises (projet « Airbus de la batterie »), taxer la pollution pour inciter à innover." },
-        { q: "Qu'est-ce que l'effet rebond ?",
-          r: "Les gains d'efficacité rendent un usage moins coûteux, ce qui pousse à consommer davantage et annule une partie des économies." }
+        { q: "Définis la croissance verte.",
+          r: "Une croissance qui concilie hausse de la production et préservation de l'environnement grâce à l'innovation et aux technologies propres." },
+        { q: "Définis le découplage.",
+          r: "La dissociation entre l'évolution du PIB et celle des pressions environnementales (émissions, consommation de ressources)." },
+        { q: "Distingue découplage relatif et absolu.",
+          r: "Relatif : les émissions augmentent moins vite que le PIB. Absolu : les émissions baissent alors que le PIB augmente. Seul le découplage absolu réduit les dommages climatiques." },
+        { q: "Explique comment l'innovation peut reculer les limites écologiques.",
+          r: "Elle permet de produire en consommant moins de ressources (recyclage, économie circulaire) et moins d'énergie fossile (renouvelables, efficacité énergétique), donc d'émettre moins de GES pour un même PIB." },
+        { q: "Donne un exemple d'innovation de recyclage vu dans le cours.",
+          r: "Une usine de l'Aisne recycle le verre plat des chantiers de déconstruction en calcin réincorporé dans la production : économie de sable et d'énergie." },
+        { q: "Qu'est-ce que l'économie circulaire ?",
+          r: "Un modèle qui limite la consommation de ressources et les déchets (écoconception, réparation, réemploi, recyclage), par opposition au modèle linéaire « extraire, fabriquer, consommer, jeter »." },
+        { q: "Quelle est la principale limite des énergies renouvelables ? Quelles innovations y répondent ?",
+          r: "Solaire et éolien sont intermittents et l'électricité se stocke mal ; innovations dans le stockage : batteries lithium-ion, hydrogène." },
+        { q: "Explique comment une innovation dans l'énergie en entraîne d'autres.",
+          r: "Le développement des renouvelables crée un goulet d'étranglement dans le stockage de l'électricité, ce qui incite à innover dans les batteries : effet d'entraînement et externalités positives." },
+        { q: "Quel est le rôle des pouvoirs publics dans l'innovation verte ?",
+          r: "Financer la recherche, subventionner les entreprises (projet européen « Airbus de la batterie »), taxer la pollution (taxe carbone) pour rendre les technologies propres plus rentables." },
+        { q: "Comment une taxe carbone favorise-t-elle l'innovation ?",
+          r: "En faisant payer au pollueur le coût de son externalité, elle renchérit les énergies fossiles et rend plus rentables les technologies peu émettrices." },
+        { q: "Qu'est-ce que l'effet rebond ? Donne un exemple.",
+          r: "Les gains d'efficacité réduisent le coût d'usage d'un bien, ce qui en augmente la consommation et annule une partie des économies. Ex. : des voitures plus sobres incitent à rouler davantage." },
+        { q: "Pourquoi l'innovation n'est-elle pas une solution miracle aux limites écologiques ?",
+          r: "Effet rebond, découplage souvent seulement relatif, stockage de l'énergie encore imparfait, délais longs alors que certains dommages sont irréversibles." }
       ]
     }
 
@@ -5966,11 +6379,6 @@ const flashcardsData = {
 /* ══════════════════════════════════════
    MOTEUR FLASHCARDS — ne pas modifier
    ══════════════════════════════════════ */
-/* ══ DÉSACTIVATION TEMPORAIRE DES ORIGINES ══
-   Mettre true pour masquer partout les couleurs et les noms d'origine
-   (contours colorés des cartes, bandeau « Origine … », pastille hors programme).
-   Mettre false pour tout réafficher. */
-const ORIGINES_DESACTIVEES = false;
 let fcDeck = [];
 let fcIndex = 0;
 
@@ -6165,8 +6573,8 @@ function ouvrirFiche(matiereId, ficheId){
 
   document.getElementById("content").innerHTML =
     `<div style="width:100%;max-width:760px;">
-       ${ORIGINES_DESACTIVEES ? "" : horsProgBadge}
-       ${ORIGINES_DESACTIVEES ? "" : `<div class="bandeau-origine ${b.css}">● ${b.label}</div>`}
+       ${horsProgBadge}
+       <div class="bandeau-origine ${b.css}">● ${b.label}</div>
        ${f.content
          ? f.content
          : `<p class="empty-msg">Aucun contenu pour le moment…</p>`}
@@ -6219,7 +6627,6 @@ setInterval(()=>{ if(nightManual===null) applyNight(isNightHour()); }, 60000);
 /* ============================================================
    DÉMARRAGE
    ============================================================ */
-document.body.classList.toggle("origines-off", ORIGINES_DESACTIVEES);
 renderHome();
 
 </script>
