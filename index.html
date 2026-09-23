@@ -277,6 +277,42 @@ body.night [style*="background:#f9f9f9"] {
   100% { background-position: 0% 50%; }
 }
 
+/* ══ DÉSACTIVATION TEMPORAIRE DES ORIGINES ══
+   Pour désactiver : supprime les slash-étoile du début et de fin.
+   Pour réactiver : remets-les.
+
+.card.ia::after, .card.humain::after, .card.web::after,
+.card.web-ia::after, .card.ia-humain::after, .card.web-humain::after { display: none !important; }
+.card.vide { box-shadow: var(--shadow) !important; border: none !important; }
+.bandeau-origine { display: none !important; }
+.badge-hors-programme { display: none !important; }
+.card.hors-programme::before { display: none !important; }
+
+*/
+
+.accord-section { margin-bottom: 14px; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+.accord-h1 { width: 100%; text-align: left; padding: 14px 18px; font-size: 16px; font-weight: bold; cursor: pointer; border: none; border-radius: 10px; font-family: Georgia, serif; display: flex; justify-content: space-between; align-items: center; background: #c0392b; color: white; transition: background 0.2s; }
+.accord-h1:hover { background: #a93226; }
+.accord-h2 { width: 100%; text-align: left; padding: 11px 18px 11px 30px; font-size: 15px; font-weight: bold; cursor: pointer; border: none; border-top: 1px solid rgba(0,0,0,0.08); font-family: Georgia, serif; display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); color: var(--text); transition: background 0.2s; }
+.accord-h2:hover { background: rgba(192,57,43,0.07); }
+.accord-body-inner { padding: 10px 10px 10px 24px; background: var(--card-bg); }
+.accord-chevron { font-size: 12px; transition: transform 0.25s; display: inline-block; }
+.accord-chevron.open { transform: rotate(180deg); }
+.accord-content { display: none; }
+.accord-content.open { display: block; }
+.ses-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0 16px 0; }
+.ses-table tr:nth-child(odd) { background: rgba(192,57,43,0.06); }
+.ses-table tr:nth-child(even) { background: var(--card-bg); }
+body.night .ses-table tr:nth-child(odd) { background: rgba(255,255,255,0.04); }
+.ses-table td { padding: 8px 12px; vertical-align: top; }
+.ses-table td:first-child { font-weight: bold; width: 32%; }
+.formule { background: #1a1a2e; color: #e0e0ff; font-family: monospace; font-size: 14px; border-radius: 8px; padding: 12px 18px; margin: 10px 0; text-align: center; line-height: 2; }
+body.night .formule { background: #0d0d1a; }
+.exemple { background: rgba(26,111,202,0.07); border-left: 3px solid #1a6fca; border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0; }
+.piege { background: rgba(231,76,60,0.08); border-left: 3px solid #e74c3c; border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0; }
+.aretenir { background: rgba(39,174,96,0.08); border-left: 3px solid #27ae60; border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0; }
+.vide-msg { color: var(--card-sub); font-style: italic; text-align: center; padding: 20px 0; font-size: 15px; }
+
 .bandeau-origine    { width:100%; text-align:center; font-family:Georgia,serif; font-size:15px; font-weight:bold; letter-spacing:1px; padding:8px 0 10px; margin-bottom:24px; border-radius:8px; }
 .bandeau-vide       { color:#888;    background:rgba(100,100,100,0.08); }
 .bandeau-web        { color:#1a6fca; background:rgba(26,111,202,0.08);  }
@@ -1973,70 +2009,6 @@ const matieres = [
         content: `
 <div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
-<style>
-.accord-section { margin-bottom: 14px; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
-.accord-h1 {
-  width: 100%; text-align: left; padding: 14px 18px; font-size: 16px; font-weight: bold;
-  cursor: pointer; border: none; border-radius: 10px; font-family: Georgia, serif;
-  display: flex; justify-content: space-between; align-items: center;
-  background: #c0392b; color: white; transition: background 0.2s;
-}
-.accord-h1:hover { background: #a93226; }
-.accord-h2 {
-  width: 100%; text-align: left; padding: 11px 18px 11px 30px; font-size: 15px; font-weight: bold;
-  cursor: pointer; border: none; border-top: 1px solid rgba(0,0,0,0.08); font-family: Georgia, serif;
-  display: flex; justify-content: space-between; align-items: center;
-  background: var(--card-bg); color: var(--text); transition: background 0.2s;
-}
-.accord-h2:hover { background: rgba(192,57,43,0.07); }
-.accord-body { padding: 14px 20px 18px 20px; background: var(--card-bg); }
-.accord-body-inner { padding: 10px 10px 10px 24px; background: var(--card-bg); }
-.accord-chevron { font-size: 12px; transition: transform 0.25s; display: inline-block; }
-.accord-chevron.open { transform: rotate(180deg); }
-.accord-content { display: none; }
-.accord-content.open { display: block; }
-
-/* Tables */
-.ses-table { width:100%; border-collapse:collapse; font-size:14px; margin: 10px 0 16px 0; }
-.ses-table tr:nth-child(odd)  { background: rgba(192,57,43,0.06); }
-.ses-table tr:nth-child(even) { background: var(--card-bg); }
-body.night .ses-table tr:nth-child(odd)  { background: rgba(255,255,255,0.04); }
-.ses-table td { padding: 8px 12px; vertical-align: top; }
-.ses-table td:first-child { font-weight: bold; width: 32%; }
-
-/* Formule */
-.formule {
-  background: #1a1a2e; color: #e0e0ff; font-family: monospace; font-size: 14px;
-  border-radius: 8px; padding: 12px 18px; margin: 10px 0; text-align: center;
-  line-height: 2;
-}
-body.night .formule { background: #0d0d1a; }
-
-/* Exemple */
-.exemple {
-  background: rgba(26,111,202,0.07); border-left: 3px solid #1a6fca;
-  border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0;
-}
-
-/* Piège */
-.piege {
-  background: rgba(231,76,60,0.08); border-left: 3px solid #e74c3c;
-  border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0;
-}
-
-/* À retenir */
-.aretenir {
-  background: rgba(39,174,96,0.08); border-left: 3px solid #27ae60;
-  border-radius: 6px; padding: 10px 14px; font-size: 14px; margin: 10px 0;
-}
-
-/* Vide */
-.vide-msg {
-  color: var(--card-sub); font-style: italic; text-align: center;
-  padding: 20px 0; font-size: 15px;
-}
-</style>
-
 <!-- ══════════════════════════════════════
      GRAND I
      ══════════════════════════════════════ -->
@@ -2044,6 +2016,7 @@ body.night .formule { background: #0d0d1a; }
   <button class="accord-h1" onclick="toggleAccord(this)">
     I — Quelles sont les sources de la croissance économique ?
     <span class="accord-chevron">▼</span>
+    <button class="fc-btn" onclick="fcOpen('croissance','I')">🃏 Flashcards Partie I</button>
   </button>
     <div class="accord-content">
 
@@ -2051,6 +2024,7 @@ body.night .formule { background: #0d0d1a; }
     <button class="accord-h2" onclick="toggleAccord(this)">
       A) La croissance économique est un phénomène récent et cumulatif
       <span class="accord-chevron">▼</span>
+      <button class="fc-btn" onclick="fcOpen('croissance','I.A')">🃏 Flashcards I.A</button>
     </button>
     <div class="accord-content">
       <div class="accord-body-inner">
@@ -2239,6 +2213,7 @@ body.night .formule { background: #0d0d1a; }
     <button class="accord-h2" onclick="toggleAccord(this)">
       B) Les sources de la croissance
       <span class="accord-chevron">▼</span>
+      <button class="fc-btn" onclick="fcOpen('croissance','I.B')">🃏 Flashcards I.B</button>
     </button>
     <div class="accord-content">
       <div class="accord-body-inner">
@@ -2404,6 +2379,7 @@ body.night .formule { background: #0d0d1a; }
   <button class="accord-h1" onclick="toggleAccord(this)">
     II — Comment la croissance économique peut-elle être auto-entretenue ?
     <span class="accord-chevron">▼</span>
+    <button class="fc-btn" onclick="fcOpen('croissance','II')">🃏 Flashcards Partie II</button>
   </button>
   <div class="accord-content">
 
@@ -2608,6 +2584,7 @@ body.night .formule { background: #0d0d1a; }
   <button class="accord-h1" onclick="toggleAccord(this)">
     III — Quels sont les défis de la croissance économique ?
     <span class="accord-chevron">▼</span>
+    <button class="fc-btn" onclick="fcOpen('croissance','III')">🃏 Flashcards Partie III</button>
   </button>
   <div class="accord-content">
 
@@ -2643,7 +2620,9 @@ body.night .formule { background: #0d0d1a; }
 
   </div>
 </div>
-
+<div style="text-align:center;margin-top:24px;">
+  <button class="fc-btn fc-btn-chapter" onclick="fcOpen('croissance','_all')">🃏 Flashcards — Tout le chapitre</button>
+</div>
 </div>`
       },
 
@@ -5165,19 +5144,40 @@ const flashcardsData = {
   }
 
   /* Ajout d'autres chapitres SES :
-  ,
-  societe_francaise: {
+  ,ses_croissance: {
     _all: [],
-    "I": { _all: [], "A": [], "B": [] },
-    ...
+    "I": {
+      _all: [],
+      "A": [
+        { q:"Différence entre PIB nominal et PIB réel ?", r:"Le PIB nominal est aux prix courants. Le PIB réel est corrigé de l'inflation. On utilise toujours le PIB réel pour mesurer la croissance." },
+        { q:"Formule du taux de croissance du PIB ?", r:"[(PIBn − PIBn−1) / PIBn−1] × 100" },
+        { q:"Qu'est-ce que l'IDH ?", r:"Indice de Développement Humain (ONU). Combine PIB/habitant, espérance de vie et durée de scolarisation. Valeur entre 0 et 1." },
+        { q:"Qu'est-ce que la croissance extensive ?", r:"Croissance due à l'augmentation quantitative des facteurs (plus de travailleurs, plus de machines), sans hausse de productivité." },
+        { q:"Qu'est-ce que la croissance intensive ?", r:"Croissance due à des gains de productivité et au progrès technique. Forme dominante dans les pays développés." },
+      ],
+      "B": [
+        { q:"Qu'est-ce que la FBCF ?", r:"Formation Brute de Capital Fixe. Mesure l'investissement en biens de production durables (machines, bâtiments, logiciels)." },
+        { q:"Qu'est-ce que le capital humain ?", r:"Connaissances, compétences et santé augmentant la productivité d'un individu. Théorisé par Gary Becker (Prix Nobel 1992)." },
+        { q:"Formule de la productivité horaire du travail ?", r:"Production / Nombre d'heures travaillées." },
+      ],
+      "C": [
+        { q:"Qu'est-ce que la PGF ?", r:"Productivité Globale des Facteurs. Part de la croissance non expliquée par l'accumulation des facteurs. Reflète principalement le progrès technique." },
+        { q:"Quel est le résultat central de Solow ?", r:"87,5% de la croissance de la productivité du travail aux USA (1909-1949) s'explique par le résidu de Solow = progrès technique. Seulement 12,5% par l'accumulation du capital." },
+        { q:"Quelle est la limite du modèle de Solow ?", r:"Le progrès technique y est exogène : il n'est pas expliqué par le modèle, il 'tombe du ciel'. C'est ce que corrigent les théories de la croissance endogène (Romer, Lucas)." },
+      ]
+    },
+    "II": { _all:[], "A":[], "B":[], "C":[] },
+    "III": { _all:[], "A":[], "B":[], "C":[] }
   }
-  */
 
 };
 
 /* ══════════════════════════════════════
    MOTEUR FLASHCARDS — ne pas modifier
    ══════════════════════════════════════ */
+/* ══ DÉSACTIVATION TEMPORAIRE DES ORIGINES ══
+   Mettre true pour tout masquer, false pour tout afficher */
+const ORIGINES_DESACTIVEES = false;
 let fcDeck = [];
 let fcIndex = 0;
 
@@ -5370,8 +5370,8 @@ function ouvrirFiche(matiereId, ficheId){
 
   document.getElementById("content").innerHTML =
     `<div style="width:100%;max-width:760px;">
-       ${horsProgBadge}
-       <div class="bandeau-origine ${b.css}">● ${b.label}</div>
+       ${ORIGINES_DESACTIVEES ? "" : horsProgBadge}
+       ${ORIGINES_DESACTIVEES ? "" : `<div class="bandeau-origine ${b.css}">● ${b.label}</div>`}
        ${f.content
          ? f.content
          : `<p class="empty-msg">Aucun contenu pour le moment…</p>`}
