@@ -219,58 +219,93 @@ body.night [style*="background:#f9f9f9"] {
 
 /* ══════════════════════════════════════
    CODE COULEUR DES FICHES — CONTOURS
+   Origines : web (bleu), ia (violet), eleve (vert), enseignant (jaune)
+   et leurs combinaisons à deux (ex. "web-eleve"), toujours dans cet ordre.
    ══════════════════════════════════════ */
 
-/* Origines simples */
+/* Aucune origine renseignée */
 .card.vide {
   box-shadow: 0 0 0 2px #555, 0 0 12px 3px rgba(100,100,100,0.35);
 }
 
-.card.ia, .card.humain, .card.web,
-.card.web-ia, .card.ia-humain, .card.web-humain {
+.card.web,
+.card.ia,
+.card.eleve,
+.card.enseignant,
+.card.web-ia,
+.card.web-eleve,
+.card.web-enseignant,
+.card.ia-eleve,
+.card.ia-enseignant,
+.card.eleve-enseignant {
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
 }
+.card.web:hover,
+.card.ia:hover,
+.card.eleve:hover,
+.card.enseignant:hover,
+.card.web-ia:hover,
+.card.web-eleve:hover,
+.card.web-enseignant:hover,
+.card.ia-eleve:hover,
+.card.ia-enseignant:hover,
+.card.eleve-enseignant:hover { border-color: transparent; }
 
-.card.ia::after, .card.humain::after, .card.web::after,
-.card.web-ia::after, .card.ia-humain::after, .card.web-humain::after {
+.card.web::after,
+.card.ia::after,
+.card.eleve::after,
+.card.enseignant::after,
+.card.web-ia::after,
+.card.web-eleve::after,
+.card.web-enseignant::after,
+.card.ia-eleve::after,
+.card.ia-enseignant::after,
+.card.eleve-enseignant::after {
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: 16px;
+  inset: -3px;
+  border-radius: 19px;
   background-size: 300% 300%;
   animation: borderFlow 3s ease infinite;
+  filter: saturate(1.25) brightness(1.08);
   z-index: -1;
 }
 
-/* Couleurs par classe */
-.card.ia::after {
-  background: linear-gradient(270deg, #7c3aed, #a855f7, #7c3aed);
-}
-.card.humain::after {
-  background: linear-gradient(270deg, #16a34a, #4ade80, #16a34a);
-}
-.card.web::after {
-  background: linear-gradient(270deg, #1a6fca, #38bdf8, #1a6fca);
-}
+/* Origines simples : contour lumineux + halo */
+.card.web::after { background: linear-gradient(270deg, #0ea5e9, #67e8f9, #0ea5e9); }
+.card.web       { box-shadow: 0 0 14px 1px rgba(56,189,248,0.50), var(--shadow); }
+.card.web:hover { box-shadow: 0 0 22px 3px rgba(56,189,248,0.65), var(--shadow-lg); }
+.card.ia::after { background: linear-gradient(270deg, #a855f7, #e879f9, #a855f7); }
+.card.ia       { box-shadow: 0 0 14px 1px rgba(192,132,252,0.50), var(--shadow); }
+.card.ia:hover { box-shadow: 0 0 22px 3px rgba(192,132,252,0.65), var(--shadow-lg); }
+.card.eleve::after { background: linear-gradient(270deg, #22c55e, #86efac, #22c55e); }
+.card.eleve       { box-shadow: 0 0 14px 1px rgba(74,222,128,0.50), var(--shadow); }
+.card.eleve:hover { box-shadow: 0 0 22px 3px rgba(74,222,128,0.65), var(--shadow-lg); }
+.card.enseignant::after { background: linear-gradient(270deg, #facc15, #fde68a, #facc15); }
+.card.enseignant       { box-shadow: 0 0 14px 1px rgba(250,204,21,0.50), var(--shadow); }
+.card.enseignant:hover { box-shadow: 0 0 22px 3px rgba(250,204,21,0.65), var(--shadow-lg); }
 
-/* Origines mixtes — alternance lente entre deux couleurs */
-.card.web-ia::after {
-  background: linear-gradient(270deg, #1a6fca, #7c3aed, #1a6fca, #7c3aed);
-  background-size: 400% 400%;
-  animation-duration: 4s;
-}
-.card.ia-humain::after {
-  background: linear-gradient(270deg, #7c3aed, #16a34a, #7c3aed, #16a34a);
-  background-size: 400% 400%;
-  animation-duration: 4s;
-}
-.card.web-humain::after {
-  background: linear-gradient(270deg, #1a6fca, #16a34a, #1a6fca, #16a34a);
-  background-size: 400% 400%;
-  animation-duration: 4s;
-}
+/* Origines mixtes : alternance lente entre les deux couleurs */
+.card.web-ia::after { background: linear-gradient(270deg, #0ea5e9, #a855f7, #0ea5e9, #a855f7); background-size: 400% 400%; animation-duration: 4s; }
+.card.web-ia       { box-shadow: -6px 0 14px 0 rgba(56,189,248,0.45), 6px 0 14px 0 rgba(192,132,252,0.45), var(--shadow); }
+.card.web-ia:hover { box-shadow: -8px 0 22px 2px rgba(56,189,248,0.6), 8px 0 22px 2px rgba(192,132,252,0.6), var(--shadow-lg); }
+.card.web-eleve::after { background: linear-gradient(270deg, #0ea5e9, #22c55e, #0ea5e9, #22c55e); background-size: 400% 400%; animation-duration: 4s; }
+.card.web-eleve       { box-shadow: -6px 0 14px 0 rgba(56,189,248,0.45), 6px 0 14px 0 rgba(74,222,128,0.45), var(--shadow); }
+.card.web-eleve:hover { box-shadow: -8px 0 22px 2px rgba(56,189,248,0.6), 8px 0 22px 2px rgba(74,222,128,0.6), var(--shadow-lg); }
+.card.web-enseignant::after { background: linear-gradient(270deg, #0ea5e9, #facc15, #0ea5e9, #facc15); background-size: 400% 400%; animation-duration: 4s; }
+.card.web-enseignant       { box-shadow: -6px 0 14px 0 rgba(56,189,248,0.45), 6px 0 14px 0 rgba(250,204,21,0.45), var(--shadow); }
+.card.web-enseignant:hover { box-shadow: -8px 0 22px 2px rgba(56,189,248,0.6), 8px 0 22px 2px rgba(250,204,21,0.6), var(--shadow-lg); }
+.card.ia-eleve::after { background: linear-gradient(270deg, #a855f7, #22c55e, #a855f7, #22c55e); background-size: 400% 400%; animation-duration: 4s; }
+.card.ia-eleve       { box-shadow: -6px 0 14px 0 rgba(192,132,252,0.45), 6px 0 14px 0 rgba(74,222,128,0.45), var(--shadow); }
+.card.ia-eleve:hover { box-shadow: -8px 0 22px 2px rgba(192,132,252,0.6), 8px 0 22px 2px rgba(74,222,128,0.6), var(--shadow-lg); }
+.card.ia-enseignant::after { background: linear-gradient(270deg, #a855f7, #facc15, #a855f7, #facc15); background-size: 400% 400%; animation-duration: 4s; }
+.card.ia-enseignant       { box-shadow: -6px 0 14px 0 rgba(192,132,252,0.45), 6px 0 14px 0 rgba(250,204,21,0.45), var(--shadow); }
+.card.ia-enseignant:hover { box-shadow: -8px 0 22px 2px rgba(192,132,252,0.6), 8px 0 22px 2px rgba(250,204,21,0.6), var(--shadow-lg); }
+.card.eleve-enseignant::after { background: linear-gradient(270deg, #22c55e, #facc15, #22c55e, #facc15); background-size: 400% 400%; animation-duration: 4s; }
+.card.eleve-enseignant       { box-shadow: -6px 0 14px 0 rgba(74,222,128,0.45), 6px 0 14px 0 rgba(250,204,21,0.45), var(--shadow); }
+.card.eleve-enseignant:hover { box-shadow: -8px 0 22px 2px rgba(74,222,128,0.6), 8px 0 22px 2px rgba(250,204,21,0.6), var(--shadow-lg); }
 
 /* Animation commune */
 @keyframes borderFlow {
@@ -330,12 +365,17 @@ body.night .formule { background: #0d0d1a; }
 
 .bandeau-origine    { width:100%; text-align:center; font-family:Georgia,serif; font-size:15px; font-weight:bold; letter-spacing:1px; padding:8px 0 10px; margin-bottom:24px; border-radius:8px; }
 .bandeau-vide       { color:#888;    background:rgba(100,100,100,0.08); }
-.bandeau-web        { color:#1a6fca; background:rgba(26,111,202,0.08);  }
-.bandeau-web-ia     { color:#5b21b6; background:rgba(91,33,182,0.08);   }
-.bandeau-ia         { color:#7c3aed; background:rgba(124,58,237,0.08);  }
-.bandeau-ia-humain  { color:#2d7d46; background:rgba(45,125,70,0.08);   }
-.bandeau-web-humain { color:#0e7490; background:rgba(14,116,144,0.08);  }
-.bandeau-humain     { color:#16a34a; background:rgba(22,163,74,0.08);   }
+.bandeau-web            { color:#0b7fc4; background:rgba(56,189,248,0.12); }
+.bandeau-ia             { color:#8b3fe0; background:rgba(192,132,252,0.12); }
+.bandeau-eleve          { color:#16a34a; background:rgba(74,222,128,0.12); }
+.bandeau-enseignant     { color:#a16207; background:rgba(250,204,21,0.12); }
+.bandeau-web-ia { color:#0b7fc4; background:linear-gradient(90deg, rgba(56,189,248,0.14), rgba(192,132,252,0.16)); }
+.bandeau-web-eleve { color:#0b7fc4; background:linear-gradient(90deg, rgba(56,189,248,0.14), rgba(74,222,128,0.16)); }
+.bandeau-web-enseignant { color:#0b7fc4; background:linear-gradient(90deg, rgba(56,189,248,0.14), rgba(250,204,21,0.16)); }
+.bandeau-ia-eleve { color:#8b3fe0; background:linear-gradient(90deg, rgba(192,132,252,0.14), rgba(74,222,128,0.16)); }
+.bandeau-ia-enseignant { color:#8b3fe0; background:linear-gradient(90deg, rgba(192,132,252,0.14), rgba(250,204,21,0.16)); }
+.bandeau-eleve-enseignant { color:#16a34a; background:linear-gradient(90deg, rgba(74,222,128,0.14), rgba(250,204,21,0.16)); }
+body.night .bandeau-enseignant { color:#facc15; }
 
 /* ══════════════════════════════════════
    PASTILLE HORS PROGRAMME
@@ -2231,72 +2271,11 @@ const matieres = [
     title: "SES",
     sub:   "Sciences Économiques et Sociales",
     fiches: [
-      {
-        id:      "methodologie-ses",
-        title:   "Méthodologie : EC1, EC2, EC3 et dissertation",
-        classe:  "vide",
-        content: `
-<div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
-
-<!-- EC1 — Mobilisation des connaissances -->
-<div class="accord-section">
-  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
-    <span>EC1 — Mobilisation des connaissances</span>
-    <span class="accord-chevron">▼</span>
-  </button>
-  <div class="accord-content">
-    <div class="accord-body-inner">
-      <p class="vide-msg">Contenu à venir…</p>
-    </div>
-  </div>
-</div>
-
-<!-- EC2 — Étude d'un document -->
-<div class="accord-section">
-  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
-    <span>EC2 — Étude d'un document</span>
-    <span class="accord-chevron">▼</span>
-  </button>
-  <div class="accord-content">
-    <div class="accord-body-inner">
-      <p class="vide-msg">Contenu à venir…</p>
-    </div>
-  </div>
-</div>
-
-<!-- EC3 — Raisonnement s'appuyant sur un dossier documentaire -->
-<div class="accord-section">
-  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
-    <span>EC3 — Raisonnement s'appuyant sur un dossier documentaire</span>
-    <span class="accord-chevron">▼</span>
-  </button>
-  <div class="accord-content">
-    <div class="accord-body-inner">
-      <p class="vide-msg">Contenu à venir…</p>
-    </div>
-  </div>
-</div>
-
-<!-- Dissertation -->
-<div class="accord-section">
-  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
-    <span>Dissertation</span>
-    <span class="accord-chevron">▼</span>
-  </button>
-  <div class="accord-content">
-    <div class="accord-body-inner">
-      <p class="vide-msg">Contenu à venir…</p>
-    </div>
-  </div>
-</div>
-
-</div>`
-      },
-
+      /* Science économique */
       {
         id:      "croissance",
         title:   "Quels sont les sources et les défis de la croissance économique ?",
-        classe:  "web-humain",
+        classe:  "web-eleve",
         content: `
 <div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
@@ -3581,16 +3560,9 @@ const matieres = [
 </div>
 </div>`
       },
-
-      {
-        id:      "societe-francaise",
-        title:   "Comment est structurée la société française actuelle ?",
-        classe:  "vide",
-        content: ""
-      },
       {
         id:      "commerce-international",
-        title:   "Quels sont les fondements du CI et de l'internationalisation de la production ?",
+        title:   "Quels sont les fondements du commerce international et de l'internationalisation de la production ?",
         classe:  "vide",
         content: ""
       },
@@ -3601,20 +3573,34 @@ const matieres = [
         content: ""
       },
       {
+        id:      "crises-financieres",
+        title:   "Comment expliquer les crises financières et réguler le système financier ?",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "politiques-europeennes",
+        title:   "Quelles politiques économiques dans le cadre européen ?",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Sociologie et science politique */
+      {
+        id:      "societe-francaise",
+        title:   "Comment est structurée la société française actuelle ?",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "ecole",
+        title:   "Quelle est l'action de l'École sur les destins individuels et sur l'évolution de la société ?",
+        classe:  "vide",
+        content: ""
+      },
+      {
         id:      "mobilite-sociale",
         title:   "Quelles sont les caractéristiques contemporaines et les facteurs de la mobilité sociale ?",
-        classe:  "vide",
-        content: ""
-      },
-      {
-        id:      "engagement-politique",
-        title:   "Comment expliquer l'engagement politique dans les sociétés démocratiques ?",
-        classe:  "vide",
-        content: ""
-      },
-      {
-        id:      "environnement-ses",
-        title:   "Quelle action publique pour l'environnement ?",
         classe:  "vide",
         content: ""
       },
@@ -3625,10 +3611,87 @@ const matieres = [
         content: ""
       },
       {
-        id:      "politiques-europeennes",
-        title:   "Quelles politiques économiques dans le cadre européen ?",
+        id:      "engagement-politique",
+        title:   "Comment expliquer l'engagement politique dans les sociétés démocratiques ?",
         classe:  "vide",
         content: ""
+      },
+
+      /* Regards croisés */
+      {
+        id:      "justice-sociale",
+        title:   "Quelles inégalités sont compatibles avec les différentes conceptions de la justice sociale ?",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "environnement-ses",
+        title:   "Quelle action publique pour l'environnement ?",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Méthodologie (toujours en dernier) */
+      {
+        id:      "methodologie-ses",
+        title:   "Méthodologie : EC1, EC2, EC3 et dissertation",
+        classe:  "vide",
+        content: `
+<div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+
+<!-- EC1 — Mobilisation des connaissances -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC1 — Mobilisation des connaissances</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- EC2 — Étude d'un document -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC2 — Étude d'un document</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- EC3 — Raisonnement s'appuyant sur un dossier documentaire -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>EC3 — Raisonnement s'appuyant sur un dossier documentaire</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+<!-- Dissertation -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>Dissertation</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner">
+      <p class="vide-msg">Contenu à venir…</p>
+    </div>
+  </div>
+</div>
+
+</div>`
       }
     ]
   },
@@ -3638,7 +3701,47 @@ const matieres = [
     id:    "hlp",
     title: "HLP",
     sub:   "Humanités, Littérature et Philosophie",
-    fiches: []
+    fiches: [
+      /* La recherche de soi (du romantisme au XXe siècle) */
+      {
+        id:      "hlp-education-emancipation",
+        title:   "La recherche de soi — Éducation, transmission et émancipation",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "hlp-sensibilite",
+        title:   "La recherche de soi — Les expressions de la sensibilité",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "hlp-metamorphoses-moi",
+        title:   "La recherche de soi — Les métamorphoses du moi",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* L'Humanité en question (période contemporaine) */
+      {
+        id:      "hlp-creation",
+        title:   "L'Humanité en question — Création, continuités et ruptures",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "hlp-histoire-violence",
+        title:   "L'Humanité en question — Histoire et violence",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "hlp-humain-limites",
+        title:   "L'Humanité en question — L'humain et ses limites",
+        classe:  "vide",
+        content: ""
+      }
+    ]
   },
 
   /* ── MATHÉMATIQUES ──────────────────────────────────────── */
@@ -3646,7 +3749,111 @@ const matieres = [
     id:    "maths",
     title: "Mathématiques",
     sub:   "",
-    fiches: []
+    fiches: [
+      /* Algèbre et géométrie */
+      {
+        id:      "maths-denombrement",
+        title:   "Combinatoire et dénombrement",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-vecteurs-espace",
+        title:   "Vecteurs, droites et plans de l'espace",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-orthogonalite",
+        title:   "Orthogonalité et distances dans l'espace",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-representations",
+        title:   "Représentations paramétriques et équations cartésiennes",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Analyse */
+      {
+        id:      "maths-suites",
+        title:   "Suites : raisonnement par récurrence et limites",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-limites-fonctions",
+        title:   "Limites des fonctions",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-derivation",
+        title:   "Compléments sur la dérivation et convexité",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-continuite",
+        title:   "Continuité des fonctions d'une variable réelle",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-logarithme",
+        title:   "Fonction logarithme népérien",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-trigo",
+        title:   "Fonctions sinus et cosinus",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-primitives",
+        title:   "Primitives et équations différentielles",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-integrale",
+        title:   "Calcul intégral",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Probabilités */
+      {
+        id:      "maths-bernoulli",
+        title:   "Succession d'épreuves indépendantes, schéma de Bernoulli et loi binomiale",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-sommes-va",
+        title:   "Sommes de variables aléatoires",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "maths-grands-nombres",
+        title:   "Concentration et loi des grands nombres",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Algorithmique et programmation */
+      {
+        id:      "maths-algo",
+        title:   "Algorithmique et programmation",
+        classe:  "vide",
+        content: ""
+      }
+    ]
   },
 
   /* ── PHYSIQUE - CHIMIE ──────────────────────────────────── */
@@ -3654,7 +3861,87 @@ const matieres = [
     id:    "pc",
     title: "Physique - Chimie",
     sub:   "",
-    fiches: []
+    fiches: [
+      /* Constitution et transformations de la matière */
+      {
+        id:      "pc-composition",
+        title:   "Déterminer la composition d'un système par des méthodes physiques et chimiques",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-evolution-temporelle",
+        title:   "Modéliser l'évolution temporelle d'un système, siège d'une transformation",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-etat-final",
+        title:   "Prévoir l'état final d'un système, siège d'une transformation chimique",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-synthese-organique",
+        title:   "Élaborer des stratégies en synthèse organique",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Mouvement et interactions */
+      {
+        id:      "pc-decrire-mouvement",
+        title:   "Décrire un mouvement",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-actions-mouvement",
+        title:   "Relier les actions appliquées à un système à son mouvement",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-fluides",
+        title:   "Modéliser l'écoulement d'un fluide",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* L'énergie : conversions et transferts */
+      {
+        id:      "pc-gaz-parfait",
+        title:   "Décrire un système thermodynamique : exemple du modèle du gaz parfait",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-bilans-energie",
+        title:   "Effectuer des bilans d'énergie sur un système : le premier principe de la thermodynamique",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Ondes et signaux */
+      {
+        id:      "pc-ondes",
+        title:   "Caractériser les phénomènes ondulatoires",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-images-photons",
+        title:   "Former des images, décrire la lumière par un flux de photons",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "pc-systeme-electrique",
+        title:   "Étudier la dynamique d'un système électrique",
+        classe:  "vide",
+        content: ""
+      }
+    ]
   },
 
   /* ── SVT ────────────────────────────────────────────────── */
@@ -3662,7 +3949,55 @@ const matieres = [
     id:    "svt",
     title: "SVT",
     sub:   "Sciences de la Vie et de la Terre",
-    fiches: []
+    fiches: [
+      /* La Terre, la vie et l'organisation du vivant */
+      {
+        id:      "svt-genetique-evolution",
+        title:   "Génétique et évolution",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "svt-passe-geologique",
+        title:   "À la recherche du passé géologique de notre planète",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Enjeux contemporains de la planète */
+      {
+        id:      "svt-plante-domestiquee",
+        title:   "De la plante sauvage à la plante domestiquée",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "svt-climats",
+        title:   "Les climats de la Terre : comprendre le passé pour agir aujourd'hui et demain",
+        classe:  "vide",
+        content: ""
+      },
+
+      /* Corps humain et santé */
+      {
+        id:      "svt-systeme-nerveux",
+        title:   "Comportements, mouvement et système nerveux",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "svt-produire-mouvement",
+        title:   "Produire le mouvement : contraction musculaire et apport d'énergie",
+        classe:  "vide",
+        content: ""
+      },
+      {
+        id:      "svt-stress",
+        title:   "Comportements et stress : vers une vision intégrée de l'organisme",
+        classe:  "vide",
+        content: ""
+      }
+    ]
   },
 
   /* ── AMC ────────────────────────────────────────────────── */
@@ -6552,15 +6887,20 @@ function ouvrirFiche(matiereId, ficheId){
   if(!f) return;
 
   // Bandeau origine
+  // Origines possibles : web, ia, eleve, enseignant, ou deux d'entre elles ("web-eleve"…)
   const bandeaux = {
-  vide:         { label: "Aucune origine renseignée",  css: "bandeau-vide"        },
-  web:          { label: "Origine internet",           css: "bandeau-web"         },
-  "web-ia":     { label: "Origine internet + IA",      css: "bandeau-web-ia"      },
-  ia:           { label: "Origine IA",                 css: "bandeau-ia"          },
-  "ia-humain":  { label: "Origine IA + humaine",       css: "bandeau-ia-humain"   },
-  "web-humain": { label: "Origine internet + humaine", css: "bandeau-web-humain"  },
-  humain:       { label: "Origine humaine",            css: "bandeau-humain"      }
-};
+    vide: { label: "Aucune origine renseignée", css: "bandeau-vide" },
+    "web": { label: "Origine internet", css: "bandeau-web" },
+    "ia": { label: "Origine IA", css: "bandeau-ia" },
+    "eleve": { label: "Origine élève", css: "bandeau-eleve" },
+    "enseignant": { label: "Origine enseignant", css: "bandeau-enseignant" },
+    "web-ia": { label: "Origine internet + IA", css: "bandeau-web-ia" },
+    "web-eleve": { label: "Origine internet + élève", css: "bandeau-web-eleve" },
+    "web-enseignant": { label: "Origine internet + enseignant", css: "bandeau-web-enseignant" },
+    "ia-eleve": { label: "Origine IA + élève", css: "bandeau-ia-eleve" },
+    "ia-enseignant": { label: "Origine IA + enseignant", css: "bandeau-ia-enseignant" },
+    "eleve-enseignant": { label: "Origine élève + enseignant", css: "bandeau-eleve-enseignant" }
+  };
   const classeBase = f.classe ? f.classe.replace("hors-programme","").trim() : "vide";
   const b = bandeaux[classeBase] || bandeaux.vide;
 
