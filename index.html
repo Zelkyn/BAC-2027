@@ -836,6 +836,29 @@ body.night .aretenir { background: rgba(60,190,110,0.10); }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
+/* ── Fiches d'histoire-géographie (HGGSP) : 4 niveaux, frises, citations ── */
+.fiche-hggsp { --accent:#1f4e8c; --accent-2:#2f6fb8; --accent-soft:rgba(31,78,140,0.07); --accent-mid:rgba(31,78,140,0.15); }
+body.night .fiche-hggsp { --accent:#7db0ff; --accent-2:#2a5da0; --accent-soft:rgba(125,176,255,0.09); --accent-mid:rgba(125,176,255,0.18); }
+.fiche-hggsp .accord-h1, body.night .fiche-hggsp .accord-h1 { background: linear-gradient(135deg, #2f6fb8, #1b3f73); }
+.fiche-hggsp .accord-h1:hover, body.night .fiche-hggsp .accord-h1:hover { background: linear-gradient(135deg, #285f9f, #15325c); }
+.fiche-hggsp .fc-btn-chapter { background: linear-gradient(135deg, #2f6fb8, #1b3f73); border-color: rgba(47,111,184,0.4); box-shadow: 0 2px 8px rgba(31,78,140,0.25); }
+.fiche-hggsp .accord-sub.niv3 > .accord-h2 { padding-left: 46px; font-size: 14.8px; }
+.fiche-hggsp .accord-sub.niv3 > .accord-content > .accord-body-inner { padding-left: 40px; }
+.axe-intro { border-bottom: 1px solid var(--border); }
+.problematique { margin: 4px 0 8px; padding: 12px 16px; border-radius: 12px; background: var(--accent-soft); border: 1px solid var(--accent-mid); font-style: italic; font-size: 16px; line-height: 1.55; }
+.problematique-label { display: block; font-style: normal; font-size: 11.5px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.frise { position: relative; margin: 8px 0 10px 6px; padding-left: 18px; border-left: 3px solid var(--accent-mid); }
+.frise-item { position: relative; padding: 3px 0 9px 4px; font-size: 14.5px; line-height: 1.6; }
+.frise-item::before { content: ""; position: absolute; left: -26px; top: 9px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--card-bg); }
+.frise-date { display: block; font-weight: bold; color: var(--accent); font-size: 13.5px; letter-spacing: 0.3px; }
+.citation { margin: 10px 0; padding: 10px 16px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; font-style: italic; font-size: 15px; line-height: 1.6; }
+.citation cite { display: block; margin-top: 6px; font-style: normal; font-size: 13px; color: var(--card-sub); }
+.fiche-id td:first-child { width: 22%; }
+@media (max-width: 600px) {
+  .fiche-hggsp .accord-sub.niv3 > .accord-h2 { padding-left: 28px; }
+  .fiche-hggsp .accord-sub.niv3 > .accord-content > .accord-body-inner { padding-left: 16px; }
+}
+
 </style>
 </head>
 <body>
@@ -1112,243 +1135,817 @@ const matieres = [
       {
         id:"guerre-paix",
         title:"Faire la guerre, faire la paix : formes de conflits et modes de résolution",
-        classe:"ia",
+        classe:"ia-enseignant",
         content:`
-<div style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
+<div class="fiche-ses fiche-hggsp" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
-  <!-- ═══════════ 1. PROBLÉMATIQUE ET DÉFINITIONS ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:8px;">PROBLÉMATIQUE CENTRALE</div>
-    <p style="margin:0 0 12px 0;">Ce thème est <strong>évaluable au bac 2027</strong>. Questions clés : <em>La guerre reste-t-elle la continuation de la politique par d'autres moyens (Clausewitz) ? Les formes de la guerre ont-elles fondamentalement changé depuis le XVIIIe siècle ? La paix peut-elle être construite durablement ?</em></p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#c0392b15;">
-        <td style="padding:7px 10px;font-weight:bold;width:30%;">Guerre</td>
-        <td style="padding:7px 10px;">Affrontement armé organisé entre groupes politiques (États, factions). Toute guerre est un conflit, mais tout conflit n'est pas une guerre (les conflits sociaux, diplomatiques ne sont pas des guerres). L'ONU distingue guerres inter-étatiques, guerres civiles, guerres asymétriques.</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Formule de Clausewitz</td>
-        <td style="padding:7px 10px;">« La guerre est la continuation de la politique par d'autres moyens » (<em>De la guerre</em>, 1832, posthume). La guerre a toujours un objectif politique. Elle n'est pas une fin en soi mais un instrument au service d'un but politique. Cette formule reste le cadre d'analyse de référence.</td>
-      </tr>
-      <tr style="background:#c0392b15;">
-        <td style="padding:7px 10px;font-weight:bold;">Guerre irrégulière</td>
-        <td style="padding:7px 10px;">Conflit où au moins un acteur n'est pas un État régulier et n'observe pas les règles de la guerre conventionnelle : guérilla, terrorisme, guerre de partisans. S'oppose à la guerre interétatique classique.</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Guerre hybride</td>
-        <td style="padding:7px 10px;">Combinaison de méthodes conventionnelles et irrégulières : armée régulière + milices non identifiées + cyberattaques + désinformation + pression économique. Concept apparu avec le conflit en Ukraine (2014).</td>
-      </tr>
-      <tr style="background:#c0392b15;">
-        <td style="padding:7px 10px;font-weight:bold;">Paix</td>
-        <td style="padding:7px 10px;">Trois conceptions : paix négative (absence de guerre, armistice), paix positive (justice sociale, conditions qui rendent la guerre inutile — J. Galtung), paix libérale (démocraties, institutions internationales, libre-échange comme garanties de paix — Kant, <em>Projet de paix perpétuelle</em>, 1795).</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Droit international humanitaire (DIH)</td>
-        <td style="padding:7px 10px;">Ensemble de règles limitant les effets des conflits armés sur les civils et les combattants hors de combat. Conventions de Genève (1864, 1949) et leurs Protocoles (1977). Distinction combattants/civils, interdiction des armes chimiques (Convention 1993), des mines antipersonnel (Ottawa 1997).</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- ═══════════ 2. GRANDES NOTIONS ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #e67e22;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#e67e22;margin-bottom:12px;">GRANDES NOTIONS À MAÎTRISER</div>
-
-    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 1 — La dimension politique de la guerre : des conflits interétatiques aux enjeux transnationaux</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;">
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;width:30%;">Guerre interétatique classique</td>
-        <td style="padding:7px 10px;">Avant le XVIIIe s. : guerres de cabinets, armées professionnelles limitées, objectifs territoriaux précis. Révolution française 1792 : la levée en masse transforme la guerre — armées de masse, guerres totales en germe. Napoléon : guerre de manœuvre et d'anéantissement. Clausewitz théorise cette transformation.</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Guerres totales (XXe s.)</td>
-        <td style="padding:7px 10px;">1re et 2e Guerres mondiales : mobilisation totale de la société civile et de l'économie, industrialisation de la mort (gaz, bombardements stratégiques, Shoah). La frontière civils/militaires s'efface. Hiroshima (1945) : arme nucléaire comme ultime arme totale — mais aussi dissuasion.</td>
-      </tr>
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;">Guerres irrégulières</td>
-        <td style="padding:7px 10px;">Guérilla (guerre du Vietnam, Algérie), terrorisme (Al-Qaïda, Daesh), insurrections. Ces conflits remettent en cause le modèle de Clausewitz : pas d'État clairement identifiable, pas de fin de guerre claire, pas de reddition. La puissance militaire conventionnelle est souvent inefficace (USA au Vietnam, URSS en Afghanistan).</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Nouvelles formes (XXIe s.)</td>
-        <td style="padding:7px 10px;">Guerre hybride (Ukraine 2014-2022), cyberguerre (Stuxnet, attaques russes), drones armés (Predator, usage massif par les USA après 2001), guerre de l'information (désinformation, influence sociale), mercenaires (Wagner en Afrique, Wagner en Ukraine).</td>
-      </tr>
-    </table>
-
-    <p style="font-weight:bold;margin-bottom:6px;">▶ Axe 2 — Construire la paix : acteurs, moyens, limites</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;width:30%;">Traités de Westphalie (1648)</td>
-        <td style="padding:7px 10px;">Mettent fin à la guerre de Trente Ans. Fondent le système international : souveraineté des États, non-ingérence, équilibre des puissances. Première architecture de la paix entre États. Ce système reste la base du droit international jusqu'à aujourd'hui.</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">SDN (1919) et ONU (1945)</td>
-        <td style="padding:7px 10px;">La SDN (Société des Nations) créée après 1918 pour garantir la paix collective — échoue (non-adhésion USA, incapacité face au réarmement allemand et japonais). L'ONU (1945) refonde la sécurité collective : Conseil de sécurité (5 membres permanents avec droit de veto), maintien de la paix, Charte (article 2.4 interdit la force), Déclaration universelle des droits de l'homme (1948).</td>
-      </tr>
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;">Opérations de maintien de la paix (OMP)</td>
-        <td style="padding:7px 10px;">Casques bleus de l'ONU : interposition, surveillance des cessez-le-feu, protection des civils. +70 opérations depuis 1948. Succès relatifs (Namibie 1989, Timor oriental) et échecs graves (Rwanda 1994 : génocide sous les yeux des casques bleus ; Srebrenica 1995 : massacre malgré une « zone de protection »).</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Justice transitionnelle</td>
-        <td style="padding:7px 10px;">Ensemble de mécanismes pour faire face aux crimes de masse après un conflit : tribunaux pénaux internationaux (TPIY pour ex-Yougoslavie, TPIR pour Rwanda), Cour pénale internationale (CPI, créée 2002), commissions Vérité et Réconciliation (Afrique du Sud), tribunaux locaux (gacaca au Rwanda). Vise à établir la vérité, punir les coupables et prévenir la récurrence.</td>
-      </tr>
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;">Responsabilité de protéger (R2P)</td>
-        <td style="padding:7px 10px;">Principe adopté par l'ONU en 2005 : si un État ne protège pas ses civils (génocide, crimes de guerre, crimes contre l'humanité), la communauté internationale peut intervenir. Utilisé comme justification en Libye (2011, résolution 1973), controversé car instrumentalisé. Russie et Chine y sont réticentes.</td>
-      </tr>
-    </table>
-
-    <p style="font-weight:bold;margin-bottom:6px;">▶ Objet conclusif — Le Moyen-Orient depuis 1948</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;width:30%;">Conflit israélo-arabe/palestinien</td>
-        <td style="padding:7px 10px;">1948 : création d'Israël, 1re guerre arabo-israélienne. 1967 : guerre des Six Jours (Israël prend Sinaï, Cisjordanie, Gaza, Golan). 1973 : guerre du Kippour. Accords d'Oslo (1993) : reconnaissance mutuelle OLP/Israël, mais processus bloqué. Gaza depuis 2007 : blocus israélien, conflits récurrents. 7 octobre 2023 : attaque du Hamas, riposte militaire israélienne massive à Gaza.</td>
-      </tr>
-      <tr>
-        <td style="padding:7px 10px;font-weight:bold;">Acteurs et complexité régionale</td>
-        <td style="padding:7px 10px;">Israël, Autorité palestinienne (Fatah), Hamas (Gaza), Hezbollah (Liban), Iran (soutien aux milices chiites), Arabie saoudite, USA, Russie, ONU (UNRWA pour les réfugiés). La multiplicité des acteurs rend toute solution durable extrêmement difficile. Chevauchement de conflits religieux, nationaux, géopolitiques (pétrole, influence USA/URSS puis Russie/Chine).</td>
-      </tr>
-      <tr style="background:#e67e2215;">
-        <td style="padding:7px 10px;font-weight:bold;">Le modèle de Clausewitz appliqué</td>
-        <td style="padding:7px 10px;">Les conflits du Moyen-Orient <em>confirment</em> partiellement Clausewitz (les guerres ont des objectifs politiques — territoire, sécurité, reconnaissance) mais le <em>dépassent</em> aussi : acteurs non-étatiques (Hamas, Hezbollah, Daesh), guerres irrégulières, terrorisme, dimension religieuse — des éléments que Clausewitz, penseur des guerres d'État, n'anticipait pas.</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- ═══════════ 3. LES ACTEURS ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #2980b9;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#2980b9;margin-bottom:12px;">LES ACTEURS INCONTOURNABLES</div>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#2980b915;">
-        <td style="padding:8px 10px;font-weight:bold;width:22%;">États</td>
-        <td style="padding:8px 10px;">Acteur principal historique. Détiennent le monopole légal de la violence (Weber). Mais leur rôle est contesté : guerres civiles, acteurs non-étatiques. Russie/Ukraine 2022 : retour de la guerre interétatique en Europe après 30 ans de paix.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;font-weight:bold;">ONU et Conseil de sécurité</td>
-        <td style="padding:8px 10px;">Garant du droit international. Mais paralysé par le droit de veto des 5 membres permanents (USA, Russie, Chine, France, Royaume-Uni). La Russie bloque toute résolution sur l'Ukraine depuis 2022. L'ONU agit surtout par les OMP et les agences humanitaires.</td>
-      </tr>
-      <tr style="background:#2980b915;">
-        <td style="padding:8px 10px;font-weight:bold;">Acteurs non-étatiques armés</td>
-        <td style="padding:8px 10px;">Al-Qaïda, Daesh/ISIS, Hamas, Hezbollah, milices, groupes djihadistes au Sahel (JNIM, GSIM). Remettent en cause le modèle clausewitzien : pas de territoire fixe, pas de déclaration de guerre, pas de capitulation formelle. Leurs objectifs mêlent politique, religion, idéologie.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;font-weight:bold;">ONG humanitaires</td>
-        <td style="padding:8px 10px;">CICR (Comité international de la Croix-Rouge) : gardien des Conventions de Genève. MSF (Médecins sans frontières) : intervention en zones de conflit. Tensions avec les États : droit d'ingérence humanitaire vs souveraineté nationale.</td>
-      </tr>
-      <tr style="background:#2980b915;">
-        <td style="padding:8px 10px;font-weight:bold;">Mercenaires</td>
-        <td style="padding:8px 10px;">Groupe Wagner (Russie) : présence en Syrie, Libye, Mali, Centrafrique, Ukraine. Permet aux États de mener des opérations en niant leur implication (plausible deniability). Questionne le monopole étatique de la violence et le droit de la guerre.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;font-weight:bold;">CPI (Cour pénale internationale)</td>
-        <td style="padding:8px 10px;">Créée en 2002 (Statut de Rome). Juge les crimes de guerre, crimes contre l'humanité, génocides. A émis un mandat d'arrêt contre Poutine (mars 2023) pour la déportation d'enfants ukrainiens. Limites : non-adhésion USA, Russie, Chine ; difficultés d'exécution.</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- ═══════════ 4. ÉTUDES DE CAS ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #27ae60;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#27ae60;margin-bottom:12px;">ÉTUDES DE CAS INCONTOURNABLES</div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">Les traités de Westphalie (1648) — Naissance du système international</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Mettent fin à la guerre de Trente Ans (1618–1648), qui a ravagé l'Europe centrale (mort de 25–40% de la population de certaines régions). Fondent le principe de souveraineté des États et de non-ingérence dans leurs affaires intérieures. Donnent naissance à la diplomatie moderne et à l'équilibre des puissances. Ce système fonctionne (avec des guerres limitées) jusqu'aux guerres napoléoniennes, puis aux guerres mondiales.<br><strong>Ce qu'il illustre :</strong> La paix est une construction politique ; les traités ne suffisent pas sans institutions pour les faire respecter ; le modèle westphalien est toujours la base du droit international mais est contesté par les interventions humanitaires et la mondialisation.</div>
+<!-- ══════════════════════════════════════
+     AXE 1
+     ══════════════════════════════════════ -->
+<div class="accord-section">
+  <button type="button" class="accord-h1" onclick="toggleAccord(this)" aria-expanded="false">
+    <span>Axe 1 : La dimension politique de la guerre : des conflits interétatiques aux enjeux transnationaux</span>
+    <span class="accord-chevron">▼</span>
+  </button>
+  <div class="accord-content">
+    <div class="accord-body-inner axe-intro">
+      <div class="problematique"><span class="problematique-label">Problématique</span>Comment le modèle de la guerre a-t-il évolué depuis le XVIII<sup>e</sup> siècle ?</div>
+      <div class="accord-fc-row">
+        <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1','Axe 1')">🃏 Flashcards Axe 1</button>
       </div>
 
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">La Première Guerre mondiale (1914–1918) — Guerre totale et ses conséquences mémorielles</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> 1re guerre industrielle et de masse : 10 millions de morts militaires, 7 millions de civils. Tranchées, gaz, aviation, chars. Traité de Versailles (1919) : punition de l'Allemagne (clause de culpabilité, réparations). Création de la SDN — première tentative de sécurité collective. La SDN échoue à empêcher la 2e Guerre mondiale. Mémoire divisée : en France, culte des morts, monuments aux morts ; en Allemagne, honte et ressentiment qui alimenteront le nazisme.<br><strong>Ce qu'il illustre :</strong> Guerre totale ; échec de la SDN ; rôle de la mémoire dans les relations internationales (la « der des der » n'a pas empêché 1939).</div>
+      <div class="accord-block">
+        <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+          <span>📖 Notions générales</span>
+          <span class="accord-chevron">▼</span>
+        </button>
+        <div class="accord-content">
+          <div class="accord-block-inner">
+            <table class="ses-table">
+              <tr><td>Guerre</td><td>Affrontement armé, organisé et durable entre groupes politiques (États, mais aussi groupes armés non étatiques), qui poursuit des objectifs politiques. Pour Clausewitz, c'est « un acte de violence destiné à contraindre l'adversaire à exécuter notre volonté ».</td></tr>
+              <tr><td>Conflit</td><td>Opposition entre acteurs aux intérêts divergents. Tout conflit n'est pas une guerre : un conflit peut être diplomatique, économique, commercial, sans violence armée.</td></tr>
+              <tr><td>Guerre interétatique</td><td>Guerre qui oppose des États souverains, avec des armées régulières, en principe déclarée et conclue par un traité de paix. C'est le modèle « classique » théorisé par Clausewitz.</td></tr>
+              <tr><td>Guerre civile (intraétatique)</td><td>Guerre qui oppose des groupes armés d'un même État entre eux ou à l'État (ex. : Syrie depuis 2011).</td></tr>
+              <tr><td>Guerre régulière / irrégulière</td><td>La guerre <strong>régulière</strong> oppose des armées d'États, en uniforme, selon les règles du droit de la guerre. La guerre <strong>irrégulière</strong> implique au moins un acteur non étatique qui refuse l'affrontement frontal et ne respecte pas ces règles : guérilla, terrorisme, insurrection.</td></tr>
+              <tr><td>Guerre asymétrique</td><td>Guerre qui oppose des adversaires aux moyens très inégaux (un État puissant contre un groupe armé). Le « faible » compense son infériorité en évitant la bataille rangée : harcèlement, guérilla, attentats, propagande (stratégie « du faible au fort »).</td></tr>
+              <tr><td>Enjeux transnationaux</td><td>Enjeux qui dépassent les frontières des États : réseaux terroristes mondiaux, idéologies globales, financement et recrutement internationaux, propagande en ligne.</td></tr>
+              <tr><td>Paix</td><td>Au sens strict, absence de guerre (paix « négative »), souvent garantie par un traité ; au sens large, situation durable de sécurité et de justice qui rend la guerre improbable (paix « positive »).</td></tr>
+            </table>
+          </div>
+        </div>
       </div>
-
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">Le génocide au Rwanda (1994) — Échec de la communauté internationale</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> Entre avril et juillet 1994, environ 800 000 Tutsis et Hutus modérés sont massacrés en 100 jours. La MINUAR (mission ONU) présente sur place a reçu l'ordre de ne pas intervenir (mandat limité). La France, les USA et la communauté internationale n'agissent pas. La Belgique retire ses troupes après la mort de 10 soldats. Le TPIR (Tribunal pénal international pour le Rwanda) est créé en 1994 — 1er tribunal pénal international depuis Nuremberg. Le génocide est reconnu tardivement par la France (2021, rapport Duclert).<br><strong>Ce qu'il illustre :</strong> Les limites des OMP et de la volonté politique internationale ; la nécessité de la justice internationale ; l'importance de la reconnaissance officielle dans le travail de mémoire.</div>
+      <div class="accord-block">
+        <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+          <span>🗓️ Frise de l'axe</span>
+          <span class="accord-chevron">▼</span>
+        </button>
+        <div class="accord-content">
+          <div class="accord-block-inner">
+            <div class="frise">
+              <div class="frise-item"><span class="frise-date">1756-1763</span><span class="frise-txt">Guerre de Sept Ans : guerre « limitée » entre monarchies, étendue au monde entier.</span></div>
+              <div class="frise-item"><span class="frise-date">1792-1815</span><span class="frise-txt">Guerres révolutionnaires puis napoléoniennes : naissance de la guerre de masse et de la nation en armes.</span></div>
+              <div class="frise-item"><span class="frise-date">1832</span><span class="frise-txt">Publication posthume de <em>De la guerre</em> de Clausewitz.</span></div>
+              <div class="frise-item"><span class="frise-date">1914-1945</span><span class="frise-txt">Guerres mondiales : guerres totales (hors axe, mais montrent la « montée aux extrêmes »).</span></div>
+              <div class="frise-item"><span class="frise-date">1988</span><span class="frise-txt">Fondation d'Al-Qaïda par Oussama ben Laden.</span></div>
+              <div class="frise-item"><span class="frise-date">11 sept. 2001</span><span class="frise-txt">Attentats d'Al-Qaïda aux États-Unis → « guerre contre le terrorisme ».</span></div>
+              <div class="frise-item"><span class="frise-date">29 juin 2014</span><span class="frise-txt">Daech proclame un « califat » en Irak et en Syrie.</span></div>
+              <div class="frise-item"><span class="frise-date">2019</span><span class="frise-txt">Chute du dernier bastion territorial de Daech (Baghouz, mars).</span></div>
+              <div class="frise-item"><span class="frise-date">2022</span><span class="frise-txt">Invasion de l'Ukraine par la Russie : retour d'une guerre interétatique de haute intensité en Europe.</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">Srebrenica (1995) — Massacre sous protectorat ONU</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> En juillet 1995, pendant la guerre de Bosnie (1992–1995), des forces serbes de Bosnie massacrent environ 8 000 hommes et garçons musulmans bosniaques à Srebrenica — une « zone de sécurité » supposément protégée par des Casques bleus néerlandais (Dutchbat). Le TPIY qualifie cela de génocide (arrêt 2004). Les accords de Dayton (novembre 1995) mettent fin à la guerre mais gèlent la situation sans résoudre les tensions fondamentales.<br><strong>Ce qu'il illustre :</strong> L'impuissance des OMP sans mandat robuste ; le génocide possible en Europe ; la nécessité d'un droit d'intervention renforcé.</div>
+      <div class="accord-block">
+        <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+          <span>🧩 Fil directeur de l'axe</span>
+          <span class="accord-chevron">▼</span>
+        </button>
+        <div class="accord-content">
+          <div class="accord-block-inner">
+            <p class="bloc-p">Le programme part d'un <strong>modèle</strong> : celui de Clausewitz, pour qui la guerre est un instrument au service d'un but politique, mené par des États. On vérifie d'abord que ce modèle permet de comprendre les guerres des XVIII<sup>e</sup> et XIX<sup>e</sup> siècles, <strong>puis</strong> on le met à l'épreuve des guerres irrégulières des XX<sup>e</sup> et XXI<sup>e</sup> siècles, menées par des acteurs non étatiques et transnationaux comme Al-Qaïda et Daech.</p><div class="aretenir"><strong>Idée directrice :</strong> la forme de la guerre change (acteurs, moyens, espaces), mais sa <strong>dimension politique</strong> demeure. C'est pourquoi le modèle de Clausewitz, discuté et contesté, reste une grille de lecture utile.</div>
+          </div>
+        </div>
       </div>
-
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">La guerre en Ukraine (depuis 2022) — Retour de la guerre interétatique en Europe</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> 24 février 2022 : invasion totale de l'Ukraine par la Russie après l'annexion de la Crimée (2014) et la guerre du Donbass. Conflit hybride : armées conventionnelles + guerre informationnelle + cyberattaques + drones + utilisation de Starlink par l'Ukraine + mercenaires Wagner. L'ONU condamne (résolution AG mars 2022, 141 voix) mais ne peut agir (veto russe au CS). CPI émet un mandat d'arrêt contre Poutine (2023). Soutien occidental (armes, sanctions) vs neutralité du Sud global.<br><strong>Ce qu'il illustre :</strong> La persistance de la guerre interétatique ; la guerre hybride ; les limites du droit international face à un membre permanent du Conseil de sécurité ; la tension coopération/affrontement.</div>
-      </div>
-
-      <div style="border:1px solid #ddd;border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:bold;font-size:15px;">Daesh / ISIS (2014–2019) — Guerre irrégulière et califat</div>
-        <div style="font-size:14px;margin-top:6px;"><strong>Ce qu'il faut savoir :</strong> L'État islamique (Daesh) proclame un « califat » en Irak et Syrie en 2014, contrôlant un territoire de la taille du Royaume-Uni. Combine gouvernance territoriale, idéologie djihadiste mondiale, terrorisme exporté (Paris nov. 2015, Nice 2016, Bruxelles 2016). Défait militairement en 2019 (coalition internationale + forces kurdes) mais la menace terroriste persiste. Recrutement en ligne via les réseaux sociaux.<br><strong>Ce qu'il illustre :</strong> Le dépassement du cadre clausewitzien par des acteurs non-étatiques à ambition globale ; la guerre contre le terrorisme sans fin claire ; la dimension numérique des conflits contemporains.</div>
-      </div>
-
     </div>
+
+    <!-- I -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>I/ La conception du modèle de Clausewitz et son application aux guerres des XVIII<sup>e</sup> et XIX<sup>e</sup> siècles</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
+          <div class="accord-fc-row accord-fc-row-top">
+            <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.I','Axe 1 · I')">🃏 Flashcards Axe 1 · I</button>
+          </div>
+
+          <div class="accord-block">
+            <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+              <span>👤 Qui est Clausewitz ?</span>
+              <span class="accord-chevron">▼</span>
+            </button>
+            <div class="accord-content">
+              <div class="accord-block-inner">
+                <table class="ses-table">
+                  <tr><td>Carl von Clausewitz (1780-1831)</td><td>Officier et théoricien militaire prussien. Il entre dans l'armée à 12 ans (1792), combat contre la France révolutionnaire, est fait prisonnier après la défaite d'<strong>Iéna</strong> (1806), passe au service de la Russie en 1812 (refus de l'alliance franco-prussienne), puis participe à la campagne de 1815 (Waterloo). Il dirige ensuite l'École de guerre de Berlin (1818-1830) et meurt du choléra en 1831.</td></tr>
+                  <tr><td><em>De la guerre</em> (<em>Vom Kriege</em>, 1832)</td><td>Traité inachevé publié après sa mort par sa veuve, Marie von Brühl. Il est tiré de son expérience des guerres napoléoniennes et reste l'ouvrage de référence de la pensée stratégique.</td></tr>
+                  <tr><td>Son expérience</td><td>Clausewitz a vécu le passage des guerres « limitées » du XVIII<sup>e</sup> siècle aux guerres de masse de la Révolution et de Napoléon : c'est cette rupture qu'il cherche à comprendre.</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accord-block">
+            <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+              <span>🧠 Le modèle de Clausewitz</span>
+              <span class="accord-chevron">▼</span>
+            </button>
+            <div class="accord-content">
+              <div class="accord-block-inner">
+                <table class="ses-table">
+                  <tr><td>La guerre, continuation de la politique</td><td>« La guerre n'est que la simple continuation de la politique par d'autres moyens. » La guerre n'est pas une fin en soi : elle est un <strong>instrument</strong> au service d'un <strong>but politique</strong> fixé par le pouvoir politique, qui doit toujours garder le contrôle sur les militaires.</td></tr>
+                  <tr><td>Définition de la guerre</td><td>« Un acte de violence destiné à contraindre l'adversaire à exécuter notre volonté. » Le but militaire (désarmer l'ennemi) sert le but politique.</td></tr>
+                  <tr><td>La « trinité » (trinité remarquable)</td><td>La guerre combine trois pôles : le <strong>peuple</strong> (les passions, la haine, la violence), l'<strong>armée et son chef</strong> (le hasard, le talent, la créativité) et le <strong>gouvernement</strong> (la raison, le calcul politique). Leur équilibre détermine la nature de chaque guerre.</td></tr>
+                  <tr><td>Guerre absolue / guerre réelle</td><td>La guerre <strong>absolue</strong> est un concept théorique : la violence tend à monter sans limite (« <strong>montée aux extrêmes</strong> ») jusqu'à l'anéantissement de l'adversaire. Dans la réalité, la guerre <strong>réelle</strong> est limitée par la politique, les moyens, la « friction ».</td></tr>
+                  <tr><td>Friction et « brouillard de la guerre »</td><td>La <strong>friction</strong> désigne tout ce qui fait qu'à la guerre les choses ne se passent pas comme prévu (fatigue, météo, erreurs). Le <strong>brouillard</strong> désigne l'incertitude des informations sur l'ennemi.</td></tr>
+                  <tr><td>Bataille décisive et centre de gravité</td><td>Le moyen principal de la guerre est la <strong>bataille</strong>, qui doit détruire les forces armées ennemies. Il faut frapper le « <strong>centre de gravité</strong> » de l'adversaire (son armée, sa capitale, ses alliances).</td></tr>
+                  <tr><td>Supériorité de la défense</td><td>Pour Clausewitz, la défense est la forme de guerre la plus forte, l'attaque la plus féconde (car elle seule permet d'imposer sa volonté).</td></tr>
+                  <tr><td>La « petite guerre »</td><td>Clausewitz a aussi enseigné (1810-1812) la <strong>petite guerre</strong> (guerre de partisans, de harcèlement) et consacre un chapitre à l'« <strong>armement du peuple</strong> » : le soulèvement populaire, arme de défense (Espagne 1808, Russie 1812). Son modèle n'ignore donc pas la guerre irrégulière (voir II.1).</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accord-block">
+            <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+              <span>📜 Citations de Clausewitz</span>
+              <span class="accord-chevron">▼</span>
+            </button>
+            <div class="accord-content">
+              <div class="accord-block-inner">
+                <blockquote class="citation">« La guerre n'est que la simple continuation de la politique par d'autres moyens »<cite>— Clausewitz, <em>De la guerre</em>, livre I, chap. 1</cite></blockquote><blockquote class="citation">« La guerre est un acte de violence destiné à contraindre l'adversaire à exécuter notre volonté »<cite>— Clausewitz, <em>De la guerre</em></cite></blockquote><blockquote class="citation">« La guerre est plus qu'un véritable caméléon »<cite>— Clausewitz, <em>De la guerre</em> : elle change d'apparence selon les circonstances, mais reste un instrument politique</cite></blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="accord-block">
+            <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+              <span>⚠️ Pièges sur Clausewitz</span>
+              <span class="accord-chevron">▼</span>
+            </button>
+            <div class="accord-content">
+              <div class="accord-block-inner">
+                <div class="piege"><strong>⚠ Clausewitz ne fait pas l'apologie de la guerre.</strong> Il l'analyse comme un phénomène politique et insiste sur la primauté du politique sur le militaire.</div><div class="piege"><strong>⚠ Il n'a pas connu les guerres mondiales ni le terrorisme :</strong> son modèle est tiré des guerres de 1792-1815. L'appliquer aux guerres actuelles, c'est le « mettre à l'épreuve », pas le réciter.</div><div class="piege"><strong>⚠ « Guerre absolue » ≠ « guerre totale ».</strong> La guerre absolue est un concept théorique de Clausewitz ; la guerre totale (mobilisation de toute la société, XX<sup>e</sup> siècle) est une réalité historique postérieure.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- I.1 -->
+        <div class="accord-sub niv3">
+          <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+            <span>1) La guerre de Sept Ans (1756-1763)</span>
+            <span class="accord-chevron">▼</span>
+          </button>
+          <div class="accord-content">
+            <div class="accord-body-inner">
+              <div class="accord-fc-row accord-fc-row-top">
+                <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.I.1','Axe 1 · I.1')">🃏 Flashcards Axe 1 · I.1</button>
+              </div>
+
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🪪 Fiche d'identité</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table fiche-id">
+                      <tr><td>Dates</td><td>1756-1763 (la guerre commence dès 1754-1755 en Amérique du Nord)</td></tr>
+                      <tr><td>Camps</td><td><strong>Prusse et Grande-Bretagne</strong> (+ Hanovre, Portugal) contre <strong>France, Autriche, Russie</strong>, Suède, Saxe, puis Espagne (1762)</td></tr>
+                      <tr><td>Enjeux</td><td>En Europe : la Silésie, prise par la Prusse à l'Autriche en 1742. Hors d'Europe : la domination coloniale et commerciale entre France et Grande-Bretagne (Amérique du Nord, Inde, Antilles, mers).</td></tr>
+                      <tr><td>Théâtres</td><td>Europe centrale, Amérique du Nord, Inde, Antilles, Afrique de l'Ouest, océans : on la qualifie parfois de « première guerre mondiale ».</td></tr>
+                      <tr><td>Fin</td><td>Traité de <strong>Paris</strong> (10 février 1763) entre France, Grande-Bretagne et Espagne ; traité d'<strong>Hubertusburg</strong> (15 février 1763) entre Prusse et Autriche.</td></tr>
+                      <tr><td>Bilan</td><td>La Prusse garde la Silésie et s'impose comme grande puissance ; la Grande-Bretagne devient la première puissance coloniale et maritime ; la France perd l'essentiel de son premier empire colonial.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🗓️ Chronologie</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="frise">
+                      <div class="frise-item"><span class="frise-date">1756</span><span class="frise-txt">Renversement des alliances : la France s'allie à l'Autriche, son ennemie traditionnelle ; la Grande-Bretagne à la Prusse. Frédéric II envahit la Saxe.</span></div>
+                      <div class="frise-item"><span class="frise-date">1757</span><span class="frise-txt">Victoires prussiennes de <strong>Rossbach</strong> (sur les Français) et de <strong>Leuthen</strong> (sur les Autrichiens). En Inde, victoire britannique de <strong>Plassey</strong>.</span></div>
+                      <div class="frise-item"><span class="frise-date">1759</span><span class="frise-txt">Défaite prussienne de Kunersdorf. Chute de <strong>Québec</strong> (bataille des plaines d'Abraham, mort de Wolfe et de Montcalm) ; défaites navales françaises (Lagos, Quiberon).</span></div>
+                      <div class="frise-item"><span class="frise-date">1760</span><span class="frise-txt">Capitulation de Montréal : fin de la Nouvelle-France.</span></div>
+                      <div class="frise-item"><span class="frise-date">1762</span><span class="frise-txt">Mort de la tsarine Élisabeth : son successeur Pierre III, admirateur de Frédéric II, fait la paix avec la Prusse (« miracle de la maison de Brandebourg »).</span></div>
+                      <div class="frise-item"><span class="frise-date">1763</span><span class="frise-txt">Traités de Paris et d'Hubertusburg.</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚔️ Déroulement et faits clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <ul class="bloc-ul">
+                      <li><strong>Des armées professionnelles</strong> : soldats de métier et mercenaires, recrutés pour longtemps, coûteux et longs à former ; on cherche donc à les ménager.</li>
+                      <li><strong>Une guerre de manœuvres et de sièges</strong> : on privilégie les marches, la prise de places fortes et de positions, plutôt que la destruction totale de l'ennemi. Les batailles sont rangées, en ligne (Frédéric II invente l'« ordre oblique »).</li>
+                      <li><strong>Une guerre limitée</strong> dans ses objectifs (une province, des colonies) et dans ses moyens : on la qualifie de « <strong>guerre en dentelles</strong> » ou de « <strong>guerre de cabinets</strong> » (décidée par les souverains et leurs ministres, sans mobilisation des peuples).</li>
+                      <li><strong>Mais une guerre déjà mondiale</strong> : combats en Amérique, en Inde, sur les mers ; rôle décisif de la puissance navale britannique.</li>
+                      <li><strong>Une guerre qui se termine par la négociation</strong> : aucun État n'est anéanti ; les traités redistribuent territoires et colonies selon l'équilibre des forces.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📖 Notions clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Guerre de cabinets</td><td>Guerre décidée et conduite par les souverains et leurs ministres (le « cabinet »), pour des objectifs dynastiques ou territoriaux limités, sans participation ni adhésion des populations.</td></tr>
+                      <tr><td>Guerre « en dentelles »</td><td>Expression (postérieure et un peu caricaturale) désignant les guerres du XVIII<sup>e</sup> siècle, menées par des armées professionnelles selon des codes et des manœuvres réglées, avec des objectifs limités.</td></tr>
+                      <tr><td>Renversement des alliances (1756)</td><td>Rapprochement de la France et de l'Autriche (ennemies depuis deux siècles) face à l'alliance entre la Prusse et la Grande-Bretagne.</td></tr>
+                      <tr><td>Équilibre européen</td><td>Principe selon lequel aucune puissance ne doit dominer le continent : les guerres et les traités cherchent à maintenir un équilibre entre grandes puissances.</td></tr>
+                      <tr><td>Puissance maritime (thalassocratie)</td><td>Puissance fondée sur la maîtrise des mers, du commerce et des colonies : c'est l'atout décisif de la Grande-Bretagne.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>👤 Acteurs et personnages</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Frédéric II de Prusse (roi de 1740 à 1786)</td><td>« Roi-connétable » et souverain éclairé, il commande lui-même son armée ; ses victoires de 1757 et sa résistance à une vaste coalition font de la Prusse une grande puissance.</td></tr>
+                      <tr><td>Marie-Thérèse d'Autriche</td><td>Souveraine des Habsbourg, elle veut reprendre la Silésie.</td></tr>
+                      <tr><td>Louis XV</td><td>Roi de France, engagé à la fois sur le continent (aux côtés de l'Autriche) et outre-mer contre la Grande-Bretagne : la dispersion de ses efforts explique en partie la défaite française.</td></tr>
+                      <tr><td>William Pitt l'Ancien</td><td>Principal ministre britannique : il fait de la guerre coloniale et navale la priorité et finance l'effort prussien.</td></tr>
+                      <tr><td>Montcalm et Wolfe</td><td>Généraux français et britannique tués lors de la bataille des plaines d'Abraham devant Québec (1759).</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🔍 Lecture clausewitzienne</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Pourquoi la guerre de Sept Ans illustre-t-elle la formule de Clausewitz ?</strong></p><ul class="bloc-ul">
+                      <li><strong>La guerre est bien la continuation de la politique</strong> : elle prolonge les rivalités diplomatiques (Silésie, équilibre européen, rivalité coloniale franco-britannique). Les objectifs sont politiques et limités.</li>
+                      <li><strong>Le politique contrôle le militaire</strong> : ce sont les souverains et leurs cabinets qui décident de la guerre et de la paix (Frédéric II est à la fois roi et chef de guerre).</li>
+                      <li><strong>La paix se négocie</strong> quand les objectifs sont atteints ou que la poursuite de la guerre coûte trop cher : les traités de 1763 traduisent le nouvel équilibre politique.</li>
+                      <li><strong>Une guerre « réelle », limitée</strong> : on est loin de la « montée aux extrêmes » ; le peuple (pôle des passions dans la trinité) reste en retrait.</li>
+                    </ul><div class="aretenir">La guerre de Sept Ans est un exemple de <strong>guerre limitée</strong> au service d'objectifs politiques précis : c'est le « point de départ » du modèle, avant la rupture révolutionnaire.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📊 Chiffres clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Durée</td><td>7 ans de guerre en Europe (1756-1763), près de 9 ans en Amérique du Nord (1754-1763).</td></tr>
+                      <tr><td>Pertes</td><td>Environ 1 million de morts au total (estimations), dont beaucoup de civils en Europe centrale (Prusse, Saxe).</td></tr>
+                      <tr><td>Pertes françaises (1763)</td><td>Le Canada et la rive gauche du Mississippi (à la Grande-Bretagne) ; la Louisiane occidentale à l'Espagne (traité de Fontainebleau, 1762) ; ne garde que 5 comptoirs en Inde ; récupère la Guadeloupe et la Martinique ; garde Saint-Pierre-et-Miquelon.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚠️ Pièges à éviter</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="piege"><strong>⚠ Guerre « limitée » ne veut pas dire guerre peu meurtrière</strong> : les batailles sont sanglantes et les pertes civiles réelles. Elle est limitée dans ses <strong>objectifs</strong> et dans la mobilisation de la société.</div><div class="piege"><strong>⚠ Ne pas confondre</strong> le traité de Paris de 1763 avec celui de 1783 (indépendance des États-Unis).</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>✅ À retenir</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="aretenir">• 1756-1763 : Prusse + Grande-Bretagne contre France + Autriche + Russie.<br>• Guerre de <strong>cabinets</strong>, menée par des <strong>armées professionnelles</strong>, aux <strong>objectifs limités</strong>, mais déjà <strong>mondiale</strong>.<br>• Elle se termine par des traités négociés (Paris, Hubertusburg, 1763) : la Prusse s'affirme, la Grande-Bretagne domine les mers et les colonies.<br>• Elle illustre la guerre comme <strong>instrument politique</strong> contrôlé par l'État.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- I.2 -->
+        <div class="accord-sub niv3">
+          <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+            <span>2) Les guerres révolutionnaires et napoléoniennes (1792-1815)</span>
+            <span class="accord-chevron">▼</span>
+          </button>
+          <div class="accord-content">
+            <div class="accord-body-inner">
+              <div class="accord-fc-row accord-fc-row-top">
+                <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.I.2','Axe 1 · I.2')">🃏 Flashcards Axe 1 · I.2</button>
+              </div>
+
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🪪 Fiche d'identité</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table fiche-id">
+                      <tr><td>Dates</td><td>1792-1815 : guerres de la Révolution (1792-1802) puis guerres napoléoniennes (1803-1815)</td></tr>
+                      <tr><td>Camps</td><td>La France révolutionnaire puis impériale contre sept <strong>coalitions</strong> successives de monarchies européennes (Grande-Bretagne, Autriche, Prusse, Russie…).</td></tr>
+                      <tr><td>Enjeux</td><td>Au départ : défendre la Révolution contre les monarchies et l'exporter (« guerre aux rois, paix aux peuples »). Puis : l'hégémonie de Napoléon sur l'Europe contre l'équilibre européen défendu par la Grande-Bretagne.</td></tr>
+                      <tr><td>Fin</td><td>Défaite de Napoléon à <strong>Waterloo</strong> (18 juin 1815) ; <strong>congrès de Vienne</strong> (1814-1815) qui redessine l'Europe et instaure le « concert européen ».</td></tr>
+                      <tr><td>Bilan</td><td>Environ 3 à 3,5 millions de morts militaires (et davantage avec les civils) ; naissance de la guerre de masse ; éveil des nationalismes en Europe.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🗓️ Chronologie</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="frise">
+                      <div class="frise-item"><span class="frise-date">20 avril 1792</span><span class="frise-txt">La France déclare la guerre au « roi de Bohême et de Hongrie » (l'Autriche).</span></div>
+                      <div class="frise-item"><span class="frise-date">20 sept. 1792</span><span class="frise-txt">Victoire de <strong>Valmy</strong> : les volontaires de la nation arrêtent les Prussiens.</span></div>
+                      <div class="frise-item"><span class="frise-date">23 août 1793</span><span class="frise-txt">Décret de <strong>levée en masse</strong> : tous les Français sont mobilisés pour la guerre.</span></div>
+                      <div class="frise-item"><span class="frise-date">1798</span><span class="frise-txt">Loi <strong>Jourdan-Delbrel</strong> : la conscription devient permanente.</span></div>
+                      <div class="frise-item"><span class="frise-date">2 déc. 1805</span><span class="frise-txt"><strong>Austerlitz</strong> : victoire décisive de Napoléon sur l'Autriche et la Russie.</span></div>
+                      <div class="frise-item"><span class="frise-date">14 oct. 1806</span><span class="frise-txt"><strong>Iéna et Auerstaedt</strong> : effondrement de l'armée prussienne (Clausewitz est fait prisonnier).</span></div>
+                      <div class="frise-item"><span class="frise-date">1808-1814</span><span class="frise-txt">Guerre d'<strong>Espagne</strong> : soulèvement populaire et <strong>guérilla</strong> contre l'occupation française.</span></div>
+                      <div class="frise-item"><span class="frise-date">1812</span><span class="frise-txt">Campagne de <strong>Russie</strong> : la Grande Armée (environ 600 000 hommes) est détruite lors de la retraite (Bérézina).</span></div>
+                      <div class="frise-item"><span class="frise-date">Oct. 1813</span><span class="frise-txt">Bataille de <strong>Leipzig</strong> (« bataille des Nations »).</span></div>
+                      <div class="frise-item"><span class="frise-date">18 juin 1815</span><span class="frise-txt"><strong>Waterloo</strong> : défaite définitive de Napoléon.</span></div>
+                      <div class="frise-item"><span class="frise-date">1814-1815</span><span class="frise-txt"><strong>Congrès de Vienne</strong> : restauration de l'équilibre européen.</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚔️ Déroulement et faits clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <ul class="bloc-ul">
+                      <li><strong>La nation en armes</strong> : avec la levée en masse (1793) puis la conscription (1798), la guerre n'est plus l'affaire de soldats de métier mais de <strong>tous les citoyens</strong>. Les armées deviennent gigantesques (plusieurs centaines de milliers d'hommes).</li>
+                      <li><strong>Une guerre idéologique et patriotique</strong> : on combat pour la patrie et pour la Révolution ; la guerre mobilise les passions du peuple.</li>
+                      <li><strong>La guerre napoléonienne</strong> : mobilité et rapidité, concentration des forces au point décisif, recherche de la <strong>bataille décisive</strong> qui anéantit l'armée ennemie (Austerlitz, Iéna), puis négociation d'une paix imposée.</li>
+                      <li><strong>Une guerre qui change d'échelle</strong> : toute l'Europe est concernée, de Lisbonne à Moscou ; les pertes sont sans commune mesure avec le XVIII<sup>e</sup> siècle.</li>
+                      <li><strong>Premières guerres irrégulières</strong> : en Espagne (1808-1814), au Tyrol (1809) et en Russie (1812), les populations mènent une « <strong>petite guerre</strong> » (guérilla) contre les armées françaises.</li>
+                      <li><strong>Les adversaires s'adaptent</strong> : la Prusse réforme son armée après Iéna (Scharnhorst, Gneisenau, Clausewitz) et adopte à son tour la mobilisation nationale (1813).</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📖 Notions clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Levée en masse</td><td>Décret de la Convention du 23 août 1793 qui réquisitionne tous les Français pour la défense de la patrie (les jeunes hommes au combat, les autres à l'effort de guerre). Elle marque la naissance de la « nation en armes ».</td></tr>
+                      <tr><td>Conscription</td><td>Service militaire obligatoire des jeunes hommes, institué en France par la loi Jourdan-Delbrel (1798). Elle permet de lever des armées de masse de façon permanente.</td></tr>
+                      <tr><td>Nation en armes</td><td>Idée selon laquelle la défense de la patrie est l'affaire de tous les citoyens, et non plus d'une armée de métier au service du roi.</td></tr>
+                      <tr><td>Guerre d'anéantissement</td><td>Guerre qui vise la destruction des forces armées de l'adversaire par la bataille, et non plus des objectifs limités.</td></tr>
+                      <tr><td>Bataille décisive</td><td>Bataille dont l'issue décide du sort de la guerre (Austerlitz, Iéna, Waterloo).</td></tr>
+                      <tr><td>Coalition</td><td>Alliance de plusieurs États contre un ennemi commun : sept coalitions européennes se forment contre la France entre 1792 et 1815.</td></tr>
+                      <tr><td>Guérilla</td><td>Mot espagnol (« petite guerre ») désignant une guerre de harcèlement menée par des combattants irréguliers, souvent issus de la population, contre une armée régulière (Espagne 1808-1814).</td></tr>
+                      <tr><td>Concert européen</td><td>Système de concertation entre grandes puissances issu du congrès de Vienne (1815), destiné à maintenir l'équilibre et la paix en Europe.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>👤 Acteurs et personnages</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Napoléon Bonaparte</td><td>Général de la Révolution puis empereur (1804-1815). Stratège de la guerre de mouvement et de la bataille décisive, surnommé par Clausewitz « le dieu de la guerre ».</td></tr>
+                      <tr><td>Lazare Carnot</td><td>Membre du Comité de salut public, « organisateur de la victoire » : il met en œuvre la levée en masse et l'amalgame des troupes (1793-1794).</td></tr>
+                      <tr><td>Scharnhorst et Gneisenau</td><td>Généraux prussiens réformateurs après Iéna, maîtres et amis de Clausewitz : ils modernisent l'armée prussienne.</td></tr>
+                      <tr><td>Wellington et Blücher</td><td>Généraux britannique et prussien, vainqueurs de Napoléon à Waterloo.</td></tr>
+                      <tr><td>Les guérilleros espagnols</td><td>Combattants irréguliers soutenus par la population et par les Britanniques, qui immobilisent des centaines de milliers de soldats français.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🔍 Lecture clausewitzienne</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Une rupture que Clausewitz théorise :</strong></p><ul class="bloc-ul">
+                      <li><strong>Le peuple entre dans la guerre</strong> : avec la levée en masse, le pôle « peuple » de la trinité (passions, violence) prend une place nouvelle. La guerre devient « l'affaire du peuple entier ».</li>
+                      <li><strong>La guerre tend vers la « montée aux extrêmes »</strong> : armées de masse, objectifs idéologiques, recherche de l'anéantissement de l'ennemi. Napoléon rapproche la guerre réelle de la guerre « absolue ».</li>
+                      <li><strong>Mais la guerre reste un instrument politique</strong> : Napoléon, chef à la fois politique et militaire, fait la guerre pour imposer sa domination et négocie ensuite des traités (Presbourg 1805, Tilsit 1807).</li>
+                      <li><strong>L'excès de la guerre la retourne contre son auteur</strong> : l'ambition sans limite de Napoléon provoque des coalitions de plus en plus larges et des résistances populaires (Espagne, Russie) qui épuisent la France.</li>
+                      <li><strong>Clausewitz y découvre aussi la « petite guerre »</strong> et l'« armement du peuple » : le soulèvement populaire devient une arme de défense (voir II.1).</li>
+                    </ul><div class="aretenir">Les guerres de 1792-1815 sont la matrice du modèle de Clausewitz : elles montrent que la guerre change de nature quand le <strong>peuple</strong> y participe, mais qu'elle reste la <strong>continuation de la politique</strong>.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📊 Chiffres clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Armées</td><td>Entre 800 000 et 1 million de soldats sous les drapeaux en France en 1794 ; la Grande Armée compte environ 600 000 hommes en 1812 (contre quelques dizaines de milliers pour les armées du XVIII<sup>e</sup> siècle).</td></tr>
+                      <tr><td>Pertes françaises</td><td>Environ 900 000 à 1 million de soldats morts entre 1792 et 1815.</td></tr>
+                      <tr><td>Pertes totales</td><td>Environ 3 à 3,5 millions de morts militaires en Europe, bien plus avec les civils.</td></tr>
+                      <tr><td>Campagne de Russie</td><td>Sur environ 600 000 hommes entrés en Russie, seuls quelques dizaines de milliers en reviennent en état de combattre.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📜 Citations à placer</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <blockquote class="citation">« Tous les Français sont en réquisition permanente pour le service des armées »<cite>— Décret de levée en masse, 23 août 1793</cite></blockquote><blockquote class="citation">« Soudain, la guerre était redevenue l'affaire du peuple, et d'un peuple de trente millions d'habitants qui se considéraient tous comme des citoyens de l'État »<cite>— Clausewitz, <em>De la guerre</em>, livre VIII</cite></blockquote>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚠️ Pièges à éviter</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="piege"><strong>⚠ Guerres « révolutionnaires » ≠ guerres « napoléoniennes »</strong> : les premières (1792-1802) défendent puis exportent la Révolution ; les secondes (1803-1815) servent l'hégémonie impériale de Napoléon. Mais la continuité militaire est forte (armées de masse).</div><div class="piege"><strong>⚠ Ne pas faire de Napoléon un « exemple » de Clausewitz :</strong> c'est l'inverse. Clausewitz tire sa théorie de l'observation des guerres napoléoniennes, qu'il a combattues.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>✅ À retenir</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="aretenir">• La Révolution crée la <strong>nation en armes</strong> (levée en masse 1793, conscription 1798) : armées de masse, guerre idéologique.<br>• Napoléon mène une guerre de <strong>mouvement</strong> et d'<strong>anéantissement</strong> fondée sur la <strong>bataille décisive</strong>.<br>• La guerre tend vers la <strong>montée aux extrêmes</strong>, mais reste un instrument de la politique.<br>• Des résistances populaires (Espagne, Russie) annoncent les <strong>guerres irrégulières</strong>.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🎯 Pour le bac</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Sujets possibles :</strong></p><ul class="bloc-ul">
+                      <li>La guerre, « continuation de la politique par d'autres moyens » : de la guerre de Sept Ans aux guerres napoléoniennes (dissertation).</li>
+                      <li>En quoi les guerres de la Révolution et de l'Empire transforment-elles la guerre ?</li>
+                      <li>Étude critique d'un extrait de <em>De la guerre</em> ou du décret de levée en masse.</li>
+                    </ul><div class="exemple"><strong>Plan possible :</strong> I. Au XVIII<sup>e</sup> siècle, des guerres limitées au service de la politique des souverains (guerre de Sept Ans). II. 1792-1815 : la nation en armes et la guerre d'anéantissement transforment la guerre. III. Clausewitz théorise cette rupture : la guerre change de forme mais reste un instrument politique.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- II -->
+    <div class="accord-sub">
+      <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+        <span>II/ Le modèle de Clausewitz à l'épreuve des guerres irrégulières : d'Al-Qaïda à Daech</span>
+        <span class="accord-chevron">▼</span>
+      </button>
+      <div class="accord-content">
+        <div class="accord-body-inner">
+          <div class="accord-fc-row accord-fc-row-top">
+            <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.II','Axe 1 · II')">🃏 Flashcards Axe 1 · II</button>
+          </div>
+
+          <div class="accord-block">
+            <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+              <span>🧭 Le problème posé</span>
+              <span class="accord-chevron">▼</span>
+            </button>
+            <div class="accord-content">
+              <div class="accord-block-inner">
+                <p class="bloc-p">Le modèle de Clausewitz repose sur des guerres entre <strong>États</strong>, menées par des <strong>armées régulières</strong>, qui se terminent par une <strong>paix négociée</strong>. Depuis la seconde moitié du XX<sup>e</sup> siècle, la plupart des conflits sont des guerres <strong>irrégulières</strong> (guérillas de décolonisation, guerres civiles, terrorisme) : les acteurs sont non étatiques, souvent transnationaux, et il n'y a ni front, ni déclaration de guerre, ni traité de paix. Le modèle est-il encore valable ?</p><table class="ses-table">
+                  <tr><td>Martin van Creveld (<em>La transformation de la guerre</em>, 1991)</td><td>Historien israélien : la guerre « trinitaire » de Clausewitz (peuple / armée / gouvernement) serait dépassée par des conflits « non trinitaires » menés par des groupes non étatiques.</td></tr>
+                  <tr><td>Mary Kaldor (<em>Les nouvelles guerres</em>, 1999)</td><td>Politiste britannique : les « nouvelles guerres » mêlent guerre, crime organisé et violations massives des droits humains, visent les civils et s'appuient sur des identités (ethniques, religieuses).</td></tr>
+                  <tr><td>Les défenseurs de Clausewitz</td><td>D'autres (Hervé Coutau-Bégarie, Colin Gray…) estiment que le modèle reste valable : ces guerres gardent un <strong>but politique</strong> ; seuls les acteurs et les moyens changent (« la guerre est un caméléon »).</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- II.1 -->
+        <div class="accord-sub niv3">
+          <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+            <span>1) La guerre asymétrique selon Clausewitz</span>
+            <span class="accord-chevron">▼</span>
+          </button>
+          <div class="accord-content">
+            <div class="accord-body-inner">
+              <div class="accord-fc-row accord-fc-row-top">
+                <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.II.1','Axe 1 · II.1')">🃏 Flashcards Axe 1 · II.1</button>
+              </div>
+
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📖 Notions clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Guerre asymétrique</td><td>Guerre qui oppose des adversaires aux moyens, aux statuts et aux stratégies profondément inégaux : un État doté d'une armée puissante contre un groupe armé non étatique. Le « faible » refuse l'affrontement direct et cherche à user la volonté du « fort ».</td></tr>
+                      <tr><td>Guerre irrégulière</td><td>Forme de guerre menée par des combattants non réguliers (sans uniforme, hors des armées d'État) qui ne respectent pas les règles de la guerre conventionnelle : guérilla, terrorisme, insurrection.</td></tr>
+                      <tr><td>Petite guerre / guérilla</td><td>Guerre de harcèlement menée par de petits groupes mobiles, qui frappent puis se dispersent en s'appuyant sur la population et la connaissance du terrain.</td></tr>
+                      <tr><td>Terrorisme</td><td>Usage de la violence (attentats, assassinats, prises d'otages) contre des civils ou des symboles, pour créer un climat de peur et atteindre un objectif politique. C'est l'« arme du faible » par excellence.</td></tr>
+                      <tr><td>Djihadisme</td><td>Idéologie islamiste radicale qui prône la lutte armée (le djihad, dans une interprétation guerrière) pour instaurer un État fondé sur une lecture intégriste de l'islam et combattre l'Occident et les régimes musulmans jugés « impies ».</td></tr>
+                      <tr><td>Acteur non étatique / transnational</td><td>Groupe qui n'est pas un État mais agit sur la scène internationale ; transnational quand il est organisé en réseau par-delà les frontières (recrutement, financement, attentats dans plusieurs pays).</td></tr>
+                      <tr><td>Contre-insurrection / contre-terrorisme</td><td>Stratégies des États pour lutter contre les groupes irréguliers : opérations militaires, renseignement, frappes ciblées, mais aussi action politique pour gagner le soutien de la population (« les cœurs et les esprits »).</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🧠 Le modèle de Clausewitz</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Clausewitz a pensé la guerre irrégulière</td><td>Dans ses cours sur la <strong>petite guerre</strong> (1810-1812) et au chapitre « L'armement du peuple » de <em>De la guerre</em> (livre VI), il analyse le soulèvement populaire (Espagne, Tyrol, Russie) comme une arme de <strong>défense</strong> contre un envahisseur.</td></tr>
+                      <tr><td>Les conditions de réussite selon lui</td><td>La guerre doit se dérouler à l'intérieur du pays, sur un vaste territoire accidenté (montagnes, forêts), durer longtemps, être soutenue par la population et, de préférence, combinée à l'action d'une armée régulière.</td></tr>
+                      <tr><td>Une guerre d'usure</td><td>Le soulèvement ne cherche pas la bataille décisive : il « ronge » l'adversaire comme une « vapeur » ou un « nuage », en l'obligeant à disperser ses forces et en épuisant sa volonté.</td></tr>
+                      <tr><td>L'asymétrie est une stratégie</td><td>Le faible ne cherche pas à vaincre militairement mais à rendre la guerre <strong>trop coûteuse politiquement</strong> pour le fort : on retrouve la primauté du politique.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🔍 Lecture clausewitzienne</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Le modèle de Clausewitz à l'épreuve des guerres irrégulières :</strong></p><table class="ses-table">
+                      <tr><td>Ce qui confirme le modèle</td><td>Les groupes irréguliers poursuivent des <strong>buts politiques</strong> (chasser un occupant, prendre le pouvoir, fonder un État) ; la guerre reste un moyen de « contraindre l'adversaire » ; la volonté et l'opinion publique (pôle « peuple ») sont décisives.</td></tr>
+                      <tr><td>Ce qui le remet en cause</td><td>Pas d'État ni d'armée régulière d'un côté ; pas de front ni de bataille décisive ; les civils sont des cibles ; pas de déclaration de guerre ni de traité de paix ; des acteurs <strong>transnationaux</strong> qui ne défendent pas un territoire national.</td></tr>
+                      <tr><td>Le paradoxe de la puissance</td><td>Le « fort » gagne souvent les batailles mais perd la guerre : États-Unis au Vietnam (1965-1973), URSS en Afghanistan (1979-1989), États-Unis et OTAN en Afghanistan (2001-2021). La supériorité militaire ne garantit pas la victoire politique.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📊 Chiffres clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="exemple"><strong>Exemples de guerres asymétriques :</strong> guerre d'Espagne contre Napoléon (1808-1814) ; guerres de décolonisation (Indochine, Algérie) ; guerre du Vietnam ; Afghanistan (URSS puis États-Unis) ; guerre contre Al-Qaïda et Daech ; conflits au Sahel (opération Barkhane, 2014-2022).</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚠️ Pièges à éviter</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="piege"><strong>⚠ Asymétrique ≠ irrégulière</strong> : l'asymétrie porte sur l'<strong>inégalité des forces</strong> ; l'irrégularité porte sur la <strong>nature des combattants</strong> et le non-respect des règles de la guerre. Les deux vont souvent ensemble.</div><div class="piege"><strong>⚠ Ne pas dire que Clausewitz ignorait la guérilla</strong> : il l'a étudiée (petite guerre, armement du peuple), mais seulement comme complément défensif d'une guerre entre États.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>✅ À retenir</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="aretenir">• La guerre asymétrique oppose un <strong>fort</strong> et un <strong>faible</strong> qui refuse l'affrontement direct (guérilla, terrorisme).<br>• Clausewitz l'avait en partie pensée (<strong>petite guerre</strong>, <strong>armement du peuple</strong>) comme arme défensive.<br>• Ces guerres gardent un <strong>but politique</strong>, mais bousculent le modèle : acteurs non étatiques, pas de front, pas de paix négociée, civils ciblés.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- II.2 -->
+        <div class="accord-sub niv3">
+          <button type="button" class="accord-h2" onclick="toggleAccord(this)" aria-expanded="false">
+            <span>2) Les nouvelles formes de guerre</span>
+            <span class="accord-chevron">▼</span>
+          </button>
+          <div class="accord-content">
+            <div class="accord-body-inner">
+              <div class="accord-fc-row accord-fc-row-top">
+                <button type="button" class="fc-btn" onclick="fcOpen('guerre-paix','A1.II.2','Axe 1 · II.2')">🃏 Flashcards Axe 1 · II.2</button>
+              </div>
+
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🪪 Al-Qaïda</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table fiche-id">
+                      <tr><td>Origine</td><td>Fondée en 1987-1988 par <strong>Oussama ben Laden</strong> (et Abdallah Azzam) parmi les combattants arabes venus lutter contre les Soviétiques en Afghanistan.</td></tr>
+                      <tr><td>Objectifs</td><td>Chasser les Occidentaux (surtout les États-Unis, « ennemi lointain ») des terres musulmanes, renverser les régimes arabes jugés impies, restaurer à terme un califat.</td></tr>
+                      <tr><td>Organisation</td><td>Un <strong>réseau transnational</strong> et déterritorialisé : un noyau central (Afghanistan, Pakistan) et des « franchises » régionales (AQPA dans la péninsule Arabique, AQMI au Maghreb et au Sahel…).</td></tr>
+                      <tr><td>Mode d'action</td><td>Le <strong>terrorisme de masse</strong> : attentats contre les ambassades américaines de Nairobi et Dar es Salaam (1998), l'USS Cole (2000), puis le <strong>11 septembre 2001</strong> (près de 3 000 morts) ; Madrid (2004), Londres (2005).</td></tr>
+                      <tr><td>Riposte</td><td>« <strong>Guerre contre le terrorisme</strong> » des États-Unis : intervention en Afghanistan (octobre 2001) contre les talibans qui abritent Al-Qaïda, puis guerre d'Irak (2003) ; ben Laden est tué au Pakistan le 2 mai 2011.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🪪 Daech (État islamique)</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table fiche-id">
+                      <tr><td>Origine</td><td>Issu d'<strong>Al-Qaïda en Irak</strong> (Abou Moussab al-Zarqaoui, 2004) né dans le chaos qui suit l'invasion américaine de 2003 ; devient l'État islamique en Irak (2006), puis en Irak et au Levant (2013), profitant de la guerre civile syrienne.</td></tr>
+                      <tr><td>Le « califat »</td><td>Après la prise de <strong>Mossoul</strong> (juin 2014), <strong>Abou Bakr al-Baghdadi</strong> proclame un califat le <strong>29 juin 2014</strong> sur un territoire à cheval sur l'Irak et la Syrie (capitale : Raqqa), peuplé de plusieurs millions d'habitants.</td></tr>
+                      <tr><td>Un proto-État</td><td>Contrairement à Al-Qaïda, Daech contrôle un <strong>territoire</strong>, lève des impôts, exploite le pétrole, administre, dispose d'une armée : c'est un acteur hybride, à la fois groupe terroriste et quasi-État.</td></tr>
+                      <tr><td>Mode d'action</td><td>Guerre conventionnelle en Irak et en Syrie, terreur contre les populations (massacres des Yézidis en 2014), attentats en Europe (<strong>Paris, 13 novembre 2015</strong> : 130 morts ; Bruxelles, mars 2016 ; Nice, 14 juillet 2016 : 86 morts), <strong>propagande numérique</strong> (magazines en ligne, vidéos, réseaux sociaux) et recrutement de milliers de combattants étrangers.</td></tr>
+                      <tr><td>Défaite</td><td>Une <strong>coalition internationale</strong> (États-Unis, France avec l'opération Chammal, etc.) appuie les forces irakiennes et kurdes : reprise de Mossoul (juillet 2017) et de Raqqa (octobre 2017), chute de Baghouz (mars 2019), mort de Baghdadi (octobre 2019). Daech survit sous forme clandestine (Sahel, Afghanistan).</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🗓️ Chronologie</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="frise">
+                      <div class="frise-item"><span class="frise-date">1979-1989</span><span class="frise-txt">Guerre soviétique en Afghanistan : naissance du djihadisme international.</span></div>
+                      <div class="frise-item"><span class="frise-date">1988</span><span class="frise-txt">Création d'Al-Qaïda.</span></div>
+                      <div class="frise-item"><span class="frise-date">1998</span><span class="frise-txt">Attentats contre les ambassades américaines au Kenya et en Tanzanie.</span></div>
+                      <div class="frise-item"><span class="frise-date">11 sept. 2001</span><span class="frise-txt">Attentats de New York et Washington (près de 3 000 morts).</span></div>
+                      <div class="frise-item"><span class="frise-date">Oct. 2001</span><span class="frise-txt">Intervention américaine en Afghanistan.</span></div>
+                      <div class="frise-item"><span class="frise-date">2003</span><span class="frise-txt">Invasion de l'Irak par les États-Unis.</span></div>
+                      <div class="frise-item"><span class="frise-date">2 mai 2011</span><span class="frise-txt">Mort d'Oussama ben Laden.</span></div>
+                      <div class="frise-item"><span class="frise-date">29 juin 2014</span><span class="frise-txt">Proclamation du califat de Daech.</span></div>
+                      <div class="frise-item"><span class="frise-date">13 nov. 2015</span><span class="frise-txt">Attentats de Paris et Saint-Denis.</span></div>
+                      <div class="frise-item"><span class="frise-date">2017</span><span class="frise-txt">Reprise de Mossoul et de Raqqa.</span></div>
+                      <div class="frise-item"><span class="frise-date">Mars 2019</span><span class="frise-txt">Chute de Baghouz : fin du « califat » territorial.</span></div>
+                      <div class="frise-item"><span class="frise-date">Août 2021</span><span class="frise-txt">Retrait américain d'Afghanistan, retour des talibans au pouvoir.</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📖 Notions clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>Terrorisme de masse (hyperterrorisme)</td><td>Terrorisme qui cherche à faire le plus grand nombre de victimes possible et à frapper symboliquement une puissance (11 septembre 2001). Le terme d'hyperterrorisme est employé par François Heisbourg.</td></tr>
+                      <tr><td>Guerre contre le terrorisme</td><td>Stratégie lancée par George W. Bush après le 11 septembre 2001 : guerre mondiale, sans limite claire dans le temps ni dans l'espace, contre un ennemi non étatique.</td></tr>
+                      <tr><td>Califat</td><td>Régime politico-religieux dirigé par un calife, successeur de Mahomet, à la tête de la communauté des croyants. Daech s'en sert pour revendiquer une légitimité religieuse et un territoire.</td></tr>
+                      <tr><td>Guerre hybride</td><td>Combinaison de moyens militaires conventionnels, de moyens irréguliers (milices, soldats sans insignes), de cyberattaques, de désinformation et de pressions économiques, souvent sans déclaration de guerre (Russie en Crimée, 2014).</td></tr>
+                      <tr><td>Cyberguerre</td><td>Usage offensif du cyberespace pour espionner, désorganiser ou détruire les systèmes d'un adversaire (virus Stuxnet contre le programme nucléaire iranien, 2010 ; cyberattaques contre l'Estonie, 2007).</td></tr>
+                      <tr><td>Guerre informationnelle</td><td>Usage de la propagande, de la désinformation et des réseaux sociaux pour influencer les opinions, recruter et affaiblir l'adversaire.</td></tr>
+                      <tr><td>Sociétés militaires privées (SMP)</td><td>Entreprises qui vendent des services militaires (combat, sécurité, formation) ; ex. : le groupe russe <strong>Wagner</strong> (Syrie, Libye, Mali, Centrafrique, Ukraine). Elles remettent en cause le monopole étatique de la violence.</td></tr>
+                      <tr><td>Guerre par procuration</td><td>Guerre dans laquelle des puissances s'affrontent indirectement en soutenant des acteurs locaux (Syrie, Yémen).</td></tr>
+                      <tr><td>Drones</td><td>Aéronefs sans pilote utilisés pour le renseignement et les frappes ciblées (« guerre à distance ») ; leur usage massif en Ukraine depuis 2022 transforme le champ de bataille.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🔍 Lecture clausewitzienne</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Al-Qaïda et Daech : Clausewitz dépassé ?</strong></p><table class="ses-table">
+                      <tr><td>Un but politique maintenu</td><td>Al-Qaïda veut chasser l'Occident du monde musulman et renverser des régimes ; Daech veut fonder et étendre un État (le califat). Le terrorisme est un <strong>moyen</strong> au service de ces fins : la formule de Clausewitz reste pertinente.</td></tr>
+                      <tr><td>Une trinité bouleversée</td><td>Pas de gouvernement ni d'armée d'État (Al-Qaïda) ; le « peuple » visé est une communauté religieuse mondiale (l'oumma) ; la violence cible délibérément les civils pour frapper l'opinion des démocraties.</td></tr>
+                      <tr><td>Des acteurs transnationaux</td><td>Recrutement mondial, financement international, attentats dans de nombreux pays, propagande en ligne : la guerre se déterritorialise (Al-Qaïda) ou se combine à un territoire (Daech).</td></tr>
+                      <tr><td>Une guerre sans fin ni paix</td><td>Pas de reddition possible ni de traité : la défaite territoriale de Daech (2019) n'a pas fait disparaître la menace. La « guerre contre le terrorisme » n'a pas de fin clairement définie.</td></tr>
+                      <tr><td>Le retour de la guerre interétatique</td><td>L'invasion de l'Ukraine par la Russie (2022) montre que la guerre entre États, avec armées régulières, n'a pas disparu : les nouvelles formes s'ajoutent aux anciennes.</td></tr>
+                    </table><div class="aretenir"><strong>Bilan :</strong> les nouvelles guerres changent d'<strong>acteurs</strong> (non étatiques, transnationaux), de <strong>moyens</strong> (terrorisme, cyber, drones, information) et d'<strong>espaces</strong> (monde entier, cyberespace), mais gardent une <strong>finalité politique</strong>. Le modèle de Clausewitz doit être adapté, pas abandonné.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📊 Chiffres clés</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <table class="ses-table">
+                      <tr><td>11 septembre 2001</td><td>Près de 3 000 morts (2 977 victimes) : l'attentat le plus meurtrier de l'histoire.</td></tr>
+                      <tr><td>Califat de Daech (2014-2015)</td><td>Un territoire d'environ 100 000 km² à son apogée, peuplé de 7 à 8 millions d'habitants ; plus de 40 000 combattants étrangers venus d'une centaine de pays.</td></tr>
+                      <tr><td>Attentats en France</td><td>13 novembre 2015 : 130 morts ; Nice, 14 juillet 2016 : 86 morts.</td></tr>
+                      <tr><td>Afghanistan (2001-2021)</td><td>20 ans de présence américaine et de l'OTAN, qui se terminent par le retour des talibans au pouvoir.</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>📜 Citations à placer</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <blockquote class="citation">« Notre guerre contre la terreur commence avec Al-Qaïda, mais elle ne s'arrête pas là »<cite>— George W. Bush, discours au Congrès, 20 septembre 2001</cite></blockquote><blockquote class="citation">« C'est un acte de guerre qui a été commis par une armée terroriste, Daech »<cite>— François Hollande, 14 novembre 2015, au lendemain des attentats de Paris</cite></blockquote>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>⚠️ Pièges à éviter</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="piege"><strong>⚠ Al-Qaïda ≠ Daech.</strong> Al-Qaïda est un réseau terroriste déterritorialisé qui frappe « l'ennemi lointain » ; Daech a voulu construire un <strong>État territorial</strong> (le califat) tout en commettant des attentats. Les deux rivalisent depuis 2014.</div><div class="piege"><strong>⚠ « Nouvelles » formes ne veut pas dire que les anciennes disparaissent</strong> : guerre en Ukraine (2022), tensions entre grandes puissances.</div><div class="piege"><strong>⚠ Éviter les amalgames</strong> : le djihadisme est une idéologie politique extrémiste, pas l'islam.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>✅ À retenir</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <div class="aretenir">• <strong>Al-Qaïda</strong> (1988) : réseau terroriste transnational, 11 septembre 2001 → « guerre contre le terrorisme ».<br>• <strong>Daech</strong> : proto-État (califat 2014-2019) qui combine guerre territoriale, terreur et propagande numérique.<br>• Nouvelles formes : <strong>terrorisme de masse, guerre hybride, cyberguerre, guerre informationnelle, drones, sociétés militaires privées</strong>.<br>• Le modèle de Clausewitz est <strong>bousculé</strong> (acteurs, moyens, fin de la guerre) mais la <strong>dimension politique</strong> de la guerre demeure.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="accord-block">
+                <button type="button" class="accord-h3" onclick="toggleAccord(this)" aria-expanded="false">
+                  <span>🎯 Pour le bac</span>
+                  <span class="accord-chevron">▼</span>
+                </button>
+                <div class="accord-content">
+                  <div class="accord-block-inner">
+                    <p class="bloc-p"><strong>Sujets possibles :</strong></p><ul class="bloc-ul">
+                      <li>Le modèle de Clausewitz permet-il encore de comprendre les conflits contemporains ? (dissertation)</li>
+                      <li>Le modèle de Clausewitz à l'épreuve des guerres irrégulières : d'Al-Qaïda à Daech.</li>
+                      <li>En quoi Al-Qaïda et Daech sont-ils des acteurs transnationaux ?</li>
+                      <li>Comment le modèle de la guerre a-t-il évolué depuis le XVIII<sup>e</sup> siècle ? (problématique de l'axe)</li>
+                    </ul><div class="exemple"><strong>Plan possible (« Le modèle de Clausewitz est-il dépassé ? ») :</strong> I. Un modèle né des guerres interétatiques des XVIII<sup>e</sup>-XIX<sup>e</sup> siècles (guerre de Sept Ans, guerres napoléoniennes). II. Un modèle bousculé par les guerres irrégulières et transnationales (Al-Qaïda, Daech, guerre hybride, cyberguerre). III. Un modèle toujours utile : la guerre reste la continuation de la politique, et la guerre interétatique n'a pas disparu (Ukraine 2022).</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
+</div>
 
-  <!-- ═══════════ 5. TENSIONS ET DÉBATS ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #8e44ad;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#8e44ad;margin-bottom:12px;">TENSIONS ET DÉBATS CLÉS</div>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#8e44ad15;">
-        <td style="padding:8px 10px;font-weight:bold;width:35%;">Clausewitz est-il encore valable ?</td>
-        <td style="padding:8px 10px;"><strong>Oui</strong> : les guerres ont toujours un objectif politique (Russie en Ukraine veut empêcher l'expansion de l'OTAN ; Daesh veut un État islamique). <strong>Non</strong> : les guerres irrégulières, le terrorisme et la cyberguerre ne se terminent pas par une victoire militaire claire et une capitulation. Les acteurs non-étatiques n'ont pas toujours d'objectif politique rationnel clausewitzien.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;font-weight:bold;">Peut-on toujours faire la paix ?</td>
-        <td style="padding:8px 10px;">Conflits « gelés » (Chypre, Cachemire, Corée, Israël-Palestine) : l'absence de guerre n'est pas la paix. Les traités de paix sans justice et sans réconciliation ne durent pas (Versailles → 2e GM). La paix durable exige la démilitarisation, la réconciliation, la réparation économique.</td>
-      </tr>
-      <tr style="background:#8e44ad15;">
-        <td style="padding:8px 10px;font-weight:bold;">Le droit international est-il efficace ?</td>
-        <td style="padding:8px 10px;">Succès : CPI, TPIY, TPIR ont condamné des responsables de crimes de masse. Limites : les grandes puissances échappent à la CPI (USA, Russie, Chine non membres) ; le mandat d'arrêt contre Poutine n'est pas exécuté ; la Russie viole la Charte de l'ONU en toute impunité car membre permanent.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;font-weight:bold;">La guerre est-elle inévitable ?</td>
-        <td style="padding:8px 10px;">Kant (<em>Projet de paix perpétuelle</em>, 1795) : les démocraties ne se font pas la guerre entre elles (« paix démocratique »). Confirmé statistiquement mais contesté : USA ont fait la guerre à des États non-démocratiques. La dissuasion nucléaire a peut-être évité la 3e GM entre les grandes puissances, mais n'empêche pas les guerres par procuration.</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- ═══════════ 6. PLANS TYPES ═══════════ -->
-  <div style="background:var(--card-bg);border-left:4px solid #c0392b;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#c0392b;margin-bottom:12px;">PLANS TYPES DE DISSERTATION</div>
-
-    <p style="font-weight:bold;margin-bottom:6px;">Sujet 1 : Le modèle de Clausewitz permet-il de comprendre les conflits contemporains ? (sujet récurrent au bac)</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;">
-      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan dialectique</td></tr>
-      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Le modèle reste pertinent</td><td style="padding:7px 10px;">A. La guerre reste un outil politique (Russie/Ukraine 2022 ; USA en Irak 2003) — B. Les États restent acteurs centraux — Ex. : Russie/Ukraine, guerre du Golfe 1991</td></tr>
-      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Le modèle est dépassé par les nouvelles formes</td><td style="padding:7px 10px;">A. Acteurs non-étatiques sans objectif politique rationnel (Daesh, terrorisme) — B. Guerres irrégulières sans fin définie — Ex. : Afghanistan 2001–2021, Sahel, Daesh</td></tr>
-      <tr><td style="padding:7px 10px;font-weight:bold;">III. Un modèle à réinterpréter</td><td style="padding:7px 10px;">A. Guerre hybride : mélange convention/irrégulier que Clausewitz n'anticipait pas — B. La cyberguerre comme nouvelle dimension politique — Ex. : guerre hybride Ukraine 2014, Stuxnet</td></tr>
-    </table>
-
-    <p style="font-weight:bold;margin-bottom:6px;">Sujet 2 : Construire la paix depuis le XVIIe siècle : réussites et limites (sujet 2024)</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;" colspan="2">Plan thématique</td></tr>
-      <tr><td style="padding:7px 10px;font-weight:bold;width:25%;">I. Construire la paix par les traités et la diplomatie</td><td style="padding:7px 10px;">Westphalie 1648, Vienne 1815, Versailles 1919 (échec), accords d'Oslo 1993 — La diplomatie comme instrument de paix mais insuffisante sans institutions</td></tr>
-      <tr style="background:#c0392b15;"><td style="padding:7px 10px;font-weight:bold;">II. Construire la paix par les institutions internationales</td><td style="padding:7px 10px;">SDN (échec), ONU, Casques bleus, CPI, TPIY/TPIR — Succès (Namibie, Timor) et échecs (Rwanda, Srebrenica)</td></tr>
-      <tr><td style="padding:7px 10px;font-weight:bold;">III. Les limites structurelles de la paix</td><td style="padding:7px 10px;">Conflits gelés, veto au CS, non-universalité du droit international, paix sans justice fragile — Ex. : Ukraine, Israël-Palestine, Kosovo</td></tr>
-    </table>
-  </div>
-
-  <!-- CHRONOLOGIE -->
-  <div style="background:var(--card-bg);border-left:4px solid #7f8c8d;border-radius:10px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--shadow);">
-    <div style="font-size:13px;font-weight:bold;letter-spacing:1px;color:#7f8c8d;margin-bottom:12px;">CHRONOLOGIE ESSENTIELLE</div>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;width:15%;">1648</td><td style="padding:6px 10px;">Traités de Westphalie — naissance du système international moderne</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">1795</td><td style="padding:6px 10px;">Kant, <em>Projet de paix perpétuelle</em> — théorie de la paix démocratique</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1832</td><td style="padding:6px 10px;">Clausewitz, <em>De la guerre</em> (posthume) — « La guerre est la continuation de la politique »</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">1864</td><td style="padding:6px 10px;">1re Convention de Genève — naissance du droit international humanitaire</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1919</td><td style="padding:6px 10px;">Traité de Versailles + création de la SDN</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">1945</td><td style="padding:6px 10px;">Création de l'ONU + procès de Nuremberg (1945–1946)</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1948</td><td style="padding:6px 10px;">Déclaration universelle des droits de l'homme + 1re guerre israélo-arabe</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">1949</td><td style="padding:6px 10px;">Conventions de Genève révisées (protection des civils en temps de guerre)</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">1994</td><td style="padding:6px 10px;">Génocide du Rwanda — échec de la communauté internationale</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">1995</td><td style="padding:6px 10px;">Srebrenica + accords de Dayton (fin guerre Bosnie)</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2001</td><td style="padding:6px 10px;">11 septembre — Al-Qaïda, guerre contre le terrorisme, Afghanistan</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">2002</td><td style="padding:6px 10px;">Création de la Cour pénale internationale (CPI)</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2014</td><td style="padding:6px 10px;">Daesh proclame le califat + annexion de la Crimée par la Russie</td></tr>
-      <tr><td style="padding:6px 10px;font-weight:bold;">2022</td><td style="padding:6px 10px;">Invasion russe de l'Ukraine (24 fév.) — retour de la guerre interétatique en Europe</td></tr>
-      <tr style="background:#f9f9f9;"><td style="padding:6px 10px;font-weight:bold;">2023</td><td style="padding:6px 10px;">Mandat CPI contre Poutine + attaque Hamas (7 oct.) et guerre à Gaza</td></tr>
-    </table>
-  </div>
-
-</div>`
+<div style="text-align:center;margin-top:24px;">
+  <button type="button" class="fc-btn fc-btn-chapter" onclick="fcOpen('guerre-paix','_all','Tout le chapitre')">🃏 Flashcards — Tout le chapitre</button>
+</div>
+</div>
+`
       },
 
       {
@@ -2275,7 +2872,7 @@ const matieres = [
       {
         id:      "croissance",
         title:   "Quels sont les sources et les défis de la croissance économique ?",
-        classe:  "web-eleve",
+        classe:  "web-enseignant",
         content: `
 <div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
 
@@ -3634,7 +4231,7 @@ const matieres = [
       /* Méthodologie (toujours en dernier) */
       {
         id:      "methodologie-ses",
-        title:   "Méthodologie : EC1, EC2, EC3 et dissertation",
+        title:   "Méthodologie",
         classe:  "vide",
         content: `
 <div class="fiche-ses" style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:var(--text);max-width:760px;">
@@ -6707,6 +7304,198 @@ const flashcardsData = {
       ]
     }
 
+  },
+
+  /* HGGSP — Faire la guerre, faire la paix */
+  "guerre-paix": {
+    "A1": {
+      "_all": [
+        { q: "Quelle est la problématique de l'axe 1 ?",
+          r: "Comment le modèle de la guerre a-t-il évolué depuis le XVIIIe siècle ?" },
+        { q: "Distingue guerre et conflit.",
+          r: "Un conflit est une opposition d'intérêts (diplomatique, économique…) ; la guerre est un affrontement armé, organisé et durable entre groupes politiques. Toute guerre est un conflit, mais tout conflit n'est pas une guerre." },
+        { q: "Qu'est-ce qu'une guerre interétatique ?",
+          r: "Une guerre entre États souverains, menée par des armées régulières, en principe déclarée et conclue par un traité de paix." },
+        { q: "Distingue guerre régulière et guerre irrégulière.",
+          r: "Régulière : armées d'États, en uniforme, selon le droit de la guerre. Irrégulière : au moins un acteur non étatique qui refuse l'affrontement frontal et les règles (guérilla, terrorisme, insurrection)." },
+        { q: "Que signifie « enjeux transnationaux » ?",
+          r: "Des enjeux qui dépassent les frontières des États : réseaux terroristes mondiaux, idéologies globales, financement, recrutement et propagande à l'échelle internationale." },
+        { q: "Quels sont les deux jalons du programme pour l'axe 1 ?",
+          r: "1) La guerre, « continuation de la politique par d'autres moyens » (Clausewitz) : de la guerre de Sept Ans aux guerres napoléoniennes. 2) Le modèle de Clausewitz à l'épreuve des « guerres irrégulières » : d'Al-Qaïda à Daech." },
+        { q: "Quelle est l'idée directrice de l'axe 1 ?",
+          r: "Les formes de la guerre changent (acteurs, moyens, espaces), mais sa dimension politique demeure : le modèle de Clausewitz reste une grille de lecture utile, à adapter." }
+      ],
+      "I": {
+        "_all": [
+          { q: "Qui est Carl von Clausewitz ?",
+            r: "Officier et théoricien militaire prussien (1780-1831), qui a combattu la France révolutionnaire et napoléonienne (prisonnier après Iéna en 1806, au service de la Russie en 1812) puis dirigé l'École de guerre de Berlin." },
+          { q: "Quel est son ouvrage principal et quand paraît-il ?",
+            r: "De la guerre (Vom Kriege), traité inachevé publié en 1832, après sa mort, par sa veuve Marie von Brühl." },
+          { q: "Cite la formule la plus célèbre de Clausewitz.",
+            r: "« La guerre n'est que la simple continuation de la politique par d'autres moyens. »" },
+          { q: "Que signifie cette formule ?",
+            r: "La guerre n'est pas une fin en soi mais un instrument au service d'un but politique ; le pouvoir politique doit garder le contrôle sur le militaire." },
+          { q: "Comment Clausewitz définit-il la guerre ?",
+            r: "« Un acte de violence destiné à contraindre l'adversaire à exécuter notre volonté. »" },
+          { q: "Quels sont les trois pôles de la « trinité » de Clausewitz ?",
+            r: "Le peuple (passions, violence), l'armée et son chef (hasard, talent), le gouvernement (raison, calcul politique)." },
+          { q: "Distingue guerre absolue et guerre réelle.",
+            r: "La guerre absolue est un concept théorique : la violence monte sans limite jusqu'à l'anéantissement (« montée aux extrêmes »). La guerre réelle est limitée par la politique, les moyens et la friction." },
+          { q: "Qu'est-ce que la « friction » et le « brouillard de la guerre » ?",
+            r: "La friction : tout ce qui empêche les plans de se dérouler comme prévu (fatigue, météo, erreurs). Le brouillard : l'incertitude sur les informations concernant l'ennemi." },
+          { q: "Qu'est-ce que le « centre de gravité » chez Clausewitz ?",
+            r: "Le point décisif de la puissance adverse (son armée, sa capitale, ses alliances) qu'il faut frapper pour vaincre." },
+          { q: "Quelle forme de guerre Clausewitz juge-t-il la plus forte ?",
+            r: "La défense (l'attaque étant la plus féconde, car elle seule permet d'imposer sa volonté)." },
+          { q: "Guerre absolue et guerre totale, est-ce la même chose ?",
+            r: "Non : la guerre absolue est un concept théorique de Clausewitz ; la guerre totale (mobilisation de toute la société) est une réalité historique du XXe siècle." }
+        ],
+        "1": [
+          { q: "Dates de la guerre de Sept Ans ?",
+            r: "1756-1763 (dès 1754-1755 en Amérique du Nord)." },
+          { q: "Quels sont les deux camps de la guerre de Sept Ans ?",
+            r: "Prusse et Grande-Bretagne (+ Hanovre, Portugal) contre France, Autriche, Russie, Suède, Saxe, puis Espagne (1762)." },
+          { q: "Qu'est-ce que le « renversement des alliances » de 1756 ?",
+            r: "L'alliance entre la France et l'Autriche, ennemies traditionnelles, face à l'alliance entre la Prusse et la Grande-Bretagne." },
+          { q: "Quels sont les enjeux de la guerre de Sept Ans ?",
+            r: "En Europe : la Silésie disputée entre Prusse et Autriche. Hors d'Europe : la domination coloniale et maritime entre France et Grande-Bretagne." },
+          { q: "Pourquoi parle-t-on parfois de « première guerre mondiale » ?",
+            r: "Parce qu'elle se déroule sur plusieurs continents et océans : Europe, Amérique du Nord, Inde, Antilles, Afrique, mers." },
+          { q: "Quels traités mettent fin à la guerre de Sept Ans ?",
+            r: "Le traité de Paris (10 février 1763) entre France, Grande-Bretagne et Espagne, et le traité d'Hubertusburg (15 février 1763) entre Prusse et Autriche." },
+          { q: "Quelles sont les conséquences pour la France ?",
+            r: "Elle perd l'essentiel de son premier empire colonial : le Canada et la rive gauche du Mississippi (à la Grande-Bretagne), la Louisiane occidentale (à l'Espagne) ; elle ne garde que 5 comptoirs en Inde et récupère ses îles à sucre (Guadeloupe, Martinique)." },
+          { q: "Quels sont les vainqueurs de la guerre de Sept Ans ?",
+            r: "La Prusse, qui garde la Silésie et devient une grande puissance, et la Grande-Bretagne, première puissance coloniale et maritime." },
+          { q: "Qu'est-ce qu'une guerre de cabinets ?",
+            r: "Une guerre décidée et conduite par les souverains et leurs ministres, pour des objectifs limités (dynastiques, territoriaux), sans mobilisation des peuples." },
+          { q: "Pourquoi parle-t-on de guerre « en dentelles » ?",
+            r: "Pour désigner les guerres du XVIIIe siècle menées par des armées professionnelles, selon des codes et des manœuvres réglées, avec des objectifs limités (expression postérieure et caricaturale)." },
+          { q: "Pourquoi les armées du XVIIIe siècle évitent-elles l'anéantissement de l'ennemi ?",
+            r: "Elles sont composées de soldats de métier et de mercenaires, coûteux et longs à former : on les ménage en privilégiant manœuvres et sièges." },
+          { q: "Qui est Frédéric II et quel rôle joue-t-il ?",
+            r: "Roi de Prusse (1740-1786), chef de guerre lui-même, vainqueur à Rossbach et Leuthen (1757) : il résiste à une vaste coalition et fait de la Prusse une grande puissance." },
+          { q: "Qu'est-ce que le « miracle de la maison de Brandebourg » ?",
+            r: "La mort de la tsarine Élisabeth (1762) : son successeur Pierre III, admirateur de Frédéric II, fait la paix avec la Prusse, qui échappe à la défaite." },
+          { q: "En quoi la guerre de Sept Ans illustre-t-elle la formule de Clausewitz ?",
+            r: "Elle prolonge des rivalités politiques (Silésie, colonies), est décidée et contrôlée par les souverains, poursuit des objectifs limités et se termine par une paix négociée." }
+        ],
+        "2": [
+          { q: "Quand et contre qui la France déclare-t-elle la guerre en 1792 ?",
+            r: "Le 20 avril 1792, au « roi de Bohême et de Hongrie » (l'Autriche)." },
+          { q: "Quelle est la portée de la victoire de Valmy (20 septembre 1792) ?",
+            r: "Les volontaires de la nation arrêtent l'armée prussienne : symbole de la nation en armes défendant la Révolution." },
+          { q: "Qu'est-ce que la levée en masse ?",
+            r: "Le décret de la Convention du 23 août 1793 qui réquisitionne tous les Français pour la défense de la patrie : naissance de la « nation en armes »." },
+          { q: "Qu'est-ce que la loi Jourdan-Delbrel (1798) ?",
+            r: "La loi qui instaure la conscription, c'est-à-dire le service militaire obligatoire, permettant de lever des armées de masse de façon permanente." },
+          { q: "Qu'est-ce que la nation en armes ?",
+            r: "L'idée que la défense de la patrie est l'affaire de tous les citoyens, et non plus d'une armée de métier au service du roi." },
+          { q: "Quelles sont les caractéristiques de la guerre napoléonienne ?",
+            r: "Armées de masse, mobilité et rapidité, concentration des forces au point décisif, recherche de la bataille décisive qui anéantit l'armée ennemie, puis paix imposée." },
+          { q: "Cite deux grandes victoires napoléoniennes et leur date.",
+            r: "Austerlitz (2 décembre 1805) contre l'Autriche et la Russie ; Iéna-Auerstaedt (14 octobre 1806) contre la Prusse." },
+          { q: "Pourquoi la guerre d'Espagne (1808-1814) est-elle importante dans ce chapitre ?",
+            r: "Le soulèvement populaire et la guérilla contre l'occupation française sont un premier exemple de guerre irrégulière, que Clausewitz analyse (petite guerre, armement du peuple)." },
+          { q: "Que se passe-t-il lors de la campagne de Russie (1812) ?",
+            r: "La Grande Armée (environ 600 000 hommes) envahit la Russie mais est détruite lors de la retraite (Bérézina) : seuls quelques dizaines de milliers reviennent." },
+          { q: "Quand et où Napoléon est-il définitivement vaincu ?",
+            r: "À Waterloo, le 18 juin 1815, par Wellington et Blücher." },
+          { q: "Qu'est-ce que le congrès de Vienne (1814-1815) ?",
+            r: "La conférence des vainqueurs qui redessine l'Europe et instaure le « concert européen » pour maintenir l'équilibre entre puissances." },
+          { q: "Quel est le bilan humain des guerres de 1792-1815 ?",
+            r: "Environ 3 à 3,5 millions de morts militaires en Europe (près d'un million de soldats français), davantage avec les civils." },
+          { q: "Pourquoi ces guerres sont-elles une rupture selon Clausewitz ?",
+            r: "Le peuple entre dans la guerre (« la guerre était redevenue l'affaire du peuple ») : armées de masse, passions nationales, guerre d'anéantissement ; la guerre réelle se rapproche de la guerre absolue." },
+          { q: "La guerre napoléonienne reste-t-elle la continuation de la politique ?",
+            r: "Oui : Napoléon, chef politique et militaire, fait la guerre pour imposer sa domination et négocie ensuite des traités (Presbourg 1805, Tilsit 1807)." },
+          { q: "Pourquoi l'ambition de Napoléon se retourne-t-elle contre lui ?",
+            r: "Sa recherche d'hégémonie provoque des coalitions de plus en plus larges et des résistances populaires (Espagne, Russie) qui épuisent la France." },
+          { q: "Quel lien entre Clausewitz et les guerres napoléoniennes ?",
+            r: "Clausewitz a combattu Napoléon ; il tire sa théorie de l'observation de ces guerres (il appelle Napoléon « le dieu de la guerre »)." }
+        ]
+      },
+      "II": {
+        "_all": [
+          { q: "Pourquoi le modèle de Clausewitz est-il mis à l'épreuve depuis le XXe siècle ?",
+            r: "Parce que la plupart des conflits sont désormais irréguliers : acteurs non étatiques et transnationaux, pas de front, pas de déclaration de guerre ni de traité de paix." },
+          { q: "Quelle est la thèse de Martin van Creveld (1991) ?",
+            r: "Dans La transformation de la guerre, il affirme que la guerre « trinitaire » de Clausewitz est dépassée par des conflits menés par des groupes non étatiques." },
+          { q: "Quelle est la thèse de Mary Kaldor (1999) ?",
+            r: "Les « nouvelles guerres » mêlent guerre, crime organisé et violations massives des droits humains, visent les civils et reposent sur des identités ethniques ou religieuses." },
+          { q: "Quel argument permet de défendre la pertinence de Clausewitz aujourd'hui ?",
+            r: "Les guerres irrégulières gardent un but politique : seuls les acteurs et les moyens changent (« la guerre est plus qu'un véritable caméléon »)." }
+        ],
+        "1": [
+          { q: "Définis la guerre asymétrique.",
+            r: "Une guerre entre adversaires aux moyens très inégaux (un État puissant contre un groupe armé) : le faible refuse l'affrontement direct et cherche à user la volonté du fort." },
+          { q: "Distingue guerre asymétrique et guerre irrégulière.",
+            r: "L'asymétrie porte sur l'inégalité des forces ; l'irrégularité sur la nature des combattants (non étatiques) et le non-respect des règles de la guerre." },
+          { q: "Qu'est-ce que la guérilla ?",
+            r: "Une guerre de harcèlement menée par de petits groupes mobiles qui s'appuient sur la population et le terrain (mot espagnol signifiant « petite guerre »)." },
+          { q: "Définis le terrorisme.",
+            r: "L'usage de la violence contre des civils ou des symboles pour créer la peur et atteindre un objectif politique : l'« arme du faible »." },
+          { q: "Qu'est-ce que le djihadisme ?",
+            r: "Une idéologie islamiste radicale qui prône la lutte armée pour instaurer un État fondé sur une lecture intégriste de l'islam et combattre l'Occident et les régimes jugés impies." },
+          { q: "Clausewitz a-t-il pensé la guerre irrégulière ?",
+            r: "Oui : il a enseigné la « petite guerre » (1810-1812) et consacre un chapitre de De la guerre à « l'armement du peuple », arme de défense contre un envahisseur." },
+          { q: "Quelles sont, selon Clausewitz, les conditions de réussite d'un soulèvement populaire ?",
+            r: "Se dérouler à l'intérieur du pays, sur un vaste territoire accidenté, durer longtemps, être soutenu par la population, de préférence avec une armée régulière." },
+          { q: "Quelle est la stratégie du faible face au fort ?",
+            r: "Éviter la bataille décisive, harceler et durer pour rendre la guerre trop coûteuse politiquement pour le fort (guerre d'usure)." },
+          { q: "Qu'est-ce que le « paradoxe de la puissance » ? Donne un exemple.",
+            r: "Le fort gagne les batailles mais perd la guerre : États-Unis au Vietnam, URSS en Afghanistan (1979-1989), États-Unis et OTAN en Afghanistan (2001-2021)." },
+          { q: "En quoi les guerres irrégulières confirment-elles le modèle de Clausewitz ?",
+            r: "Elles poursuivent des buts politiques (chasser un occupant, prendre le pouvoir, fonder un État) et visent à contraindre la volonté de l'adversaire." },
+          { q: "En quoi les guerres irrégulières remettent-elles en cause le modèle de Clausewitz ?",
+            r: "Absence d'État et d'armée régulière d'un côté, pas de front ni de bataille décisive, civils ciblés, pas de traité de paix, acteurs transnationaux." },
+          { q: "Qu'est-ce que la contre-insurrection ?",
+            r: "La stratégie des États contre les groupes irréguliers : opérations militaires et renseignement, mais aussi action politique pour gagner le soutien de la population." }
+        ],
+        "2": [
+          { q: "Quand et par qui Al-Qaïda est-elle fondée ?",
+            r: "En 1987-1988, par Oussama ben Laden (et Abdallah Azzam), parmi les combattants arabes venus lutter contre les Soviétiques en Afghanistan." },
+          { q: "Quels sont les objectifs d'Al-Qaïda ?",
+            r: "Chasser les Occidentaux (surtout les États-Unis) des terres musulmanes, renverser les régimes arabes jugés impies, restaurer à terme un califat." },
+          { q: "Pourquoi Al-Qaïda est-elle un acteur transnational ?",
+            r: "C'est un réseau déterritorialisé : noyau central et « franchises » régionales (AQPA, AQMI), recrutement et financement internationaux, attentats dans de nombreux pays." },
+          { q: "Quel est le bilan et la portée des attentats du 11 septembre 2001 ?",
+            r: "Près de 3 000 morts ; les États-Unis lancent la « guerre contre le terrorisme » et interviennent en Afghanistan (octobre 2001)." },
+          { q: "Qu'est-ce que la « guerre contre le terrorisme » ?",
+            r: "La stratégie lancée par George W. Bush après le 11 septembre : une guerre mondiale, sans limite claire dans le temps ni dans l'espace, contre un ennemi non étatique." },
+          { q: "Quand ben Laden est-il tué ?",
+            r: "Le 2 mai 2011, au Pakistan (Abbottabad), par un commando américain." },
+          { q: "D'où vient Daech ?",
+            r: "D'Al-Qaïda en Irak (al-Zarqaoui, 2004), née du chaos qui suit l'invasion américaine de 2003 ; elle se renforce grâce à la guerre civile syrienne." },
+          { q: "Quand et où Daech proclame-t-il un califat ?",
+            r: "Le 29 juin 2014, après la prise de Mossoul, sur un territoire à cheval sur l'Irak et la Syrie (capitale : Raqqa), par Abou Bakr al-Baghdadi." },
+          { q: "En quoi Daech est-il un « proto-État » ?",
+            r: "Il contrôle un territoire et une population, lève des impôts, exploite le pétrole, administre et dispose d'une armée, tout en commettant des attentats." },
+          { q: "Cite deux attentats commis ou revendiqués par Daech en France.",
+            r: "Paris et Saint-Denis, 13 novembre 2015 (130 morts) ; Nice, 14 juillet 2016 (86 morts)." },
+          { q: "Comment Daech perd-il son territoire ?",
+            r: "Une coalition internationale appuie les forces irakiennes et kurdes : reprise de Mossoul et de Raqqa (2017), chute de Baghouz (mars 2019)." },
+          { q: "Quelle différence essentielle entre Al-Qaïda et Daech ?",
+            r: "Al-Qaïda est un réseau terroriste déterritorialisé ; Daech a voulu construire un État territorial (le califat) en plus de ses attentats." },
+          { q: "Qu'est-ce que la guerre hybride ? Donne un exemple.",
+            r: "La combinaison de moyens conventionnels, irréguliers, cyber, de désinformation et de pressions économiques, sans déclaration de guerre : la Russie en Crimée (2014)." },
+          { q: "Qu'est-ce que la cyberguerre ? Donne un exemple.",
+            r: "L'usage offensif du cyberespace pour espionner, désorganiser ou détruire : le virus Stuxnet contre le programme nucléaire iranien (2010), les cyberattaques contre l'Estonie (2007)." },
+          { q: "Qu'est-ce qu'une société militaire privée ? Donne un exemple.",
+            r: "Une entreprise qui vend des services militaires ; le groupe russe Wagner (Syrie, Libye, Mali, Centrafrique, Ukraine) : elle remet en cause le monopole étatique de la violence." },
+          { q: "Qu'est-ce qu'une guerre par procuration ?",
+            r: "Une guerre où des puissances s'affrontent indirectement en soutenant des acteurs locaux (Syrie, Yémen)." },
+          { q: "Al-Qaïda et Daech ont-ils des buts politiques ?",
+            r: "Oui : Al-Qaïda veut chasser l'Occident et renverser des régimes, Daech fonder et étendre un État. Le terrorisme est un moyen au service de ces fins." },
+          { q: "Pourquoi la guerre contre le terrorisme n'a-t-elle pas de fin claire ?",
+            r: "Il n'y a ni reddition ni traité possible avec un réseau ; la défaite territoriale de Daech (2019) n'a pas fait disparaître la menace." },
+          { q: "La guerre interétatique a-t-elle disparu ? Justifie.",
+            r: "Non : l'invasion de l'Ukraine par la Russie (2022) montre le retour d'une guerre de haute intensité entre États ; les nouvelles formes s'ajoutent aux anciennes." },
+          { q: "Conclusion : le modèle de Clausewitz est-il dépassé ?",
+            r: "Il est bousculé (acteurs non étatiques, nouveaux moyens et espaces, guerres sans fin) mais pas abandonné : la guerre garde une finalité politique." }
+        ]
+      }
+    }
   }
 
 };
@@ -6717,33 +7506,28 @@ const flashcardsData = {
 let fcDeck = [];
 let fcIndex = 0;
 
-function fcOpen(chapitreId, section) {
-  // Récupérer les cartes selon la section
+function fcOpen(chapitreId, section, titre) {
+  // section : "_all" (tout le chapitre) ou un chemin séparé par des points,
+  // ex. "I" (grande partie), "I.A" (sous-partie), "A1.I.1" (axe > partie > sous-partie)
   const chapitre = flashcardsData[chapitreId];
-  if (!chapitre) { fcDeck = []; }
-  else if (section === "_all") {
-    // Toutes les cartes du chapitre
-    fcDeck = collectAll(chapitre);
-  } else if (section.includes(".")) {
-    // Sous-partie ex : "I.A"
-    const [grand, sub] = section.split(".");
-    fcDeck = (chapitre[grand] && chapitre[grand][sub]) ? [...chapitre[grand][sub]] : [];
-  } else {
-    // Grande partie ex : "I" → toutes les cartes de I._all + I.A + I.B + I.C
-    fcDeck = chapitre[section] ? collectAll(chapitre[section]) : [];
+  let noeud = chapitre;
+  if (chapitre && section !== "_all") {
+    for (const cle of section.split(".")) noeud = noeud ? noeud[cle] : undefined;
   }
+  fcDeck = !noeud ? [] : Array.isArray(noeud) ? [...noeud] : collectAll(noeud);
 
   // Mélanger aléatoirement
   fcDeck = shuffle(fcDeck);
   fcIndex = 0;
 
   // Titre de l'overlay
-  const titreSection = section === "_all" ? "Tout le chapitre"
+  const titreSection = titre ? titre
+    : section === "_all" ? "Tout le chapitre"
     : section.includes(".") ? "Partie " + section
     : "Partie " + section + " — tout";
-  document.getElementById("fc-title").textContent =
-    "Flashcards · " + chapitreId.charAt(0).toUpperCase() + chapitreId.slice(1).replace(/_/g," ")
-    + " · " + titreSection;
+  document.getElementById("fc-title").textContent = titre
+    ? "Flashcards · " + titreSection
+    : "Flashcards · " + chapitreId.charAt(0).toUpperCase() + chapitreId.slice(1).replace(/_/g," ") + " · " + titreSection;
 
   // Afficher
   document.getElementById("fc-overlay").classList.add("open");
