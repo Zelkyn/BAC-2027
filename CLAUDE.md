@@ -11,4 +11,6 @@
 - Fiches HGGSP (classe `fiche-hggsp`, couleur bleu marine) : Axe → problématique + bouton flashcards + repères → parties I/II → sous-parties 1)/2) → blocs (fiche d'identité, chronologie en frise, notions, acteurs, lecture clausewitzienne, citations…). Flashcards : `fcOpen(chapitre, chemin, titre)` avec un chemin du type `A1.I.1`.
 - Origine d'une fiche : champ `classe` = `web` (bleu), `ia` (violet), `eleve` (vert), `enseignant` (jaune), ou deux combinées dans cet ordre (`web-ia`, `web-eleve`, `web-enseignant`, `ia-eleve`, `ia-enseignant`, `eleve-enseignant`) ; `vide` si non renseignée. L'origine « humaine » n'existe plus.
 - Listes de fiches : intitulés officiels des programmes de terminale (BO 2019, en vigueur pour le bac 2027), dans l'ordre du programme. Les fiches de méthodologie sont toujours placées en dernier.
+- Flashcards : chaque question doit se comprendre seule, sans document ni contexte sous les yeux (préciser l'auteur, la période, le pays, le chapitre si nécessaire ; jamais « vu dans le cours », « le graphique », « l'axe 1 » sans précision).
+- Pas de catégorie renvoyant à des documents du cours (« Lire les documents du cours », « Graphique 5 »…) : le contenu doit être autonome.
 - Apparence : le bloc « THÈME VISUEL » en fin de `<style>` regroupe les couleurs (variables `:root` / `body.night`) et les finitions.
